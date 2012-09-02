@@ -1,4 +1,5 @@
-MuseMe_1.1
-==========
-
-Muse Me Version 1.1
+app-dev-Tencent-Summer
+======================
+Fashion Shopping App
+Created By Yujun Wu, Yong Lin. 2012/7/2
+All rights reserved
