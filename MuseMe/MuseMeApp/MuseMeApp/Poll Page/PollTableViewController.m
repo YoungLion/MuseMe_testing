@@ -3,7 +3,7 @@
 //  MuseMe
 //
 //  Created by Yong Lin on 7/9/12.
-//  Copyright (c) 2012 Stanford University. All rights reserved.
+//  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
 //
 
 #import "PollTableViewController.h"
@@ -57,31 +57,19 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
     
     //set UIBarButtonItem background image
-    UIImage *backButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]; 
-    //UIImage *backButtonPressedImage = [UIImage imageNamed:NAV_BAR_BUTTON_BG_HL]; 
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //[self.navigationItem.leftBarButtonItem  setBackgroundImage:backButtonPressedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    
-    UIImage *actionButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]; 
-   // UIImage *actionButtonPressedImage = [UIImage imageNamed:NAV_BAR_BUTTON_BG_HL]; 
-    [self.navigationItem.rightBarButtonItem  setBackgroundImage:actionButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //[self.navigationItem.rightBarButtonItem  setBackgroundImage:actionButtonPressedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     
     //self.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_LARGE];
     CGRect frameOfEmptyPollHint = CGRectMake(0, 150, 320, 160);
-
-    //CGRect frameOfAddItemHint = CGRectMake(115 , 335, 200, 30);
-    
-    //CGRect frameOfEmptyPollHintInAudienceView = CGRectMake(20, 320, 280, 60);
     
     emptyPollHint = [[UIImageView alloc] initWithImage:[UIImage imageNamed:EMPTY_POLL_HINT]];
     emptyPollHint.frame = frameOfEmptyPollHint;
     emptyPollHint.hidden = YES;
     [self.view addSubview:emptyPollHint];
     
-    //[self.view addSubview:addItemHint];
-   // [self.view addSubview:emptyPollHintInAudienceView];
     self.clearsSelectionOnViewWillAppear = NO;
     
     needsBack = NO;

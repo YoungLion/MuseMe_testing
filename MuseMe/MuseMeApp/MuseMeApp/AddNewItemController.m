@@ -3,7 +3,7 @@
 //  MuseMe
 //
 //  Created by Yong Lin on 8/17/12.
-//  Copyright (c) 2012 Stanford University. All rights reserved.
+//  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
 //
 
 #import "AddNewItemController.h"
@@ -40,20 +40,9 @@
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_COLOR] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
     
-    UIImage *backButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    //UIImage *backButtonPressedImage = [UIImage imageNamed:NAV_BAR_BUTTON_BG_HL];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //[backButton  setBackgroundImage:backButtonPressedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    
-    
-    UIImage *nextButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]; 
-    UIImage *nextIconImage = [UIImage imageNamed:NEXT_BUTTON];
-    //UIImage *backButtonPressedImage = [UIImage imageNamed:NAV_BAR_BUTTON_BG_HL]; 
-    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithImage:nextIconImage style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
-    
-    [nextButton  setBackgroundImage:nextButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //[backButton  setBackgroundImage:backButtonPressedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    self.navigationItem.rightBarButtonItem = nextButton;
+    UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     
     self.title = @"Add New Item";

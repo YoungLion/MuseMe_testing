@@ -3,7 +3,7 @@
 //  MuseMe
 //
 //  Created by Yong Lin on 7/17/12.
-//  Copyright (c) 2012 Stanford University. All rights reserved.
+//  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
 //
 
 #import "PollResultViewController.h"
@@ -36,10 +36,9 @@
     [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
     self.navigationItem.titleView = [Utility formatTitleWithString:self.navigationItem.title];
     
-    UIImage *backButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    //UIImage *backButtonPressedImage = [UIImage imageNamed:NAV_BAR_BUTTON_BG_HL];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //[self.navigationItem.leftBarButtonItem  setBackgroundImage:backButtonPressedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    //[self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
 }
 

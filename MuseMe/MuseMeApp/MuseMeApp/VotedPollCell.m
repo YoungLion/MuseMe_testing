@@ -3,7 +3,7 @@
 //  MuseMe
 //
 //  Created by Yong Lin on 8/23/12.
-//  Copyright (c) 2012 Stanford University. All rights reserved.
+//  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
 //
 
 #import "VotedPollCell.h"

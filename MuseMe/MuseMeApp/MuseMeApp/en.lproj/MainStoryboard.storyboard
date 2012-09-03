@@ -794,7 +794,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Settings" id="mIy-8J-tpQ"/>
+                    <navigationItem key="navigationItem" title="Settings" id="mIy-8J-tpQ">
+                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="tuY-IA-BPy">
+                            <connections>
+                                <action selector="back" destination="pIC-4E-dbg" id="0bi-dR-5EQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="Username" destination="tJM-fK-vUQ" id="zI3-dD-ERF"/>
@@ -1255,6 +1261,11 @@
                                 <action selector="cancelButton" destination="j5e-0n-Z7z" id="bwL-SJ-ZLB"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="next-icon.png" id="O62-cU-yFr">
+                            <connections>
+                                <action selector="nextButtonPressed:" destination="j5e-0n-Z7z" id="QVQ-pX-wHf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1302,6 +1313,11 @@
                         <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="BFh-CB-ZDB">
                             <connections>
                                 <action selector="back:" destination="oVB-cZ-hsy" id="dpM-gm-btl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="MNP-Wn-GN6">
+                            <connections>
+                                <action selector="addToPoll" destination="oVB-cZ-hsy" id="TnS-mu-4fz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1358,6 +1374,16 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Add new item" id="f51-EF-XSU">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="dbx-3p-gpI"/>
+                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="ah6-Q0-hZq">
+                            <connections>
+                                <action selector="cancelButton" destination="ld5-tW-awy" id="Dqu-b5-2Y8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Aj5-kp-gdd">
+                            <connections>
+                                <action selector="done" destination="ld5-tW-awy" id="czz-x2-1eN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1459,6 +1485,7 @@
         <image name="check.png" width="27" height="30"/>
         <image name="clock.png" width="30" height="30"/>
         <image name="instruction-page-5.png" width="320" height="480"/>
+        <image name="next-icon.png" width="20" height="20"/>
         <image name="tab-hl@2x.png" width="230" height="144"/>
         <image name="tab@2x.png" width="230" height="144"/>
         <image name="tap-to-add.png" width="285" height="85"/>
@@ -1598,8 +1625,6 @@
         <class className="RegistrationPageViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationPageViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
-                <relationship kind="action" name="signupButtonPressed:"/>
                 <relationship kind="outlet" name="background" candidateClass="UIControl"/>
                 <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
