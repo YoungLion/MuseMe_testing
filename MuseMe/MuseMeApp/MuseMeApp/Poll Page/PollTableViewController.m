@@ -36,18 +36,19 @@
     UIActionSheet *popupQuery, *newItemOptions, *confirmation;
     id senderButton;
 }
+@property (nonatomic,strong) UIActivityIndicatorView* spinner;
 @end
 
 @implementation PollTableViewController
 @synthesize openPollHint = _openPollHint;
 @synthesize poll=_poll;
-@synthesize loadingWheel = _loadingWheel;
 @synthesize timeStampLabel = _timeStampLabel;
-@synthesize totalVotesCount = _totalVotesCount;
+//@synthesize totalVotesCount = _totalVotesCount;
 @synthesize pollDescription = _pollDescription;
 @synthesize categoryLabel = _categoryLabel;
 //@synthesize userPhoto = _userPhoto;
 @synthesize categoryIconView = _categoryIconView;
+@synthesize spinner=_spinner;
 //@synthesize username = _username;
 //@synthesize stateIndicationLabel = _stateIndicationLabel;
 
@@ -77,16 +78,19 @@
     votingState = NO;
     
     self.pollDescription.inputAccessoryView = [Utility keyboardAccessoryToolBarWithButton:@"Done" target:self action:@selector(doneTyping)];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.openPollHint.alpha = 0;
+    
+    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
+    _spinner.center = CGPointMake(160, 208);
+    _spinner.hidesWhenStopped = YES;
+    [self.view addSubview:_spinner];
 }
 
 - (void)viewDidUnload
 {
-    [self setLoadingWheel:nil];
     self.timeStampLabel = nil;
-    [self setTotalVotesCount:nil];
+    //[self setTotalVotesCount:nil];
     [self setPollDescription:nil];
     [self setCategoryLabel:nil];
     //[self setUserPhoto:nil];
@@ -101,6 +105,7 @@
     emptyPollHint = nil;
     capturedImage = nil;
     senderButton = nil;
+    _spinner = nil;
     //addItemHint = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -115,16 +120,21 @@
     self.poll = [Poll new];
     self.poll.pollID = [Utility getObjectForKey:IDOfPollToBeShown];
     openPollHintHasShown = NO;
-    [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
-    
    // [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_spinner startAnimating];
+    [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    openPollHintHasShown = NO;
 }
+
 - (void) dealloc
 {
     [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
@@ -391,23 +401,27 @@
 {
     //Successfully loaded a poll
     if (objectLoader.method == RKRequestMethodGET){
-        NSLog(@"item_count: %d", self.poll.items.count);
+        NSLog(@"item_count: %@", self.poll.user.username);
         if (votingState) votingState = NO;
         isOwnerView = [[Utility getObjectForKey:CURRENTUSERID] isEqualToNumber:self.poll.user.userID];
-        
-        if (isOwnerView && self.poll.state == EDITING && !openPollHintHasShown)
+        if (isOwnerView && [self.poll.state intValue] == EDITING)
         {
-            openPollHintHasShown = YES;
-            [UIView animateWithDuration:1
-                                  delay:0
-                                options:UIViewAnimationCurveLinear
-                             animations:^{self.openPollHint.alpha = 1;}
-                             completion:^(BOOL finished) {
-                if (finished){
-                [UIView animateWithDuration:1 delay:OPEN_POLL_HINT_STAY_DURATION options:UIViewAnimationCurveLinear animations:^{self.openPollHint.alpha = 0;} completion:nil];
-                }
-            }];
-            openPollHintHasShown = YES;
+            self.pollDescription.editable = YES;
+            if (!openPollHintHasShown){
+                NSLog(@"animation start!!!!!!!");
+                openPollHintHasShown = YES;
+                [UIView animateWithDuration:1
+                                      delay:0
+                                    options:UIViewAnimationCurveLinear
+                                 animations:^{self.openPollHint.alpha = 1;}
+                                 completion:^(BOOL finished) {
+                                     if (finished){
+                                         [UIView animateWithDuration:1 delay:OPEN_POLL_HINT_STAY_DURATION options:UIViewAnimationCurveLinear animations:^{self.openPollHint.alpha = 0;} completion:nil];
+                                     }
+                                 }];
+            }
+        }else{
+            self.pollDescription.editable = NO;
         }
         //self.userPhoto.url = [NSURL URLWithString:self.poll.user.profilePhotoURL];
         self.navigationItem.titleView = [Utility formatTitleWithString:self.poll.user.username];
@@ -502,6 +516,7 @@
         }
     }
     if (needsBack) [self backButtonPressed:nil];
+    [_spinner stopAnimating];
     [self.tableView reloadData];
 }
 
@@ -647,6 +662,12 @@
             nextViewController.capturedImage = capturedImage;
         }
     }
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSUInteger newLength = [textView.text length] + [text length] - range.length;
+    return (newLength > MAX_CHARACTER_NUMBER_FOR_POLL_DESCRIPTION) ? NO : YES;
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView

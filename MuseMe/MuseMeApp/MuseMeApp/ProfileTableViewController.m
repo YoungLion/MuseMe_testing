@@ -18,7 +18,7 @@
     int ContentType;
     BOOL isOwnProfile;
 }
-
+@property (nonatomic, strong) UIActivityIndicatorView* spinner;
 @property (nonatomic, strong) NSMutableArray *editingPolls, *openedPolls, *votedPolls;
 @end
 
@@ -32,6 +32,7 @@
 @synthesize editingPollButton;
 @synthesize activePollButton;
 @synthesize votedPollButton;
+@synthesize spinner = _spinner;
 
 @synthesize editingPolls, openedPolls, votedPolls;
 
@@ -74,6 +75,11 @@
         self.navigationItem.leftBarButtonItem = backButton;
         
     }
+    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
+    _spinner.center = CGPointMake(160, 208);
+    _spinner.hidesWhenStopped = YES;
+    [self.view addSubview:_spinner];
 }
 
 - (void)viewDidUnload
@@ -87,6 +93,7 @@
     [self setActivePollButton:nil];
     [self setVotedPollButton:nil];
     [super viewDidUnload];
+    _spinner = nil;
     _user = nil;
     self.editingPolls = nil;
     self.openedPolls = nil;
@@ -114,6 +121,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = NO;
+    [_spinner startAnimating];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_profile_poll_records/%@",_user.userID] delegate:self];
     [[RKObjectManager sharedManager] getObject:_user delegate:self];
 }
@@ -195,12 +203,13 @@
         self.editingPollCountLabel.text = [NSString stringWithFormat:@"%d", editingPolls.count];
         self.openedPollCountLabel.text = [NSString stringWithFormat:@"%d", openedPolls.count];
         self.votedPollCountLabel.text = [NSString stringWithFormat:@"%d", votedPolls.count];
+        [_spinner stopAnimating];
+        [self.tableView reloadData];
     }else{
         self.usernameLabel.text = _user.username;
         self.userPhoto.url = [NSURL URLWithString:_user.profilePhotoURL];
         [HJObjectManager manage:self.userPhoto];
     }
-    [self.tableView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error

@@ -28,11 +28,13 @@
     User* userToBePassed;
 }
 @property (nonatomic, strong) NSArray* events;
+@property (nonatomic, strong) UIActivityIndicatorView* spinner;
 @end
 
 @implementation NewsFeedTableViewController
 
 @synthesize events=_events;
+@synthesize spinner = _spinner;
 
 - (void)viewDidLoad
 {
@@ -73,12 +75,19 @@
  
     [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
+    _spinner.center = CGPointMake(160, 208);
+    _spinner.hidesWhenStopped = YES;
+    [self.view addSubview:_spinner];
 }
 
 - (void)viewDidUnload
 {
     self.events = nil;
     self.tableView = nil;
+    _spinner = nil;
     [super viewDidUnload];
 }
 
@@ -103,6 +112,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = NO;
+    [_spinner startAnimating];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events" delegate:self];
 }
 
@@ -136,7 +146,10 @@
 {
     if ([objectLoader wasSentToResourcePath:@"/events"]){
         self.events = objects;
+        [_spinner stopAnimating];
+        _spinner = nil;
         NSLog(@"%u", self.events.count);
+        
         [self.tableView reloadData];
     }
 }
