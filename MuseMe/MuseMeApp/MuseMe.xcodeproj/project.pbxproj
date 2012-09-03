@@ -131,6 +131,8 @@
 		0DA46AC015E5D154008F67B1 /* LandingPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA46ABE15E5D154008F67B1 /* LandingPage.png */; };
 		0DA46AC115E5D154008F67B1 /* LandingPage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA46ABF15E5D154008F67B1 /* LandingPage@2x.png */; };
 		0DA5C3C915CDA9B90020D7A8 /* PollRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */; };
+		0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */; };
+		0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */; };
 		0DB2A55015E6F46500FA1470 /* FeedsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A54F15E6F46500FA1470 /* FeedsCell.m */; };
 		0DB2A55315E705CD00FA1470 /* VotedPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55215E705CC00FA1470 /* VotedPollCell.m */; };
 		0DB2A55615E7075900FA1470 /* EditingPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55515E7075800FA1470 /* EditingPollCell.m */; };
@@ -406,6 +408,10 @@
 		0DA46ABF15E5D154008F67B1 /* LandingPage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LandingPage@2x.png"; sourceTree = "<group>"; };
 		0DA5C3C715CDA9B90020D7A8 /* PollRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollRecord.h; sourceTree = "<group>"; };
 		0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollRecord.m; sourceTree = "<group>"; };
+		0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVotersViewController.h; sourceTree = "<group>"; };
+		0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVotersViewController.m; sourceTree = "<group>"; };
+		0DAF02AC15F5353900C82B13 /* ItemVoterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVoterCell.h; sourceTree = "<group>"; };
+		0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVoterCell.m; sourceTree = "<group>"; };
 		0DB2A54E15E6F46500FA1470 /* FeedsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsCell.h; sourceTree = "<group>"; };
 		0DB2A54F15E6F46500FA1470 /* FeedsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsCell.m; sourceTree = "<group>"; };
 		0DB2A55115E705CC00FA1470 /* VotedPollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotedPollCell.h; sourceTree = "<group>"; };
@@ -672,6 +678,8 @@
 				0DB2A54F15E6F46500FA1470 /* FeedsCell.m */,
 				0D8F49D415B6065A00C2DAEF /* PollResultCell.h */,
 				0D8F49D515B6065A00C2DAEF /* PollResultCell.m */,
+				0DAF02AC15F5353900C82B13 /* ItemVoterCell.h */,
+				0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */,
 				0D03A99115D7353600A0A9BD /* HintView.h */,
 				0D03A99215D7353600A0A9BD /* HintView.m */,
 				0D03A99815D79A6100A0A9BD /* AppFormattedLabel.h */,
@@ -736,6 +744,8 @@
 				0DA3998115EAFB49002A4D58 /* AddToPollController.m */,
 				0D9C0CA215DEC1A8005FA5C5 /* CenterButtonTabController.h */,
 				0D9C0CA315DEC1A8005FA5C5 /* CenterButtonTabController.m */,
+				0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */,
+				0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1208,6 +1218,8 @@
 				0D388BF615EA07DE005A56D7 /* AppFormattedBoldLabel.m in Sources */,
 				0DA3998215EAFB4A002A4D58 /* AddToPollController.m in Sources */,
 				0D01DBC415F1B560003C26D7 /* UILabel+UILabel_Auto.m in Sources */,
+				0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */,
+				0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

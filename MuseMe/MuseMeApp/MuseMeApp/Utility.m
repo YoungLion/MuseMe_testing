@@ -154,7 +154,7 @@ double secondsInAYear = 3600*24*365;
     switch (category) {
         case Art: imageName = @"Art";
             break;
-        case Automotive: imageName = @"Cars";
+        case Cars: imageName = @"Cars";
             break;
         case Beauty: imageName = @"Beauty";
             break;
@@ -184,7 +184,7 @@ double secondsInAYear = 3600*24*365;
 {
     switch (category) {
         case Art: return @"Art";
-        case Automotive: return @"Cars";
+        case Cars: return @"Cars";
         case Beauty: return @"Beauty";
         case Cuteness: return @"Cute things";
         case Electronics: return @"Electronics";
@@ -203,7 +203,7 @@ double secondsInAYear = 3600*24*365;
     if ([string isEqualToString:@"Art"]){
         return Art;
     }else if ([string isEqualToString:@"Cars"]){
-        return Automotive;
+        return Cars;
     }else if ([string isEqualToString:@"Beauty"]){
         return Beauty;
     }else if ([string isEqualToString:@"Cuteness"]){

@@ -93,6 +93,7 @@
      @"created_at", @"addedTime",
      nil];
     //[itemMapping mapRelationship:@"comments" withMapping:commentMapping];
+    [itemMapping mapRelationship:@"voters" withMapping:userMapping];
     [[RKObjectManager sharedManager].mappingProvider registerMapping:itemMapping withRootKeyPath:@"item"];
     
     // Class:Poll

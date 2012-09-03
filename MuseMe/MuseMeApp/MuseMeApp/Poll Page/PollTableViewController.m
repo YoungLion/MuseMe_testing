@@ -114,7 +114,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = YES;
+    //((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = YES;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_COLOR] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
     self.poll = [Poll new];
@@ -401,14 +401,12 @@
 {
     //Successfully loaded a poll
     if (objectLoader.method == RKRequestMethodGET){
-        NSLog(@"item_count: %@", self.poll.user.username);
         if (votingState) votingState = NO;
         isOwnerView = [[Utility getObjectForKey:CURRENTUSERID] isEqualToNumber:self.poll.user.userID];
         if (isOwnerView && [self.poll.state intValue] == EDITING)
         {
             self.pollDescription.editable = YES;
             if (!openPollHintHasShown){
-                NSLog(@"animation start!!!!!!!");
                 openPollHintHasShown = YES;
                 [UIView animateWithDuration:1
                                       delay:0

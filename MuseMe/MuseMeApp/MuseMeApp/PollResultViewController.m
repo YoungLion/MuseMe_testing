@@ -54,7 +54,7 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = YES;
-    ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = YES;
+    //((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = YES;
 }
 
 -(void)dealloc
@@ -115,6 +115,8 @@
     Item* item = [self.poll.items objectAtIndex:indexPath.row];
     // Configure the cell...
     [Utility renderView:cell.itemImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
+    [cell.itemImage clear];
+    [cell.itemImage showLoadingWheel];
     cell.itemImage.url= [NSURL URLWithString:item.photoURL];
     [HJObjectManager manage:cell.itemImage];
     //cell.priceLabel.text = (item.price.intValue == 0 )?@"":[Utility formatCurrencyWithNumber:item.price];
