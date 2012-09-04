@@ -7,6 +7,9 @@
 //
 
 #import "PollTableViewController.h"
+#import "ItemVotersViewController.h"
+
+
 #define  POLLITEMCELLHEIGHT 330
 #define  ADD_ITEM_BUTTON_CELL_HEIGHT 58
 #define  OPEN_POLL_BUTTON_TITLE @"Publish poll"
@@ -247,6 +250,16 @@
         votingEvent.itemID = item.itemID;
         [[RKObjectManager sharedManager] postObject:votingEvent delegate:self];*/
         [Utility showAlert:@"Voted!" message:@"You can click the checked box to undo your vote."];
+    }
+}
+
+- (IBAction)voteCountLabelPressed:(UIButton *)sender {
+    if ([self.poll.state intValue] != EDITING)
+    {
+        PollItemCell *cell = (PollItemCell*)[[sender superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        itemToBeShown = [self.poll.items objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:@"show voters" sender:self];
     }
 }
 
@@ -595,14 +608,14 @@
     cell.itemImage.url = [NSURL URLWithString:item.photoURL];
     [HJObjectManager manage:cell.itemImage];
     
-    //cell.descriptionOfItemLabel.text = item.description;
-    //cell.priceLabel.text = (item.price.intValue == 0 )?@"":[Utility formatCurrencyWithNumber:item.price];
-    cell.voteCountLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/self.poll.totalVotes.intValue];
-    
+    cell.votePercentageLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/self.poll.totalVotes.intValue];
+
     cell.timeStampLabel.text = [Utility formatTimeWithDate:item.addedTime];
+    cell.voteCountLabel.text = [item.numberOfVotes stringValue];
+    
     cell.brandLabel.text = item.brand;
     [cell.brandLabel adjustHeight];
-    //[cell.priceLabel sizeToFit];
+    [cell.votePercentageLabel adjustHeight];
     [cell.voteCountLabel adjustHeight];
     return cell;
 }
@@ -659,6 +672,10 @@
         }else{
             nextViewController.capturedImage = capturedImage;
         }
+    }
+    else if ([segue.identifier isEqualToString:@"show voters"]){
+        ItemVotersViewController* nextViewController = (ItemVotersViewController*)segue.destinationViewController;
+        nextViewController.item = itemToBeShown;
     }
 }
 
@@ -774,5 +791,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self dismissModalViewControllerAnimated:YES];
 }
+
 
 @end

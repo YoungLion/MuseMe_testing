@@ -69,7 +69,6 @@
 
 - (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
     [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:

@@ -9,6 +9,7 @@
 #import "PollItemCell.h"
 
 @implementation PollItemCell
+@synthesize votePercentageLabel = _votePercentageLabel;
 @synthesize voteButton = _voteButton;
 @synthesize deleteButton = _deleteButton;
 @synthesize voteCountLabel = _voteCountLabel;
@@ -16,7 +17,6 @@
 @synthesize brandLabel = _brandLabel;
 
 @synthesize itemImage=_itemImage;
-//,descriptionOfItemLabel=_descriptionOfItemLabel,priceLabel=_priceLabel;
 @synthesize timeStampLabel = _timeStampLabel;
 
 

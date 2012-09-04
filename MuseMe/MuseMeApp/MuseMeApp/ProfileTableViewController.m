@@ -62,7 +62,6 @@
         
     }else{
         isOwnProfile = NO;
-        self.navigationItem.title = @"Profile";
     
         //set UIBarButtonItem background image
         UIImage *backButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]; 

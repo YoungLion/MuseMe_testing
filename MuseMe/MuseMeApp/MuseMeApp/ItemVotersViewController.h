@@ -10,6 +10,6 @@
 #import "Utility.h"
 #import "ItemVoterCell.h"
 
-@interface ItemVotersViewController : UITableViewController
-@property (nonatomic, strong) NSArray* voters;
+@interface ItemVotersViewController : UITableViewController<RKObjectLoaderDelegate>
+@property (nonatomic, strong) Item* item;
 @end
