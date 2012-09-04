@@ -50,15 +50,16 @@
         _user.userID = [Utility getObjectForKey: CURRENTUSERID];
         
         //set UIBarButtonItem background image
-        UIImage *settingButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]; 
-        UIImage *settingIconImage = [UIImage imageNamed:SETTINGS_BUTTON];
-        //UIImage *settingButtonPressedImage = [UIImage imageNamed:NAV_BAR_BUTTON_BG_HL]; 
+        UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+        UIImage *settingIconImage = [UIImage imageNamed:SETTINGS_BUTTON]; 
         UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithImage:settingIconImage style:UIBarButtonItemStyleBordered target:self action:@selector(showSettings)];
         
-        [settingButton  setBackgroundImage:settingButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        //[settingButton  setBackgroundImage:settingButtonPressedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+        [settingButton  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.rightBarButtonItem = settingButton;
        
+        UIBarButtonItem *friendsButton = [[UIBarButtonItem alloc] initWithTitle:@"Find friends" style:UIBarButtonItemStyleBordered target:self action:@selector(showFriendsSearch)];
+        [friendsButton  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        self.navigationItem.leftBarButtonItem = friendsButton;
         
     }else{
         isOwnProfile = NO;
@@ -133,6 +134,11 @@
 -(void)showSettings
 {
     [self performSegueWithIdentifier:@"settings" sender:self];
+}
+
+-(void)showFriendsSearch
+{
+    [self performSegueWithIdentifier:@"search friends" sender:self];
 }
 
 -(void)back

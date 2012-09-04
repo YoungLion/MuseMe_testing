@@ -133,6 +133,7 @@
 		0DA5C3C915CDA9B90020D7A8 /* PollRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */; };
 		0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */; };
 		0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */; };
+		0DAF02B515F5C70A00C82B13 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02B415F5C70900C82B13 /* FriendsViewController.m */; };
 		0DB2A55015E6F46500FA1470 /* FeedsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A54F15E6F46500FA1470 /* FeedsCell.m */; };
 		0DB2A55315E705CD00FA1470 /* VotedPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55215E705CC00FA1470 /* VotedPollCell.m */; };
 		0DB2A55615E7075900FA1470 /* EditingPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55515E7075800FA1470 /* EditingPollCell.m */; };
@@ -412,6 +413,8 @@
 		0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVotersViewController.m; sourceTree = "<group>"; };
 		0DAF02AC15F5353900C82B13 /* ItemVoterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVoterCell.h; sourceTree = "<group>"; };
 		0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVoterCell.m; sourceTree = "<group>"; };
+		0DAF02B315F5C70900C82B13 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		0DAF02B415F5C70900C82B13 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		0DB2A54E15E6F46500FA1470 /* FeedsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsCell.h; sourceTree = "<group>"; };
 		0DB2A54F15E6F46500FA1470 /* FeedsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsCell.m; sourceTree = "<group>"; };
 		0DB2A55115E705CC00FA1470 /* VotedPollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotedPollCell.h; sourceTree = "<group>"; };
@@ -746,6 +749,8 @@
 				0DA3998115EAFB49002A4D58 /* AddToPollController.m */,
 				0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */,
 				0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */,
+				0DAF02B315F5C70900C82B13 /* FriendsViewController.h */,
+				0DAF02B415F5C70900C82B13 /* FriendsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1220,6 +1225,7 @@
 				0D01DBC415F1B560003C26D7 /* UILabel+UILabel_Auto.m in Sources */,
 				0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */,
 				0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */,
+				0DAF02B515F5C70A00C82B13 /* FriendsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

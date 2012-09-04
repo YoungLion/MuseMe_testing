@@ -1,62 +1,68 @@
 //
-//  ItemVotersViewController.m
+//  FriendsViewController.m
 //  MuseMe
 //
 //  Created by Yong Lin on 9/3/12.
 //  Copyright (c) 2012 Stanford University. All rights reserved.
 //
 
-#import "ItemVotersViewController.h"
+#import "FriendsViewController.h"
+#import "ItemVoterCell.h"
 #import "ProfileTableViewController.h"
 
-@interface ItemVotersViewController ()
-{
-    User* userToBePassed;
-}
+@interface FriendsViewController ()
 @property (nonatomic, strong) UIActivityIndicatorView* spinner;
 @end
 
-@implementation ItemVotersViewController
-@synthesize item = _item;
-@synthesize spinner = _spinner;
+@implementation FriendsViewController
+@synthesize searchBar;
+@synthesize filteredListContent, savedSearchTerm;
+@synthesize spinner=_spinner;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
+    self.navigationItem.titleView = [Utility formatTitleWithString:self.navigationItem.title];
     
-    //set UIBarButtonItem background image
     UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+	// restore search settings if they were saved in didReceiveMemoryWarning.
+    if (self.savedSearchTerm)
+	{
+        [self.searchBar setText:savedSearchTerm];
+        
+        self.savedSearchTerm = nil;
+    }
     
     _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
     _spinner.center = CGPointMake(160, 208);
     _spinner.hidesWhenStopped = YES;
     [self.view addSubview:_spinner];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_WITH_LOGO] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
+    self.searchBar.delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_spinner startAnimating];
-    [[RKObjectManager sharedManager] getObject:self.item delegate:self];
 }
 
 - (void)viewDidUnload
 {
+    [self setSearchBar:nil];
     [super viewDidUnload];
-    self.item = nil;
+    self.filteredListContent = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    // save the state of the search UI so that it can be restored if the view is re-created
+    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -65,11 +71,14 @@
 }
 
 #pragma mark - User actions
-- (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
+
+- (IBAction)back
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - RKObjectLoader delegate method
+#pragma mark - RKObjectLoader delegate
+
 - (void)request:(RKRequest*)request didLoadResponse:
 (RKResponse*)response {
     if ([response isJSON]) {
@@ -79,6 +88,7 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
+    self.filteredListContent = objects;
     [_spinner stopAnimating];
     [self.tableView reloadData];
 }
@@ -88,41 +98,42 @@
     [Utility showAlert:@"Sorry!" message:error.localizedDescription];
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.item.voters.count;
+    return [self.filteredListContent count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"voter cell";
+    static NSString *CellIdentifier = @"user cell";
     ItemVoterCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[ItemVoterCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:CellIdentifier];
     }
-    User* voter = (User*)[self.item.voters objectAtIndex:indexPath.row];
+
+    User* user = (User*)[self.filteredListContent objectAtIndex:indexPath.row];
+    
     [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
     cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
-    if (voter.profilePhotoURL){
+    if (user.profilePhotoURL){
         [cell.userPhoto clear];
         [cell.userPhoto showLoadingWheel];
-        cell.userPhoto.url = [NSURL URLWithString:voter.profilePhotoURL];
+        cell.userPhoto.url = [NSURL URLWithString:user.profilePhotoURL];
         [HJObjectManager manage:cell.userPhoto];
     }
     
-    cell.usernameLabel.text = voter.username;
+    cell.usernameLabel.text = user.username;
     [cell.usernameLabel adjustHeight];
-    
     return cell;
 }
 
@@ -131,18 +142,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    User* voter = [self.item.voters objectAtIndex:indexPath.row];
-    if (voter.userID){
-        userToBePassed = voter;
-        [self performSegueWithIdentifier:@"show profile" sender:self];
+    ProfileTableViewController* profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profile page"];
+    profileVC.user = [self.filteredListContent objectAtIndex:indexPath.row];
+}
+
+#pragma mark - Search Bar delegate
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length > 0)
+    {
+        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_search/%@", searchText] delegate:self];
+        [_spinner startAnimating];
+    }else{
+        self.filteredListContent = nil;
+        [self.tableView reloadData];
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
 {
-    if ([segue.identifier isEqualToString:@"show profile"])
-    {
-        ((ProfileTableViewController*)segue.destinationViewController).user = userToBePassed;
-    }
+    NSLog(@"clicked");
+    [theSearchBar resignFirstResponder];
 }
 @end

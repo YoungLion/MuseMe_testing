@@ -82,6 +82,7 @@
 #define EMPTY_POLL_HINT @"add-new-items"
 #define TAP_TO_ADD_INFO @"tap-to-add"
 #define TAP_FOR_MORE_INFO @"tap-for-more-info"
+#define FRIENDS_BUTTON @"friends"
 
 #define MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION 33
 #define MAX_CHARACTER_NUMBER_FOR_POLL_DESCRIPTION 90
