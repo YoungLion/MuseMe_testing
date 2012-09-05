@@ -126,6 +126,9 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return USER_CELL_HEIGHT;
+}
 
 #pragma mark - Table view delegate
 

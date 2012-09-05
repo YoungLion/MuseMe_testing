@@ -137,6 +137,9 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return USER_CELL_HEIGHT;
+}
 
 #pragma mark - Table view delegate
 
@@ -144,6 +147,7 @@
 {
     ProfileTableViewController* profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profile page"];
     profileVC.user = [self.filteredListContent objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 #pragma mark - Search Bar delegate
