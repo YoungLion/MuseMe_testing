@@ -69,6 +69,29 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)followButtonPressed:(id)sender {
+    UserCell* cell = (UserCell*)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    User* user = (User*)[self.item.voters objectAtIndex:indexPath.row];
+    if (user.isFollowed.boolValue){
+        [self unfollowUser:user.userID];
+    }else{
+        [self followUser:user.userID];
+    }
+    user.isFollowed = [NSNumber numberWithBool:!(user.isFollowed.boolValue)];
+    [self.tableView reloadData];
+}
+
+-(void)unfollowUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/unfollow_user/%@",userID] delegate:self];
+}
+
+-(void)followUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/follow_user/%@",userID] delegate:self];
+}
+
 #pragma mark - RKObjectLoader delegate method
 - (void)request:(RKRequest*)request didLoadResponse:
 (RKResponse*)response {
@@ -104,9 +127,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"voter cell";
-    ItemVoterCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[ItemVoterCell alloc]
+        cell = [[UserCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:CellIdentifier];
     }
@@ -122,7 +145,20 @@
     
     cell.usernameLabel.text = voter.username;
     [cell.usernameLabel adjustHeight];
+    if ([[Utility getObjectForKey:CURRENTUSERID] isEqualToNumber:voter.userID])
+    {
+        cell.followButton.enabled = NO;
+        [cell.followButton setTitle:@"Me" forState:UIControlStateDisabled];
+    }else{
+        cell.followButton.enabled = YES;
+        if (voter.isFollowed.boolValue){
+            [cell.followButton setTitle:@"Unfollow" forState:UIControlStateNormal];
+        }else{
+            [cell.followButton setTitle:@"Follow" forState:UIControlStateNormal];
+        }
+    }
     
+    [cell.followButton sizeToFit];
     return cell;
 }
 

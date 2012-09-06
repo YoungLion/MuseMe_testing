@@ -32,7 +32,6 @@
     if (self.savedSearchTerm)
 	{
         [self.searchBar setText:savedSearchTerm];
-        
         self.savedSearchTerm = nil;
     }
     
@@ -86,16 +85,18 @@
     }else{
         [self followUser:user.userID];
     }
+    user.isFollowed = [NSNumber numberWithBool:!(user.isFollowed.boolValue)];
+    [self.tableView reloadData];
 }
 
 -(void)unfollowUser:(NSNumber*)userID
 {
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/follow_user/%@",userID] delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/unfollow_user/%@",userID] delegate:self];
 }
 
 -(void)followUser:(NSNumber*)userID
 {
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/unfollow_user/%@",userID] delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/follow_user/%@",userID] delegate:self];
 }
 
 #pragma mark - RKObjectLoader delegate
@@ -158,13 +159,20 @@
     cell.usernameLabel.text = user.username;
     [cell.usernameLabel adjustHeight];
     
-    if (user.isFollowed.boolValue){
-        cell.followButton.titleLabel.text = @"Unfollow";
+    if ([[Utility getObjectForKey:CURRENTUSERID] isEqualToNumber:user.userID])
+    {
+        cell.followButton.enabled = NO;
+        [cell.followButton setTitle:@"Me" forState:UIControlStateDisabled];
     }else{
-        cell.followButton.titleLabel.text = @"Follow";
+        cell.followButton.enabled = YES;
+        if (user.isFollowed.boolValue){
+            [cell.followButton setTitle:@"Unfollow" forState:UIControlStateNormal];
+        }else{
+            [cell.followButton setTitle:@"Follow" forState:UIControlStateNormal];
+        }
     }
     
-    [cell.followButton setNeedsLayout];
+    [cell.followButton sizeToFit];
     return cell;
 }
 

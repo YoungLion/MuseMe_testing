@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Utility.h"
-#import "ItemVoterCell.h"
+#import "UserCell.h"
 
 @interface ItemVotersViewController : UITableViewController<RKObjectLoaderDelegate>
 @property (nonatomic, strong) Item* item;

@@ -32,6 +32,7 @@
 @synthesize editingPollButton;
 @synthesize activePollButton;
 @synthesize votedPollButton;
+@synthesize followButton;
 @synthesize spinner = _spinner;
 
 @synthesize editingPolls, openedPolls, votedPolls;
@@ -43,6 +44,7 @@
     self.userPhoto.backgroundColor =[UIColor colorWithWhite:1 alpha:0];
     self.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_LARGE];
     [Utility renderView:self.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
+    self.followButton.hidden = YES;
     if (_user.userID == nil)
     {
         isOwnProfile = YES;
@@ -63,7 +65,12 @@
         
     }else{
         isOwnProfile = NO;
-    
+        if ([_user.userID isEqualToNumber:[Utility getObjectForKey:CURRENTUSERID]])
+        {
+            self.followButton.hidden = YES;
+        }else{
+            self.followButton.hidden = NO;
+        }
         //set UIBarButtonItem background image
         UIImage *backButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]; 
         UIImage *backIconImage = [UIImage imageNamed:BACK_BUTTON];
@@ -92,6 +99,7 @@
     [self setEditingPollButton:nil];
     [self setActivePollButton:nil];
     [self setVotedPollButton:nil];
+    [self setFollowButton:nil];
     [super viewDidUnload];
     _spinner = nil;
     _user = nil;
@@ -124,6 +132,11 @@
     [_spinner startAnimating];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_profile_poll_records/%@",_user.userID] delegate:self];
     [[RKObjectManager sharedManager] getObject:_user delegate:self];
+}
+
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
 }
 
 #pragma User Actions
@@ -171,11 +184,27 @@
     [self.tableView reloadData];
 }
 
-
-- (void) dealloc
-{
-    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+- (IBAction)followButtonPressed:(id)sender {
+    if (_user.isFollowed.boolValue){
+        [self unfollowUser:_user.userID];
+        [self.followButton setTitle:@"Unfollow" forState:UIControlStateNormal];
+    }else{
+        [self followUser:_user.userID];
+        [self.followButton setTitle:@"Follow" forState:UIControlStateNormal];
+    }
+    _user.isFollowed = [NSNumber numberWithBool:!(_user.isFollowed.boolValue)];
 }
+
+-(void)unfollowUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/unfollow_user/%@",userID] delegate:self];
+}
+
+-(void)followUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/follow_user/%@",userID] delegate:self];
+}
+
 
 #pragma RKObjectLoader Delegate Method
 
@@ -214,6 +243,10 @@
         self.usernameLabel.text = _user.username;
         self.userPhoto.url = [NSURL URLWithString:_user.profilePhotoURL];
         [HJObjectManager manage:self.userPhoto];
+        if (!isOwnProfile)
+        {
+            [self.followButton setTitle:_user.isFollowed.boolValue?@"Unfollow":@"Follow" forState:UIControlStateNormal];
+        }
     }
 }
 

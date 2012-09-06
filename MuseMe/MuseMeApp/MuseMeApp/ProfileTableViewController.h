@@ -24,4 +24,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *editingPollButton;
 @property (weak, nonatomic) IBOutlet UIButton *activePollButton;
 @property (weak, nonatomic) IBOutlet UIButton *votedPollButton;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
 @end
