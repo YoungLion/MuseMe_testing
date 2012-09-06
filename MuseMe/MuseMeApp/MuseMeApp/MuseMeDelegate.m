@@ -39,6 +39,9 @@
      @"password_confirmation", @"passwordConfirmation",
      @"profile_photo_url", @"profilePhotoURL",
      @"single_access_token", @"singleAccessToken",
+     @"following", @"following",
+     @"followers", @"followers",
+     @"is_followed",@"isFollowed",
      nil];
     
     [[RKObjectManager sharedManager].mappingProvider registerMapping:userMapping withRootKeyPath:@"user"];

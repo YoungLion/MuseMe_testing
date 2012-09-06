@@ -7,7 +7,7 @@
 //
 
 #import "FriendsViewController.h"
-#import "ItemVoterCell.h"
+#import "UserCell.h"
 #import "ProfileTableViewController.h"
 
 @interface FriendsViewController ()
@@ -77,6 +77,27 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)followButtonPressed:(id)sender {
+    UserCell* cell = (UserCell*)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    User* user = (User*)[self.filteredListContent objectAtIndex:indexPath.row];
+    if (user.isFollowed.boolValue){
+        [self unfollowUser:user.userID];
+    }else{
+        [self followUser:user.userID];
+    }
+}
+
+-(void)unfollowUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/follow_user/%@",userID] delegate:self];
+}
+
+-(void)followUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/unfollow_user/%@",userID] delegate:self];
+}
+
 #pragma mark - RKObjectLoader delegate
 
 - (void)request:(RKRequest*)request didLoadResponse:
@@ -88,8 +109,10 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    self.filteredListContent = objects;
-    [_spinner stopAnimating];
+    if ([objectLoader.resourcePath hasPrefix:@"/user_search"]){
+        self.filteredListContent = objects;
+        [_spinner stopAnimating];
+    }
     [self.tableView reloadData];
 }
 
@@ -114,9 +137,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"user cell";
-    ItemVoterCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[ItemVoterCell alloc]
+        cell = [[UserCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:CellIdentifier];
     }
@@ -134,6 +157,14 @@
     
     cell.usernameLabel.text = user.username;
     [cell.usernameLabel adjustHeight];
+    
+    if (user.isFollowed.boolValue){
+        cell.followButton.titleLabel.text = @"Unfollow";
+    }else{
+        cell.followButton.titleLabel.text = @"Follow";
+    }
+    
+    [cell.followButton setNeedsLayout];
     return cell;
 }
 

@@ -130,6 +130,8 @@
 		0DA46AB515E5BC86008F67B1 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA46AB115E5BC86008F67B1 /* button@2x.png */; };
 		0DA46AC015E5D154008F67B1 /* LandingPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA46ABE15E5D154008F67B1 /* LandingPage.png */; };
 		0DA46AC115E5D154008F67B1 /* LandingPage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA46ABF15E5D154008F67B1 /* LandingPage@2x.png */; };
+		0DA5BF3515F847EA008F8B72 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3415F847EA008F8B72 /* UserCell.m */; };
+		0DA5BF3815F86252008F8B72 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3715F86252008F8B72 /* Relationship.m */; };
 		0DA5C3C915CDA9B90020D7A8 /* PollRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */; };
 		0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */; };
 		0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */; };
@@ -407,6 +409,10 @@
 		0DA46AB115E5BC86008F67B1 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		0DA46ABE15E5D154008F67B1 /* LandingPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LandingPage.png; sourceTree = "<group>"; };
 		0DA46ABF15E5D154008F67B1 /* LandingPage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LandingPage@2x.png"; sourceTree = "<group>"; };
+		0DA5BF3315F847EA008F8B72 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		0DA5BF3415F847EA008F8B72 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		0DA5BF3615F86252008F8B72 /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
+		0DA5BF3715F86252008F8B72 /* Relationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relationship.m; sourceTree = "<group>"; };
 		0DA5C3C715CDA9B90020D7A8 /* PollRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollRecord.h; sourceTree = "<group>"; };
 		0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollRecord.m; sourceTree = "<group>"; };
 		0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVotersViewController.h; sourceTree = "<group>"; };
@@ -683,6 +689,8 @@
 				0D8F49D515B6065A00C2DAEF /* PollResultCell.m */,
 				0DAF02AC15F5353900C82B13 /* ItemVoterCell.h */,
 				0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */,
+				0DA5BF3315F847EA008F8B72 /* UserCell.h */,
+				0DA5BF3415F847EA008F8B72 /* UserCell.m */,
 				0D03A99115D7353600A0A9BD /* HintView.h */,
 				0D03A99215D7353600A0A9BD /* HintView.m */,
 				0D03A99815D79A6100A0A9BD /* AppFormattedLabel.h */,
@@ -718,6 +726,8 @@
 				0D9B1C6015CB0E77003A34DD /* Audience.m */,
 				0DA5C3C715CDA9B90020D7A8 /* PollRecord.h */,
 				0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */,
+				0DA5BF3615F86252008F8B72 /* Relationship.h */,
+				0DA5BF3715F86252008F8B72 /* Relationship.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1226,6 +1236,8 @@
 				0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */,
 				0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */,
 				0DAF02B515F5C70A00C82B13 /* FriendsViewController.m in Sources */,
+				0DA5BF3515F847EA008F8B72 /* UserCell.m in Sources */,
+				0DA5BF3815F86252008F8B72 /* Relationship.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

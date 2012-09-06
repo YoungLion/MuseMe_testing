@@ -38,6 +38,6 @@ typedef enum{
 @property (nonatomic, strong) NSNumber *state;// state = EDITING, VOTING or FINISHED
 @property (nonatomic, strong) NSMutableArray *items, *audiences;
 @property (nonatomic, strong) NSDate *startTime, *endTime, *openTime;
-@property (nonatomic) NSNumber* category;
+@property (nonatomic, strong) NSNumber* category;
 
 @end

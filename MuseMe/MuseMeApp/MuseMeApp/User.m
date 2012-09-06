@@ -18,4 +18,7 @@
 @synthesize passwordConfirmation = _passwordConfirmation;
 @synthesize profilePhotoURL=_profilePhotoURL;
 @synthesize singleAccessToken = _singleAccessToken;
+@synthesize followers = _followers;
+@synthesize following = _following;
+@synthesize isFollowed = _isFollowed;
 @end
