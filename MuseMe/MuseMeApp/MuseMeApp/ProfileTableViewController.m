@@ -7,6 +7,7 @@
 //
 
 #import "ProfileTableViewController.h"
+#import "ConnectedUserViewController.h"
 #define EDITING_POLL_CELL_HEIGHT 65
 #define OPENED_POLL_CELL_HEIGHT 65
 #define VOTED_POLL_CELL_HEIGHT 65
@@ -17,6 +18,7 @@
 @interface ProfileTableViewController (){
     int ContentType;
     BOOL isOwnProfile;
+    int UserConnectionType;
 }
 @property (nonatomic, strong) UIActivityIndicatorView* spinner;
 @property (nonatomic, strong) NSMutableArray *editingPolls, *openedPolls, *votedPolls;
@@ -47,9 +49,9 @@
     self.followButton.hidden = YES;
     if (_user.userID == nil)
     {
-        isOwnProfile = YES;
         _user = [User new];
-        _user.userID = [Utility getObjectForKey: CURRENTUSERID];
+        _user.userID = [Utility getObjectForKey:CURRENTUSERID];
+        isOwnProfile = YES;
         
         //set UIBarButtonItem background image
         UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
@@ -141,7 +143,19 @@
 
 #pragma User Actions
 - (IBAction)changeProfile:(id)sender {
-    [self showSettings];
+    if (isOwnProfile) {
+        [self showSettings];
+    }
+}
+
+- (IBAction)showFollowing:(id)sender {
+    [self performSegueWithIdentifier:@"show connected users" sender:self];
+    UserConnectionType = FOLLOWING;
+}
+
+- (IBAction)showFollowers:(id)sender {
+    [self performSegueWithIdentifier:@"show connected users" sender:self];
+    UserConnectionType = FOLLOWERS;
 }
 
 -(void)showSettings
@@ -306,7 +320,7 @@
                 cell.pollDescriptionLabel.text = poll.title;
                 cell.itemCountLabel.text = [[NSString alloc] initWithFormat:@"%@", poll.itemsCount];
                 cell.startTimeLabel.text = [Utility formatTimeWithDate:poll.startTime];
-                [cell.pollDescriptionLabel setNeedsLayout];
+                [cell.pollDescriptionLabel adjustHeight];
                 [cell.startTimeLabel setNeedsLayout];
             }
             if (isOwnProfile) {
@@ -327,7 +341,7 @@
                 cell.pollDescriptionLabel.text = poll.title;
                 cell.votesCountLabel.text = [[NSString alloc] initWithFormat:@"%@", poll.totalVotes];
                 cell.openTimeLabel.text = [Utility formatTimeWithDate:poll.openTime];
-                [cell.pollDescriptionLabel setNeedsLayout];
+                [cell.pollDescriptionLabel adjustHeight];
                 [cell.openTimeLabel setNeedsLayout];
             }
             return cell;
@@ -347,7 +361,7 @@
                 cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
                 cell.userPhoto.url = [NSURL URLWithString:poll.owner.profilePhotoURL];
                 [HJObjectManager manage:cell.userPhoto];
-                [cell.pollDescriptionLabel setNeedsLayout];
+                [cell.pollDescriptionLabel adjustHeight];
             }
             return cell;
         }
@@ -408,5 +422,13 @@
 
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"show connected users"])
+    {
+        ConnectedUserViewController* nextVC = (ConnectedUserViewController*)segue.destinationViewController;
+        nextVC.userConnectionType = UserConnectionType;
+        nextVC.user = _user;
+    }
+}
 @end

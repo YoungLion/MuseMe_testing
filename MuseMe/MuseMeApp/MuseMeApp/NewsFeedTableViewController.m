@@ -12,10 +12,6 @@
 #import "ProfileTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-
-#define ROWHEIGHT 400
-#define CELL_BOTTOM_MARGIN 10
-
 #define TimeStampLabelFrame CGRectMake(48,9,74,9)
 #define UserImageFrame CGRectMake(5,9,40,40)
 #define UsernameAndActionLabelFrame CGRectMake(47,17,236,16)

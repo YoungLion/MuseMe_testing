@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HJManagedImageV.h"
 
+#define USER_CELL_HEIGHT 50
+
 @interface UserCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet HJManagedImageV *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;

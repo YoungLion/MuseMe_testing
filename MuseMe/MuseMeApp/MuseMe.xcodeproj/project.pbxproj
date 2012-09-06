@@ -108,6 +108,7 @@
 		0D9C0CA415DEC1A8005FA5C5 /* CenterButtonTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C0CA315DEC1A8005FA5C5 /* CenterButtonTabController.m */; };
 		0D9DDAEE15D3100A008D27AB /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DDAED15D3100A008D27AB /* SettingsTableViewController.m */; };
 		0D9EFC3615B3E502002180F1 /* SingleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EFC3515B3E502002180F1 /* SingleItemViewController.m */; };
+		0DA2499915F94AD900868643 /* ConnectedUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA2499815F94AD900868643 /* ConnectedUserViewController.m */; };
 		0DA307F215F1757C0002F7EF /* Art.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA307F015F1757B0002F7EF /* Art.png */; };
 		0DA307F315F1757C0002F7EF /* Art@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA307F115F1757B0002F7EF /* Art@2x.png */; };
 		0DA307F615F176210002F7EF /* Beauty.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA307F415F176210002F7EF /* Beauty.png */; };
@@ -375,6 +376,8 @@
 		0D9DDAED15D3100A008D27AB /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		0D9EFC3415B3E502002180F1 /* SingleItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleItemViewController.h; sourceTree = "<group>"; };
 		0D9EFC3515B3E502002180F1 /* SingleItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleItemViewController.m; sourceTree = "<group>"; };
+		0DA2499715F94AD900868643 /* ConnectedUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectedUserViewController.h; sourceTree = "<group>"; };
+		0DA2499815F94AD900868643 /* ConnectedUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectedUserViewController.m; sourceTree = "<group>"; };
 		0DA307F015F1757B0002F7EF /* Art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Art.png; sourceTree = "<group>"; };
 		0DA307F115F1757B0002F7EF /* Art@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Art@2x.png"; sourceTree = "<group>"; };
 		0DA307F415F176210002F7EF /* Beauty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beauty.png; sourceTree = "<group>"; };
@@ -735,32 +738,34 @@
 		0D91EE5815AD0BB900D1015D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0D9C0CA215DEC1A8005FA5C5 /* CenterButtonTabController.h */,
-				0D9C0CA315DEC1A8005FA5C5 /* CenterButtonTabController.m */,
 				0D91EE5915AD4BD300D1015D /* RegistrationPageViewController.h */,
 				0D91EE5A15AD4BD300D1015D /* RegistrationPageViewController.m */,
-				0D94F51C15A7FCEA00903F0B /* NewsFeedTableViewController.h */,
-				0D94F51D15A7FCEB00903F0B /* NewsFeedTableViewController.m */,
-				0D957D2315B0E09B009D37AA /* ProfileTableViewController.h */,
-				0D957D2415B0E09B009D37AA /* ProfileTableViewController.m */,
-				0D9DDAEC15D3100A008D27AB /* SettingsTableViewController.h */,
-				0D9DDAED15D3100A008D27AB /* SettingsTableViewController.m */,
-				0D94F51415A7D30700903F0B /* NewPollViewController.h */,
-				0D94F51515A7D30800903F0B /* NewPollViewController.m */,
-				0D8FA19715AF7606003011A0 /* PollTableViewController.h */,
-				0D8FA19815AF7606003011A0 /* PollTableViewController.m */,
-				0D9EFC3415B3E502002180F1 /* SingleItemViewController.h */,
-				0D9EFC3515B3E502002180F1 /* SingleItemViewController.m */,
-				0D8F49D115B605CF00C2DAEF /* PollResultViewController.h */,
-				0D8F49D215B605CF00C2DAEF /* PollResultViewController.m */,
+				0D9C0CA215DEC1A8005FA5C5 /* CenterButtonTabController.h */,
+				0D9C0CA315DEC1A8005FA5C5 /* CenterButtonTabController.m */,
 				0DF8D7AC15DE2D4A0010E475 /* AddNewItemController.h */,
 				0DF8D7AD15DE2D4A0010E475 /* AddNewItemController.m */,
 				0DA3998015EAFB49002A4D58 /* AddToPollController.h */,
 				0DA3998115EAFB49002A4D58 /* AddToPollController.m */,
-				0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */,
-				0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */,
+				0D94F51C15A7FCEA00903F0B /* NewsFeedTableViewController.h */,
+				0D94F51D15A7FCEB00903F0B /* NewsFeedTableViewController.m */,
+				0D94F51415A7D30700903F0B /* NewPollViewController.h */,
+				0D94F51515A7D30800903F0B /* NewPollViewController.m */,
+				0D957D2315B0E09B009D37AA /* ProfileTableViewController.h */,
+				0D957D2415B0E09B009D37AA /* ProfileTableViewController.m */,
 				0DAF02B315F5C70900C82B13 /* FriendsViewController.h */,
 				0DAF02B415F5C70900C82B13 /* FriendsViewController.m */,
+				0DA2499715F94AD900868643 /* ConnectedUserViewController.h */,
+				0DA2499815F94AD900868643 /* ConnectedUserViewController.m */,
+				0D9DDAEC15D3100A008D27AB /* SettingsTableViewController.h */,
+				0D9DDAED15D3100A008D27AB /* SettingsTableViewController.m */,
+				0D8FA19715AF7606003011A0 /* PollTableViewController.h */,
+				0D8FA19815AF7606003011A0 /* PollTableViewController.m */,
+				0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */,
+				0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */,
+				0D9EFC3415B3E502002180F1 /* SingleItemViewController.h */,
+				0D9EFC3515B3E502002180F1 /* SingleItemViewController.m */,
+				0D8F49D115B605CF00C2DAEF /* PollResultViewController.h */,
+				0D8F49D215B605CF00C2DAEF /* PollResultViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1238,6 +1243,7 @@
 				0DAF02B515F5C70A00C82B13 /* FriendsViewController.m in Sources */,
 				0DA5BF3515F847EA008F8B72 /* UserCell.m in Sources */,
 				0DA5BF3815F86252008F8B72 /* Relationship.m in Sources */,
+				0DA2499915F94AD900868643 /* ConnectedUserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -275,7 +275,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2936" y="-894"/>
+            <point key="canvasLocation" x="2537" y="-928"/>
         </scene>
         <!--Profile Table View Controller-->
         <scene sceneID="NXo-kP-osz">
@@ -287,12 +287,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="xd9-V2-BBZ">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="xd9-V2-BBZ" userLabel="View - control panel">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" id="2Ja-TU-a6C">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+                                <view contentMode="scaleToFill" id="2Ja-TU-a6C" userLabel="View - personal info">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" text="Username" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="W2x-SB-PCd">
@@ -308,7 +308,7 @@
                                             <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y11-9q-btk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal">
@@ -338,14 +338,44 @@
                                                 <action selector="followButtonPressed:" destination="6a9-bf-0wD" eventType="touchUpInside" id="8ZG-x3-f2m"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="df6-Hf-63v">
+                                            <rect key="frame" x="84" y="71" width="90" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="following">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="showFollowing:" destination="6a9-bf-0wD" eventType="touchUpInside" id="Aom-Kg-KxP"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4G9-1K-Kdg">
+                                            <rect key="frame" x="192" y="71" width="90" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="followers">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="showFollowers:" destination="6a9-bf-0wD" eventType="touchUpInside" id="Vb5-nv-Kwg"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.20000000000000001" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="eUu-TB-rYq">
-                                    <rect key="frame" x="0.0" y="71" width="320" height="71"/>
+                                <view contentMode="scaleToFill" id="eUu-TB-rYq" userLabel="View - segmented control">
+                                    <rect key="frame" x="0.0" y="100" width="320" height="71"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Dw-rM-sXh" userLabel="Button - 1">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Dw-rM-sXh" userLabel="Button - Draft polls">
                                             <rect key="frame" x="-2" y="0.0" width="118" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -360,7 +390,7 @@
                                                 <action selector="switchContentType:" destination="6a9-bf-0wD" eventType="touchUpInside" id="72j-sN-Vfx"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ue0-dl-La5" userLabel="Button - 2">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ue0-dl-La5" userLabel="Button - Active polls">
                                             <rect key="frame" x="106" y="0.0" width="118" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -375,7 +405,7 @@
                                                 <action selector="switchContentType:" destination="6a9-bf-0wD" eventType="touchUpInside" id="Bh6-5L-xG8"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BYm-zg-A2X" userLabel="Button - 3">
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BYm-zg-A2X" userLabel="Button - Followed polls">
                                             <rect key="frame" x="213" y="0.0" width="118" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -411,21 +441,21 @@
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="eaC-hh-f9s">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="eaC-hh-f9s" userLabel="Label - # of draft polls">
                                             <rect key="frame" x="30" y="9" width="46" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="nT8-Y3-IQW">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="nT8-Y3-IQW" userLabel="Label - # of active polls">
                                             <rect key="frame" x="137" y="9" width="46" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="d8f-wQ-Ewc">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="d8f-wQ-Ewc" userLabel="Label - # of followed polls">
                                             <rect key="frame" x="247" y="9" width="46" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
@@ -440,7 +470,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editing poll cell" rowHeight="65" id="AAb-0I-zV5" customClass="EditingPollCell">
-                                <rect key="frame" x="0.0" y="170" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="193" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="64"/>
@@ -490,7 +520,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="opened poll cell" rowHeight="65" id="zh6-Mj-a6n" customClass="OpenedPollCell">
-                                <rect key="frame" x="0.0" y="235" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="258" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="64"/>
@@ -536,7 +566,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="voted poll cell" rowHeight="74" id="Uqa-NO-xiV" customClass="VotedPollCell">
-                                <rect key="frame" x="0.0" y="300" width="320" height="74"/>
+                                <rect key="frame" x="0.0" y="323" width="320" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="73"/>
@@ -610,10 +640,89 @@
                         <segue destination="AtD-j7-Qhz" kind="push" identifier="show poll" id="E46-aS-6G1"/>
                         <segue destination="pIC-4E-dbg" kind="push" identifier="settings" id="AEh-Hp-afb"/>
                         <segue destination="bVU-l4-A2K" kind="push" identifier="search friends" id="tAL-uR-fGv"/>
+                        <segue destination="MIy-tL-0HM" kind="push" identifier="show connected users" id="Ukd-tc-lwm"/>
                     </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2936" y="-300"/>
+        </scene>
+        <!--Connected User View Controller-->
+        <scene sceneID="S1p-Be-qTn">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBg-Yf-F68" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="MIy-tL-0HM" customClass="ConnectedUserViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="O9w-7L-atH">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="user cell" rowHeight="50" id="xT5-Yq-WsX" customClass="UserCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Svx-VH-NKZ">
+                                            <rect key="frame" x="73" y="14" width="181" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <view contentMode="scaleAspectFit" id="dvG-pj-NZb" customClass="HJManagedImageV">
+                                            <rect key="frame" x="20" y="5" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <gestureRecognizers/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="Bll-In-5t7" userLabel="View cell seperator">
+                                            <rect key="frame" x="0.0" y="48" width="320" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.85490196080000003" green="0.92941176469999998" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wgl-OM-OOd">
+                                            <rect key="frame" x="229" y="7" width="88" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Unfollow">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="disabled" title="Me"/>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="followButtonPressed:" destination="MIy-tL-0HM" eventType="touchUpInside" id="wlb-r6-Bg6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="followButton" destination="Wgl-OM-OOd" id="PJj-ih-6G3"/>
+                                    <outlet property="userPhoto" destination="dvG-pj-NZb" id="fNJ-E9-B2i"/>
+                                    <outlet property="usernameLabel" destination="Svx-VH-NKZ" id="3gb-mC-Ccm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MIy-tL-0HM" id="2PS-fG-EQF"/>
+                            <outlet property="delegate" destination="MIy-tL-0HM" id="YeJ-eA-ssY"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="aVo-Tf-Z8M">
+                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="8dx-N9-2ea">
+                            <connections>
+                                <action selector="back" destination="MIy-tL-0HM" id="kZ4-s2-wg3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="3025" y="-923"/>
         </scene>
         <!--News Feed Table View Controller-->
         <scene sceneID="Ze0-ng-Ado">
@@ -1704,201 +1813,6 @@
         <image name="tap-to-add.png" width="285" height="85"/>
         <image name="tap-to-publish-poll.png" width="320" height="72"/>
     </resources>
-    <classes>
-        <class className="AddNewItemController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewItemController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brandTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tapHintView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="AddToPollController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddToPollController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="AnimatedPickerView" superclassName="UIPickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnimatedPickerView.h"/>
-        </class>
-        <class className="AppFormattedBoldLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppFormattedBoldLabel.h"/>
-        </class>
-        <class className="AppFormattedLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppFormattedLabel.h"/>
-        </class>
-        <class className="CenterButtonTabController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CenterButtonTabController.h"/>
-        </class>
-        <class className="EditingPollCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditingPollCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemCountLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="pollDescriptionLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="startTimeLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-        <class className="FeedsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="categoryIcon" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eventDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="picContainerImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="seperator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="thumbnail0" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail1" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail2" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail3" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail4" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="timeStampLabel" candidateClass="SmallFormattedLabel"/>
-                <relationship kind="outlet" name="totalVotes" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userImage" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="usernameAndActionLabel" candidateClass="MultipartLabel"/>
-            </relationships>
-        </class>
-        <class className="FriendsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="HJManagedImageV" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HJManagedImageV.h"/>
-        </class>
-        <class className="ItemVotersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemVotersViewController.h"/>
-        </class>
-        <class className="MultipartLabel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MultipartLabel.h"/>
-        </class>
-        <class className="NewPollViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewPollViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
-                <relationship kind="outlet" name="categoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="categoryPickerView" candidateClass="AnimatedPickerView"/>
-                <relationship kind="outlet" name="pollNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tips" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewsFeedTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsFeedTableViewController.h"/>
-        </class>
-        <class className="OpenedPollCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OpenedPollCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="openTimeLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="pollDescriptionLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="votesCountLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-        <class className="PollItemCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollItemCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brandLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="timeStampLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="voteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="voteCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="votePercentageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PollResultCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollResultCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brandLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="numberOfVotesIndicator" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="numberOfVotesLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PollResultViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollResultViewController.h"/>
-        </class>
-        <class className="PollTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="categoryIconView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="openPollHint" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pollDescription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="timeStampLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ProfileTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeProfile:"/>
-                <relationship kind="action" name="followButtonPressed:"/>
-                <relationship kind="action" name="switchContentType:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="activePollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editingPollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editingPollCountLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="openedPollCountLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="userPhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="votedPollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="votedPollCountLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-        <class className="RegistrationPageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationPageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="background" candidateClass="UIControl"/>
-                <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="logoImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="passwordConfirmationField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="signupButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="SettingsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="profilePhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SingleItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleItemViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brandTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemImageView" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="tapHintImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SmallFormattedLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SmallFormattedLabel.h"/>
-        </class>
-        <class className="UserCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="userPhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VotedPollCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VotedPollCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pollDescriptionLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="userPhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="votesCountLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

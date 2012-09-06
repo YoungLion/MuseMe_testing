@@ -12,7 +12,8 @@
 #import "VotedPollCell.h"
 #import "Utility.h"
 #import "NewPollViewController.h"
-
+#define FOLLOWING 0
+#define FOLLOWERS 1
 @interface ProfileTableViewController : UITableViewController<RKObjectLoaderDelegate>
 
 @property (weak, nonatomic) IBOutlet HJManagedImageV *userPhoto;

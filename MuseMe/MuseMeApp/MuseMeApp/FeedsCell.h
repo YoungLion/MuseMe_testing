@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Utility.h"
 
+#define ROWHEIGHT 400
+#define CELL_BOTTOM_MARGIN 10
+
 @interface FeedsCell : UITableViewCell
 @property (nonatomic, weak) IBOutlet HJManagedImageV *userImage;
 @property (nonatomic, weak) IBOutlet UILabel *eventDescriptionLabel;
