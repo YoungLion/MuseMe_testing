@@ -14,6 +14,7 @@
 #import "NewPollViewController.h"
 #define FOLLOWING 0
 #define FOLLOWERS 1
+
 @interface ProfileTableViewController : UITableViewController<RKObjectLoaderDelegate>
 
 @property (weak, nonatomic) IBOutlet HJManagedImageV *userPhoto;
@@ -26,4 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *activePollButton;
 @property (weak, nonatomic) IBOutlet UIButton *votedPollButton;
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfFollowingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfFollowersLabel;
 @end

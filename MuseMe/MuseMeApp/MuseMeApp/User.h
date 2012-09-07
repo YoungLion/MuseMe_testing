@@ -13,5 +13,5 @@
 @property (nonatomic, strong) NSNumber *userID, *isFollowed;
 @property (nonatomic, strong) NSString *username, *password, *passwordConfirmation, *email, *singleAccessToken;
 @property (nonatomic, strong) NSString *profilePhotoURL;
-@property (nonatomic, strong) NSArray *following, *followers;
+@property (nonatomic, strong) NSNumber *numberOfFollowing, *numberOfFollowers;
 @end

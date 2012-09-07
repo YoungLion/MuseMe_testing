@@ -35,6 +35,8 @@
 @synthesize activePollButton;
 @synthesize votedPollButton;
 @synthesize followButton;
+@synthesize numberOfFollowingLabel;
+@synthesize numberOfFollowersLabel;
 @synthesize spinner = _spinner;
 
 @synthesize editingPolls, openedPolls, votedPolls;
@@ -102,6 +104,8 @@
     [self setActivePollButton:nil];
     [self setVotedPollButton:nil];
     [self setFollowButton:nil];
+    [self setNumberOfFollowingLabel:nil];
+    [self setNumberOfFollowersLabel:nil];
     [super viewDidUnload];
     _spinner = nil;
     _user = nil;
@@ -149,13 +153,13 @@
 }
 
 - (IBAction)showFollowing:(id)sender {
-    [self performSegueWithIdentifier:@"show connected users" sender:self];
     UserConnectionType = FOLLOWING;
+    [self performSegueWithIdentifier:@"show connected users" sender:self];
 }
 
 - (IBAction)showFollowers:(id)sender {
-    [self performSegueWithIdentifier:@"show connected users" sender:self];
     UserConnectionType = FOLLOWERS;
+    [self performSegueWithIdentifier:@"show connected users" sender:self];
 }
 
 -(void)showSettings
@@ -261,6 +265,8 @@
         {
             [self.followButton setTitle:_user.isFollowed.boolValue?@"Unfollow":@"Follow" forState:UIControlStateNormal];
         }
+        self.numberOfFollowersLabel.text = [_user.numberOfFollowers stringValue];
+        self.numberOfFollowingLabel.text = [_user.numberOfFollowing stringValue];
     }
 }
 

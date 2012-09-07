@@ -39,8 +39,8 @@
      @"password_confirmation", @"passwordConfirmation",
      @"profile_photo_url", @"profilePhotoURL",
      @"single_access_token", @"singleAccessToken",
-     @"following", @"following",
-     @"followers", @"followers",
+     @"number_of_following", @"numberOfFollowing",
+     @"number_of_followers", @"numberOfFollowers",
      @"is_followed",@"isFollowed",
      nil];
     

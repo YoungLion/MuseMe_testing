@@ -54,7 +54,6 @@
 		0D6600AD15EDCF9800AF0687 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6600AB15EDCF9800AF0687 /* Default@2x.png */; };
 		0D729A2F15EC87EA005DFA67 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D729A2D15EC87EA005DFA67 /* check.png */; };
 		0D729A3015EC87EA005DFA67 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D729A2E15EC87EA005DFA67 /* check@2x.png */; };
-		0D729A3715EC8EA3005DFA67 /* profilePage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D729A3615EC8EA3005DFA67 /* profilePage.png */; };
 		0D8F49D315B605CF00C2DAEF /* PollResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F49D215B605CF00C2DAEF /* PollResultViewController.m */; };
 		0D8F49D615B6065A00C2DAEF /* PollResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F49D515B6065A00C2DAEF /* PollResultCell.m */; };
 		0D8FA19915AF7606003011A0 /* PollItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8FA19615AF7606003011A0 /* PollItemCell.m */; };
@@ -308,7 +307,6 @@
 		0D6600AB15EDCF9800AF0687 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0D729A2D15EC87EA005DFA67 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		0D729A2E15EC87EA005DFA67 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
-		0D729A3615EC8EA3005DFA67 /* profilePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilePage.png; sourceTree = "<group>"; };
 		0D8F49D115B605CF00C2DAEF /* PollResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollResultViewController.h; sourceTree = "<group>"; };
 		0D8F49D215B605CF00C2DAEF /* PollResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollResultViewController.m; sourceTree = "<group>"; };
 		0D8F49D415B6065A00C2DAEF /* PollResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollResultCell.h; sourceTree = "<group>"; };
@@ -897,7 +895,6 @@
 				0D15822315ECE3A900AED633 /* tab.png */,
 				0D15821E15ECE15E00AED633 /* tab-hl@2x.png */,
 				0D15821F15ECE15E00AED633 /* tab@2x.png */,
-				0D729A3615EC8EA3005DFA67 /* profilePage.png */,
 				4D5CA0BF15EC581A00403BE6 /* Votes.png */,
 				4D5CA0C015EC581A00403BE6 /* Votes@2x.png */,
 			);
@@ -1109,7 +1106,6 @@
 				4D5CA0C215EC581A00403BE6 /* Votes@2x.png in Resources */,
 				0D729A2F15EC87EA005DFA67 /* check.png in Resources */,
 				0D729A3015EC87EA005DFA67 /* check@2x.png in Resources */,
-				0D729A3715EC8EA3005DFA67 /* profilePage.png in Resources */,
 				4DC659EB15EC87C900728E30 /* Action@2x.png in Resources */,
 				0D15822015ECE15E00AED633 /* tab-hl@2x.png in Resources */,
 				0D15822115ECE15E00AED633 /* tab@2x.png in Resources */,

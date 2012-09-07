@@ -42,9 +42,10 @@
     [super viewDidAppear:animated];
     [_spinner startAnimating];
     NSString* resourcePath;
-    if (_userConnectionType == FOLLOWING){
+    NSLog(@"_userConnectionType = %d",self.userConnectionType );
+    if (self.userConnectionType == FOLLOWING){
         resourcePath = [NSString stringWithFormat:@"/following_of_user/%@", _user.userID];
-    }else if (_userConnectionType == FOLLOWERS){
+    }else if (self.userConnectionType == FOLLOWERS){
         resourcePath = [NSString stringWithFormat:@"/followers_of_user/%@", _user.userID];
     }
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:resourcePath delegate:self];
@@ -103,13 +104,14 @@
 - (void)request:(RKRequest*)request didLoadResponse:
 (RKResponse*)response {
     if ([response isJSON]) {
+        NSLog(@"resource path:%@", request.resourcePath);
         NSLog(@"Got a JSON, %@", response.bodyAsString);
     }
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    if ([objectLoader.resourcePath hasPrefix:@"/user_search"]){
+    if ([objectLoader.resourcePath hasPrefix:@"/following_of_user"]||[objectLoader.resourcePath hasPrefix:@"/followers_of_user"]){
         self.users = objects;
         [_spinner stopAnimating];
     }
