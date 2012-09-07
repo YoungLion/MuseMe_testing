@@ -19,6 +19,7 @@
 @synthesize spinner=_spinner;
 @synthesize users = _users;
 @synthesize user = _user;
+@synthesize userConnectionType = _userConnectionType;
 
 - (void)viewDidLoad
 {
