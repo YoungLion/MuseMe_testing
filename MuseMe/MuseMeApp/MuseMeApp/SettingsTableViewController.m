@@ -168,6 +168,7 @@
     if (![textField.text isEqualToString:currentUser.username])
     {
         currentUser.username = textField.text;
+        currentUser.isFollowed = nil;
         [[RKObjectManager sharedManager] putObject:currentUser delegate:self];
     }
     [textField resignFirstResponder];
