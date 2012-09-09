@@ -38,6 +38,7 @@
 #define CURRENTUSERID @"currentUserID"
 #define IS_OLD_USER @"isOldUser"
 #define SINGLE_ACCESS_TOKEN_KEY @"singleAccessTokenKey"
+#define DEVICE_TOKEN_KEY @"DeviceToken"
 
 #define BACKGROUND_COLOR @"BG.png"
 #define NAV_BAR_BACKGROUND_COLOR @"header_bg.png"

@@ -22,4 +22,5 @@
 @synthesize numberOfFollowers = _numberOfFollowers;
 @synthesize numberOfFollowing = _numberOfFollowing;
 @synthesize isFollowed = _isFollowed;
+@synthesize deviceToken = _deviceToken;
 @end
