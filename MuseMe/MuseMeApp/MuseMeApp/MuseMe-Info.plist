@@ -27,8 +27,19 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>[com.facebook.test]</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb142566439218323</string>
+            </array>
+        </dict>
+    </array>
 	<key>FacebookAppID</key>
-	<string>374039455997865</string>
+	<string>142566439218323</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>

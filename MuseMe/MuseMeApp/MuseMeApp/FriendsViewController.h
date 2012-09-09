@@ -16,5 +16,5 @@
 // The saved state of the search UI if a memory warning removed the view.
 @property (nonatomic, copy) NSString *savedSearchTerm;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
+@property (strong, nonatomic) FBLoginView *loginView;
 @end

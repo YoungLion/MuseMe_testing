@@ -65,7 +65,6 @@ static NSUInteger kNumberOfPages = 6;
     _passwordConfirmationField.backgroundColor = [UIColor colorWithWhite:1 alpha:0.75];
     _passwordConfirmationField.alpha = 0;
 
-    
     /*_emailField.inputAccessoryView = [Utility keyboardAccessoryToolBarWithButton:@"Dismiss" target:self action:@selector(dismissAll)];
     _passwordField.inputAccessoryView = [Utility keyboardAccessoryToolBarWithButton:@"Dismiss" target:self action:@selector(dismissAll)];    choiceMade = NO;
     _passwordConfirmationField.inputAccessoryView = [Utility keyboardAccessoryToolBarWithButton:@"Dismiss" target:self action:@selector(dismissAll)];*/

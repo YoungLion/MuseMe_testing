@@ -12,6 +12,7 @@
 @implementation User
 
 @synthesize userID=_userID;
+@synthesize fbID = _fbID;
 @synthesize username=_username;
 @synthesize password=_password;
 @synthesize email=_email;

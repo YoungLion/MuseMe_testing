@@ -25,7 +25,7 @@
 #import "MultipartLabel.h"
 #import "UILabel+UILabel_Auto.h"
 #import <Quartzcore/Quartzcore.h>
-//#import <FacebookSDK/FacebookSDK.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 #define KULER_YELLOW 0
 #define KULER_BLACK 1
@@ -106,6 +106,5 @@ HJObjManager *HJObjectManager;
 @interface MuseMeDelegate : UIResponder 
 
 @property (strong, nonatomic) UIWindow *window;
-
 
 @end

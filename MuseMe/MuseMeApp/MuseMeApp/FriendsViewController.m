@@ -10,7 +10,9 @@
 #import "UserCell.h"
 #import "ProfileTableViewController.h"
 
-@interface FriendsViewController ()
+@interface FriendsViewController (){
+    id<FBGraphUser> fbUser;
+}
 @property (nonatomic, strong) UIActivityIndicatorView* spinner;
 @end
 
@@ -18,6 +20,7 @@
 @synthesize searchBar;
 @synthesize filteredListContent, savedSearchTerm;
 @synthesize spinner=_spinner;
+@synthesize loginView = _loginView;
 
 - (void)viewDidLoad
 {
@@ -41,6 +44,8 @@
     _spinner.hidesWhenStopped = YES;
     [self.view addSubview:_spinner];
     self.searchBar.delegate = self;
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -151,7 +156,6 @@
     cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     if (user.profilePhotoURL){
         [cell.userPhoto clear];
-        [cell.userPhoto showLoadingWheel];
         cell.userPhoto.url = [NSURL URLWithString:user.profilePhotoURL];
         [HJObjectManager manage:cell.userPhoto];
     }

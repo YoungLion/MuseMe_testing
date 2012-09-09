@@ -207,17 +207,14 @@
 
 - (IBAction)vote:(UIButton *)sender
 {
-    if (votingState) {
-        return;
-    }else{
-        votingState = YES;
-    }
+    sender.enabled = NO;
     PollItemCell *cell = (PollItemCell*)[[sender superview] superview];
+    
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{cell.votePercentageLabel.alpha = 1;} completion:nil];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Item *item = [self.poll.items objectAtIndex:indexPath.row];
     Audience *audience = [self.poll.audiences objectAtIndex:audienceIndex];
-    
-    if ([[[self.poll.audiences objectAtIndex:audienceIndex] hasVoted] boolValue]){
+    /*if ([[[self.poll.audiences objectAtIndex:audienceIndex] hasVoted] boolValue]){
         // if the current user has voted for an item in this poll, then undo the voting
         audience.hasVoted= [NSNumber numberWithInt:0];
         [[RKObjectManager sharedManager] putObject:audience delegate:self];
@@ -230,7 +227,7 @@
         
        
         
-    }else {
+    }else {*/
         //if the current user has not voted for an item in this poll, then vote for this item
         audience.hasVoted=item.itemID;
         [[RKObjectManager sharedManager] putObject:audience delegate:self];
@@ -249,8 +246,7 @@
         votingEvent.pollID = self.poll.pollID;
         votingEvent.itemID = item.itemID;
         [[RKObjectManager sharedManager] postObject:votingEvent delegate:self];*/
-        [Utility showAlert:@"Voted!" message:@"You can click the checked box to undo your vote."];
-    }
+        [Utility showAlert:@"Voted!" message:@"We appreciate your vote."];
 }
 
 - (IBAction)voteCountLabelPressed:(UIButton *)sender {
@@ -586,9 +582,11 @@
 
     // Configure the cell...
     cell.voteButton.hidden = YES;
+    cell.voteButton.adjustsImageWhenDisabled = NO;
     // if the current user has voted for the item
     if ([currentUser.hasVoted isEqualToNumber:item.itemID]){
         cell.voteButton.hidden = NO;
+        cell.voteButton.enabled = NO;
         [cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX] forState:UIControlStateNormal];
         [cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX_HL] forState:UIControlStateHighlighted];
     }
@@ -609,6 +607,12 @@
     [HJObjectManager manage:cell.itemImage];
     
     cell.votePercentageLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/self.poll.totalVotes.intValue];
+    
+    if ([self.poll.state intValue] == VOTING && ((isOwnerView)||([currentUser.hasVoted boolValue]))){
+        cell.votePercentageLabel.alpha = 1;
+    }else{
+        cell.votePercentageLabel.alpha = 0;
+    }
 
     cell.timeStampLabel.text = [Utility formatTimeWithDate:item.addedTime];
     cell.voteCountLabel.text = [item.numberOfVotes stringValue];

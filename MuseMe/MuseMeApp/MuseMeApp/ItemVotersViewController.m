@@ -138,7 +138,6 @@
     cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     if (voter.profilePhotoURL){
         [cell.userPhoto clear];
-        [cell.userPhoto showLoadingWheel];
         cell.userPhoto.url = [NSURL URLWithString:voter.profilePhotoURL];
         [HJObjectManager manage:cell.userPhoto];
     }

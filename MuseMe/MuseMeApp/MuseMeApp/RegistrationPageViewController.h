@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Utility.h"
 
-@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate,FBLoginViewDelegate>
 {
     BOOL pageControlUsed;
 }
@@ -27,4 +27,5 @@
 //- (IBAction)changePage:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
+
 @end

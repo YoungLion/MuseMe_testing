@@ -10,7 +10,7 @@
 
 @interface User : NSObject
 
-@property (nonatomic, strong) NSNumber *userID, *isFollowed;
+@property (nonatomic, strong) NSNumber *userID, *isFollowed, *fbID;
 @property (nonatomic, strong) NSString *username, *password, *passwordConfirmation, *email, *singleAccessToken;
 @property (nonatomic, strong) NSString *profilePhotoURL;
 @property (nonatomic, strong) NSNumber *numberOfFollowing, *numberOfFollowers;
