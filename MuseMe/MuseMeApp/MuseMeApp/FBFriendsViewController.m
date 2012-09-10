@@ -12,6 +12,7 @@
 {
     NSArray* data;
     NSMutableArray* friends;
+    UserGroup* users;
     User* user;
     FBRequestConnection *FBConnection;
 }
@@ -80,6 +81,7 @@
 {
     FBRequestHandler handler =
     ^(FBRequestConnection *connection, id result, NSError *error) {
+        NSLog(@"received from facebook: %@", result);
         data = [(NSDictionary*)result objectForKey:@"data"];
         friends = [[NSMutableArray alloc] initWithCapacity:data.count];
         for (int i = 0; i < data.count; i += 1) {
@@ -89,10 +91,9 @@
             tempUser.username = [userData objectForKey:@"name"];
             [friends addObject:tempUser];
         }
-        [[RKObjectManager sharedManager] postObject:friends usingBlock:^(RKObjectLoader *loader) {
-            loader.resourcePath = @"/fb_friends";
-        }];
-        [self.tableView reloadData];
+        users = [UserGroup new];
+        users.users = [friends copy];
+        [[RKObjectManager sharedManager] postObject:users delegate:self];
     };
     
     [FBRequestConnection startForMyFriendsWithCompletionHandler:handler];
@@ -113,7 +114,12 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
-    NSLog(@"user %@ connected with fbid %@", user.userID, user.fbID);
+    
+    if ([objectLoader.resourcePath hasPrefix:@"/fb_friends"]){
+        [self.tableView reloadData];
+    }else{
+       NSLog(@"user %@ connected with fbid %@", user.userID, user.fbID); 
+    }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -137,9 +143,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *friend = [friends objectAtIndex:indexPath.row];
-    NSString *fbid = [friend objectForKey:@"id"];
-    NSString *name = [friend objectForKey:@"name"];
+    User* friend = [users.users objectAtIndex:indexPath.row];
     static NSString *CellIdentifier = @"fb user cell";
     UserCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -151,10 +155,22 @@
     [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
     cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     [cell.userPhoto clear];
-    cell.userPhoto.url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", fbid]];
+    if (!friend.profilePhotoURL) {friend.profilePhotoURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", friend.fbID];}
+    cell.userPhoto.url = [NSURL URLWithString:friend.profilePhotoURL];
     [HJObjectManager manage:cell.userPhoto];
     
-    cell.usernameLabel.text = name;
+    if (!friend.userID) {
+        [cell.followButton setTitle:@"Invite" forState:UIControlStateNormal];
+    }else{
+        if (friend.isFollowed.boolValue){
+            [cell.followButton setTitle:@"Unfollow" forState:UIControlStateNormal];
+        }else{
+            [cell.followButton setTitle:@"Follow" forState:UIControlStateNormal];
+        }
+    }
+    [cell.followButton sizeToFit];
+    
+    cell.usernameLabel.text = friend.username;
     [cell.usernameLabel adjustsFontSizeToFitWidth];
     
     return cell;

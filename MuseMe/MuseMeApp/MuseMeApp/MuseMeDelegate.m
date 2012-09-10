@@ -8,7 +8,6 @@
 
 #import "MuseMeDelegate.h"
 
-
 @implementation MuseMeDelegate
 
 @synthesize window = _window;
@@ -48,6 +47,10 @@
     
     [[RKObjectManager sharedManager].mappingProvider registerMapping:userMapping withRootKeyPath:@"user"];
     
+    // Class:UserGroup
+    RKObjectMapping* userGroupMapping = [RKObjectMapping mappingForClass:[UserGroup class]];
+    [userGroupMapping mapRelationship:@"users" withMapping:userMapping];
+    [[RKObjectManager sharedManager].mappingProvider registerMapping:userGroupMapping withRootKeyPath:@"users"];
     
     // Class:PollRecord
     RKObjectMapping* pollRecordMapping = [RKObjectMapping mappingForClass:[PollRecord class]];
@@ -143,6 +146,8 @@
     [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/users/:userID"];
 	[[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/signup" forMethod:RKRequestMethodPOST];
     
+    [[RKObjectManager sharedManager].router routeClass:[UserGroup class] toResourcePath:@"/fb_friends"];
+    
     [[RKObjectManager sharedManager].router routeClass:[PollRecord class] toResourcePath:@"/poll_records/:pollID"];
 	[[RKObjectManager sharedManager].router routeClass:[PollRecord class] toResourcePath:@"/poll_records" forMethod:RKRequestMethodPOST];
     
@@ -226,7 +231,9 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
-    [Utility setObject:deviceToken forKey:DEVICE_TOKEN_KEY];
+    NSString *deviceTokenString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    deviceTokenString = [deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [Utility setObject:deviceTokenString forKey:DEVICE_TOKEN_KEY];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error

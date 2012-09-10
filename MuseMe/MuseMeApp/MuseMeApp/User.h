@@ -14,5 +14,5 @@
 @property (nonatomic, strong) NSString *username, *password, *passwordConfirmation, *email, *singleAccessToken;
 @property (nonatomic, strong) NSString *profilePhotoURL;
 @property (nonatomic, strong) NSNumber *numberOfFollowing, *numberOfFollowers;
-@property (nonatomic, strong) NSData *deviceToken;
+@property (nonatomic, strong) NSString *deviceToken;
 @end

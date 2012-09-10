@@ -12,6 +12,7 @@
 #import "HJManagedImageV.h"
 #import "Event.h"
 #import "User.h"
+#import "UserGroup.h"
 #import "Poll.h"
 #import "Item.h"
 #import "PollRecord.h"

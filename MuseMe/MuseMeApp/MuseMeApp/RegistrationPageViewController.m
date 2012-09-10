@@ -245,6 +245,7 @@ static NSUInteger kNumberOfPages = 6;
         user.email = self.emailField.text;
         user.password = self.passwordField.text;
         user.passwordConfirmation = self.passwordConfirmationField.text;
+        
         user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY];
         [self lockUI];
         [self.spinner startAnimating];

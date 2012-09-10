@@ -101,7 +101,6 @@
 
 - (id)objectWithString:(NSString*)jsonText
                  error:(NSError**)error;
-
 @end
 
 

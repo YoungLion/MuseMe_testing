@@ -54,6 +54,7 @@
 		0D6600AD15EDCF9800AF0687 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6600AB15EDCF9800AF0687 /* Default@2x.png */; };
 		0D729A2F15EC87EA005DFA67 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D729A2D15EC87EA005DFA67 /* check.png */; };
 		0D729A3015EC87EA005DFA67 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D729A2E15EC87EA005DFA67 /* check@2x.png */; };
+		0D73775115FDADFD00A455D5 /* UserGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D73775015FDADFD00A455D5 /* UserGroup.m */; };
 		0D8BB21C15FB3F970001C5CB /* FBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8BB21B15FB3F970001C5CB /* FBFriendsViewController.m */; };
 		0D8F49D315B605CF00C2DAEF /* PollResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F49D215B605CF00C2DAEF /* PollResultViewController.m */; };
 		0D8F49D615B6065A00C2DAEF /* PollResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F49D515B6065A00C2DAEF /* PollResultCell.m */; };
@@ -309,6 +310,8 @@
 		0D6600AB15EDCF9800AF0687 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0D729A2D15EC87EA005DFA67 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		0D729A2E15EC87EA005DFA67 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		0D73774F15FDADFD00A455D5 /* UserGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGroup.h; sourceTree = "<group>"; };
+		0D73775015FDADFD00A455D5 /* UserGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGroup.m; sourceTree = "<group>"; };
 		0D8BB21A15FB3F970001C5CB /* FBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFriendsViewController.h; sourceTree = "<group>"; };
 		0D8BB21B15FB3F970001C5CB /* FBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFriendsViewController.m; sourceTree = "<group>"; };
 		0D8F49D115B605CF00C2DAEF /* PollResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollResultViewController.h; sourceTree = "<group>"; };
@@ -735,6 +738,8 @@
 				0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */,
 				0DA5BF3615F86252008F8B72 /* Relationship.h */,
 				0DA5BF3715F86252008F8B72 /* Relationship.m */,
+				0D73774F15FDADFD00A455D5 /* UserGroup.h */,
+				0D73775015FDADFD00A455D5 /* UserGroup.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1250,6 +1255,7 @@
 				0DA5BF3815F86252008F8B72 /* Relationship.m in Sources */,
 				0DA2499915F94AD900868643 /* ConnectedUserViewController.m in Sources */,
 				0D8BB21C15FB3F970001C5CB /* FBFriendsViewController.m in Sources */,
+				0D73775115FDADFD00A455D5 /* UserGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

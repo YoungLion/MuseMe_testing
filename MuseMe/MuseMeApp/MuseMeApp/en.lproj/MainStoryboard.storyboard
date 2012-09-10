@@ -2064,12 +2064,6 @@
         <class className="PollTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PollTableViewController.h"/>
             <relationships>
-                <relationship kind="action" name="actionButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="backButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="deleteButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="newItemButtonPressed:"/>
-                <relationship kind="action" name="vote:" candidateClass="UIButton"/>
-                <relationship kind="action" name="voteCountLabelPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="categoryIconView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="AppFormattedLabel"/>
                 <relationship kind="outlet" name="openPollHint" candidateClass="UIImageView"/>
@@ -2096,8 +2090,6 @@
         <class className="RegistrationPageViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationPageViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
-                <relationship kind="action" name="signupButtonPressed:"/>
                 <relationship kind="outlet" name="background" candidateClass="UIControl"/>
                 <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
