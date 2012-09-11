@@ -125,8 +125,8 @@
     [cell.brandLabel adjustHeight];
         //cell.brandPreLabel.hidden = NO;
     //}
-    cell.numberOfVotesIndicator.progress = item.numberOfVotes.floatValue/self.poll.totalVotes.floatValue;
-    cell.numberOfVotesLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/self.poll.totalVotes.intValue];
+    cell.numberOfVotesIndicator.progress = item.numberOfVotes.floatValue/(self.poll.totalVotes.floatValue == 0? 1:self.poll.totalVotes.floatValue);
+    cell.numberOfVotesLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/(self.poll.totalVotes.intValue == 0? 1:self.poll.totalVotes.intValue)];
 
     return cell;
 }
