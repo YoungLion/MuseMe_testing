@@ -10,6 +10,7 @@
 #import "Utility.h"
 #import "UserCell.h"
 
-@interface FBFriendsViewController : UITableViewController<RKObjectLoaderDelegate>
+@interface FBFriendsViewController : UITableViewController<RKObjectLoaderDelegate, UISearchBarDelegate, FBDialogDelegate>
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

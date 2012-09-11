@@ -11,6 +11,7 @@
 @implementation MuseMeDelegate
 
 @synthesize window = _window;
+@synthesize facebook = _facebook;
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
@@ -241,4 +242,43 @@
 	NSLog(@"Failed to get token, error: %@", error);
 }
 
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen:
+            if (!error) {
+                // We have a valid session
+                
+                // Initiate a Facebook instance
+                self.facebook = [[Facebook alloc]
+                                 initWithAppId:FBSession.activeSession.appID
+                                 andDelegate:nil];
+                
+                // Store the Facebook session information
+                self.facebook.accessToken = FBSession.activeSession.accessToken;
+                self.facebook.expirationDate = FBSession.activeSession.expirationDate;
+            }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+            [FBSession.activeSession closeAndClearTokenInformation];
+            // Clear out the Facebook instance
+            self.facebook = nil;
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
 @end

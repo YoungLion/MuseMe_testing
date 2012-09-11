@@ -8,17 +8,23 @@
 
 #import "FBFriendsViewController.h"
 
+
 @interface FBFriendsViewController ()
 {
     NSArray* data;
     NSMutableArray* friends;
     UserGroup* users;
-    User* user;
     FBRequestConnection *FBConnection;
+    MuseMeDelegate *appDelegate;
 }
+@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+@property (nonatomic, strong) NSMutableArray* filteredListContent;
 @end
 
 @implementation FBFriendsViewController
+@synthesize searchBar = _searchBar;
+@synthesize spinner = _spinner;
+
 
 - (void)viewDidLoad
 {
@@ -27,6 +33,16 @@
     
     UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
+    _spinner.center = CGPointMake(160, 208);
+    _spinner.hidesWhenStopped = YES;
+    [self.view addSubview:_spinner];
+    self.searchBar.delegate = self;
+    
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    
     FBConnection = [FBRequestConnection new];
     if (FBSession.activeSession.isOpen) {
         // login is integrated with the send button -- so if open, we send
@@ -38,22 +54,12 @@
                                                       FBSessionState status,
                                                       NSError *error) {
                                       // if login fails for any reason, we alert
-                                      if (error) {
-                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                          message:error.localizedDescription
-                                                                                         delegate:nil
-                                                                                cancelButtonTitle:@"OK"
-                                                                                otherButtonTitles:nil];
-                                          [alert show];
-                                          // if otherwise we check to see if the session is open, an alternative to
-                                          // to the FB_ISSESSIONOPENWITHSTATE helper-macro would be to check the isOpen
-                                          // property of the session object; the macros are useful, however, for more
-                                          // detailed state checking for FBSession objects
-                                      } else if (FB_ISSESSIONOPENWITHSTATE(status)) {
+                                      [appDelegate sessionStateChanged:session state:status error:error];
+                                      if ((!error) && FB_ISSESSIONOPENWITHSTATE(status)) {
                                           // send our requests if we successfully logged in
                                           FBRequestHandler handler =
                                           ^(FBRequestConnection *connection, id result, NSError *error) {
-                                              user = [User new];
+                                              User* user = [User new];
                                               user.userID = [Utility getObjectForKey:CURRENTUSERID];
                                               user.fbID = [(NSDictionary*)result objectForKey:@"id"];
                                               [[RKObjectManager sharedManager] putObject:user delegate:self];
@@ -67,6 +73,7 @@
 
 - (void)viewDidUnload
 {
+    [self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -104,6 +111,56 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)followButtonPressed:(UIButton*)sender {
+    UserCell* cell = (UserCell*)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    User* user;
+    if (self.filteredListContent){
+        user = [self.filteredListContent objectAtIndex:indexPath.row];
+    }else
+    {
+        user = [users.users objectAtIndex:indexPath.row];
+    }
+    if (user.isFollowed){
+        if (user.isFollowed.boolValue){
+            [self unfollowUser:user.userID];
+        }else{
+            [self followUser:user.userID];
+        }
+        user.isFollowed = [NSNumber numberWithBool:!(user.isFollowed.boolValue)];
+    }else{
+        [self inviteFBUser:user.fbID];
+        sender.enabled = NO;
+        [sender setTitle:@"Invited" forState:UIControlStateDisabled];
+    }
+    [self.tableView reloadData];
+}
+
+-(void)unfollowUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/unfollow_user/%@",userID] delegate:self];
+}
+
+-(void)followUser:(NSNumber*)userID
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/follow_user/%@",userID] delegate:self];
+}
+
+-(void)inviteFBUser:(NSNumber*)fbID
+{
+    if (FBSession.activeSession.isOpen){
+        
+        Facebook* facebook = appDelegate.facebook;
+        NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"Check out this awesome app.",  @"message",
+                                       /*[NSString stringWithFormat:@"%@",fbID]*/@"1702730384", @"to",
+                                       nil];
+        [facebook dialog:@"apprequests"
+               andParams:params
+             andDelegate:self];
+    }
+}
+
 #pragma mark - RKObjectLoader delegate method
 - (void)request:(RKRequest*)request didLoadResponse:
 (RKResponse*)response {
@@ -118,7 +175,7 @@
     if ([objectLoader.resourcePath hasPrefix:@"/fb_friends"]){
         [self.tableView reloadData];
     }else{
-       NSLog(@"user %@ connected with fbid %@", user.userID, user.fbID); 
+       NSLog(@"user %@ connected with fbid %@", ((User*)(objectLoader.sourceObject)).userID, ((User*)(objectLoader.sourceObject)).fbID);
     }
 }
 
@@ -138,12 +195,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return friends.count;
+    if (self.filteredListContent)
+    {
+        return self.filteredListContent.count;
+    }else{
+        return users.users.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    User* friend = [users.users objectAtIndex:indexPath.row];
+    User* friend;
+    if (self.filteredListContent) {
+        friend = [self.filteredListContent objectAtIndex:indexPath.row];
+    }else{
+        friend = [users.users objectAtIndex:indexPath.row];
+    }
     static NSString *CellIdentifier = @"fb user cell";
     UserCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -195,4 +262,46 @@
      */
 }
 
+#pragma mark - Search Bar delegate
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+	/*
+	 Update the filtered array based on the search text and scope.
+	 */
+	
+	[self.filteredListContent removeAllObjects]; // First clear the filtered array.
+	
+	/*
+	 Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
+	 */
+    [_spinner startAnimating];
+    self.filteredListContent = [NSMutableArray new];
+    for (User *friend in users.users)
+	{
+        NSRange result = [friend.username rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
+        if (result.location != NSNotFound)
+        {
+            [self.filteredListContent addObject:friend];
+        }
+	}
+    [_spinner stopAnimating];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length > 0)
+    {
+        [self filterContentForSearchText:searchText];
+        [self.tableView reloadData];
+    }else{
+        self.filteredListContent = nil;
+        [self.tableView reloadData];
+    }
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
+{
+    NSLog(@"clicked");
+    [theSearchBar resignFirstResponder];
+}
 @end

@@ -606,7 +606,7 @@
     cell.itemImage.url = [NSURL URLWithString:item.photoURL];
     [HJObjectManager manage:cell.itemImage];
     
-    cell.votePercentageLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/self.poll.totalVotes.intValue];
+    cell.votePercentageLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/(self.poll.totalVotes.intValue == 0? 1:self.poll.totalVotes.intValue)];
     
     if ([self.poll.state intValue] == VOTING && ((isOwnerView)||([currentUser.hasVoted boolValue]))){
         cell.votePercentageLabel.alpha = 1;

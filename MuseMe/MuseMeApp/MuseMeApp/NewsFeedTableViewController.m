@@ -19,11 +19,13 @@
 #define CategoryIconFrame CGRectMake(292,9,23,23)
 #define ItemImageFrame CGRectMake(5,57,310,310)
 #define degreesToRadians(degrees) (M_PI * degrees / 180.0)
+#define Reload_Distance 10.0
 
 @interface NewsFeedTableViewController (){
     User* userToBePassed;
+    BOOL isLoading;
 }
-@property (nonatomic, strong) NSArray* events;
+@property (nonatomic, strong) NSMutableArray* events;
 @property (nonatomic, strong) UIActivityIndicatorView* spinner;
 @end
 
@@ -77,6 +79,11 @@
     _spinner.center = CGPointMake(160, 208);
     _spinner.hidesWhenStopped = YES;
     [self.view addSubview:_spinner];
+    
+    self.events = [NSMutableArray new];
+    isLoading = NO;
+    [_spinner startAnimating];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events/0" delegate:self];
 }
 
 - (void)viewDidUnload
@@ -108,8 +115,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = NO;
-    [_spinner startAnimating];
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events" delegate:self];
 }
 
 -(void) viewWillDisappear:(BOOL)animated
@@ -139,13 +144,14 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
-    if ([objectLoader wasSentToResourcePath:@"/events"]){
-        self.events = objects;
+    if ([objectLoader.resourcePath hasPrefix:@"/events"]){
+        [self.events addObjectsFromArray:objects];
         [_spinner stopAnimating];
         _spinner = nil;
         NSLog(@"%u", self.events.count);
         
         [self.tableView reloadData];
+        isLoading = NO;
     }
 }
 
@@ -337,5 +343,19 @@ forRowAtIndexPath: (NSIndexPath*)indexPath{
     [imageView showLoadingWheel];
     imageView.url = url;
     [HJObjectManager manage:imageView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    CGPoint offset = aScrollView.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    CGFloat y = offset.y + bounds.size.height - inset.bottom;
+    CGFloat h = size.height;
+    if ((y > h + Reload_Distance) && !isLoading) {
+        NSLog(@"load more rows");
+        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/events/%u", self.events.count] delegate:self];
+         isLoading = YES;
+    }
 }
 @end

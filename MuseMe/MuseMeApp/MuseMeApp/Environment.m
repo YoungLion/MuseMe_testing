@@ -15,5 +15,5 @@ NSString* const BaseURL = @"http://10.30.141.98:3000";//10.30.141.98 yong
 #elif ENVIRONMENT == ENVIRONMENT_STAGING
 NSString* const BaseURL = @"http://stamp-bugs.herokuapp.com";
 #elif ENVIRONMENT == ENVIRONMENT_PRODUCTION
-NSString* const BaseURL = @"http://shop-vote.herokuapp.com";//@"http://gentle-hamlet-2953.herokuapp.com";
+NSString* const BaseURL = @"http://shop-vote.herokuapp.com";
 #endif
