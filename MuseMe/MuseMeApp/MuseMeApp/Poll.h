@@ -19,7 +19,7 @@ typedef enum{
     Art = 0,
     Beauty = 1,
     Cars = 2,
-    Cuteness = 3,
+    CuteThings = 3,
     Electronics = 4,
     Events = 5,
     Fashion = 6,

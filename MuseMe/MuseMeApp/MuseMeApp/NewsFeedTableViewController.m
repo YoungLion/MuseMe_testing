@@ -130,7 +130,7 @@
 
 
 - (IBAction)refresh:(id)sender {
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events" delegate:self]; 
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events/0" delegate:self]; 
 }
 
 #pragma mark - RKObjectLoader Delegate Methods
@@ -145,13 +145,17 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
     if ([objectLoader.resourcePath hasPrefix:@"/events"]){
-        [self.events addObjectsFromArray:objects];
-        [_spinner stopAnimating];
-        _spinner = nil;
-        NSLog(@"%u", self.events.count);
-        
-        [self.tableView reloadData];
-        isLoading = NO;
+        if ([objectLoader.resourcePath hasPrefix:@"/events/0"]){
+            self.events = [objects mutableCopy];
+        }else{
+            [self.events addObjectsFromArray:objects];
+        }
+            [_spinner stopAnimating];
+            _spinner = nil;
+            NSLog(@"%u", self.events.count);
+            
+            [self.tableView reloadData];
+            isLoading = NO;
     }
 }
 

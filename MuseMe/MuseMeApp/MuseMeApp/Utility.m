@@ -158,7 +158,7 @@ double secondsInAYear = 3600*24*365;
             break;
         case Beauty: imageName = @"Beauty";
             break;
-        case Cuteness: imageName = @"CuteThings";
+        case CuteThings: imageName = @"CuteThings";
             break;
         case Electronics: imageName = @"Electronics";
             break;
@@ -186,7 +186,7 @@ double secondsInAYear = 3600*24*365;
         case Art: return @"Art";
         case Cars: return @"Cars";
         case Beauty: return @"Beauty";
-        case Cuteness: return @"Cute things";
+        case CuteThings: return @"Cute things";
         case Electronics: return @"Electronics";
         case Events: return @"Events";
         case Fashion: return @"Fashion";
@@ -206,8 +206,8 @@ double secondsInAYear = 3600*24*365;
         return Cars;
     }else if ([string isEqualToString:@"Beauty"]){
         return Beauty;
-    }else if ([string isEqualToString:@"Cuteness"]){
-        return Cuteness;
+    }else if ([string isEqualToString:@"CuteThings"]){
+        return CuteThings;
     }else if ([string isEqualToString:@"Electronics"]){
         return Electronics;
     }else if ([string isEqualToString:@"Events"]){
