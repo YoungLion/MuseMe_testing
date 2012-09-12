@@ -352,7 +352,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath{
     UIEdgeInsets inset = aScrollView.contentInset;
     CGFloat y = offset.y + bounds.size.height - inset.bottom;
     CGFloat h = size.height;
-    if ((y > h + Reload_Distance) && !isLoading) {
+    if ((y > h - Reload_Distance) && !isLoading) {
         NSLog(@"load more rows");
         [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/events/%u", self.events.count] delegate:self];
          isLoading = YES;
