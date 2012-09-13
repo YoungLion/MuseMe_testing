@@ -90,7 +90,7 @@
 		0D94F51E15A7FCEB00903F0B /* NewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F51D15A7FCEB00903F0B /* NewsFeedTableViewController.m */; };
 		0D957D2215B0DC37009D37AA /* comments icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D957D2115B0DC37009D37AA /* comments icon.png */; };
 		0D957D2515B0E09C009D37AA /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D957D2415B0E09B009D37AA /* ProfileTableViewController.m */; };
-		0D96665E15AB9DEB00753491 /* comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D96665D15AB9DEA00753491 /* comment.m */; };
+		0D96665E15AB9DEB00753491 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D96665D15AB9DEA00753491 /* Comment.m */; };
 		0D98F3E215C0B2B20046423C /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3D715C0B2070046423C /* libRestKit.a */; };
 		0D98F3E415C0B2EE0046423C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3E315C0B2EE0046423C /* CFNetwork.framework */; };
 		0D98F3E615C0B2FA0046423C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3E515C0B2FA0046423C /* CoreData.framework */; };
@@ -135,6 +135,7 @@
 		0DA5BF3515F847EA008F8B72 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3415F847EA008F8B72 /* UserCell.m */; };
 		0DA5BF3815F86252008F8B72 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3715F86252008F8B72 /* Relationship.m */; };
 		0DA5C3C915CDA9B90020D7A8 /* PollRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */; };
+		0DAB2B17160164CC00260ED9 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB2B16160164CC00260ED9 /* CommentCell.m */; };
 		0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */; };
 		0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */; };
 		0DAF02B515F5C70A00C82B13 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02B415F5C70900C82B13 /* FriendsViewController.m */; };
@@ -355,8 +356,8 @@
 		0D957D2115B0DC37009D37AA /* comments icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "comments icon.png"; path = "img/comments icon.png"; sourceTree = "<group>"; };
 		0D957D2315B0E09B009D37AA /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		0D957D2415B0E09B009D37AA /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
-		0D96665C15AB9DEA00753491 /* comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comment.h; sourceTree = "<group>"; };
-		0D96665D15AB9DEA00753491 /* comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comment.m; sourceTree = "<group>"; };
+		0D96665C15AB9DEA00753491 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		0D96665D15AB9DEA00753491 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		0D96F0F516000DDA006FF8CB /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
 		0D96F0F616000DDA006FF8CB /* FacebookSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookSDK.h; sourceTree = "<group>"; };
 		0D96F0F716000DDA006FF8CB /* FBCacheDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBCacheDescriptor.h; sourceTree = "<group>"; };
@@ -456,6 +457,8 @@
 		0DA5BF3715F86252008F8B72 /* Relationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relationship.m; sourceTree = "<group>"; };
 		0DA5C3C715CDA9B90020D7A8 /* PollRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollRecord.h; sourceTree = "<group>"; };
 		0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollRecord.m; sourceTree = "<group>"; };
+		0DAB2B15160164CC00260ED9 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		0DAB2B16160164CC00260ED9 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVotersViewController.h; sourceTree = "<group>"; };
 		0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVotersViewController.m; sourceTree = "<group>"; };
 		0DAF02AC15F5353900C82B13 /* ItemVoterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVoterCell.h; sourceTree = "<group>"; };
@@ -748,6 +751,8 @@
 				4D558B0115E44BA300CDBD3D /* MultipartLabel.m */,
 				0D01DBC215F1B560003C26D7 /* UILabel+UILabel_Auto.h */,
 				0D01DBC315F1B560003C26D7 /* UILabel+UILabel_Auto.m */,
+				0DAB2B15160164CC00260ED9 /* CommentCell.h */,
+				0DAB2B16160164CC00260ED9 /* CommentCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -759,8 +764,8 @@
 				0D94F50A15A7D2BB00903F0B /* User.m */,
 				0D94F50815A7D2BB00903F0B /* Item.h */,
 				0D94F50915A7D2BB00903F0B /* Item.m */,
-				0D96665C15AB9DEA00753491 /* comment.h */,
-				0D96665D15AB9DEA00753491 /* comment.m */,
+				0D96665C15AB9DEA00753491 /* Comment.h */,
+				0D96665D15AB9DEA00753491 /* Comment.m */,
 				0D94F50B15A7D2BB00903F0B /* Poll.h */,
 				0D94F50C15A7D2BB00903F0B /* Poll.m */,
 				0DA4104F15CA43C000859E59 /* Event.h */,
@@ -1285,7 +1290,7 @@
 				0D94F51015A7D2BB00903F0B /* Poll.m in Sources */,
 				0D94F51615A7D30800903F0B /* NewPollViewController.m in Sources */,
 				0D94F51E15A7FCEB00903F0B /* NewsFeedTableViewController.m in Sources */,
-				0D96665E15AB9DEB00753491 /* comment.m in Sources */,
+				0D96665E15AB9DEB00753491 /* Comment.m in Sources */,
 				0D91EE5B15AD4BD300D1015D /* RegistrationPageViewController.m in Sources */,
 				0D99436315AEB1590037194D /* Utility.m in Sources */,
 				0D8FA19915AF7606003011A0 /* PollItemCell.m in Sources */,
@@ -1331,6 +1336,7 @@
 				0DA2499915F94AD900868643 /* ConnectedUserViewController.m in Sources */,
 				0D8BB21C15FB3F970001C5CB /* FBFriendsViewController.m in Sources */,
 				0D73775115FDADFD00A455D5 /* UserGroup.m in Sources */,
+				0DAB2B17160164CC00260ED9 /* CommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  comment.h
+//  Comment.h
 //  MuseMe
 //
 //  Created by Yong Lin on 7/9/12.
@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 
-@interface comment : NSObject
-@property (nonatomic, strong) User *commenter; 
+@interface Comment : NSObject
+@property (nonatomic, strong) User *commenter;
 @property (nonatomic, strong) NSString *content;
-
+@property (nonatomic, strong) NSNumber *itemID;
+@property (nonatomic, strong) NSDate *timeStamp;
 @end

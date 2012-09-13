@@ -9,6 +9,9 @@
 #import "CommentCell.h"
 
 @implementation CommentCell
+@synthesize userPhoto;
+@synthesize usernameLabel;
+@synthesize commentLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -3,7 +3,7 @@
 //  MuseMe
 //
 //  Created by Yong Lin on 7/6/12.
-//  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
+//  Copyright (c) 2012 MuseMe Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -27,6 +27,7 @@
 #import "UILabel+UILabel_Auto.h"
 #import <Quartzcore/Quartzcore.h>
 #import "Facebook.h"
+#import "Comment.h"
 
 #define KULER_YELLOW 0
 #define KULER_BLACK 1

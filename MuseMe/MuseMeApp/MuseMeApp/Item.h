@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSString *photoURL;
 @property (nonatomic, strong) NSDate* addedTime;
 @property (nonatomic, strong) NSArray* voters;
-//@property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) NSArray *comments;
 
 @end

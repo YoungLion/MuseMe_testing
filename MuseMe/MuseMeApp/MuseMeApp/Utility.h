@@ -1,9 +1,9 @@
 //
 //  Utility.h
-//  Chanda
+//  
 //
-//  Created by Mohammad Azam on 10/25/11.
-//  Copyright (c) 2011 HighOnCoding. All rights reserved.
+//  Created by Yong Lin on 8/25/12.
+//  Copyright (c) 2012 MuseMe Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

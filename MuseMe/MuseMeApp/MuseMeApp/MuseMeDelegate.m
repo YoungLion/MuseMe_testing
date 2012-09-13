@@ -3,7 +3,7 @@
 //  MuseMe
 //
 //  Created by Yong Lin on 7/6/12.
-//  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
+//  Copyright (c) 2012 MuseMe Inc. All rights reserved.
 //
 
 #import "MuseMeDelegate.h"
@@ -87,7 +87,15 @@
     [[RKObjectManager sharedManager].mappingProvider registerMapping:audienceMapping withRootKeyPath:@"audience"];
     
     // Class:Comment
-    //.........
+    RKObjectMapping* commentMapping = [RKObjectMapping mappingForClass:[Comment class]];
+    [commentMapping mapKeyPathsToAttributes:
+     @"id", @"commentID",
+     @"item_id", @"itemID",
+     @"content", @"content",
+     @"created_at", @"timeStamp",
+     nil];
+    [commentMapping mapRelationship:@"commenter" withMapping:userMapping];
+    [[RKObjectManager sharedManager].mappingProvider registerMapping:commentMapping withRootKeyPath:@"comment"];
     
     // Class:Item
     RKObjectMapping* itemMapping = [RKObjectMapping mappingForClass:[Item class]];
@@ -101,7 +109,7 @@
      @"brand", @"brand",
      @"created_at", @"addedTime",
      nil];
-    //[itemMapping mapRelationship:@"comments" withMapping:commentMapping];
+    [itemMapping mapRelationship:@"comments" withMapping:commentMapping];
     [itemMapping mapRelationship:@"voters" withMapping:userMapping];
     [[RKObjectManager sharedManager].mappingProvider registerMapping:itemMapping withRootKeyPath:@"item"];
     
