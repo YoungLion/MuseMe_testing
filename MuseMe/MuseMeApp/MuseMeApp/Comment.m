@@ -13,4 +13,6 @@
 @synthesize content = _content;
 @synthesize itemID = _itemID;
 @synthesize timeStamp = _timeStamp;
+@synthesize commentID = _commentID;
+@synthesize commenterID = _commenterID;
 @end

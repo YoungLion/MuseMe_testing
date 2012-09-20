@@ -320,4 +320,18 @@ double secondsInAYear = 3600*24*365;
     view.layer.cornerRadius = r;
     view.layer.masksToBounds = YES;
 }
+
++(void)renderCommentBox:(UIView*)view
+ withCornerRadius:(CGFloat)r
+   andBorderWidth:(CGFloat)w
+{
+    // border
+    view.layer.borderColor = [[Utility colorFromKuler:KULER_BLACK alpha:1] CGColor];
+    view.layer.borderWidth = w;
+    
+    // corner
+    view.layer.cornerRadius = r;
+    view.layer.masksToBounds = YES;
+}
+
 @end

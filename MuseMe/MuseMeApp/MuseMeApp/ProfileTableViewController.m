@@ -20,7 +20,7 @@
     BOOL isOwnProfile;
     int UserConnectionType;
 }
-@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+@property (nonatomic, strong) MuseMeActivityIndicator* spinner;
 @property (nonatomic, strong) NSMutableArray *editingPolls, *openedPolls, *votedPolls;
 @end
 
@@ -86,11 +86,7 @@
         self.navigationItem.leftBarButtonItem = backButton;
         
     }
-    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
-    _spinner.center = CGPointMake(160, 208);
-    _spinner.hidesWhenStopped = YES;
-    [self.view addSubview:_spinner];
+    _spinner = [MuseMeActivityIndicator new];
 }
 
 - (void)viewDidUnload
@@ -135,7 +131,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = NO;
-    [_spinner startAnimating];
+    [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_profile_poll_records/%@",_user.userID] delegate:self];
     [[RKObjectManager sharedManager] getObject:_user delegate:self];
 }

@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *voteButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UILabel *voteCountLabel;
-//@property (weak, nonatomic) IBOutlet AppFormattedLabel *commentCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brandLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
 

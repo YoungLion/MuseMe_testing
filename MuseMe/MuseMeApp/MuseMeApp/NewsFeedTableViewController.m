@@ -26,7 +26,7 @@
     BOOL isLoading;
 }
 @property (nonatomic, strong) NSMutableArray* events;
-@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+@property (nonatomic, strong) MuseMeActivityIndicator* spinner;
 @end
 
 @implementation NewsFeedTableViewController
@@ -74,15 +74,10 @@
     [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
-    _spinner.center = CGPointMake(160, 208);
-    _spinner.hidesWhenStopped = YES;
-    [self.view addSubview:_spinner];
-    
     self.events = [NSMutableArray new];
     isLoading = NO;
-    [_spinner startAnimating];
+    _spinner = [MuseMeActivityIndicator new];
+    [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events/0" delegate:self];
 }
 

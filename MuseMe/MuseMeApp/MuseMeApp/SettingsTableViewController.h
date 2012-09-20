@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet HJManagedImageV *profilePhoto;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 
 
 @end

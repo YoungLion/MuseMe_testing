@@ -14,7 +14,7 @@
 
 @interface AddToPollController (){
     BOOL newPoll, backMark;
-    UIActivityIndicatorView *spinner;
+    MuseMeActivityIndicator *spinner;
     NSMutableArray *pickerDataArray;
     NSArray *draftPolls;
     Poll *poll;
@@ -110,6 +110,11 @@
                                                   object:nil];*/
 }
 
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -127,13 +132,21 @@
             newPOllVC.delegate = self;
             [self.navigationController pushViewController:newPOllVC animated:YES];
         }else{
-           // [Utility setObject:_item.pollID forKey:IDOfPollToBeShown];
-            spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-            [spinner startAnimating];
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+            spinner = [MuseMeActivityIndicator new];
+            [spinner startAnimatingWithMessage:@"" inView:self.view];
+            self.navigationItem.rightBarButtonItem.enabled = NO;
             self.navigationItem.leftBarButtonItem.enabled = NO;
             _item.pollID = ((PollRecord*)[draftPolls objectAtIndex:[self.pickerView selectedRowInComponent:0]-1]).pollID;
-            [[RKObjectManager sharedManager] postObject:_item delegate:self];
+            _item.photo = UIImageJPEGRepresentation(self.capturedItemImage, 1.0f);
+            [[RKObjectManager sharedManager] postObject:self.item usingBlock:^(RKObjectLoader *loader){
+                
+                RKParams* params = [RKParams params];
+                [params setValue:_item.pollID forParam:@"item[poll_id]"];
+                [params setData:_item.photo MIMEType:@"image/jpeg" forParam:@"item[photo]"];
+                NSLog(@"post to %@",loader.resourcePath);
+                loader.params = params;
+                loader.delegate = self;
+            }];
         }
 }
 
@@ -142,25 +155,6 @@
    // [self.pickPollTitleTextField resignFirstResponder];
 }
 
-/*- (IBAction)pickPoll:(id)sender {
-    if (!self.pickerView.isOn)
-    {
-        [self.pickerView presentPickerView];
-        if ([self.pickerView selectedRowInComponent:0] != pickerDataArray.count){
-            self.pickPollTitleTextField.borderStyle = UITextBorderStyleNone;
-            self.pickPollTitleTextField.enabled = NO;
-            if (self.pickPollTitleTextField.text.length == 0){
-                self.pickPollTitleTextField.text = [pickerDataArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
-                _item.pollID = ((PollRecord*)[activePolls objectAtIndex:[self.pickerView selectedRowInComponent:0]]).pollID;
-            }
-        }else{
-            self.pickPollTitleTextField.borderStyle = UITextBorderStyleRoundedRect;
-            self.pickPollTitleTextField.enabled = YES;
-        }
-    }else{
-        [self.pickerView dismissPickerView];
-    }
-}*/
 
 -(void)backWithFlipAnimation{
     [Utility setObject:self.item.pollID forKey:IDOfPollToBeShown];
@@ -180,66 +174,9 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    if ([objectLoader wasSentToResourcePath:@"/items" method:RKRequestMethodPOST] ){
-        // Having got an item ID, we use the id to name the item image and upload it to amazon S3. And then we flesh the item object in the database with what we want to add
-        @try {
-            NSString *imageName = [NSString stringWithFormat:@"Item_%@.jpeg", _item.itemID];
-            NSData *imageData = UIImageJPEGRepresentation(self.capturedItemImage, 0.8f);
-            @try {
-                S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:imageName inBucket:ITEM_PHOTOS_BUCKET_NAME];
-                por.contentType = @"image/jpeg";
-                por.data = imageData;
-                por.cannedACL = [S3CannedACL publicRead];
-                [AmazonClientManager initializeS3];
-                [[AmazonClientManager s3] putObject:por];
-            }
-            @catch (AmazonClientException *exception) {
-                NSLog(@"Failed to Create Object [%@]", exception);
-            }
-            
-            
-            //update item values
-            _item.photoURL = [IMAGE_HOST_BASE_URL stringByAppendingFormat:@"/%@/%@", ITEM_PHOTOS_BUCKET_NAME, imageName];
-            //item.description = self.descriptionTextField.text;
-            _item.numberOfVotes = [NSNumber numberWithInt:0];
-            [Utility getObjectForKey:IDOfPollToBeShown];
-            [[RKObjectManager sharedManager] putObject:_item delegate:self];
-        }
-        @catch (AmazonClientException *exception) {
-            NSLog(@"Failed to Create Object [%@]", exception);
-        }
-    }else if ([objectLoader wasSentToResourcePath:@"/polls" method:RKRequestMethodPOST] ){
-        //Having created a new poll, we can post a new event and add the item to the new poll
-        [Utility setObject:poll.pollID forKey:IDOfPollToBeShown];
-        
-        //post a new poll event
-        /*Event *newPollEvent = [Event new];
-         newPollEvent.eventType = NEWPOLLEVENT;
-         newPollEvent.userID = [Utility getObjectForKey:CURRENTUSERID];
-         newPollEvent.pollID = poll.pollID;
-         [[RKObjectManager sharedManager] postObject:newPollEvent delegate:self];*/
-        
-        //post a new poll record
-        PollRecord *pollRecord = [PollRecord new];
-        pollRecord.pollID = poll.pollID;
-        pollRecord.userID = [Utility getObjectForKey:CURRENTUSERID];
-        pollRecord.pollRecordType = [NSNumber numberWithInt:EDITING_POLL];
-        [[RKObjectManager sharedManager] postObject:pollRecord delegate:self];
-        
-        //add new item to the new poll
-        _item.pollID = poll.pollID;
-        [Utility setObject:poll.pollID forKey:IDOfPollToBeShown];
-        [[RKObjectManager sharedManager] postObject:_item delegate:self];
-    }else if (objectLoader.method == RKRequestMethodPUT){
+    if ([objectLoader.resourcePath hasPrefix:@"/items"]){
         NSLog(@"The new item has been added!");
         [Utility showAlert:@"Item added!" message:@""];
-        //post a new item event
-        /*Event *newItemEvent = [Event new];
-         newItemEvent.eventType = NEWITEMEVENT;
-         newItemEvent.pollID = item.pollID;
-         newItemEvent.itemID = item.itemID;
-         newItemEvent.userID = [Utility getObjectForKey:CURRENTUSERID];
-         [[RKObjectManager sharedManager] postObject:newItemEvent delegate:self];*/
         backMark = YES;
     }else if ([objectLoader.resourcePath hasPrefix:@"/draft_polls"]){
         // extract all the active polls in editing state of the current user
@@ -262,18 +199,23 @@
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     [Utility showAlert:@"Sorry!" message:error.localizedDescription];
+    self.navigationItem.leftBarButtonItem.enabled = YES;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 #pragma mark - UIPickerView Data Source Methods
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView
+{
     return 1;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component
+{
     return [pickerDataArray count] + 1;
 }
 
-- (UIView *)pickerView:(UIPickerView *)thePickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+- (UIView *)pickerView:(UIPickerView *)thePickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
     UILabel* tView = (UILabel*)view;
     if (!tView){
         tView = [[UILabel alloc] init];
@@ -293,7 +235,8 @@
 
 #pragma mark - UIPickerView Delegate Methods
 
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
     if (row > 0) {
         _item.pollID = ((PollRecord*)[draftPolls objectAtIndex:row - 1]).pollID;
         [Utility setObject:_item.pollID forKey:IDOfPollToBeShown];

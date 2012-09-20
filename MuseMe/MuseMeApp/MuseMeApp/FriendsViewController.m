@@ -13,7 +13,7 @@
 @interface FriendsViewController (){
     id<FBGraphUser> fbUser;
 }
-@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+@property (nonatomic, strong) MuseMeActivityIndicator* spinner;
 @end
 
 @implementation FriendsViewController
@@ -38,13 +38,8 @@
         self.savedSearchTerm = nil;
     }
     
-    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
-    _spinner.center = CGPointMake(160, 208);
-    _spinner.hidesWhenStopped = YES;
-    [self.view addSubview:_spinner];
+    _spinner = [MuseMeActivityIndicator new];
     self.searchBar.delegate = self;
-    
     
 }
 
@@ -69,12 +64,21 @@
     self.savedSearchTerm = [self.searchDisplayController.searchBar text];
 }
 
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - User actions
+
+- (IBAction)showFacebookFriends {
+    [self performSegueWithIdentifier:@"show FB friends" sender:self];
+}
 
 - (IBAction)back
 {
@@ -199,7 +203,7 @@
     if (searchText.length > 0)
     {
         [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_search/%@", searchText] delegate:self];
-        [_spinner startAnimating];
+        [_spinner startAnimatingWithMessage:@"Searching..." inView:self.view];
     }else{
         self.filteredListContent = nil;
         [self.tableView reloadData];

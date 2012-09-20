@@ -13,9 +13,8 @@
 {
     BOOL textboxOn;
     NSURL *photoURL;
-    UIActivityIndicatorView *spinner;
 }
- 
+@property (nonatomic, strong) MuseMeActivityIndicator *spinner;
 @end
 
 @implementation SingleItemViewController
@@ -27,6 +26,7 @@
 //@synthesize priceTextField=_priceTextField;
 @synthesize capturedImage = _capturedImage;
 @synthesize tapHintImageView = _tapHintImageView;
+@synthesize spinner = _spinner;
 
 
 - (void)viewDidLoad
@@ -113,7 +113,7 @@
     //self.priceTextField = nil;
     photoURL = nil;
     self.item = nil;
-    spinner = nil;
+    _spinner = nil;
     self.capturedImage = nil;
     [AmazonClientManager clearCredentials];
     // Release any retained subviews of the main view.
@@ -130,6 +130,12 @@
 {
     [super viewWillDisappear:animated];
 }
+
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -162,13 +168,24 @@
         }
         case SingleItemViewOptionNew:
         {
-                spinner =[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleGray];
-                [spinner startAnimating];
-                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-                self.navigationItem.leftBarButtonItem.enabled = NO;
-                self.item = [Item new];
-                self.item.pollID = [Utility getObjectForKey:IDOfPollToBeShown];
-                [[RKObjectManager sharedManager] postObject:self.item delegate:self];
+            _spinner = [MuseMeActivityIndicator new];
+            [_spinner startAnimatingWithMessage:@"Adding..." inView:self.view];
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+            self.navigationItem.leftBarButtonItem.enabled = NO;
+            
+            self.item = [Item new];
+            _item.pollID = [Utility getObjectForKey:IDOfPollToBeShown];
+            _item.photo = UIImageJPEGRepresentation(self.capturedImage, 1.0f);
+            _item.brand = self.brandTextField.text;
+            [[RKObjectManager sharedManager] postObject:_item usingBlock:^(RKObjectLoader *loader){
+                
+                RKParams* params = [RKParams params];
+                [params setValue:_item.pollID forParam:@"item[poll_id]"];
+                [params setData:_item.photo MIMEType:@"image/jpeg" forParam:@"item[photo]"];
+                NSLog(@"post to %@",loader.resourcePath);
+                loader.params = params;
+                loader.delegate = self;
+            }];
             break;
         }
         default:
@@ -215,45 +232,18 @@
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
     if ([objectLoader wasSentToResourcePath:@"/items" method:RKRequestMethodPOST] ){
-        @try {
-            NSString *imageName = [NSString stringWithFormat:@"Item_%@_%@.jpeg", self.item.itemID, [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle]];
-            NSData *imageData = UIImageJPEGRepresentation(self.capturedImage, 0.8f);
-            @try {
-                S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:imageName inBucket:ITEM_PHOTOS_BUCKET_NAME];
-                por.contentType = @"image/jpeg";
-                por.data = imageData;
-                por.cannedACL = [S3CannedACL publicRead];
-                [AmazonClientManager initializeS3];
-                [[AmazonClientManager s3] putObject:por];
-            }
-            @catch (AmazonClientException *exception) {
-                NSLog(@"Failed to Create Object [%@]", exception);
-            }            
-            self.item.photoURL = [IMAGE_HOST_BASE_URL stringByAppendingFormat:@"/%@/%@", ITEM_PHOTOS_BUCKET_NAME, [Utility formatURLFromDateString:imageName]];
-            //self.item.description = self.descriptionTextField.text;
-            self.item.numberOfVotes = [NSNumber numberWithInt:0];
-            //self.item.price = [NSNumber numberWithDouble:[self.priceTextField.text doubleValue]];
-            self.item.pollID = [Utility getObjectForKey:IDOfPollToBeShown];
-            self.item.brand = self.brandTextField.text;
-            [[RKObjectManager sharedManager] putObject:self.item delegate:self];
-        }
-        @catch (AmazonClientException *exception) {
-            NSLog(@"Failed to Create Object [%@]", exception);
-        }
-    }else if (objectLoader.method == RKRequestMethodPUT){
-        NSLog(@"The new item has been added!");
-        if (singleItemViewOption == SingleItemViewOptionNew){
-            [Utility showAlert:@"Item added!" message:@""];
-        }
-        [spinner stopAnimating];
-        spinner = nil;
-        [self backWithFlipAnimation];
+        [Utility showAlert:@"Item added!" message:@""];
     }
+    [_spinner stopAnimating];
+    _spinner = nil;
+    [self backWithFlipAnimation];
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     [Utility showAlert:@"Sorry!" message:error.localizedDescription];
+    self.navigationItem.leftBarButtonItem.enabled = YES;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 #pragma mark - Helper Methods

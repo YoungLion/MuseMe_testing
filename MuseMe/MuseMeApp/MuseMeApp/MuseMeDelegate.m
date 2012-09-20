@@ -93,6 +93,7 @@
      @"item_id", @"itemID",
      @"content", @"content",
      @"created_at", @"timeStamp",
+     @"commenter_id", @"commenterID",
      nil];
     [commentMapping mapRelationship:@"commenter" withMapping:userMapping];
     [[RKObjectManager sharedManager].mappingProvider registerMapping:commentMapping withRootKeyPath:@"comment"];
@@ -108,6 +109,8 @@
      @"poll_id", @"pollID",
      @"brand", @"brand",
      @"created_at", @"addedTime",
+     @"photo", @"photo",
+     @"number_of_comments", @"numberOfComments",
      nil];
     [itemMapping mapRelationship:@"comments" withMapping:commentMapping];
     [itemMapping mapRelationship:@"voters" withMapping:userMapping];
@@ -162,6 +165,9 @@
     
     [[RKObjectManager sharedManager].router routeClass:[Poll class] toResourcePath:@"/polls/:pollID"];
     [[RKObjectManager sharedManager].router routeClass:[Poll class] toResourcePath:@"/polls" forMethod:RKRequestMethodPOST];
+    
+    [[RKObjectManager sharedManager].router routeClass:[Comment class] toResourcePath:@"/comments/:commentID"];
+    [[RKObjectManager sharedManager].router routeClass:[Comment class] toResourcePath:@"/comments" forMethod:RKRequestMethodPOST];
     
     [[RKObjectManager sharedManager].router routeClass:[Item class] toResourcePath:@"/items/:itemID"];
     [[RKObjectManager sharedManager].router routeClass:[Item class] toResourcePath:@"/items" forMethod:RKRequestMethodPOST];

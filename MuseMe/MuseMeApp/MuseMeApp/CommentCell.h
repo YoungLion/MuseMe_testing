@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HJManagedImageV.h"
+#import "Utility.h"
 
 @interface CommentCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet HJManagedImageV *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+@property (weak, nonatomic) IBOutlet SmallFormattedLabel *timeStampLabel;
 @end

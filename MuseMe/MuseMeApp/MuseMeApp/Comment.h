@@ -12,6 +12,6 @@
 @interface Comment : NSObject
 @property (nonatomic, strong) User *commenter;
 @property (nonatomic, strong) NSString *content;
-@property (nonatomic, strong) NSNumber *itemID;
+@property (nonatomic, strong) NSNumber *commentID,*itemID,*commenterID;
 @property (nonatomic, strong) NSDate *timeStamp;
 @end

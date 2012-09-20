@@ -12,6 +12,7 @@
 @synthesize userPhoto;
 @synthesize usernameLabel;
 @synthesize commentLabel;
+@synthesize timeStampLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

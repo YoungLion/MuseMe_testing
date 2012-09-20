@@ -40,4 +40,7 @@
 +(void)renderView:(UIView*)view
  withCornerRadius:(CGFloat)r
    andBorderWidth:(CGFloat)w;
++(void)renderCommentBox:(UIView*)view
+       withCornerRadius:(CGFloat)r
+         andBorderWidth:(CGFloat)w;
 @end

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Utility.h"
 #import "UserCell.h"
+#import "CommentCell.h"
 
-@interface ItemVotersViewController : UITableViewController<RKObjectLoaderDelegate>
+@interface ItemVotersViewController : UITableViewController<RKObjectLoaderDelegate, UIInputToolbarDelegate>
 @property (nonatomic, strong) Item* item;
+@property (weak, nonatomic) IBOutlet HJManagedImageV *itemImageView;
 @end

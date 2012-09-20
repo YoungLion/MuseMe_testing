@@ -13,7 +13,7 @@
 @interface NewPollViewController ()
 {
     Poll* poll;
-    UIActivityIndicatorView* spinner;
+    MuseMeActivityIndicator* spinner;
     //BOOL eventCreated, recordCreated;
 }
 @end
@@ -21,7 +21,6 @@
 @implementation NewPollViewController
 @synthesize categoryPickerView = _categoryPickerView;
 @synthesize categoryButton = _categoryButton;
-@synthesize tips = _tips;
 @synthesize pollNameTextField=_pollNameTextField;
 @synthesize delegate = _delegate;
 
@@ -38,7 +37,6 @@
 {
     [super viewDidLoad];
     //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
-    self.tips.backgroundColor =[UIColor clearColor];
     self.navigationItem.titleView = [Utility formatTitleWithString:self.navigationItem.title];
     self.pollNameTextField.delegate = self;
     self.categoryPickerView.delegate = self;
@@ -62,7 +60,6 @@
 - (void)viewDidUnload
 {
     [self setPollNameTextField:nil];
-    [self setTips:nil];
     [self setCategoryPickerView:nil];
     [self setCategoryButton:nil];
     [super viewDidUnload];
@@ -84,6 +81,11 @@
     [self.pollNameTextField becomeFirstResponder];
 }
 
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);;
@@ -97,7 +99,8 @@
 
 - (IBAction)newPoll
 {
-    if ([self.pollNameTextField.text length] == 0)
+    NSString* trimmedPollDescription = [self.pollNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (trimmedPollDescription.length == 0)
     { 
         [self alertForEmptyName];  
     }else if ([self.categoryButton.titleLabel.text isEqualToString:@"Category..."]){
@@ -105,14 +108,12 @@
     }else
     {
         poll = [Poll new];
-        poll.title = self.pollNameTextField.text;
+        poll.title = trimmedPollDescription;
         poll.ownerID = [Utility getObjectForKey:CURRENTUSERID];
-        poll.state = EDITING;
-        poll.totalVotes = [NSNumber numberWithInt:0];
         poll.category = [NSNumber numberWithInt:[self.categoryPickerView selectedRowInComponent:0]];
-        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [spinner startAnimating];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+        spinner = [MuseMeActivityIndicator new];
+        [spinner startAnimatingWithMessage:@"Creating..." inView:self.view];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
         self.navigationItem.leftBarButtonItem.enabled = NO;
         [[RKObjectManager sharedManager] postObject:poll delegate:self];
     }
@@ -135,9 +136,6 @@
     }
 }
 
-#pragma helper function
-
-
 #pragma RKObjectLoader delegate methods
 
 -(void)request:(RKRequest*)request didLoadResponse:
@@ -150,12 +148,6 @@
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
     if ([objectLoader wasSentToResourcePath:@"/polls"]){
-        /*Event *newPollEvent = [Event new];
-        newPollEvent.eventType = NEWPOLLEVENT;
-        newPollEvent.userID = [Utility getObjectForKey:CURRENTUSERID];
-        newPollEvent.pollID = poll.pollID;
-        [[RKObjectManager sharedManager] postObject:newPollEvent delegate:self];*/
-        
         PollRecord *pollRecord = [PollRecord new];
         pollRecord.pollID = poll.pollID;
         pollRecord.userID = [Utility getObjectForKey:CURRENTUSERID];
@@ -168,7 +160,9 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    NSLog(@"Encountered Error: %@",[error localizedDescription]);
+    [Utility showAlert:[error localizedDescription] message:nil];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.navigationItem.leftBarButtonItem.enabled = YES;
 }
 -(IBAction)backgroundTouched:(id)sender
 {

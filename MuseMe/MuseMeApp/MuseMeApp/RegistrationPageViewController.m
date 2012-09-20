@@ -22,6 +22,7 @@ static NSUInteger kNumberOfPages = 6;
     UIImageView* tutorialPage;
     int currentPage;
 }
+@property (strong, nonatomic)  MuseMeActivityIndicator *spinner;
 - (void)loadScrollViewWithPage:(int)page;
 - (void)scrollViewDidScroll:(UIScrollView *)sender;
 @end
@@ -72,7 +73,7 @@ static NSUInteger kNumberOfPages = 6;
     self.loginButton.alpha = 0;
     self.signupButton.alpha = 0;
     self.dismissButton.alpha = 0;
-    [self.spinner startAnimating];
+    self.spinner = [MuseMeActivityIndicator new];
     
     _scrollView.pagingEnabled = YES;
     _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * kNumberOfPages, _scrollView.frame.size.height);
@@ -101,7 +102,6 @@ static NSUInteger kNumberOfPages = 6;
     }else{
         [self animateOpening];
     }
-    [self.spinner stopAnimating];
     /*[UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2];
     CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -216);
@@ -166,6 +166,10 @@ static NSUInteger kNumberOfPages = 6;
     // Release any retained subviews of the main view.
 }
 
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
 #pragma User Actions
 
 - (IBAction)loginButtonPressed {
@@ -246,8 +250,7 @@ static NSUInteger kNumberOfPages = 6;
         user.password = self.passwordField.text;
         user.passwordConfirmation = self.passwordConfirmationField.text;        
         user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046";
-        [self lockUI];
-        [self.spinner startAnimating];
+        [self.spinner startAnimatingWithMessage:@"Signing up..." inView:self.view];
         [[RKObjectManager sharedManager] postObject:user delegate:self];
     }
 }
@@ -262,8 +265,7 @@ static NSUInteger kNumberOfPages = 6;
         user.email = self.emailField.text;
         user.password = self.passwordField.text;
         user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046";;
-        [self lockUI];
-        [self.spinner startAnimating];
+        [self.spinner startAnimatingWithMessage:@"Authenticating..." inView:self.view];
         [[RKObjectManager sharedManager] postObject:user usingBlock:^(RKObjectLoader* loader){
             loader.resourcePath = @"/login";
             loader.objectMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[User class]];
@@ -271,26 +273,6 @@ static NSUInteger kNumberOfPages = 6;
             loader.delegate = self;
         }];
     }
-}
-
--(void)lockUI
-{
-    self.background.enabled = NO;
-    self.emailField.enabled = NO;
-    self.passwordField.enabled = NO;
-    self.passwordConfirmationField.enabled = NO;
-    self.loginButton.enabled = NO;
-    self.signupButton.enabled = NO;
-}
-
--(void)unlockUI
-{
-    self.background.enabled = YES;
-    self.emailField.enabled = YES;
-    self.passwordField.enabled = YES;
-    self.passwordConfirmationField.enabled = YES;
-    self.loginButton.enabled = YES;
-    self.signupButton.enabled = YES;
 }
 
 #pragma RKObjectLoader Delegate Methods
@@ -315,7 +297,6 @@ static NSUInteger kNumberOfPages = 6;
         [Utility setObject:user.userID forKey:CURRENTUSERID];
         [self performSegueWithIdentifier:@"show home" sender:self];
     }
-    [self unlockUI];
     [self.spinner stopAnimating];
     [self dismissAll];
 }
@@ -324,7 +305,6 @@ static NSUInteger kNumberOfPages = 6;
     //show errors: existent email and invalid password
     [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
     NSLog(@"Encountered an error: %@", error);
-    [self unlockUI];
     [self.spinner stopAnimating];
 }
 

@@ -39,7 +39,7 @@
     UIActionSheet *popupQuery, *newItemOptions, *confirmation;
     id senderButton;
 }
-@property (nonatomic,strong) UIActivityIndicatorView* spinner;
+@property (nonatomic,strong) MuseMeActivityIndicator* spinner;
 @end
 
 @implementation PollTableViewController
@@ -83,11 +83,7 @@
     self.pollDescription.inputAccessoryView = [Utility keyboardAccessoryToolBarWithButton:@"Done" target:self action:@selector(doneTyping)];
     self.openPollHint.alpha = 0;
     
-    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
-    _spinner.center = CGPointMake(160, 208);
-    _spinner.hidesWhenStopped = YES;
-    [self.view addSubview:_spinner];
+    _spinner = [MuseMeActivityIndicator new];
 }
 
 - (void)viewDidUnload
@@ -117,7 +113,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = YES;
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = NO;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_COLOR] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
     self.poll = [Poll new];
@@ -129,7 +125,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_spinner startAnimating];
+    [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
 }
 
@@ -138,7 +134,7 @@
     [super viewDidDisappear:animated];
 }
 
-- (void) dealloc
+- (void)dealloc
 {
     [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
 }
@@ -234,18 +230,11 @@
         
         item.numberOfVotes = [NSNumber numberWithInt:[item.numberOfVotes intValue]+ 1];
         [[RKObjectManager sharedManager] putObject:item delegate:self];
-        
-        //[Utility showAlert:@"Thank you!" message:@"We appreciate your vote."];
+    
         self.poll.totalVotes = [NSNumber numberWithInt:[self.poll.totalVotes intValue]+ 1];
         [[RKObjectManager sharedManager] putObject:self.poll delegate:self];
         
         [self followPoll];
-        /*Event *votingEvent = [Event new];
-        votingEvent.eventType = VOTINGEVENT;
-        votingEvent.userID = [Utility getObjectForKey:CURRENTUSERID];
-        votingEvent.pollID = self.poll.pollID;
-        votingEvent.itemID = item.itemID;
-        [[RKObjectManager sharedManager] postObject:votingEvent delegate:self];*/
         [Utility showAlert:@"Voted!" message:@"We appreciate your vote."];
 }
 
@@ -461,36 +450,11 @@
         [self.timeStampLabel setNeedsLayout];
         //[self.totalVotesCount sizeToFit];
 
-        
-        //
         if (self.poll.items.count == 0 && isOwnerView){
             emptyPollHint.hidden = NO;
         }else{
             emptyPollHint.hidden = YES;
         }
-        
-        /*NSString* hintMessage;
-        switch ([self.poll.state intValue]) {
-            case EDITING:
-            {
-                hintMessage = isOwnerView?@"You can add and edit items in the poll.": @"This is being edited. You can track this poll by following it.";
-                break;
-            }
-            case VOTING:
-            {
-                hintMessage = isOwnerView?@"Please wait for your friends' votes until you want to end this poll.": @"Please vote on the item in the poll by clicking the checkbox in the picture. You can also undo the vote by clicking on the checked checkbox.";
-                break;
-            }
-            case FINISHED:
-            {
-                hintMessage = isOwnerView?@"This poll is ended. You can check the result by clicking the action button in the top right corner.": @"This poll is ended. You can check the result by clicking the action button in the top right corner.";
-                break;
-            }
-            default:
-                break;
-        }
-        
-        [Utility showAlert:@"Hint" message:hintMessage];*/
 
         //find whether the current user is among the audience of the poll
         audienceIndex = [self.poll.audiences indexOfObjectPassingTest:^(Audience* audience, NSUInteger idx, BOOL *stop)
@@ -616,6 +580,7 @@
 
     cell.timeStampLabel.text = [Utility formatTimeWithDate:item.addedTime];
     cell.voteCountLabel.text = [item.numberOfVotes stringValue];
+    cell.commentCountLabel.text = [item.numberOfComments stringValue];
     
     cell.brandLabel.text = item.brand;
     [cell.brandLabel adjustHeight];

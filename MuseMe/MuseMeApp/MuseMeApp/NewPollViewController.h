@@ -20,7 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *pollNameTextField;
 - (IBAction)backgroundTouched:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *tips;
 @property (weak, nonatomic) id<NewPollViewControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet AnimatedPickerView *categoryPickerView;
 @property (weak, nonatomic) IBOutlet UIButton *categoryButton;

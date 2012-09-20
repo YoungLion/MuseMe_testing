@@ -28,6 +28,8 @@
 #import <Quartzcore/Quartzcore.h>
 #import "Facebook.h"
 #import "Comment.h"
+#import "MuseMeActivityIndicator.h"
+#import "UIInputToolbar/UIInputToolbar.h"
 
 #define KULER_YELLOW 0
 #define KULER_BLACK 1

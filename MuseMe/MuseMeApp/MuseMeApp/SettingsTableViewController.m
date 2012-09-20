@@ -7,12 +7,15 @@
 //
 
 #import "SettingsTableViewController.h"
+#define Choose_Picture_Source_ActionSheet 0
+#define Logout_Confirmaion_ActionSheet 1
+
 
 @interface SettingsTableViewController (){
     User* currentUser;
     BOOL newMedia;
 }
-
+@property (strong, nonatomic) MuseMeActivityIndicator *spinner;
 @end
 
 @implementation SettingsTableViewController
@@ -20,20 +23,6 @@
 @synthesize profilePhoto=_profilePhoto;
 @synthesize spinner = _spinner;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
--(void) setUsername:(UITextField *)username
-{
-    _username = username;
-
-}
 
 - (void)viewDidLoad
 {
@@ -46,6 +35,7 @@
     //[self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     _username.delegate = self;
+    _spinner = [MuseMeActivityIndicator new];
     
     [Utility renderView:self.profilePhoto withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH];
     self.profilePhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_LARGE];
@@ -80,12 +70,25 @@
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
 }
 
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma User Acitons
+
+-(IBAction)logoutButtonPressed
+{
+    UIActionSheet* logoutConfirmationSheet = [[UIActionSheet alloc] initWithTitle:@"Log out?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Log out" otherButtonTitles:nil];
+    logoutConfirmationSheet.tag = Logout_Confirmaion_ActionSheet;
+    [logoutConfirmationSheet showFromTabBar:self.tabBarController.tabBar];
+    logoutConfirmationSheet = nil;
+}
 
 - (void)Logout {
     User* user = [User new];
@@ -105,6 +108,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)backgroundTouched:(id)sender {
+    [self.username resignFirstResponder];
+}
+
 #pragma RKObjectLoaderDelegate Methods
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
@@ -121,7 +128,6 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
     [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
-    NSLog(@"Encountered an error: %@", error);
 }
 
 
@@ -129,43 +135,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
-        case 0:
-        {
-            
-        }
-            break;
-        case 1:
-        {
-            if (indexPath.row == 1)
-            {
-                [self showActionSheet];
-            }
-        }
-            break;
-        case 2:
-        {
-            [self Logout];
-        }
-            break;
-        default:
-            break;
+    if (indexPath.row == 1)
+    {
+        [self changeProfilePicture];
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 #pragma mark - UITextField delegate
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    if (![textField.text isEqualToString:currentUser.username])
+    NSString* username = [self.username.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (username.length == 0)
+    {
+        [Utility showAlert:@"Your username can't be empty." message:nil];
+    }else if (![textField.text isEqualToString:currentUser.username])
     {
         currentUser.username = textField.text;
         currentUser.isFollowed = nil;
@@ -174,18 +159,17 @@
     [textField resignFirstResponder];
     return YES;
 }
-
--(void)showActionSheet
-{
-	UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a picture", @"Choose from existing", nil];
+- (IBAction)changeProfilePicture {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a picture", @"Choose from existing", nil];
 	popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-	[popupQuery showInView:self.view];
+    popupQuery.tag = Choose_Picture_Source_ActionSheet;
+	[popupQuery showFromTabBar:self.tabBarController.tabBar];
 	popupQuery = nil;
 }
 
 - (void) uploadPhoto
 {
-    [self.spinner startAnimating];
+    [_spinner startAnimatingWithMessage:@"Uploading..." inView:self.view];
     NSString *imageName = [NSString stringWithFormat:@"User_%@_%@.jpeg", [Utility getObjectForKey:CURRENTUSERID], [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle]];
     NSData *imageData = UIImageJPEGRepresentation(self.profilePhoto.image, 0.8f);
     @try {
@@ -295,17 +279,18 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
-#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
-            [self useCamera];
-#elif ENVIRONMENT == ENVIRONMENT_STAGING
-            [self useCamera];
-#elif ENVIRONMENT == ENVIRONMENT_PRODUCTION
-            [self useCamera];
-#endif
+            if (actionSheet.tag == Choose_Picture_Source_ActionSheet)
+            {
+                [self useCamera];
+            }else{
+                [self Logout];
+            }
             break;
-        case 1:[self useCameraRoll];
-            break;
-        case 2://cancel;
+        case 1:
+            if (actionSheet.tag == Choose_Picture_Source_ActionSheet)
+            {
+                [self useCameraRoll];
+            }
             break;
         default:
             break;

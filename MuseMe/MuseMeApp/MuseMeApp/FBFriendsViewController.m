@@ -17,7 +17,7 @@
     FBRequestConnection *FBConnection;
     MuseMeDelegate *appDelegate;
 }
-@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+@property (nonatomic, strong) MuseMeActivityIndicator* spinner;
 @property (nonatomic, strong) NSMutableArray* filteredListContent;
 @end
 
@@ -34,11 +34,8 @@
     UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
-    _spinner.center = CGPointMake(160, 208);
-    _spinner.hidesWhenStopped = YES;
-    [self.view addSubview:_spinner];
+    _spinner = [MuseMeActivityIndicator new];
+    
     self.searchBar.delegate = self;
     
     appDelegate = [[UIApplication sharedApplication] delegate];
@@ -79,11 +76,17 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - User Actions
 -(void)sendRequests
 {
     FBRequestHandler handler =
@@ -274,7 +277,7 @@
 	/*
 	 Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
-    [_spinner startAnimating];
+    [_spinner startAnimatingWithMessage:@"Search..." inView:self.view];
     self.filteredListContent = [NSMutableArray new];
     for (User *friend in users.users)
 	{

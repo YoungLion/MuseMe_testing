@@ -10,7 +10,7 @@
 #import "UserCell.h"
 
 @interface ConnectedUserViewController ()
-@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+@property (nonatomic, strong) MuseMeActivityIndicator* spinner;
 @property (nonatomic, strong) NSArray* users;
 @end
 
@@ -30,17 +30,13 @@
     UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    _spinner.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
-    _spinner.center = CGPointMake(160, 208);
-    _spinner.hidesWhenStopped = YES;
-    [self.view addSubview:_spinner];
+    _spinner = [MuseMeActivityIndicator new];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_spinner startAnimating];
+    [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     NSString* resourcePath;
     NSLog(@"_userConnectionType = %d",self.userConnectionType );
     if (self.userConnectionType == FOLLOWING){
@@ -62,6 +58,11 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+}
+
+- (void) dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
