@@ -44,6 +44,7 @@
      @"number_of_followers", @"numberOfFollowers",
      @"is_followed",@"isFollowed",
      @"device_token", @"deviceToken",
+     @"photo", @"photo",
      nil];
     
     [[RKObjectManager sharedManager].mappingProvider registerMapping:userMapping withRootKeyPath:@"user"];

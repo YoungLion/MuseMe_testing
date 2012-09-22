@@ -132,23 +132,29 @@
             newPOllVC.delegate = self;
             [self.navigationController pushViewController:newPOllVC animated:YES];
         }else{
-            spinner = [MuseMeActivityIndicator new];
-            [spinner startAnimatingWithMessage:@"" inView:self.view];
-            self.navigationItem.rightBarButtonItem.enabled = NO;
-            self.navigationItem.leftBarButtonItem.enabled = NO;
-            _item.pollID = ((PollRecord*)[draftPolls objectAtIndex:[self.pickerView selectedRowInComponent:0]-1]).pollID;
-            _item.photo = UIImageJPEGRepresentation(self.capturedItemImage, 1.0f);
-            [[RKObjectManager sharedManager] postObject:self.item usingBlock:^(RKObjectLoader *loader){
-                
-                RKParams* params = [RKParams params];
-                [params setValue:_item.pollID forParam:@"item[poll_id]"];
-                [params setData:_item.photo MIMEType:@"image/jpeg" forParam:@"item[photo]"];
-                NSLog(@"post to %@",loader.resourcePath);
-                loader.params = params;
-                loader.delegate = self;
-            }];
+            [self addItemToPoll:((PollRecord*)[draftPolls objectAtIndex:[self.pickerView selectedRowInComponent:0]-1]).pollID];
         }
 }
+
+-(void)addItemToPoll:(NSNumber*)pollID
+{
+    spinner = [MuseMeActivityIndicator new];
+    [spinner startAnimatingWithMessage:@"Adding Item..." inView:self.view];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    _item.pollID = pollID;
+    _item.photo = UIImageJPEGRepresentation(self.capturedItemImage, 1.0f);
+    [[RKObjectManager sharedManager] postObject:self.item usingBlock:^(RKObjectLoader *loader){
+        RKParams* params = [RKParams params];
+        [params setValue:_item.pollID forParam:@"item[poll_id]"];
+        [params setData:_item.photo MIMEType:@"image/jpeg" forParam:@"item[photo]"];
+        NSLog(@"post to %@",loader.resourcePath);
+        loader.params = params;
+        loader.delegate = self;
+    }];
+}
+
+
 
 -(IBAction)backgroundTouched:(id)sender
 {
@@ -256,8 +262,7 @@
 
 -(void)newPollViewController:(id)sender didCreateANewPoll:(NSNumber *)pollID
 {
-    _item.pollID = pollID;
-    [[RKObjectManager sharedManager] postObject:_item delegate:self];
+    [self addItemToPoll:pollID];
 }
 
 /*-(void)keyboardWillShow {

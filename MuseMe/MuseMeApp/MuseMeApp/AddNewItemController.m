@@ -65,7 +65,7 @@
    // self.descriptionTextField = nil;
     //self.priceTextField = nil;
 
-    [AmazonClientManager clearCredentials];
+    //[AmazonClientManager clearCredentials];
     // Release any retained subviews of the main view.
 }
 

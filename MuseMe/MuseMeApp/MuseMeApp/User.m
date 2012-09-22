@@ -23,4 +23,5 @@
 @synthesize numberOfFollowing = _numberOfFollowing;
 @synthesize isFollowed = _isFollowed;
 @synthesize deviceToken = _deviceToken;
+@synthesize photo = _photo;
 @end

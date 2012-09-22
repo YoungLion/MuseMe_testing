@@ -97,6 +97,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = YES;
+    self.tabBarController.tabBar.alpha = 1;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_WITH_LOGO] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
     /*self.navigationItem.titleView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:LOGO]];
@@ -109,7 +110,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = NO;
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 1;
 }
 
 -(void) viewWillDisappear:(BOOL)animated
@@ -320,7 +321,9 @@ forRowAtIndexPath: (NSIndexPath*)indexPath{
         ((NewPollViewController*)(segue.destinationViewController)).delegate = self;
     }else if ([segue.identifier isEqualToString:@"show profile"])
     {
-        ((ProfileTableViewController*)segue.destinationViewController).user = userToBePassed;
+        ProfileTableViewController* profileVC =(ProfileTableViewController*)segue.destinationViewController;
+        profileVC.user = userToBePassed;
+        profileVC.hidesBottomBarWhenPushed = YES;
     }
     
 }

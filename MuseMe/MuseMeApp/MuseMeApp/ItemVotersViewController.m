@@ -57,6 +57,7 @@
     /* Listen for keyboard */
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
     /* Create toolbar */
     self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-kDefaultToolbarHeight, self.view.frame.size.width, kDefaultToolbarHeight)];
     self.commentBar.delegate = self;
@@ -64,6 +65,7 @@
     [self.view addSubview:self.commentBar];
     [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     [[RKObjectManager sharedManager] getObject:self.item delegate:self];
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -259,13 +261,17 @@
 {
     if ([segue.identifier isEqualToString:@"show profile"])
     {
-        ((ProfileTableViewController*)segue.destinationViewController).user = userToBePassed;
+        ProfileTableViewController* profileVC =(ProfileTableViewController*)segue.destinationViewController;
+        profileVC.user = userToBePassed;
+        profileVC.hidesBottomBarWhenPushed = YES;
     }
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     if (scrollView.tag == TableView){
+        CGRect frame = self.commentBar.frame;
+        self.commentBar.frame = CGRectMake(0, self.view.frame.size.height+scrollView.contentOffset.y-frame.size.height, frame.size.width, frame.size.height);
         [self.commentBar.textView resignFirstResponder];
     }
 }
@@ -273,7 +279,8 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView.tag == TableView){
-        self.commentBar.frame = CGRectMake(0, self.view.frame.size.height-kDefaultToolbarHeight+scrollView.contentOffset.y, self.view.frame.size.width, kDefaultToolbarHeight);
+        CGRect frame = self.commentBar.frame;
+        self.commentBar.frame = CGRectMake(0, self.view.frame.size.height + scrollView.contentOffset.y - frame.size.height - (keyboardIsVisible?kKeyboardHeightPortrait:0), frame.size.width, frame.size.height);
         [self.view bringSubviewToFront:self.commentBar];
     }
 }
@@ -283,9 +290,9 @@
 {
     /* Move the toolbar to above the keyboard */
 	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:0.3];
+	[UIView setAnimationDuration:0.25];
 	CGRect frame = self.commentBar.frame;
-    frame.origin.y = self.view.frame.size.height - frame.size.height - (kKeyboardHeightPortrait - kDefaultTabbarHeight) + self.tableView.contentOffset.y;
+    frame.origin.y = self.view.frame.size.height - frame.size.height - kKeyboardHeightPortrait + self.tableView.contentOffset.y;
 	self.commentBar.frame = frame;
 	[UIView commitAnimations];
     keyboardIsVisible = YES;
@@ -295,7 +302,7 @@
 {
     /* Move the toolbar back to bottom of the screen */
 	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:0.3];
+	[UIView setAnimationDuration:0.25];
 	CGRect frame = self.commentBar.frame;
     frame.origin.y = self.view.frame.size.height - frame.size.height + self.tableView.contentOffset.y;
 	self.commentBar.frame = frame;

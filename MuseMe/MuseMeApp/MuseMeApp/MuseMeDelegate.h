@@ -17,7 +17,6 @@
 #import "Item.h"
 #import "PollRecord.h"
 #import "Audience.h"
-#import "AmazonClientManager.h"
 #import "AppFormattedLabel.h"
 #import "AppFormattedBoldLabel.h"
 #import "SmallFormattedLabel.h"
@@ -30,6 +29,8 @@
 #import "Comment.h"
 #import "MuseMeActivityIndicator.h"
 #import "UIInputToolbar/UIInputToolbar.h"
+#import "UIGlossyButton.h"
+#import "UIView+LayerEffects.h"
 
 #define KULER_YELLOW 0
 #define KULER_BLACK 1

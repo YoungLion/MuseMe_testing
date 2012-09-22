@@ -194,6 +194,7 @@
 {
     ProfileTableViewController* profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profile page"];
     profileVC.user = [self.filteredListContent objectAtIndex:indexPath.row];
+    profileVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
 }
 

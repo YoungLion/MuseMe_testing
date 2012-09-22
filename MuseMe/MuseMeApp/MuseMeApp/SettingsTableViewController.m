@@ -42,12 +42,20 @@
     
     currentUser = [User new];
     currentUser.userID = [Utility getObjectForKey:CURRENTUSERID];
+    
+	[self.logoutButton setNavigationButtonWithColor:[UIColor redColor]];
+    self.logoutButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20];
+    [self.logoutButton.titleLabel setShadowOffset:CGSizeMake(0, 1)];
+    [self.logoutButton.titleLabel setShadowColor:[UIColor blackColor]];
+    self.logoutButton.buttonCornerRadius = 12.0f;
+    
     [[RKObjectManager sharedManager] getObject:currentUser delegate:self];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)viewDidUnload
@@ -56,6 +64,7 @@
     [self setProfilePhoto:nil];
     [self setProfilePhoto:nil];
     [self setSpinner:nil];
+    [self setLogoutButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -65,7 +74,7 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = YES;
-    //((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = YES;
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_COLOR] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
 }
@@ -123,6 +132,8 @@
         [HJObjectManager manage:self.profilePhoto];
     }else if (objectLoader.method == RKRequestMethodPUT){
         [self.spinner stopAnimating];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+        self.navigationItem.leftBarButtonItem.enabled = YES;
     }
 }
 
@@ -159,6 +170,7 @@
     [textField resignFirstResponder];
     return YES;
 }
+
 - (IBAction)changeProfilePicture {
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a picture", @"Choose from existing", nil];
 	popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
@@ -170,22 +182,17 @@
 - (void) uploadPhoto
 {
     [_spinner startAnimatingWithMessage:@"Uploading..." inView:self.view];
-    NSString *imageName = [NSString stringWithFormat:@"User_%@_%@.jpeg", [Utility getObjectForKey:CURRENTUSERID], [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle]];
-    NSData *imageData = UIImageJPEGRepresentation(self.profilePhoto.image, 0.8f);
-    @try {
-        S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:imageName inBucket:USER_PROFILE_PHOTOS_BUCKET_NAME];
-        por.contentType = @"image/jpeg";
-        por.data = imageData;
-        por.cannedACL = [S3CannedACL publicRead];
-        [AmazonClientManager initializeS3];
-        [[AmazonClientManager s3] putObject:por];
-        NSLog(@"Image Uploaded");
-    }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Failed to Create Object [%@]", exception);
-    }
-    currentUser.profilePhotoURL = [IMAGE_HOST_BASE_URL stringByAppendingFormat:@"/%@/%@", USER_PROFILE_PHOTOS_BUCKET_NAME, [Utility formatURLFromDateString:imageName]];
-    [[RKObjectManager sharedManager] putObject:currentUser delegate:self];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    currentUser.photo = UIImageJPEGRepresentation(self.profilePhoto.image, 1.0f);
+    [[RKObjectManager sharedManager] putObject:currentUser usingBlock:^(RKObjectLoader *loader){
+        RKParams* params = [RKParams params];
+        [params setValue:currentUser.userID forParam:@"user[id]"];
+        [params setData:currentUser.photo MIMEType:@"image/jpeg" forParam:@"user[photo]"];
+        NSLog(@"post to %@",loader.resourcePath);
+        loader.params = params;
+        loader.delegate = self;
+    }];
 }
 - (void) TestOnSimulator
 {
@@ -263,9 +270,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
  finishedSavingWithError:(NSError *)error
  contextInfo:(void *)contextInfo
 {
- if (error) {
- [Utility showAlert:@"Save failed" message:@"Failed to save image"];
- }
+    if (error) {
+        [Utility showAlert:@"Save failed" message:@"Failed to save image"];
+    }
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

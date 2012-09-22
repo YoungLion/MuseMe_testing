@@ -12,7 +12,7 @@
 #import "Item.h"
 #import "Utility.h"
 
-@interface SingleItemViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate,AmazonServiceRequestDelegate,UIActionSheetDelegate>
+@interface SingleItemViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate,UIActionSheetDelegate>
 {
     BOOL newMedia; 
 }

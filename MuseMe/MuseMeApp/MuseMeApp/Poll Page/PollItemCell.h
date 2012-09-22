@@ -23,5 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brandLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
+@property (weak, nonatomic) IBOutlet UIButton *itemOperationButton;
+@property (weak, nonatomic) IBOutlet UIGlossyButton *addNewItemButton;
 
 @end

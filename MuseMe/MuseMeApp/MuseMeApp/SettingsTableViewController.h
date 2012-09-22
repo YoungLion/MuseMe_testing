@@ -10,10 +10,11 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Utility.h"
 
-@interface SettingsTableViewController : UITableViewController<RKObjectLoaderDelegate, UITextFieldDelegate, AmazonServiceRequestDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
+@interface SettingsTableViewController : UITableViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet HJManagedImageV *profilePhoto;
+@property (weak, nonatomic) IBOutlet UIGlossyButton *logoutButton;
 
 
 

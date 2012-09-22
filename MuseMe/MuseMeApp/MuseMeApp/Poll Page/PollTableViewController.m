@@ -19,6 +19,9 @@
 #define  SHOW_POLL_RESULT_BUTTON_TITLE @"Show poll results"
 #define  OPEN_POLL_HINT_STAY_DURATION 5
 
+#define REPORT_INAPPROPRIATE_CONTENT_BUTTON_TITLE @"Flag as inappropriate"
+#define SAVE_TO_PHOTO_LIBRARY_BUTTON_TITLE @"Save to photo library"
+
 #define OpenPollAlertView 1
 #define EndPollAlertView 2
 #define DeletePollAlertView 3
@@ -27,6 +30,7 @@
 #define NewItemActionSheet 0
 #define PollOperationActionSheet 1
 #define DeleteItemConfirmation 2
+#define ItemOperationActionSheet 3
 
 @interface PollTableViewController (){
     NSUInteger audienceIndex;
@@ -113,7 +117,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = NO;
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_COLOR] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
     self.poll = [Poll new];
@@ -192,15 +196,6 @@
     confirmation = nil;
 }
 
-- (void)deleteItem:(UIButton *)sender
-{
-    PollItemCell *cell = (PollItemCell*)[[sender superview] superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    Item *item = [self.poll.items objectAtIndex:indexPath.row - 1];
-    [[RKObjectManager sharedManager] deleteObject:item delegate:self];
-    [Utility showAlert:@"Deleted!" message:@""];
-}
-
 - (IBAction)vote:(UIButton *)sender
 {
     sender.enabled = NO;
@@ -248,6 +243,15 @@
     }
 }
 
+- (IBAction)moreActionsOnThisItem:(UIButton *)sender {
+    popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:REPORT_INAPPROPRIATE_CONTENT_BUTTON_TITLE otherButtonTitles:SAVE_TO_PHOTO_LIBRARY_BUTTON_TITLE,  nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showFromTabBar:self.tabBarController.tabBar];
+    popupQuery.tag = ItemOperationActionSheet;
+    popupQuery = nil;
+    senderButton = sender;
+}
+
 #pragma mark - UIActionSheetDelegate Methods
 
 
@@ -268,37 +272,65 @@
               [self performSegueWithIdentifier:@"show poll result" sender:self];
           }else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:DELETE_POLL_BUTTON_TITLE]){
               [self confirmToDeletePoll];
-          }else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"]){
-              [actionSheet resignFirstResponder];
           }
     }else if (actionSheet.tag == NewItemActionSheet){
         switch (buttonIndex) {
             case 0:
-#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
                 [self useCamera];
-#elif ENVIRONMENT == ENVIRONMENT_STAGING
-                [self useCamera];
-#elif ENVIRONMENT == ENVIRONMENT_PRODUCTION
-                [self useCamera];
-#endif
                 break;
             case 1:[self useCameraRoll];
-                break;
-            case 2:[actionSheet resignFirstResponder];
                 break;
             default:
                 break;
         }
     }else if (actionSheet.tag == DeleteItemConfirmation){
+        PollItemCell *cell = (PollItemCell*)[[senderButton superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Item *item = [self.poll.items objectAtIndex:indexPath.row - 1];
         switch (buttonIndex) {
             case 0:
-                [self deleteItem:senderButton];
-            case 1:[actionSheet resignFirstResponder];
+                [self deleteItem:item];
+                break;
+            default:
+                break;
+        }
+    }else if (actionSheet.tag == ItemOperationActionSheet){
+        PollItemCell *cell = (PollItemCell*)[[senderButton superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Item *item = [self.poll.items objectAtIndex:indexPath.row];
+        switch (buttonIndex) {
+            case 0:
+                [self reportInappropriateContent:item];
+                break;
+            case 1:
+                [self saveToPhotoLibrary:cell.itemImage.image];
                 break;
             default:
                 break;
         }
     }
+    [actionSheet resignFirstResponder];
+}
+
+- (void)deleteItem:(Item *)item
+{
+    [[RKObjectManager sharedManager] deleteObject:item delegate:self];
+    [Utility showAlert:@"Deleted!" message:@""];
+}
+
+-(void)reportInappropriateContent:(Item*)item
+{
+    [[RKObjectManager sharedManager] deleteObject:item delegate:self];
+    [Utility showAlert:@"Our moderater" message:@""];
+}
+
+-(void)saveToPhotoLibrary:(UIImage*)image
+{
+    UIImageWriteToSavedPhotosAlbum(image,
+                                   self,
+                                   @selector(image:finishedSavingWithError:contextInfo:),
+                                   nil);
+    [Utility showAlert:@"Saved" message:nil];
 }
 
 -(void)confirmToOpenPoll
@@ -527,6 +559,12 @@
                         initWithStyle:UITableViewCellStyleDefault
                         reuseIdentifier:CellIdentifier];
             }
+            
+            [cell.addNewItemButton setNavigationButtonWithColor:[Utility colorFromKuler:KULER_YELLOW alpha:1]];
+            cell.addNewItemButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
+            [cell.addNewItemButton.titleLabel setShadowOffset:CGSizeMake(0, 1)];
+            [cell.addNewItemButton.titleLabel setShadowColor:[UIColor blackColor]];
+            cell.addNewItemButton.buttonCornerRadius = 12.0f;
             return cell;
         }else{
             item = [self.poll.items objectAtIndex:indexPath.row - 1];
@@ -562,6 +600,7 @@
     [cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON] forState:UIControlStateNormal];
     [cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON_HL] forState:UIControlStateHighlighted];
     cell.deleteButton.hidden = !(isOwnerView && [self.poll.state intValue] == EDITING);
+    cell.itemOperationButton.hidden = isOwnerView;
     
     [Utility renderView:cell.itemImage withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH];
     cell.itemImage.contentMode = UIViewContentModeScaleAspectFit;

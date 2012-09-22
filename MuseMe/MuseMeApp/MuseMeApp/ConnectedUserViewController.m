@@ -33,6 +33,11 @@
     _spinner = [MuseMeActivityIndicator new];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;
+}
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -187,6 +192,7 @@
 {
     ProfileTableViewController* profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profile page"];
     profileVC.user = [self.users objectAtIndex:indexPath.row];
+    profileVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:profileVC animated:YES];
 }
 

@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSString *profilePhotoURL;
 @property (nonatomic, strong) NSNumber *numberOfFollowing, *numberOfFollowers;
 @property (nonatomic, strong) NSString *deviceToken;
+@property (nonatomic, strong) NSData *photo;
 @end

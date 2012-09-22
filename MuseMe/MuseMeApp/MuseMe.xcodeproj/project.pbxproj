@@ -134,6 +134,8 @@
 		0DA5BF3515F847EA008F8B72 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3415F847EA008F8B72 /* UserCell.m */; };
 		0DA5BF3815F86252008F8B72 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3715F86252008F8B72 /* Relationship.m */; };
 		0DA5C3C915CDA9B90020D7A8 /* PollRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */; };
+		0DA9E7E4160D8AC8000B9453 /* UIGlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA9E7E1160D8AC8000B9453 /* UIGlossyButton.m */; };
+		0DA9E7E5160D8AC8000B9453 /* UIView+LayerEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA9E7E3160D8AC8000B9453 /* UIView+LayerEffects.m */; };
 		0DAB2B17160164CC00260ED9 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB2B16160164CC00260ED9 /* CommentCell.m */; };
 		0DAC87C91603E51300366A5F /* MuseMeActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAC87C81603E51300366A5F /* MuseMeActivityIndicator.m */; };
 		0DAC87CB1604171700366A5F /* comment_bubble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC87CA1604171700366A5F /* comment_bubble.jpg */; };
@@ -155,7 +157,6 @@
 		0DB2A55915E7097B00FA1470 /* OpenedPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55815E7097A00FA1470 /* OpenedPollCell.m */; };
 		0DB31ACF15FAB9880090DDAA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB31ACE15FAB9880090DDAA /* FacebookSDK.framework */; };
 		0DC94A2815CF404200383472 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC94A2715CF404200383472 /* AWSiOSSDK.framework */; };
-		0DC94A2F15CF474B00383472 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC94A2E15CF474B00383472 /* AmazonClientManager.m */; };
 		0DF8B21C15EE1DDE00230497 /* add-new-items.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8B21A15EE1DDE00230497 /* add-new-items.png */; };
 		0DF8B21D15EE1DDE00230497 /* add-new-items@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8B21B15EE1DDE00230497 /* add-new-items@2x.png */; };
 		0DF8D7AE15DE2D4A0010E475 /* AddNewItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8D7AD15DE2D4A0010E475 /* AddNewItemController.m */; };
@@ -465,6 +466,10 @@
 		0DA5BF3715F86252008F8B72 /* Relationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relationship.m; sourceTree = "<group>"; };
 		0DA5C3C715CDA9B90020D7A8 /* PollRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollRecord.h; sourceTree = "<group>"; };
 		0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollRecord.m; sourceTree = "<group>"; };
+		0DA9E7E0160D8AC8000B9453 /* UIGlossyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIGlossyButton.h; sourceTree = "<group>"; };
+		0DA9E7E1160D8AC8000B9453 /* UIGlossyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIGlossyButton.m; sourceTree = "<group>"; };
+		0DA9E7E2160D8AC8000B9453 /* UIView+LayerEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayerEffects.h"; sourceTree = "<group>"; };
+		0DA9E7E3160D8AC8000B9453 /* UIView+LayerEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayerEffects.m"; sourceTree = "<group>"; };
 		0DAB2B15160164CC00260ED9 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		0DAB2B16160164CC00260ED9 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		0DAC87C71603E51300366A5F /* MuseMeActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuseMeActivityIndicator.h; sourceTree = "<group>"; };
@@ -498,8 +503,6 @@
 		0DB2A55815E7097A00FA1470 /* OpenedPollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenedPollCell.m; sourceTree = "<group>"; };
 		0DB31ACE15FAB9880090DDAA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		0DC94A2715CF404200383472 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "aws-ios-sdk-1.3.3/AWSiOSSDK.framework"; sourceTree = "<group>"; };
-		0DC94A2D15CF474B00383472 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
-		0DC94A2E15CF474B00383472 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
 		0DF8B21A15EE1DDE00230497 /* add-new-items.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-new-items.png"; sourceTree = "<group>"; };
 		0DF8B21B15EE1DDE00230497 /* add-new-items@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-new-items@2x.png"; sourceTree = "<group>"; };
 		0DF8D7AC15DE2D4A0010E475 /* AddNewItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewItemController.h; sourceTree = "<group>"; };
@@ -744,6 +747,7 @@
 		0D91EE5615AD0B7200D1015D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0DA9E7DF160D8A89000B9453 /* GlossyButton */,
 				0DAC87D016044B8500366A5F /* UIInputToolbar */,
 				0DB2A55415E7075800FA1470 /* EditingPollCell.h */,
 				0DB2A55515E7075800FA1470 /* EditingPollCell.m */,
@@ -969,8 +973,6 @@
 			children = (
 				0D9BA1C815C603EC00599AA2 /* Environment.h */,
 				0D9BA1C915C603EC00599AA2 /* Environment.m */,
-				0DC94A2D15CF474B00383472 /* AmazonClientManager.h */,
-				0DC94A2E15CF474B00383472 /* AmazonClientManager.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -1055,6 +1057,17 @@
 				0DA46AAA15E5BBD7008F67B1 /* AddItemHint@2x.png */,
 			);
 			name = "Single Item View";
+			sourceTree = "<group>";
+		};
+		0DA9E7DF160D8A89000B9453 /* GlossyButton */ = {
+			isa = PBXGroup;
+			children = (
+				0DA9E7E0160D8AC8000B9453 /* UIGlossyButton.h */,
+				0DA9E7E1160D8AC8000B9453 /* UIGlossyButton.m */,
+				0DA9E7E2160D8AC8000B9453 /* UIView+LayerEffects.h */,
+				0DA9E7E3160D8AC8000B9453 /* UIView+LayerEffects.m */,
+			);
+			name = GlossyButton;
 			sourceTree = "<group>";
 		};
 		0DAC87D016044B8500366A5F /* UIInputToolbar */ = {
@@ -1371,7 +1384,6 @@
 				0DA4105115CA43C000859E59 /* Event.m in Sources */,
 				0D9B1C6115CB0E77003A34DD /* Audience.m in Sources */,
 				0DA5C3C915CDA9B90020D7A8 /* PollRecord.m in Sources */,
-				0DC94A2F15CF474B00383472 /* AmazonClientManager.m in Sources */,
 				0D9DDAEE15D3100A008D27AB /* SettingsTableViewController.m in Sources */,
 				0D03A99A15D79A6100A0A9BD /* AppFormattedLabel.m in Sources */,
 				0DA3EA8415DC1D8A00546961 /* SmallFormattedLabel.m in Sources */,
@@ -1399,6 +1411,8 @@
 				0DAC87D716044B8500366A5F /* UIExpandingTextView.m in Sources */,
 				0DAC87D816044B8500366A5F /* UIExpandingTextViewInternal.m in Sources */,
 				0DAC87D916044B8500366A5F /* UIInputToolbar.m in Sources */,
+				0DA9E7E4160D8AC8000B9453 /* UIGlossyButton.m in Sources */,
+				0DA9E7E5160D8AC8000B9453 /* UIView+LayerEffects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1507,6 +1521,7 @@
 				PRODUCT_NAME = "Muse Me";
 				PROVISIONING_PROFILE = "D277515F-5165-4E5E-B3D4-DE77236FD939";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D277515F-5165-4E5E-B3D4-DE77236FD939";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1535,6 +1550,7 @@
 				PRODUCT_NAME = "Muse Me";
 				PROVISIONING_PROFILE = "D277515F-5165-4E5E-B3D4-DE77236FD939";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D277515F-5165-4E5E-B3D4-DE77236FD939";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -170,6 +170,7 @@ static NSUInteger kNumberOfPages = 6;
 {
     [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
 }
+
 #pragma User Actions
 
 - (IBAction)loginButtonPressed {

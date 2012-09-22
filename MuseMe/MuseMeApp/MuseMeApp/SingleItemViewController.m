@@ -115,7 +115,7 @@
     self.item = nil;
     _spinner = nil;
     self.capturedImage = nil;
-    [AmazonClientManager clearCredentials];
+    //[AmazonClientManager clearCredentials];
     // Release any retained subviews of the main view.
 }
 
