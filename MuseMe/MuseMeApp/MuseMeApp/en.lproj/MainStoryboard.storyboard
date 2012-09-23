@@ -1999,7 +1999,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="399"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" text="Poll Description in new item event" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Vma-Vs-HKW">
@@ -2044,6 +2044,7 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
+                                                <action selector="showUserProfile:" destination="8mp-fe-vSf" eventType="touchUpInside" id="IIN-h8-HPS"/>
                                                 <action selector="showUserProfile:" destination="8Sd-3s-bsT" eventType="touchUpInside" id="xCa-e1-tXO"/>
                                             </connections>
                                         </button>
@@ -2136,7 +2137,19 @@
                             <outlet property="delegate" destination="8mp-fe-vSf" id="MmT-ya-cS8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5iF-Nm-gCQ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="5iF-Nm-gCQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="YoG-h3-gXg">
+                            <connections>
+                                <action selector="refresh:" destination="8mp-fe-vSf" id="V3i-Hs-70m"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="New-poll-icon.png" id="YaV-nl-6vt">
+                            <connections>
+                                <action selector="newPollButtonPressed:" destination="8mp-fe-vSf" id="gW3-8z-wO6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF1-Hv-zUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -48,7 +48,7 @@
     isLoading = NO;
     _spinner = [MuseMeActivityIndicator new];
     [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events/0" delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/feeds/0" delegate:self];
 }
 
 - (void)viewDidUnload
@@ -96,7 +96,7 @@
 
 
 - (IBAction)refresh:(id)sender {
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events/0" delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/feeds/0" delegate:self];
 }
 
 #pragma mark - RKObjectLoader Delegate Methods
@@ -110,8 +110,8 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
-    if ([objectLoader.resourcePath hasPrefix:@"/events"]){
-        if ([objectLoader.resourcePath hasPrefix:@"/events/0"]){
+    if ([objectLoader.resourcePath hasPrefix:@"/feeds"]){
+        if ([objectLoader.resourcePath hasPrefix:@"/feeds/0"]){
             self.events = [objects mutableCopy];
         }else{
             [self.events addObjectsFromArray:objects];
@@ -326,7 +326,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath{
     CGFloat h = size.height;
     if ((y > h - Reload_Distance) && !isLoading) {
         NSLog(@"load more rows");
-        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/events/%u", self.events.count] delegate:self];
+        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/feeds/%u", self.events.count] delegate:self];
         isLoading = YES;
     }
 }

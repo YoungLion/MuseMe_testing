@@ -187,9 +187,9 @@
     currentUser.photo = UIImageJPEGRepresentation(self.profilePhoto.image, 1.0f);
     [[RKObjectManager sharedManager] putObject:currentUser usingBlock:^(RKObjectLoader *loader){
         RKParams* params = [RKParams params];
-        [params setValue:currentUser.userID forParam:@"user[id]"];
         [params setData:currentUser.photo MIMEType:@"image/jpeg" forParam:@"user[photo]"];
         NSLog(@"post to %@",loader.resourcePath);
+        loader.resourcePath = @"/update_profile_photo";
         loader.params = params;
         loader.delegate = self;
     }];
