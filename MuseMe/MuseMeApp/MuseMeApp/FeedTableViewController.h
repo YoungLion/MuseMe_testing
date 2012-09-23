@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Utility.h"
+#import "FeedsCell.h"
+#import "NewPollViewController.h"
 
-@interface FeedTableViewController : UITableViewController
+@interface FeedTableViewController : UITableViewController<RKObjectLoaderDelegate, NewPollViewControllerDelegate>
 
 @end

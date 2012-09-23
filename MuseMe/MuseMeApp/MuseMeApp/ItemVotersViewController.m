@@ -47,6 +47,12 @@
     self.tableView.tag = TableView;
     
     [Utility renderView:self.itemImageView withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH];
+    
+    /* Create toolbar */
+    self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-kDefaultToolbarHeight, self.view.frame.size.width, kDefaultToolbarHeight)];
+    self.commentBar.delegate = self;
+    self.commentBar.textView.placeholder = @"Leave your comment here";
+    [self.view addSubview:self.commentBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -58,11 +64,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
-    /* Create toolbar */
-    self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-kDefaultToolbarHeight, self.view.frame.size.width, kDefaultToolbarHeight)];
-    self.commentBar.delegate = self;
-    self.commentBar.textView.placeholder = @"Leave your comment here";
-    [self.view addSubview:self.commentBar];
     [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     [[RKObjectManager sharedManager] getObject:self.item delegate:self];
     ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;

@@ -1,5 +1,5 @@
 //
-//  NewsFeedTableViewController.h
+//  ExploreTableViewController.h
 //  MuseMe
 //
 //  Created by Yong Lin on 7/6/12.
@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MuseMeDelegate.h"
+#import "Utility.h"
 #import "FeedsCell.h"
 #import "NewPollViewController.h"
 
 
-@interface NewsFeedTableViewController : UITableViewController<RKObjectLoaderDelegate, NewPollViewControllerDelegate>
+@interface ExploreTableViewController : UITableViewController<RKObjectLoaderDelegate, NewPollViewControllerDelegate>
 
 @end

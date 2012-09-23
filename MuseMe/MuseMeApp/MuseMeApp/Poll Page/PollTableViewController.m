@@ -320,8 +320,8 @@
 
 -(void)reportInappropriateContent:(Item*)item
 {
-    [[RKObjectManager sharedManager] deleteObject:item delegate:self];
-    [Utility showAlert:@"Our moderater" message:@""];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/flag/%@/%@", item.itemID, [Utility getObjectForKey:CURRENTUSERID]] delegate:self];
+    [Utility showAlert:@"We will review this flagged item in 24 hours! Thank you for your contributions " message:@""];
 }
 
 -(void)saveToPhotoLibrary:(UIImage*)image

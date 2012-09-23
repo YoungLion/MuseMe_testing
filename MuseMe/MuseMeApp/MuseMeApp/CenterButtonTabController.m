@@ -34,6 +34,33 @@
 
     [super viewDidLoad];
     [self addCenterButtonWithImage:[UIImage imageNamed:CAMERA_ICON] highlightImage:[UIImage imageNamed:CAMERA_ICON_HL]];
+    
+    //set color of text in UITabBarItem
+    [[UITabBarItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIFont fontWithName:@"HelveticaNeue-Bold" size:11], UITextAttributeFont,
+      nil]
+                                             forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor blackColor], UITextAttributeTextColor,
+      [UIFont fontWithName:@"HelveticaNeue-Bold" size:11], UITextAttributeFont,
+      nil]
+                                             forState:UIControlStateHighlighted];
+    //custom tab bar icons
+    
+    UIImage *selectedImage1 = [UIImage imageNamed:FEEDS_ICON_HL];
+    UIImage *unselectedImage1 = [UIImage imageNamed:FEEDS_ICON];
+    
+    UIImage *selectedImage2 = [UIImage imageNamed:PROFILE_ICON_HL];
+    UIImage *unselectedImage2 = [UIImage imageNamed:PROFILE_ICON];
+    
+    UITabBar *tabBar = self.tabBar;
+    UITabBarItem *item1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *item2 = [tabBar.items objectAtIndex:3];
+    [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
+    [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
 	// Do any additional setup after loading the view.
 }
 

@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZ2-x6-trY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="474"/>
+            <point key="canvasLocation" x="1195" y="480"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="urU-ra-BWv">
@@ -277,7 +277,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYb-e9-vif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="-1507"/>
+            <point key="canvasLocation" x="4298" y="1888"/>
         </scene>
         <!--Friends View Controller-->
         <scene sceneID="DNX-ik-biB">
@@ -394,7 +394,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2537" y="-928"/>
+            <point key="canvasLocation" x="3816" y="1888"/>
         </scene>
         <!--Profile Table View Controller-->
         <scene sceneID="NXo-kP-osz">
@@ -793,7 +793,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dN-MZ-s2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2936" y="-300"/>
+            <point key="canvasLocation" x="2620" y="1411"/>
         </scene>
         <!--Connected User View Controller-->
         <scene sceneID="S1p-Be-qTn">
@@ -871,12 +871,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBg-Yf-F68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3025" y="-923"/>
+            <point key="canvasLocation" x="3816" y="1323"/>
         </scene>
-        <!--News Feed Table View Controller-->
+        <!--Explore Table View Controller-->
         <scene sceneID="Ze0-ng-Ado">
             <objects>
-                <tableViewController id="8Sd-3s-bsT" customClass="NewsFeedTableViewController" sceneMemberID="viewController">
+                <tableViewController id="8Sd-3s-bsT" customClass="ExploreTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="398" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rv7-Am-ueW">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1045,7 +1045,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evl-Jf-Mnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2757" y="394"/>
+            <point key="canvasLocation" x="2545" y="-918"/>
         </scene>
         <!--Settings Table View Controller - Settings-->
         <scene sceneID="Bi7-qS-cAn">
@@ -1185,7 +1185,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yA-pi-pnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3559" y="-739"/>
+            <point key="canvasLocation" x="3816" y="2459"/>
         </scene>
         <!--New Poll View Controller - New poll-->
         <scene sceneID="0w5-Bv-NOb">
@@ -1263,7 +1263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9J-ho-zJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3559" y="-172"/>
+            <point key="canvasLocation" x="3181" y="-918"/>
         </scene>
         <!--Poll Table View Controller-->
         <scene sceneID="LMl-kx-4Uv">
@@ -1544,7 +1544,7 @@
                 </activityIndicatorView>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysj-kf-CGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3488" y="467"/>
+            <point key="canvasLocation" x="4142" y="480"/>
         </scene>
         <!--Poll Result View Controller - Poll results-->
         <scene sceneID="mxb-Ii-Hb2">
@@ -1617,7 +1617,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXy-U7-CRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3986" y="178"/>
+            <point key="canvasLocation" x="4806" y="-132"/>
         </scene>
         <!--Center Button Tab Controller-->
         <scene sceneID="Rja-Z1-Bnm">
@@ -1631,13 +1631,16 @@
                     </tabBar>
                     <connections>
                         <segue destination="N2Q-wT-Pg5" kind="relationship" relationship="viewControllers" id="VwA-cl-780"/>
-                        <segue destination="bsG-2L-Xxs" kind="relationship" relationship="viewControllers" id="AZp-C3-uVn"/>
-                        <segue destination="DrO-mn-DYT" kind="relationship" relationship="viewControllers" id="TYh-Cy-uGf"/>
+                        <segue destination="3bF-WT-Lly" kind="relationship" relationship="viewControllers" id="INp-bW-8M3"/>
+                        <segue destination="bsG-2L-Xxs" kind="relationship" relationship="viewControllers" id="pNV-Lm-htS"/>
+                        <segue destination="DrO-mn-DYT" kind="relationship" relationship="viewControllers" id="kkl-te-xW9"/>
+                        <segue destination="iXW-97-bPO" kind="relationship" relationship="viewControllers" id="R3p-Kn-6Kg"/>
+                        <segue destination="fy9-DV-fmi" kind="modal" id="EaZ-vg-UdM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxg-yl-RgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2001" y="474"/>
+            <point key="canvasLocation" x="1595" y="480"/>
         </scene>
         <!--Add New Item Controller - Add new item-->
         <scene sceneID="NMo-cl-37H">
@@ -1703,7 +1706,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMg-Rt-yAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2928" y="1536"/>
+            <point key="canvasLocation" x="3156" y="480"/>
         </scene>
         <!--Add To Poll Controller - Choose a poll-->
         <scene sceneID="ldJ-9g-V8O">
@@ -1755,7 +1758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Inl-6x-Zdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3475" y="1645"/>
+            <point key="canvasLocation" x="3559" y="480"/>
         </scene>
         <!--Item Voters View Controller-->
         <scene sceneID="TLP-wi-ne0">
@@ -1897,7 +1900,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddl-pB-8sM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3980" y="739"/>
+            <point key="canvasLocation" x="4816" y="467"/>
         </scene>
         <!--Single Item View Controller - Add new item-->
         <scene sceneID="HpC-Ot-YOP">
@@ -1962,7 +1965,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2s-t9-Py2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3942" y="1405"/>
+            <point key="canvasLocation" x="4806" y="1065"/>
         </scene>
         <!--Navigation Controller - Explore-->
         <scene sceneID="xve-u6-DHd">
@@ -1981,7 +1984,163 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAs-WY-gLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381" y="433"/>
+            <point key="canvasLocation" x="2111" y="-923"/>
+        </scene>
+        <!--Feed Table View Controller-->
+        <scene sceneID="XJ4-wE-o0l">
+            <objects>
+                <tableViewController id="8mp-fe-vSf" customClass="FeedTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CRQ-q7-iRa">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell alpha="0.94999998807907104" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feeds cell" rowHeight="400" id="2CY-nj-LNG" customClass="FeedsCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="400"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" text="Poll Description in new item event" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Vma-Vs-HKW">
+                                            <rect key="frame" x="53" y="36" width="219" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <view contentMode="scaleAspectFit" id="dSL-eT-aOb" customClass="HJManagedImageV">
+                                            <rect key="frame" x="277" y="9" width="23" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <view contentMode="scaleAspectFit" id="A1c-fn-zbv" customClass="HJManagedImageV">
+                                            <rect key="frame" x="5" y="9" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <gestureRecognizers/>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 minute ago" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="c88-rq-NF2" customClass="SmallFormattedLabel">
+                                            <rect key="frame" x="53" y="9" width="74" height="12"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="9"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" id="8Jn-dR-ZvR" customClass="MultipartLabel">
+                                            <rect key="frame" x="53" y="19" width="230" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pa8-Sd-cBm" userLabel="Button - user photo">
+                                            <rect key="frame" x="5" y="9" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="showUserProfile:" destination="8Sd-3s-bsT" eventType="touchUpInside" id="xCa-e1-tXO"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" id="6SF-Jf-Tsd" userLabel="View - pic container">
+                                            <rect key="frame" x="0.0" y="69" width="320" height="320"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="PictureContainer.png" id="TDF-zr-DNf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view tag="4" contentMode="scaleToFill" id="dhB-fv-dyx" userLabel="Managed ImageV - t4" customClass="HJManagedImageV">
+                                                    <rect key="frame" x="211" y="209" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view tag="3" contentMode="scaleToFill" id="bhq-yG-reu" userLabel="Managed ImageV - t3" customClass="HJManagedImageV">
+                                                    <rect key="frame" x="123" y="189" width="80" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view tag="2" contentMode="scaleToFill" id="s27-JP-3VZ" userLabel="Managed ImageV - t2" customClass="HJManagedImageV">
+                                                    <rect key="frame" x="15" y="169" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view tag="1" contentMode="scaleToFill" id="ltx-wn-cLE" userLabel="Managed ImageV - t1" customClass="HJManagedImageV">
+                                                    <rect key="frame" x="167" y="14" width="120" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" id="a3f-k2-qS3" userLabel="Managed ImageV - t0" customClass="HJManagedImageV">
+                                                    <rect key="frame" x="15" y="14" width="144" height="147"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="check.png" id="7dU-gF-pa8">
+                                                    <rect key="frame" x="10" y="10" width="34" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Eda-n4-Fx8" userLabel="Label - Votes ">
+                                                    <rect key="frame" x="43" y="20" width="67" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pcZ-0T-9oi" userLabel="category label">
+                                            <rect key="frame" x="261" y="33" width="54" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" id="vZh-5l-cNt" userLabel="View cell seperator">
+                                            <rect key="frame" x="0.0" y="398" width="320" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.85490196080000003" green="0.92941176469999998" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <outlet property="categoryIcon" destination="dSL-eT-aOb" id="vzb-Wj-XVY"/>
+                                    <outlet property="categoryLabel" destination="pcZ-0T-9oi" id="Qzl-OH-dwc"/>
+                                    <outlet property="eventDescriptionLabel" destination="Vma-Vs-HKW" id="O1O-Hd-gaM"/>
+                                    <outlet property="picContainer" destination="6SF-Jf-Tsd" id="U8t-er-kdL"/>
+                                    <outlet property="picContainerImageView" destination="TDF-zr-DNf" id="hRH-TL-cYi"/>
+                                    <outlet property="seperator" destination="vZh-5l-cNt" id="14t-Bg-vLv"/>
+                                    <outlet property="thumbnail0" destination="a3f-k2-qS3" id="mex-8t-fTi"/>
+                                    <outlet property="thumbnail1" destination="ltx-wn-cLE" id="j3y-yP-uDX"/>
+                                    <outlet property="thumbnail2" destination="s27-JP-3VZ" id="kvk-pG-uPl"/>
+                                    <outlet property="thumbnail3" destination="bhq-yG-reu" id="BVf-J5-0uR"/>
+                                    <outlet property="thumbnail4" destination="dhB-fv-dyx" id="A8P-Uy-pwL"/>
+                                    <outlet property="timeStampLabel" destination="c88-rq-NF2" id="ch4-Rg-mZI"/>
+                                    <outlet property="totalVotes" destination="Eda-n4-Fx8" id="D1Q-vA-fcz"/>
+                                    <outlet property="userImage" destination="A1c-fn-zbv" id="h5f-Bx-jb5"/>
+                                    <outlet property="usernameAndActionLabel" destination="8Jn-dR-ZvR" id="Jn8-uf-MCw"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8mp-fe-vSf" id="ND6-Vg-iTy"/>
+                            <outlet property="delegate" destination="8mp-fe-vSf" id="MmT-ya-cS8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5iF-Nm-gCQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TF1-Hv-zUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2561" y="-283"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="IKe-fY-1NE">
@@ -1996,7 +2155,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ijo-jZ-gfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2463" y="1051"/>
+            <point key="canvasLocation" x="2137" y="475"/>
+        </scene>
+        <!--Notification View Controller-->
+        <scene sceneID="PBu-eO-gI8">
+            <objects>
+                <tableViewController id="SQC-4m-4bh" customClass="NotificationViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" id="hcF-n1-bFa">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="57" id="Yfo-IT-avS" customClass="NotificationCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="1aq-3U-72n" customClass="MultipartLabel">
+                                            <rect key="frame" x="51" y="13" width="230" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="messageLabel" destination="1aq-3U-72n" id="axc-XI-HR1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SQC-4m-4bh" id="lMD-Mw-khR"/>
+                            <outlet property="delegate" destination="SQC-4m-4bh" id="e93-jP-Ue2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="c4Q-tf-qYZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATm-pl-gtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2620" y="2180"/>
         </scene>
         <!--Navigation Controller - Profile-->
         <scene sceneID="bkU-ih-LCq">
@@ -2019,7 +2218,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvr-iD-O1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2162" y="-293"/>
+            <point key="canvasLocation" x="2147" y="1411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hyf-lY-AQ1">
@@ -2037,7 +2236,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyq-0M-Glo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2478" y="1672"/>
+            <point key="canvasLocation" x="2763" y="480"/>
+        </scene>
+        <!--Navigation Controller - Feed-->
+        <scene sceneID="rm0-rJ-GQ7">
+            <objects>
+                <navigationController id="3bF-WT-Lly" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" id="mYs-M1-9M2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U9a-MC-WsM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8mp-fe-vSf" kind="relationship" relationship="rootViewController" id="y4m-g2-NTz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axF-W8-hBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2121" y="-283"/>
+        </scene>
+        <!--Navigation Controller - News-->
+        <scene sceneID="DSs-0C-cP1">
+            <objects>
+                <navigationController id="iXW-97-bPO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" id="sfJ-I3-srz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vvn-Hv-QG3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SQC-4m-4bh" kind="relationship" relationship="rootViewController" id="Xjk-pj-TKo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEA-vY-AOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2137" y="2186"/>
         </scene>
     </scenes>
     <resources>
@@ -2060,238 +2297,13 @@
         <image name="tap-to-add.png" width="285" height="85"/>
         <image name="tap-to-publish-poll.png" width="320" height="72"/>
     </resources>
-    <classes>
-        <class className="AddNewItemController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewItemController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brandTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tapHintView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="AddToPollController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddToPollController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="AnimatedPickerView" superclassName="UIPickerView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnimatedPickerView.h"/>
-        </class>
-        <class className="AppFormattedBoldLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppFormattedBoldLabel.h"/>
-        </class>
-        <class className="AppFormattedLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppFormattedLabel.h"/>
-        </class>
-        <class className="CenterButtonTabController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CenterButtonTabController.h"/>
-        </class>
-        <class className="CommentCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="commentLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeStampLabel" candidateClass="SmallFormattedLabel"/>
-                <relationship kind="outlet" name="userPhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ConnectedUserViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConnectedUserViewController.h"/>
-        </class>
-        <class className="EditingPollCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditingPollCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemCountLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="pollDescriptionLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="startTimeLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-        <class className="FBFriendsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBFriendsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="FeedsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="categoryIcon" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eventDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="picContainerImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="seperator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="thumbnail0" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail1" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail2" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail3" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="thumbnail4" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="timeStampLabel" candidateClass="SmallFormattedLabel"/>
-                <relationship kind="outlet" name="totalVotes" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userImage" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="usernameAndActionLabel" candidateClass="MultipartLabel"/>
-            </relationships>
-        </class>
-        <class className="FriendsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="HJManagedImageV" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HJManagedImageV.h"/>
-        </class>
-        <class className="ItemVotersViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemVotersViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemImageView" candidateClass="HJManagedImageV"/>
-            </relationships>
-        </class>
-        <class className="MultipartLabel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MultipartLabel.h"/>
-        </class>
-        <class className="NewPollViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewPollViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
-                <relationship kind="outlet" name="categoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="categoryPickerView" candidateClass="AnimatedPickerView"/>
-                <relationship kind="outlet" name="pollNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NewsFeedTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsFeedTableViewController.h"/>
-        </class>
-        <class className="OpenedPollCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OpenedPollCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="openTimeLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="pollDescriptionLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="votesCountLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-        <class className="PollItemCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollItemCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addNewItemButton" candidateClass="UIGlossyButton"/>
-                <relationship kind="outlet" name="brandLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="commentCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="itemOperationButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeStampLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="voteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="voteCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="votePercentageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PollResultCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollResultCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brandLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="numberOfVotesIndicator" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="numberOfVotesLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PollResultViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollResultViewController.h"/>
-        </class>
-        <class className="PollTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PollTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="actionButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="backButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="deleteButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="moreActionsOnThisItem:" candidateClass="UIButton"/>
-                <relationship kind="action" name="newItemButtonPressed:"/>
-                <relationship kind="outlet" name="categoryIconView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="openPollHint" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pollDescription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="timeStampLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ProfileTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activePollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editingPollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editingPollCountLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="numberOfFollowersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfFollowingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="openedPollCountLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="userPhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="votedPollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="votedPollCountLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-        <class className="RegistrationPageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationPageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="background" candidateClass="UIControl"/>
-                <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="logoImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="passwordConfirmationField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="signupButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SettingsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
-                <relationship kind="outlet" name="logoutButton" candidateClass="UIGlossyButton"/>
-                <relationship kind="outlet" name="profilePhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SingleItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleItemViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="brandTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemImageView" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="tapHintImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SmallFormattedLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SmallFormattedLabel.h"/>
-        </class>
-        <class className="UIGlossyButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIGlossyButton.h"/>
-        </class>
-        <class className="UserCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="userPhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VotedPollCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VotedPollCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pollDescriptionLabel" candidateClass="AppFormattedLabel"/>
-                <relationship kind="outlet" name="userPhoto" candidateClass="HJManagedImageV"/>
-                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="votesCountLabel" candidateClass="AppFormattedLabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E46-aS-6G1"/>
+        <segue reference="Tht-ec-FNc"/>
         <segue reference="ptE-zf-Lfr"/>
     </inferredMetricsTieBreakers>
 </document>

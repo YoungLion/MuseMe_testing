@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Utility.h"
 
 @interface NotificationCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet MultipartLabel *messageLabel;
 
 @end

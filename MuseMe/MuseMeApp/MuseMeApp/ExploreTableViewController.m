@@ -1,14 +1,13 @@
 //
-//  NewsFeedTableViewController.m
+//  ExploreTableViewController.m
 //  MuseMe
 //
 //  Created by Yong Lin on 7/6/12.
 //  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
 //
 
-#import "NewsFeedTableViewController.h"
+#import "ExploreTableViewController.h"
 #import "AddNewItemController.h"
-#import "Utility.h"
 #import "ProfileTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -21,7 +20,7 @@
 #define degreesToRadians(degrees) (M_PI * degrees / 180.0)
 #define Reload_Distance 10.0
 
-@interface NewsFeedTableViewController (){
+@interface ExploreTableViewController (){
     User* userToBePassed;
     BOOL isLoading;
 }
@@ -29,45 +28,16 @@
 @property (nonatomic, strong) MuseMeActivityIndicator* spinner;
 @end
 
-@implementation NewsFeedTableViewController
+@implementation ExploreTableViewController
 
 @synthesize events=_events;
 @synthesize spinner = _spinner;
 
 - (void)viewDidLoad
 {
-    NSLog(@"Home loaded");
-    //set color of text in UITabBarItem
-    [[UITabBarItem appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor, 
-      [UIFont fontWithName:@"HelveticaNeue-Bold" size:11], UITextAttributeFont, 
-      nil] 
-                                             forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor blackColor], UITextAttributeTextColor, 
-      [UIFont fontWithName:@"HelveticaNeue-Bold" size:11], UITextAttributeFont, 
-      nil] 
-                                             forState:UIControlStateHighlighted];
-    //custom tab bar icons
-    
-    UIImage *selectedImage1 = [UIImage imageNamed:FEEDS_ICON_HL];
-    UIImage *unselectedImage1 = [UIImage imageNamed:FEEDS_ICON];
-    
-    UIImage *selectedImage2 = [UIImage imageNamed:PROFILE_ICON_HL];
-    UIImage *unselectedImage2 = [UIImage imageNamed:PROFILE_ICON];
-    
-    UITabBar *tabBar = self.tabBarController.tabBar;
-    UITabBarItem *item1 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
-    [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
-    [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
-
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
 
-    
     //set UIBarButtonItem background image
     UIImage *navButtonBGImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
  
