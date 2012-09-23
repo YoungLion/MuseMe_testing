@@ -19,6 +19,9 @@
 		0D388BF215EA0483005A56D7 /* default-profile-photo-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D388BEE15EA0483005A56D7 /* default-profile-photo-small.png */; };
 		0D388BF315EA0483005A56D7 /* default-profile-photo-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D388BEF15EA0483005A56D7 /* default-profile-photo-small@2x.png */; };
 		0D388BF615EA07DE005A56D7 /* AppFormattedBoldLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D388BF515EA07DE005A56D7 /* AppFormattedBoldLabel.m */; };
+		0D3EE2A2160ED09800FAAFD8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3EE2A1160ED09800FAAFD8 /* FacebookSDK.framework */; };
+		0D3EE2A5160ED0BE00FAAFD8 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EE2A3160ED0BE00FAAFD8 /* FacebookSDKResources.bundle */; };
+		0D3EE2A6160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EE2A4160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle */; };
 		0D471B9915C32D630070A32A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D471B9815C32D630070A32A /* AssetsLibrary.framework */; };
 		0D553A8715C27D5A00799F0A /* HJCircularBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D553A7415C27D5900799F0A /* HJCircularBuffer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0D553A8815C27D5A00799F0A /* HJManagedImageV.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D553A7615C27D5900799F0A /* HJManagedImageV.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -158,8 +161,6 @@
 		0DB2A55315E705CD00FA1470 /* VotedPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55215E705CC00FA1470 /* VotedPollCell.m */; };
 		0DB2A55615E7075900FA1470 /* EditingPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55515E7075800FA1470 /* EditingPollCell.m */; };
 		0DB2A55915E7097B00FA1470 /* OpenedPollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2A55815E7097A00FA1470 /* OpenedPollCell.m */; };
-		0DB31ACF15FAB9880090DDAA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB31ACE15FAB9880090DDAA /* FacebookSDK.framework */; };
-		0DC94A2815CF404200383472 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC94A2715CF404200383472 /* AWSiOSSDK.framework */; };
 		0DF8B21C15EE1DDE00230497 /* add-new-items.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8B21A15EE1DDE00230497 /* add-new-items.png */; };
 		0DF8B21D15EE1DDE00230497 /* add-new-items@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8B21B15EE1DDE00230497 /* add-new-items@2x.png */; };
 		0DF8D7AE15DE2D4A0010E475 /* AddNewItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8D7AD15DE2D4A0010E475 /* AddNewItemController.m */; };
@@ -278,6 +279,9 @@
 		0D388BEF15EA0483005A56D7 /* default-profile-photo-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-profile-photo-small@2x.png"; sourceTree = "<group>"; };
 		0D388BF415EA07DE005A56D7 /* AppFormattedBoldLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFormattedBoldLabel.h; sourceTree = "<group>"; };
 		0D388BF515EA07DE005A56D7 /* AppFormattedBoldLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFormattedBoldLabel.m; sourceTree = "<group>"; };
+		0D3EE2A1160ED09800FAAFD8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		0D3EE2A3160ED0BE00FAAFD8 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		0D3EE2A4160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		0D471B9815C32D630070A32A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		0D553A7315C27D5900799F0A /* HJCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCircularBuffer.h; sourceTree = "<group>"; };
 		0D553A7415C27D5900799F0A /* HJCircularBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCircularBuffer.m; sourceTree = "<group>"; };
@@ -510,8 +514,6 @@
 		0DB2A55515E7075800FA1470 /* EditingPollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingPollCell.m; sourceTree = "<group>"; };
 		0DB2A55715E7097A00FA1470 /* OpenedPollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenedPollCell.h; sourceTree = "<group>"; };
 		0DB2A55815E7097A00FA1470 /* OpenedPollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenedPollCell.m; sourceTree = "<group>"; };
-		0DB31ACE15FAB9880090DDAA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		0DC94A2715CF404200383472 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "aws-ios-sdk-1.3.3/AWSiOSSDK.framework"; sourceTree = "<group>"; };
 		0DF8B21A15EE1DDE00230497 /* add-new-items.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-new-items.png"; sourceTree = "<group>"; };
 		0DF8B21B15EE1DDE00230497 /* add-new-items@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-new-items@2x.png"; sourceTree = "<group>"; };
 		0DF8D7AC15DE2D4A0010E475 /* AddNewItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewItemController.h; sourceTree = "<group>"; };
@@ -588,8 +590,7 @@
 				0D94F4E915A7D09700903F0B /* UIKit.framework in Frameworks */,
 				0D94F4EB15A7D09700903F0B /* Foundation.framework in Frameworks */,
 				0D94F4ED15A7D09700903F0B /* CoreGraphics.framework in Frameworks */,
-				0DC94A2815CF404200383472 /* AWSiOSSDK.framework in Frameworks */,
-				0DB31ACF15FAB9880090DDAA /* FacebookSDK.framework in Frameworks */,
+				0D3EE2A2160ED09800FAAFD8 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,9 +872,10 @@
 		0D94F4E715A7D09700903F0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D3EE2A3160ED0BE00FAAFD8 /* FacebookSDKResources.bundle */,
+				0D3EE2A4160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle */,
+				0D3EE2A1160ED09800FAAFD8 /* FacebookSDK.framework */,
 				0D96F0F416000DDA006FF8CB /* DeprecatedHeaders */,
-				0DB31ACE15FAB9880090DDAA /* FacebookSDK.framework */,
-				0DC94A2715CF404200383472 /* AWSiOSSDK.framework */,
 				0D98F3ED15C0B3380046423C /* libxml2.dylib */,
 				0D98F3CB15C0B2060046423C /* RestKit.xcodeproj */,
 				0D98F3EB15C0B3230046423C /* QuartzCore.framework */,
@@ -1376,6 +1378,8 @@
 				0DAC87E41604562F00366A5F /* textbg~iphone.png in Resources */,
 				0DAC87E51604562F00366A5F /* toolbarbg@2x~iphone.png in Resources */,
 				0DAC87E61604562F00366A5F /* toolbarbg~iphone.png in Resources */,
+				0D3EE2A5160ED0BE00FAAFD8 /* FacebookSDKResources.bundle in Resources */,
+				0D3EE2A6160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1551,10 @@
 				GCC_PREFIX_HEADER = "MuseMeApp/MuseMe-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "MuseMeApp/MuseMe-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -1576,6 +1584,10 @@
 				GCC_PREFIX_HEADER = "MuseMeApp/MuseMe-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "MuseMeApp/MuseMe-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

@@ -10,6 +10,7 @@
 #import "AddNewItemController.h"
 #import "ProfileTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Utility.h"
 
 #define TimeStampLabelFrame CGRectMake(48,9,74,9)
 #define UserImageFrame CGRectMake(5,9,40,40)

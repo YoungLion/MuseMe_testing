@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Stanford University. All rights reserved.
 //
 
-#import "ExploreTableViewController.h"
+#import "FeedTableViewController.h"
 #import "AddNewItemController.h"
 #import "ProfileTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
@@ -20,7 +20,7 @@
 #define degreesToRadians(degrees) (M_PI * degrees / 180.0)
 #define Reload_Distance 10.0
 
-@interface ExploreTableViewController (){
+@interface FeedTableViewController (){
     User* userToBePassed;
     BOOL isLoading;
 }
@@ -28,7 +28,7 @@
 @property (nonatomic, strong) MuseMeActivityIndicator* spinner;
 @end
 
-@implementation ExploreTableViewController
+@implementation FeedTableViewController
 
 @synthesize events=_events;
 @synthesize spinner = _spinner;
