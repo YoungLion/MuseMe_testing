@@ -213,7 +213,6 @@
     [cell.usernameAndActionLabel setText:event.user.username andFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
     [cell.usernameAndActionLabel setText:@" would like your vote" andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
     
-    [Utility renderView:cell.categoryIcon withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
     cell.eventDescriptionLabel.text = event.poll.title;
     cell.eventDescriptionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0];
     cell.eventDescriptionLabel.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
@@ -244,7 +243,7 @@
 {
     CGFloat charCount = [((Event*)[self.events objectAtIndex:indexPath.row]).poll.title length];
     CGFloat delta = floor(charCount/ 30) *20;
-    return ROWHEIGHT + delta;
+    return FEED_CELL_HEIGHT + delta;
 }
 
 

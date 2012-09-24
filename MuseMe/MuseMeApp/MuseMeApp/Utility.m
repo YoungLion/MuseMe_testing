@@ -89,10 +89,10 @@ double secondsInAYear = 3600*24*365;
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectZero];
     title.backgroundColor = [UIColor clearColor];
     title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
-    /*title.shadowColor = [Utility colorFromKuler:KULER_YELLOW alpha:0.5];
-    title.shadowOffset = CGSizeMake(1, 1);*/
+    title.shadowColor = [UIColor blackColor];
+    title.shadowOffset = CGSizeMake(0, -0.5);
     title.textAlignment = UITextAlignmentCenter;
-    title.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1]; // change this color
+    title.textColor = [UIColor whiteColor]; 
     title.text = titleText;
     [title sizeToFit];
     return title;

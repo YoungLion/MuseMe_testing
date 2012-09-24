@@ -135,7 +135,18 @@
     [pollMapping mapRelationship:@"items" withMapping:itemMapping];
     [pollMapping mapRelationship:@"audiences" withMapping:audienceMapping];
     [[RKObjectManager sharedManager].mappingProvider registerMapping:pollMapping withRootKeyPath:@"poll"];
-
+    
+    // Class:Notification
+    RKObjectMapping* notificationMapping = [RKObjectMapping mappingForClass:[Notification class]];
+    [notificationMapping setPreferredDateFormatter:dateFormatter];
+    [notificationMapping mapKeyPathsToAttributes:
+     @"id", @"notificationID",
+     @"created_at", @"timeStamp",
+     @"notification_type", @"type",
+     nil];
+    [notificationMapping mapRelationship:@"user" withMapping:userMapping];
+    [notificationMapping mapRelationship:@"poll" withMapping:pollMapping];
+    [[RKObjectManager sharedManager].mappingProvider registerMapping:notificationMapping withRootKeyPath:@"notification"];
     
     // Class:Event
     RKObjectMapping* eventMapping = [RKObjectMapping mappingForClass:[Event class]];
@@ -152,8 +163,6 @@
     [eventMapping mapRelationship:@"poll" withMapping:pollMapping];
     [eventMapping mapRelationship:@"items" withMapping:itemMapping];
     [[RKObjectManager sharedManager].mappingProvider registerMapping:eventMapping withRootKeyPath:@"event"];
-    
-
 
     
     [[RKObjectManager sharedManager].router routeClass:[User class] toResourcePath:@"/users/:userID"];

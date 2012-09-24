@@ -37,6 +37,7 @@
     _messageDisplay.text = message;
     _messageDisplay.font = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
     _messageDisplay.textColor  = [UIColor whiteColor];
+    _messageDisplay.textAlignment = UITextAlignmentCenter;
     _messageDisplay.adjustsFontSizeToFitWidth = YES;
     _messageDisplay.center = CGPointMake(self.frame.size.width/2, self.frame.size.height*0.75);
     _messageDisplay.backgroundColor = [UIColor clearColor];

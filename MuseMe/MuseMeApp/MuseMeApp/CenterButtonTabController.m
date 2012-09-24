@@ -49,18 +49,27 @@
       nil]
                                              forState:UIControlStateHighlighted];
     //custom tab bar icons
+    UIImage *selectedImage0 = [UIImage imageNamed:POPULAR_ICON_HL];
+    UIImage *unselectedImage0 = [UIImage imageNamed:POPULAR_ICON];
     
     UIImage *selectedImage1 = [UIImage imageNamed:FEEDS_ICON_HL];
     UIImage *unselectedImage1 = [UIImage imageNamed:FEEDS_ICON];
     
-    UIImage *selectedImage2 = [UIImage imageNamed:PROFILE_ICON_HL];
-    UIImage *unselectedImage2 = [UIImage imageNamed:PROFILE_ICON];
+    UIImage *selectedImage3 = [UIImage imageNamed:NEWS_ICON_HL];
+    UIImage *unselectedImage3 = [UIImage imageNamed:NEWS_ICON];
+    
+    UIImage *selectedImage4 = [UIImage imageNamed:PROFILE_ICON_HL];
+    UIImage *unselectedImage4 = [UIImage imageNamed:PROFILE_ICON];
     
     UITabBar *tabBar = self.tabBar;
-    UITabBarItem *item1 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *item2 = [tabBar.items objectAtIndex:3];
+    UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *item3 = [tabBar.items objectAtIndex:3];
+    UITabBarItem *item4 = [tabBar.items objectAtIndex:4];
+    [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
     [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
-    [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
+    [item3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:unselectedImage3];
+    [item4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:unselectedImage4];
 	// Do any additional setup after loading the view.
 }
 

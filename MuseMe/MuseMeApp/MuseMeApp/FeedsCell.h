@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Utility.h"
 
-#define ROWHEIGHT 400
+#define FEED_CELL_HEIGHT 400
 #define CELL_BOTTOM_MARGIN 10
 
 @interface FeedsCell : UITableViewCell

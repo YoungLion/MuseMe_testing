@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Utility.h"
-@interface NotificationViewController : UITableViewController
+@interface NotificationViewController : UITableViewController<RKObjectLoaderDelegate>
 
 @end

@@ -321,7 +321,7 @@
 -(void)reportInappropriateContent:(Item*)item
 {
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/flag/%@/%@", item.itemID, [Utility getObjectForKey:CURRENTUSERID]] delegate:self];
-    [Utility showAlert:@"We will review this flagged item in 24 hours! Thank you for your contributions " message:@""];
+    [Utility showAlert:@"We will review this flagged item in 24 hours! Thank you for your contributions." message:@""];
 }
 
 -(void)saveToPhotoLibrary:(UIImage*)image
@@ -560,7 +560,7 @@
                         reuseIdentifier:CellIdentifier];
             }
             
-            [cell.addNewItemButton setNavigationButtonWithColor:[Utility colorFromKuler:KULER_YELLOW alpha:1]];
+            [cell.addNewItemButton setNavigationButtonWithColor:[Utility colorFromKuler:KULER_BLACK alpha:1]];
             cell.addNewItemButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
             [cell.addNewItemButton.titleLabel setShadowOffset:CGSizeMake(0, 1)];
             [cell.addNewItemButton.titleLabel setShadowColor:[UIColor blackColor]];
@@ -600,7 +600,18 @@
     [cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON] forState:UIControlStateNormal];
     [cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON_HL] forState:UIControlStateHighlighted];
     cell.deleteButton.hidden = !(isOwnerView && [self.poll.state intValue] == EDITING);
-    cell.itemOperationButton.hidden = isOwnerView;
+    if (isOwnerView){
+        cell.votePercentageLabel.hidden = YES;
+        
+        cell.itemOperationButton.hidden = YES;
+        
+        cell.voteCountLabel.hidden = YES;
+        cell.voteCountIconView.hidden = YES;
+
+        cell.commentCountLabel.hidden = YES;
+        cell.commentCountIconView.hidden = YES;
+    }
+
     
     [Utility renderView:cell.itemImage withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH];
     cell.itemImage.contentMode = UIViewContentModeScaleAspectFit;

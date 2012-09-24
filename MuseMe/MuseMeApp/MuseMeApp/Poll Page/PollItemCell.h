@@ -25,5 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
 @property (weak, nonatomic) IBOutlet UIButton *itemOperationButton;
 @property (weak, nonatomic) IBOutlet UIGlossyButton *addNewItemButton;
+@property (weak, nonatomic) IBOutlet UIImageView *voteCountIconView;
+@property (weak, nonatomic) IBOutlet UIImageView *commentCountIconView;
 
 @end

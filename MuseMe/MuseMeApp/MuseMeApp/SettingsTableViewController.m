@@ -102,6 +102,7 @@
 - (void)Logout {
     User* user = [User new];
     user.singleAccessToken = [Utility getObjectForKey:SINGLE_ACCESS_TOKEN_KEY];
+    user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY];
     [[RKObjectManager sharedManager] postObject:user usingBlock:^(RKObjectLoader *loader) {
         loader.delegate = self;
         loader.resourcePath = @"/logout";
@@ -146,7 +147,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 1)
+    if ((indexPath.section == 0) && (indexPath.row == 1))
     {
         [self changeProfilePicture];
     }

@@ -265,7 +265,8 @@ static NSUInteger kNumberOfPages = 6;
         user = [User new];
         user.email = self.emailField.text;
         user.password = self.passwordField.text;
-        user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046";;
+        user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046";
+        NSLog(@"device token sent:%@", user.deviceToken);
         [self.spinner startAnimatingWithMessage:@"Authenticating..." inView:self.view];
         [[RKObjectManager sharedManager] postObject:user usingBlock:^(RKObjectLoader* loader){
             loader.resourcePath = @"/login";

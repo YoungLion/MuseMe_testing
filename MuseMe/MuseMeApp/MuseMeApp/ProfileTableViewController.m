@@ -56,13 +56,12 @@
         
         //set UIBarButtonItem background image
         UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-        UIImage *settingIconImage = [UIImage imageNamed:SETTINGS_BUTTON]; 
-        UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithImage:settingIconImage style:UIBarButtonItemStyleBordered target:self action:@selector(showSettings)];
+        UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:SETTINGS_BUTTON] style:UIBarButtonItemStyleBordered target:self action:@selector(showSettings)];
         
         [settingButton  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.rightBarButtonItem = settingButton;
        
-        UIBarButtonItem *friendsButton = [[UIBarButtonItem alloc] initWithTitle:@"Find friends" style:UIBarButtonItemStyleBordered target:self action:@selector(showFriendsSearch)];
+        UIBarButtonItem *friendsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:FIND_FRIENDS_BUTTON] style:UIBarButtonItemStyleBordered target:self action:@selector(showFriendsSearch)];
         [friendsButton  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.leftBarButtonItem = friendsButton;
         

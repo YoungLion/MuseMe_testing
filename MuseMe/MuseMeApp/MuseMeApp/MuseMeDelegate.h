@@ -31,6 +31,7 @@
 #import "UIInputToolbar/UIInputToolbar.h"
 #import "UIGlossyButton.h"
 #import "UIView+LayerEffects.h"
+#import "Notification.h"
 
 #define KULER_YELLOW 0
 #define KULER_BLACK 1
@@ -58,6 +59,10 @@
 #define PROFILE_ICON_HL @"profile-icon-hl"
 #define CAMERA_ICON @"camera-icon.png"
 #define CAMERA_ICON_HL @"camera-icon-hl.png"
+#define POPULAR_ICON @"popular-icon"
+#define POPULAR_ICON_HL @"popular-icon-hl"
+#define NEWS_ICON @"news-icon"
+#define NEWS_ICON_HL @"news-icon-hl"
 #define UserLoginNotification @"logged in"
 #define UserLogoutNotification @"logged out"
 #define DEFAULT_USER_PROFILE_PHOTO_SMALL @"default-profile-photo-small"
@@ -88,7 +93,7 @@
 #define EMPTY_POLL_HINT @"add-new-items"
 #define TAP_TO_ADD_INFO @"tap-to-add"
 #define TAP_FOR_MORE_INFO @"tap-for-more-info"
-#define FRIENDS_BUTTON @"friends"
+#define FIND_FRIENDS_BUTTON @"FindFriends"
 
 #define MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION 33
 #define MAX_CHARACTER_NUMBER_FOR_POLL_DESCRIPTION 90
