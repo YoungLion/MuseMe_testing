@@ -38,13 +38,13 @@
     //set color of text in UITabBarItem
     [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor,
+      BLACK_TEXT_COLOR, UITextAttributeTextColor,
       [UIFont fontWithName:@"AmericanTypewriter-Bold" size:11], UITextAttributeFont,
       nil]
                                              forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor,
+      BLACK_TEXT_COLOR, UITextAttributeTextColor,
       [UIFont fontWithName:@"AmericanTypewriter-Bold" size:11], UITextAttributeFont,
       nil]
                                              forState:UIControlStateHighlighted];

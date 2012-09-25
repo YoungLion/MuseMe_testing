@@ -168,7 +168,7 @@
     if ([[Utility getObjectForKey:CURRENTUSERID] isEqualToNumber:user.userID])
     {
         cell.followButton.enabled = NO;
-        [cell.followButton setTitle:@"Me" forState:UIControlStateDisabled];
+        [cell.followButton setTitle:@"It's me" forState:UIControlStateDisabled];
     }else{
         cell.followButton.enabled = YES;
         if (user.isFollowed.boolValue){

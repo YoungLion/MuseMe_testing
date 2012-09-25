@@ -43,6 +43,12 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];

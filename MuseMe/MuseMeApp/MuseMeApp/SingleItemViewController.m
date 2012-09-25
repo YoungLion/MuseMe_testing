@@ -123,7 +123,7 @@
 {
     [super viewWillAppear:animated];
     self.navigationItem.hidesBackButton = YES;
-    ((CenterButtonTabController*)self.tabBarController).cameraButton.hidden = YES;
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;
 }
 
 -(void)viewWillDisappear:(BOOL)animated

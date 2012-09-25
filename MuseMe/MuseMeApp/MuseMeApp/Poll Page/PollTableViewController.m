@@ -120,17 +120,16 @@
     ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 0;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_COLOR] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
+    openPollHintHasShown = NO;
+    [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     self.poll = [Poll new];
     self.poll.pollID = [Utility getObjectForKey:IDOfPollToBeShown];
-    openPollHintHasShown = NO;
-   // [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
+    [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
-    [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -585,17 +584,17 @@
         cell.voteButton.hidden = NO;
         cell.voteButton.enabled = NO;
         [cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX] forState:UIControlStateNormal];
-        [cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX_HL] forState:UIControlStateHighlighted];
+        //[cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX_HL] forState:UIControlStateHighlighted];
     }
     if ((!isOwnerView) && ([self.poll.state intValue] == VOTING) && ([currentUser.hasVoted intValue] == 0)){
         cell.voteButton.hidden = NO;
         [cell.voteButton setImage:[UIImage imageNamed:CHECKBOX] forState:UIControlStateNormal];
-        [cell.voteButton setImage:[UIImage imageNamed:CHECKBOX_HL] forState:UIControlStateHighlighted];
+        //[cell.voteButton setImage:[UIImage imageNamed:CHECKBOX_HL] forState:UIControlStateHighlighted];
     }
     [cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON] forState:UIControlStateNormal];
-    [cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON_HL] forState:UIControlStateHighlighted];
+    //[cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON_HL] forState:UIControlStateHighlighted];
     cell.deleteButton.hidden = !(isOwnerView && [self.poll.state intValue] == EDITING);
-    if (isOwnerView){
+    if (self.poll.state.intValue == EDITING){
         cell.votePercentageLabel.hidden = YES;
         
         cell.itemOperationButton.hidden = YES;

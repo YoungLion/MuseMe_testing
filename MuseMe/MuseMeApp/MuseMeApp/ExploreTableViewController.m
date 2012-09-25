@@ -49,7 +49,6 @@
     isLoading = NO;
     _spinner = [MuseMeActivityIndicator new];
     [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events/0" delegate:self];
 }
 
 - (void)viewDidUnload
@@ -71,6 +70,7 @@
     self.tabBarController.tabBar.alpha = 1;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_WITH_LOGO] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/events/0" delegate:self];
     /*self.navigationItem.titleView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:LOGO]];
     self.navigationItem.titleView.contentMode = UIViewContentModeScaleAspectFit;
     CGRect frame = self.navigationItem.titleView.frame;
