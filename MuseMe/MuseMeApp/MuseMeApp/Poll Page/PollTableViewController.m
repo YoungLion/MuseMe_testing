@@ -202,7 +202,7 @@
     
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{cell.votePercentageLabel.alpha = 1;} completion:nil];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    Item *item = [self.poll.items objectAtIndex:indexPath.row];
+    Item *voted_item = [self.poll.items objectAtIndex:indexPath.row];
     Audience *audience = [self.poll.audiences objectAtIndex:audienceIndex];
     /*if ([[[self.poll.audiences objectAtIndex:audienceIndex] hasVoted] boolValue]){
         // if the current user has voted for an item in this poll, then undo the voting
@@ -219,10 +219,12 @@
         
     }else {*/
         //if the current user has not voted for an item in this poll, then vote for this item
-        audience.hasVoted=item.itemID;
+        audience.hasVoted=voted_item.itemID;
         [[RKObjectManager sharedManager] putObject:audience delegate:self];
-        
-        item.numberOfVotes = [NSNumber numberWithInt:[item.numberOfVotes intValue]+ 1];
+    
+        Item* item = [Item new];
+        item.itemID = voted_item.itemID;
+        item.numberOfVotes = [NSNumber numberWithInt:[voted_item.numberOfVotes intValue]+ 1];
         [[RKObjectManager sharedManager] putObject:item delegate:self];
     
         self.poll.totalVotes = [NSNumber numberWithInt:[self.poll.totalVotes intValue]+ 1];
