@@ -227,7 +227,7 @@
         tView = [[UILabel alloc] init];
         // Setup label properties - frame, font, colors etc
         tView.backgroundColor = [UIColor clearColor];
-        tView.font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:14.0];
+        tView.font = [UIFont fontWithName:@"AmericanTypewriter" size:14];
     }
     // Fill the label text here
     if (row > 0) {

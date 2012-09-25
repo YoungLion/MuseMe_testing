@@ -180,7 +180,6 @@
         }
     }
     
-    [cell.followButton sizeToFit];
     return cell;
 }
 

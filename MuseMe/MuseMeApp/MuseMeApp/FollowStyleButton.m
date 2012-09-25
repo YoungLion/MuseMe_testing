@@ -15,10 +15,10 @@
 {
     [super awakeFromNib];
     [self setNavigationButtonWithColor:[Utility colorFromKuler:KULER_CYAN alpha:1]];
-    self.titleLabel.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
-    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    [self.titleLabel setShadowOffset:CGSizeMake(0, -1)];
-    [self.titleLabel setShadowColor:[Utility colorFromKuler:KULER_WHITE alpha:1]];
+    self.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter" size:14];
+    self.titleLabel.textColor = BLACK_TEXT_COLOR;
+    self.titleLabel.shadowColor = [UIColor whiteColor];
+    self.titleLabel.shadowOffset =CGSizeMake(1, 1);
     self.buttonCornerRadius = 12.0f;
 }
 
@@ -27,10 +27,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setNavigationButtonWithColor:[Utility colorFromKuler:KULER_CYAN alpha:1]];
-        self.titleLabel.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
-        self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-        [self.titleLabel setShadowOffset:CGSizeMake(0, -1)];
-        [self.titleLabel setShadowColor:[Utility colorFromKuler:KULER_WHITE alpha:1]];
+        self.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter" size:14];
+        self.titleLabel.textColor = BLACK_TEXT_COLOR;
+        self.titleLabel.shadowColor = [UIColor whiteColor];
+        self.titleLabel.shadowOffset =CGSizeMake(1, 1);
         self.buttonCornerRadius = 12.0f;
     }
     return self;

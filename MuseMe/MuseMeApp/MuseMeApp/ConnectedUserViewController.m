@@ -177,8 +177,6 @@
             [cell.followButton setTitle:@"Follow" forState:UIControlStateNormal];
         }
     }
-    
-    [cell.followButton sizeToFit];
     return cell;
 }
 

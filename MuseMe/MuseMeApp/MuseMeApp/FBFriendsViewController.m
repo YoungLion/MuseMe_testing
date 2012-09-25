@@ -238,7 +238,6 @@
             [cell.followButton setTitle:@"Follow" forState:UIControlStateNormal];
         }
     }
-    [cell.followButton sizeToFit];
     
     cell.usernameLabel.text = friend.username;
     [cell.usernameLabel adjustsFontSizeToFitWidth];

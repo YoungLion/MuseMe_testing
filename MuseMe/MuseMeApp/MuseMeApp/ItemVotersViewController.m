@@ -29,6 +29,8 @@
 @synthesize itemImageView = _itemImageView;
 @synthesize commentBar = _commentBar;
 @synthesize spinner = _spinner;
+@synthesize votesCount = _votesCount;
+@synthesize itemDescription = _itemDescription;
 
 - (void)viewDidLoad
 {
@@ -85,6 +87,7 @@
 - (void)viewDidUnload
 {
     [self setItemImageView:nil];
+    [self setItemDescription:nil];
     [super viewDidUnload];
     self.item = nil;
 }
@@ -136,6 +139,8 @@
         [self.itemImageView clear];
         [self.itemImageView.loadingWheel startAnimating];
         self.itemImageView.url = [NSURL URLWithString:self.item.photoURL];
+        self.itemDescription.text = self.item.brand;
+        self.votesCount.text = [self.item.numberOfVotes stringValue];
         [HJObjectManager manage:self.itemImageView];
         [_spinner stopAnimating];
     }else{
@@ -190,7 +195,7 @@
         if ([[Utility getObjectForKey:CURRENTUSERID] isEqualToNumber:voter.userID])
         {
             cell.followButton.enabled = NO;
-            [cell.followButton setTitle:@"Me" forState:UIControlStateDisabled];
+            [cell.followButton setTitle:@"It's me" forState:UIControlStateDisabled];
         }else{
             cell.followButton.enabled = YES;
             if (voter.isFollowed.boolValue){
@@ -199,7 +204,6 @@
                 [cell.followButton setTitle:@"Follow" forState:UIControlStateNormal];
             }
         }
-        [cell.followButton sizeToFit];
         return cell;
     }else{
         static NSString *CellIdentifier = @"comment cell";
@@ -235,9 +239,17 @@
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
     AppFormattedLabel* header = [[AppFormattedLabel alloc] initWithFrame:CGRectMake(5, 0, 200, 25)];
     if (section == 0){
-        header.text = @"You received votes from";
+        if (self.item.voters.count > 1) {
+            header.text = [NSString stringWithFormat:@"%d votes", self.item.voters.count];
+        }else{
+            header.text = [NSString stringWithFormat:@"%d vote", self.item.voters.count];
+        }
     }else{
-        header.text = @"Comments";
+        if (self.item.comments.count > 1) {
+            header.text = [NSString stringWithFormat:@"%d comments", self.item.comments.count];
+        }else{
+            header.text = [NSString stringWithFormat:@"%d comment", self.item.comments.count];
+        }
     }
     header.backgroundColor = [UIColor clearColor];
     [headerView addSubview:header];

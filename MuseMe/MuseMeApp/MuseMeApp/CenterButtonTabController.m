@@ -39,13 +39,13 @@
     [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor whiteColor], UITextAttributeTextColor,
-      [UIFont fontWithName:@"HelveticaNeue-Bold" size:11], UITextAttributeFont,
+      [UIFont fontWithName:@"AmericanTypewriter-Bold" size:11], UITextAttributeFont,
       nil]
                                              forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor blackColor], UITextAttributeTextColor,
-      [UIFont fontWithName:@"HelveticaNeue-Bold" size:11], UITextAttributeFont,
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIFont fontWithName:@"AmericanTypewriter-Bold" size:11], UITextAttributeFont,
       nil]
                                              forState:UIControlStateHighlighted];
     //custom tab bar icons

@@ -35,7 +35,7 @@
     
     _messageDisplay = [[UILabel alloc] initWithFrame:CGRectMake(21, 65, 90, 21)];
     _messageDisplay.text = message;
-    _messageDisplay.font = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
+    _messageDisplay.font = [UIFont fontWithName:@"AmericanTypewriter" size:16.0];
     _messageDisplay.textColor  = [UIColor whiteColor];
     _messageDisplay.textAlignment = UITextAlignmentCenter;
     _messageDisplay.adjustsFontSizeToFitWidth = YES;
@@ -52,12 +52,17 @@
 
 -(void)stopAnimating
 {
-    [_spinner stopAnimating];
-    [self removeFromSuperview];
-    [_screenForBlockingUI removeFromSuperview];
-    _spinner = nil;
-    _messageDisplay = nil;
-    _screenForBlockingUI = nil;
+    [UIView animateWithDuration:0.2
+                     animations:^{self.alpha = 0;}
+                     completion:^(BOOL finised){
+                         [_spinner stopAnimating];
+                         [self removeFromSuperview];
+                         [_screenForBlockingUI removeFromSuperview];
+                         _spinner = nil;
+                         _messageDisplay = nil;
+                         _screenForBlockingUI = nil;
+                     }];
+
 }
 
 -(void)dealloc

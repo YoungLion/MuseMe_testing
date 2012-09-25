@@ -188,7 +188,7 @@
         tView = [[UILabel alloc] init];
         // Setup label properties - frame, font, colors etc
         tView.backgroundColor = [UIColor clearColor];
-        tView.font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:20.0];
+        tView.font = [UIFont fontWithName:@"AmericanTypewriter" size:20.0];
     }
     // Fill the label text here
     tView.text = [@" " stringByAppendingString:[Utility stringFromCategory:(PollCategory) row]];

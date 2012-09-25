@@ -560,11 +560,6 @@
                         reuseIdentifier:CellIdentifier];
             }
             
-            [cell.addNewItemButton setNavigationButtonWithColor:[Utility colorFromKuler:KULER_BLACK alpha:1]];
-            cell.addNewItemButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
-            [cell.addNewItemButton.titleLabel setShadowOffset:CGSizeMake(0, 1)];
-            [cell.addNewItemButton.titleLabel setShadowColor:[UIColor blackColor]];
-            cell.addNewItemButton.buttonCornerRadius = 12.0f;
             return cell;
         }else{
             item = [self.poll.items objectAtIndex:indexPath.row - 1];
