@@ -17,10 +17,11 @@
 @property (nonatomic, weak) IBOutlet UILabel *eventDescriptionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *totalVotes;
 @property (nonatomic, weak) IBOutlet SmallFormattedLabel *timeStampLabel;
-@property (nonatomic, weak) IBOutlet HJManagedImageV
+@property (nonatomic, weak) IBOutlet UIImageView
 *categoryIcon;
 
 @property (weak, nonatomic) IBOutlet MultipartLabel *usernameAndActionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *upperContainer;
 
 @property (nonatomic, weak) IBOutlet HJManagedImageV *thumbnail0;
 @property (nonatomic, weak) IBOutlet HJManagedImageV *thumbnail1;
@@ -30,7 +31,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *picContainerImageView;
 @property (weak, nonatomic) IBOutlet UIView *picContainer;
-@property (weak, nonatomic) IBOutlet UIView *seperator;
 
 //@property (weak, nonatomic) IBOutlet UIImageView *picFrameImageView;
 @end

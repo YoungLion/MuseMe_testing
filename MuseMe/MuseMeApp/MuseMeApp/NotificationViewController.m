@@ -140,7 +140,7 @@
         [cell.messageLabel updateNumberOfLabels:2];
         [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
         [cell.messageLabel setText:@" started following you." andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
-        [[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
+        //[[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
     }else if (notification.type.intValue == RECEIVED_VOTES_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:3];
         

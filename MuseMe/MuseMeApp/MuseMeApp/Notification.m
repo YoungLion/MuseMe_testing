@@ -9,5 +9,5 @@
 #import "Notification.h"
 
 @implementation Notification
-@synthesize NotificationID, user, poll, type, timeStamp;
+@synthesize notificationID, user, poll, type, timeStamp;
 @end

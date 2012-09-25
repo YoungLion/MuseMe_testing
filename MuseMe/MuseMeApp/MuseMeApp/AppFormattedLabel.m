@@ -13,7 +13,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
+    self.font = [UIFont fontWithName:@"AmericanTypewriter" size:14.0];
     self.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
 }
 
@@ -21,7 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        self.font = [UIFont fontWithName:@"AmericanTypewriter" size:14];
         self.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
     }
     return self;

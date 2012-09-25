@@ -206,17 +206,29 @@
     cell.timeStampLabel.text = [Utility formatTimeWithDate:event.timeStamp];
     
     cell.categoryIcon.image = [Utility iconForCategory:(PollCategory)[event.poll.category intValue]];
-    [HJObjectManager manage:cell.categoryIcon];
     cell.categoryLabel.text = [Utility stringFromCategory:(PollCategory)[event.poll.category intValue]];
     
+    UILabel* label;
+    
     [cell.usernameAndActionLabel updateNumberOfLabels:2];
-    [cell.usernameAndActionLabel setText:event.user.username andFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
-    [cell.usernameAndActionLabel setText:@" would like your vote" andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
+    [cell.usernameAndActionLabel setText:event.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17] andColor:BLACK_TEXT_COLOR forLabel:0];
+    label = [cell.usernameAndActionLabel.labels objectAtIndex:0];
+    label.shadowColor = [UIColor whiteColor];
+    label.shadowOffset = CGSizeMake(1, 1);
+    
+    [cell.usernameAndActionLabel setText:@" would like your vote" andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:BLACK_TEXT_COLOR forLabel:1];
+    label = [cell.usernameAndActionLabel.labels objectAtIndex:0];
+    label.shadowColor = [UIColor whiteColor];
+    label.shadowOffset = CGSizeMake(1, 1);
     
     cell.eventDescriptionLabel.text = event.poll.title;
-    cell.eventDescriptionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0];
-    cell.eventDescriptionLabel.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
+    cell.eventDescriptionLabel.font = [UIFont fontWithName:@"AmericanTypewriter" size:15.2];
+    cell.eventDescriptionLabel.textColor = BLACK_TEXT_COLOR;
+    cell.eventDescriptionLabel.shadowColor = [UIColor whiteColor];
+    cell.eventDescriptionLabel.shadowOffset = CGSizeMake(1, 1);
     [cell.eventDescriptionLabel adjustHeight];
+    
+    cell.upperContainer.frame = CGRectMake(0, 0, 320, cell.eventDescriptionLabel.frame.origin.y + cell.eventDescriptionLabel.frame.size.height + 5);
     
     cell.totalVotes.text = [event.poll.totalVotes stringValue];
     
@@ -224,9 +236,6 @@
     frame.origin.y = cell.eventDescriptionLabel.frame.origin.y + cell.eventDescriptionLabel.frame.size.height + 13;
     cell.picContainer.frame = frame;
     
-    frame = cell.seperator.frame;
-    frame.origin.y = cell.picContainer.frame.origin.y + cell.picContainer.frame.size.height + 11;
-    cell.seperator.frame = frame;
     /*cell.timeStampLabel.frame = TimeStampLabelFrame;
      cell.userImage.frame = UserImageFrame;
      cell.usernameAndActionLabel.frame = UsernameAndActionLabelFrame;

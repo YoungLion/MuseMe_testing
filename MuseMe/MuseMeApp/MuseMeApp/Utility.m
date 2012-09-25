@@ -265,7 +265,7 @@ double secondsInAYear = 3600*24*365;
 {
     switch (kulerColor) {
         case KULER_YELLOW:return [UIColor colorWithRed:246/255.0 green:247/255.0 blue:146/255.0 alpha:a];
-        case KULER_BLACK:return [UIColor colorWithRed:51/255.0  green:55/255.0 blue:69/255.0 alpha:a];
+        case KULER_BLACK:return [UIColor colorWithRed:40/255.0  green:40/255.0 blue:40/255.0 alpha:a];
         case KULER_CYAN:return [UIColor colorWithRed:119/255.0 green:196/255.0 blue:211/255.0 alpha:a];
         case KULER_WHITE:return [UIColor colorWithRed:218/255.0 green:237/255.0 blue:226/255.0 alpha:a];
         case KULER_RED:return [UIColor colorWithRed:234/255.0 green:46/255.0 blue:73/255.0 alpha:a];
@@ -313,7 +313,7 @@ double secondsInAYear = 3600*24*365;
    andBorderWidth:(CGFloat)w
 {
     // border
-    view.layer.borderColor = [[Utility colorFromKuler:KULER_BLACK alpha:1] CGColor];
+    view.layer.borderColor = [[UIColor whiteColor] CGColor];
     view.layer.borderWidth = w;
     
     // corner

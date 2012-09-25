@@ -15,7 +15,7 @@
 #define RECEIVED_COMMENTS_NOTIFICATION 1003
 
 @interface Notification : NSObject
-@property (nonatomic, strong) NSNumber* NotificationID;
+@property (nonatomic, strong) NSNumber* notificationID;
 @property (nonatomic, strong) User* user;
 @property (nonatomic, strong) Poll* poll;
 @property (nonatomic, strong) NSNumber* type;

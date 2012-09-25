@@ -38,6 +38,7 @@
 #define KULER_CYAN  2
 #define KULER_WHITE 3
 #define KULER_RED   4
+#define BLACK_TEXT_COLOR [UIColor colorWithRed:86/255.0 green:86/255.0 blue:86/255.0 alpha:1.0]
 
 
 #define IDOfPollToBeShown @"IDOfPollToBeShown"
@@ -51,7 +52,6 @@
 #define NAV_BAR_BACKGROUND_WITH_LOGO @"header_with_logo"
 #define LOGO @"Logo"
 #define LOGO_IN_LANDING_PAGE @"LogoInLandingPage"
-#define LOGO_IN_LANDING_PAGE_GLOW @"LogoInLandingPageGlowing"
 #define TAB_BAR_BG @"tab_bar_bg"
 #define FEEDS_ICON @"feeds-icon"
 #define FEEDS_ICON_HL @"feeds-icon-hl"

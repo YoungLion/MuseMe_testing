@@ -44,6 +44,13 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>calibri.ttf</string>
+		<string>calibrib.ttf</string>
+		<string>calibrii.ttf</string>
+		<string>calibriz.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
@@ -61,11 +68,11 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.82745098039215681</real>
+				<real>0.33725490196078434</real>
 				<key>Green</key>
-				<real>0.76862745098039209</real>
+				<real>0.33725490196078434</real>
 				<key>Red</key>
-				<real>0.46666666666666667</real>
+				<real>0.33725490196078434</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>

@@ -129,6 +129,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 1 - self.hidesBottomBarWhenPushed;
+    NSLog(@"self.hidesBottomBarWhenPushed = %d", self.hidesBottomBarWhenPushed);
     [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_profile_poll_records/%@",_user.userID] delegate:self];
     [[RKObjectManager sharedManager] getObject:_user delegate:self];

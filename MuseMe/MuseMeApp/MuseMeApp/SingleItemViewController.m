@@ -163,7 +163,10 @@
                 priceValueString = self.priceTextField.text;
             }
             self.item.price = [NSNumber numberWithDouble:[priceValueString doubleValue]];*/
-            [[RKObjectManager sharedManager] putObject:self.item delegate:self];
+            Item* item = [Item new];
+            item.itemID = self.item.itemID;
+            item.brand = self.brandTextField.text;
+            [[RKObjectManager sharedManager] putObject:item delegate:self];
             break;
         }
         case SingleItemViewOptionNew:
