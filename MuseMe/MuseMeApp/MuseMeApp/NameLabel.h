@@ -1,5 +1,5 @@
 //
-//  AppFormattedBoldLabel.h
+//  NameLabel.h
 //  MuseMe
 //
 //  Created by Yong Lin on 8/26/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppFormattedBoldLabel : UILabel
+@interface NameLabel : UILabel
 
 @end

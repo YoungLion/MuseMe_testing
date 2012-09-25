@@ -223,9 +223,9 @@
     
     cell.eventDescriptionLabel.text = event.poll.title;
     cell.eventDescriptionLabel.font = [UIFont fontWithName:@"AmericanTypewriter" size:15.2];
-    cell.eventDescriptionLabel.textColor = BLACK_TEXT_COLOR;
+    /*cell.eventDescriptionLabel.textColor = BLACK_TEXT_COLOR;
     cell.eventDescriptionLabel.shadowColor = [UIColor whiteColor];
-    cell.eventDescriptionLabel.shadowOffset = CGSizeMake(1, 1);
+    cell.eventDescriptionLabel.shadowOffset = CGSizeMake(1, 1);*/
     [cell.eventDescriptionLabel adjustHeight];
     
     cell.upperContainer.frame = CGRectMake(0, 0, 320, cell.eventDescriptionLabel.frame.origin.y + cell.eventDescriptionLabel.frame.size.height + 5);

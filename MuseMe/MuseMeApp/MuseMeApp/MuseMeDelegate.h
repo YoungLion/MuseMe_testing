@@ -18,7 +18,7 @@
 #import "PollRecord.h"
 #import "Audience.h"
 #import "AppFormattedLabel.h"
-#import "AppFormattedBoldLabel.h"
+#import "NameLabel.h"
 #import "SmallFormattedLabel.h"
 #import "AnimatedPickerView.h"
 #import "CenterButtonTabController.h"
@@ -98,14 +98,17 @@
 #define MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION 33
 #define MAX_CHARACTER_NUMBER_FOR_POLL_DESCRIPTION 90
 
-#define SMALL_CORNER_RADIUS 2
-#define SMALL_BORDER_WIDTH 2
+#define MICRO_CORNER_RADIUS 0
+#define MICRO_BORDER_WIDTH 2
 
-#define MEDIUM_CORNER_RADIUS 5
-#define MEDIUM_BORDER_WIDTH 5
+#define SMALL_CORNER_RADIUS 0
+#define SMALL_BORDER_WIDTH 4
 
-#define LARGE_CORNER_RADIUS 7
-#define LARGE_BORDER_WIDTH 7
+#define MEDIUM_CORNER_RADIUS 0
+#define MEDIUM_BORDER_WIDTH 8
+
+#define LARGE_CORNER_RADIUS 0
+#define LARGE_BORDER_WIDTH 10
 typedef enum{
     SingleItemViewOptionNew,
     SingleItemViewOptionEdit,

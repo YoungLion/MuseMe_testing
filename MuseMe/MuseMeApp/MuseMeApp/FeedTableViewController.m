@@ -217,7 +217,7 @@
     label.shadowOffset = CGSizeMake(1, 1);
     
     [cell.usernameAndActionLabel setText:@" would like your vote" andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:BLACK_TEXT_COLOR forLabel:1];
-    label = [cell.usernameAndActionLabel.labels objectAtIndex:0];
+    label = [cell.usernameAndActionLabel.labels objectAtIndex:1];
     label.shadowColor = [UIColor whiteColor];
     label.shadowOffset = CGSizeMake(1, 1);
     

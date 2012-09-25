@@ -13,16 +13,20 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.font = [UIFont fontWithName:@"AmericanTypewriter" size:14.0];
-    self.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
+    self.font = [UIFont fontWithName:@"AmericanTypewriter" size:self.font.pointSize];
+    self.textColor = BLACK_TEXT_COLOR;
+    self.shadowColor = [UIColor whiteColor];
+    self.shadowOffset =CGSizeMake(1, 1);
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.font = [UIFont fontWithName:@"AmericanTypewriter" size:14];
-        self.textColor = [Utility colorFromKuler:KULER_BLACK alpha:1];
+        self.font = [UIFont fontWithName:@"AmericanTypewriter" size:self.font.pointSize];
+        self.textColor = BLACK_TEXT_COLOR;
+        self.shadowColor = [UIColor whiteColor];
+        self.shadowOffset = CGSizeMake(1, 1);
     }
     return self;
 }

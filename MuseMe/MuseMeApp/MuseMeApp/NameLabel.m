@@ -1,26 +1,33 @@
 //
-//  AppFormattedBoldLabel.m
+//  NameLabel.m
 //  MuseMe
 //
 //  Created by Yong Lin on 8/26/12.
 //  Copyright (c) 2012 MuseMe Inc.. All rights reserved.
 //
 
-#import "AppFormattedBoldLabel.h"
+#import "NameLabel.h"
+#import "Utility.h"
 
-@implementation AppFormattedBoldLabel
+@implementation NameLabel
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:14.0];
+    self.font = [UIFont fontWithName:@"Calibri-Bold" size:self.font.pointSize];
+    self.textColor = BLACK_TEXT_COLOR;
+    self.shadowColor = [UIColor whiteColor];
+    self.shadowOffset =CGSizeMake(1, 1);
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:14.0];
+        self.font = [UIFont fontWithName:@"Calibri-Bold" size:self.font.pointSize];
+        self.textColor = BLACK_TEXT_COLOR;
+        self.shadowColor = [UIColor whiteColor];
+        self.shadowOffset =CGSizeMake(1, 1);
     }
     return self;
 }

@@ -122,6 +122,7 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.titleView = [Utility formatTitleWithString:self.navigationItem.title];
     //add coretextview
     _coreTextView = [[FTCoreTextView alloc] initWithFrame:CGRectMake(20, 20, 280, 0)];
 	_coreTextView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

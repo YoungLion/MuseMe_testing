@@ -133,34 +133,59 @@
     
     cell.userImage.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     
-    [cell.messageLabel updateNumberOfLabels:2];
-    [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
-
+    UILabel* label;
+    
     if (notification.type.intValue == BEING_FOLLOWED_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:2];
-        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
-        [cell.messageLabel setText:@" started following you." andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
+        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
+        label = [cell.messageLabel.labels objectAtIndex:0];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
+        
+        [cell.messageLabel setText:@" started following you." andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
+        label = [cell.messageLabel.labels objectAtIndex:1];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
         //[[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
     }else if (notification.type.intValue == RECEIVED_VOTES_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:3];
         
-        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
+        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
+        label = [cell.messageLabel.labels objectAtIndex:0];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
         
-        [cell.messageLabel setText:@" voted in your poll:" andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
+        [cell.messageLabel setText:@" voted in your poll:" andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
         [[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
+        label = [cell.messageLabel.labels objectAtIndex:1];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
         
-        [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:2];
+        [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"AmericanTypewriter" size:15.2] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:2];
         [[cell.messageLabel.labels objectAtIndex:2] adjustHeight];
+        label = [cell.messageLabel.labels objectAtIndex:2];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
+        
     }else if (notification.type.intValue == RECEIVED_COMMENTS_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:3];
         
-        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
+        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:0];
+        label = [cell.messageLabel.labels objectAtIndex:0];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
         
-        [cell.messageLabel setText:@" commented in your poll:" andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
+        [cell.messageLabel setText:@" commented in your poll:" andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:1];
         [[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
+        label = [cell.messageLabel.labels objectAtIndex:1];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
         
-        [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:2];
+        [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"AmericanTypewriter" size:15.2] andColor:[Utility colorFromKuler:KULER_BLACK alpha:1] forLabel:2];
         [[cell.messageLabel.labels objectAtIndex:2] adjustHeight];
+        label = [cell.messageLabel.labels objectAtIndex:2];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
     }
     
     if (notification.user.profilePhotoURL){

@@ -18,7 +18,7 @@
 		0D388BF115EA0483005A56D7 /* default-profile-photo-large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D388BED15EA0483005A56D7 /* default-profile-photo-large@2x.png */; };
 		0D388BF215EA0483005A56D7 /* default-profile-photo-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D388BEE15EA0483005A56D7 /* default-profile-photo-small.png */; };
 		0D388BF315EA0483005A56D7 /* default-profile-photo-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D388BEF15EA0483005A56D7 /* default-profile-photo-small@2x.png */; };
-		0D388BF615EA07DE005A56D7 /* AppFormattedBoldLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D388BF515EA07DE005A56D7 /* AppFormattedBoldLabel.m */; };
+		0D388BF615EA07DE005A56D7 /* NameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D388BF515EA07DE005A56D7 /* NameLabel.m */; };
 		0D3EE2A2160ED09800FAAFD8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3EE2A1160ED09800FAAFD8 /* FacebookSDK.framework */; };
 		0D3EE2A5160ED0BE00FAAFD8 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EE2A3160ED0BE00FAAFD8 /* FacebookSDKResources.bundle */; };
 		0D3EE2A6160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D3EE2A4160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle */; };
@@ -150,6 +150,7 @@
 		0DA4CB0B1611128700AE00B8 /* feeds page.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4CB0A1611128700AE00B8 /* feeds page.png */; };
 		0DA4CB0E1611310200AE00B8 /* PollTextInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4CB0C1611310200AE00B8 /* PollTextInfo.png */; };
 		0DA4CB0F1611310200AE00B8 /* PollTextInfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4CB0D1611310200AE00B8 /* PollTextInfo@2x.png */; };
+		0DA4CB111611963200AE00B8 /* BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4CB101611963200AE00B8 /* BG@2x.png */; };
 		0DA5BF3515F847EA008F8B72 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3415F847EA008F8B72 /* UserCell.m */; };
 		0DA5BF3815F86252008F8B72 /* Relationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5BF3715F86252008F8B72 /* Relationship.m */; };
 		0DA5C3C915CDA9B90020D7A8 /* PollRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5C3C815CDA9B90020D7A8 /* PollRecord.m */; };
@@ -304,8 +305,8 @@
 		0D388BED15EA0483005A56D7 /* default-profile-photo-large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-profile-photo-large@2x.png"; sourceTree = "<group>"; };
 		0D388BEE15EA0483005A56D7 /* default-profile-photo-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-profile-photo-small.png"; sourceTree = "<group>"; };
 		0D388BEF15EA0483005A56D7 /* default-profile-photo-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-profile-photo-small@2x.png"; sourceTree = "<group>"; };
-		0D388BF415EA07DE005A56D7 /* AppFormattedBoldLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFormattedBoldLabel.h; sourceTree = "<group>"; };
-		0D388BF515EA07DE005A56D7 /* AppFormattedBoldLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFormattedBoldLabel.m; sourceTree = "<group>"; };
+		0D388BF415EA07DE005A56D7 /* NameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameLabel.h; sourceTree = "<group>"; };
+		0D388BF515EA07DE005A56D7 /* NameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameLabel.m; sourceTree = "<group>"; };
 		0D3EE2A1160ED09800FAAFD8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		0D3EE2A3160ED0BE00FAAFD8 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		0D3EE2A4160ED0BE00FAAFD8 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
@@ -519,6 +520,7 @@
 		0DA4CB0A1611128700AE00B8 /* feeds page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feeds page.png"; sourceTree = "<group>"; };
 		0DA4CB0C1611310200AE00B8 /* PollTextInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PollTextInfo.png; sourceTree = "<group>"; };
 		0DA4CB0D1611310200AE00B8 /* PollTextInfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PollTextInfo@2x.png"; sourceTree = "<group>"; };
+		0DA4CB101611963200AE00B8 /* BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG@2x.png"; sourceTree = "<group>"; };
 		0DA5BF3315F847EA008F8B72 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		0DA5BF3415F847EA008F8B72 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		0DA5BF3615F86252008F8B72 /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
@@ -768,6 +770,7 @@
 				0D388BEE15EA0483005A56D7 /* default-profile-photo-small.png */,
 				0D388BEF15EA0483005A56D7 /* default-profile-photo-small@2x.png */,
 				0D9A683F15DD8426004A93DA /* BG.png */,
+				0DA4CB101611963200AE00B8 /* BG@2x.png */,
 				0DA46AAE15E5BC86008F67B1 /* button-hl.png */,
 				0DA46AAF15E5BC86008F67B1 /* button-hl@2x.png */,
 				0DA46AB015E5BC86008F67B1 /* button.png */,
@@ -783,8 +786,8 @@
 			children = (
 				0D03A99815D79A6100A0A9BD /* AppFormattedLabel.h */,
 				0D03A99915D79A6100A0A9BD /* AppFormattedLabel.m */,
-				0D388BF415EA07DE005A56D7 /* AppFormattedBoldLabel.h */,
-				0D388BF515EA07DE005A56D7 /* AppFormattedBoldLabel.m */,
+				0D388BF415EA07DE005A56D7 /* NameLabel.h */,
+				0D388BF515EA07DE005A56D7 /* NameLabel.m */,
 				0DA3EA8215DC1D8A00546961 /* SmallFormattedLabel.h */,
 				0DA3EA8315DC1D8A00546961 /* SmallFormattedLabel.m */,
 				4D558B0015E44BA300CDBD3D /* MultipartLabel.h */,
@@ -1543,6 +1546,7 @@
 				0DA4CB0B1611128700AE00B8 /* feeds page.png in Resources */,
 				0DA4CB0E1611310200AE00B8 /* PollTextInfo.png in Resources */,
 				0DA4CB0F1611310200AE00B8 /* PollTextInfo@2x.png in Resources */,
+				0DA4CB111611963200AE00B8 /* BG@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1593,7 +1597,7 @@
 				0DB2A55315E705CD00FA1470 /* VotedPollCell.m in Sources */,
 				0DB2A55615E7075900FA1470 /* EditingPollCell.m in Sources */,
 				0DB2A55915E7097B00FA1470 /* OpenedPollCell.m in Sources */,
-				0D388BF615EA07DE005A56D7 /* AppFormattedBoldLabel.m in Sources */,
+				0D388BF615EA07DE005A56D7 /* NameLabel.m in Sources */,
 				0DA3998215EAFB4A002A4D58 /* AddToPollController.m in Sources */,
 				0D01DBC415F1B560003C26D7 /* UILabel+UILabel_Auto.m in Sources */,
 				0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */,

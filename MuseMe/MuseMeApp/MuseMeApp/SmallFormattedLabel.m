@@ -7,6 +7,7 @@
 //
 
 #import "SmallFormattedLabel.h"
+#import "Utility.h"
 
 @implementation SmallFormattedLabel
 
@@ -14,7 +15,9 @@
 {
     [super awakeFromNib];
     self.font = [UIFont fontWithName:@"Helvetica" size:9];
-    self.textColor = [UIColor darkGrayColor];
+    self.textColor = BLACK_TEXT_COLOR;
+    self.shadowColor = [UIColor whiteColor];
+    self.shadowOffset = CGSizeMake(1, 1);
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -22,7 +25,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.font = [UIFont fontWithName:@"Helvetica" size:9];
-        self.textColor = [UIColor darkGrayColor];
+        self.textColor = BLACK_TEXT_COLOR;
+        self.shadowColor = [UIColor whiteColor];
+        self.shadowOffset = CGSizeMake(1, 1);
     }
     return self;
 }

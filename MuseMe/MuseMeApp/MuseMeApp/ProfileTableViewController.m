@@ -358,7 +358,7 @@
                 cell.pollDescriptionLabel.text = poll.title;
                 cell.votesCountLabel.text = [[NSString alloc] initWithFormat:@"%@", poll.totalVotes];
                 cell.username.text = poll.owner.username;
-                [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
+                [Utility renderView:cell.userPhoto withCornerRadius:MICRO_CORNER_RADIUS andBorderWidth:MICRO_BORDER_WIDTH];
                 cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
                 cell.userPhoto.url = [NSURL URLWithString:poll.owner.profilePhotoURL];
                 [HJObjectManager manage:cell.userPhoto];

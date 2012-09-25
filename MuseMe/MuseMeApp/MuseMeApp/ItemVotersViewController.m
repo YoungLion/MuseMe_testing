@@ -233,7 +233,7 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
-    AppFormattedBoldLabel* header = [[AppFormattedBoldLabel alloc] initWithFrame:CGRectMake(5, 0, 200, 25)];
+    AppFormattedLabel* header = [[AppFormattedLabel alloc] initWithFrame:CGRectMake(5, 0, 200, 25)];
     if (section == 0){
         header.text = @"You received votes from";
     }else{
