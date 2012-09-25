@@ -164,7 +164,7 @@
         [Utility showAlert:@"Your username can't be empty." message:nil];
     }else if (![textField.text isEqualToString:currentUser.username])
     {
-        User* user;
+        User* user = [User new];
         user.username = textField.text;
         user.userID = currentUser.userID;
         [[RKObjectManager sharedManager] putObject:user delegate:self];
