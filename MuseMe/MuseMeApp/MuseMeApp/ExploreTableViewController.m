@@ -45,6 +45,9 @@
     [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+    /*self.navigationItem.leftBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:REFRESH_BUTTON andHighlightedStateImage:nil target:self action:@selector(refresh:)];
+    self.navigationItem.leftBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:NEW_POLL_BUTTON andHighlightedStateImage:nil target:self action:@selector(newPollButtonPressed:)];*/
+    
     self.events = [NSMutableArray new];
     isLoading = NO;
     _spinner = [MuseMeActivityIndicator new];

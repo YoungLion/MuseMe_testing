@@ -164,9 +164,10 @@
         [Utility showAlert:@"Your username can't be empty." message:nil];
     }else if (![textField.text isEqualToString:currentUser.username])
     {
-        currentUser.username = textField.text;
-        currentUser.isFollowed = nil;
-        [[RKObjectManager sharedManager] putObject:currentUser delegate:self];
+        User* user;
+        user.username = textField.text;
+        user.userID = currentUser.userID;
+        [[RKObjectManager sharedManager] putObject:user delegate:self];
     }
     [textField resignFirstResponder];
     return YES;

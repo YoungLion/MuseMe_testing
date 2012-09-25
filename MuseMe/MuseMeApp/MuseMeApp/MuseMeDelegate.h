@@ -94,6 +94,7 @@
 #define TAP_TO_ADD_INFO @"tap-to-add"
 #define TAP_FOR_MORE_INFO @"tap-for-more-info"
 #define FIND_FRIENDS_BUTTON @"FindFriends"
+#define REFRESH_BUTTON @"refresh_icon"
 
 #define MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION 33
 #define MAX_CHARACTER_NUMBER_FOR_POLL_DESCRIPTION 90

@@ -235,7 +235,7 @@ double secondsInAYear = 3600*24*365;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     // Since the buttons can be any width we use a thin image with a stretchable center point
     UIImage *buttonImage = [[UIImage imageNamed:normalStateImage] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-    UIImage *buttonPressedImage = [[UIImage imageNamed:highlightedStateImage] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+    //UIImage *buttonPressedImage = [[UIImage imageNamed:highlightedStateImage] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
     
     /*[[button titleLabel] setFont:[UIFont boldSystemFontOfSize:12.0]];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -249,7 +249,7 @@ double secondsInAYear = 3600*24*365;
     [button setFrame:buttonFrame];
     
     [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
+    //[button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
     
     //[button setTitle:t forState:UIControlStateNormal];
     
