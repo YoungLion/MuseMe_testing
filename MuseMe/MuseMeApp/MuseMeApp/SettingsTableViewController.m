@@ -162,6 +162,7 @@
     if (username.length == 0)
     {
         [Utility showAlert:@"Your username can't be empty." message:nil];
+        self.username.text = currentUser.username;
     }else if (![textField.text isEqualToString:currentUser.username])
     {
         User* user = [User new];
@@ -251,7 +252,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *cropped = [info
                           objectForKey:UIImagePickerControllerEditedImage];
-        UIImage *small = [UIImage imageWithCGImage:cropped.CGImage scale:0.25 orientation:cropped.imageOrientation];
+        UIImage *small = [UIImage imageWithCGImage:cropped.CGImage scale:1.0 orientation:cropped.imageOrientation];
         
         self.profilePhoto.image = small;
         [self uploadPhoto];

@@ -19,6 +19,7 @@
 @synthesize usernameLabel = _usernameLabel;
 @synthesize profilePhoto = _profilePhoto;
 @synthesize spinner = _spinner;
+@synthesize delegate = _delegate;
 
 
 - (void)viewDidLoad
@@ -33,6 +34,10 @@
     self.profilePhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_LARGE];
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_COLOR] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
+    
+    currentUser = [User new];
+    currentUser.userID = [Utility getObjectForKey:CURRENTUSERID];
+    [[RKObjectManager sharedManager] getObject:currentUser delegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +49,15 @@
 - (void)viewDidUnload {
     [self setProfilePhoto:nil];
     [self setUsernameLabel:nil];
+    self.spinner = nil;
+    self.delegate = nil;
     [super viewDidUnload];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.spinner stopAnimating];
+    [super viewDidDisappear:animated];
 }
 
 #pragma User Acitons
@@ -52,28 +65,26 @@
     [self.usernameLabel resignFirstResponder];
 }
 
-#pragma RKObjectLoaderDelegate Methods
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
-{
-
+- (IBAction)showAbout:(id)sender {
+    [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
+    [self performSegueWithIdentifier:@"show about" sender:self];
 }
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
+- (IBAction)done:(id)sender {
+    NSLog(@"Start Muse me clicked");
+    [self.delegate configurationViewControllerDidSetup:self];
 }
 
 - (IBAction)changeProfilePicture {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a picture", @"Choose from existing", nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"How would you like to set your picture?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a picture", @"Choose from existing", nil];
 	popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-	[popupQuery showFromTabBar:self.tabBarController.tabBar];
+	[popupQuery showInView:self.view];
 	popupQuery = nil;
 }
 
 - (void) uploadPhoto
 {
     [_spinner startAnimatingWithMessage:@"Uploading..." inView:self.view];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    self.navigationItem.leftBarButtonItem.enabled = NO;
     currentUser.photo = UIImageJPEGRepresentation(self.profilePhoto.image, 1.0f);
     [[RKObjectManager sharedManager] putObject:currentUser usingBlock:^(RKObjectLoader *loader){
         RKParams* params = [RKParams params];
@@ -85,23 +96,44 @@
     }];
 }
 
+#pragma RKObjectLoaderDelegate Methods
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
+{
+    if ([objectLoader.resourcePath hasPrefix:@"/users"] && (objectLoader.method == RKRequestMethodGET))
+    {
+        self.usernameLabel.text = currentUser.username;
+    }
+    [self.spinner stopAnimating];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
+}
+
 #pragma mark - UITextField delegate
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"text end editting");
     NSString* username = [self.usernameLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if (username.length == 0)
     {
         [Utility showAlert:@"Your username can't be empty." message:nil];
+        self.usernameLabel.text = currentUser.username;
     }else if (![textField.text isEqualToString:currentUser.username])
     {
         User* user = [User new];
-        user.username = textField.text;
         user.userID = currentUser.userID;
+        user.username = textField.text;
+        [_spinner startAnimatingWithMessage:@"Updating..." inView:self.view];
         [[RKObjectManager sharedManager] putObject:user delegate:self];
     }
-    [textField resignFirstResponder];
-    return YES;
 }
 
 - (void)useCamera
@@ -153,7 +185,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *cropped = [info
                             objectForKey:UIImagePickerControllerEditedImage];
-        UIImage *small = [UIImage imageWithCGImage:cropped.CGImage scale:0.25 orientation:cropped.imageOrientation];
+        UIImage *small = [UIImage imageWithCGImage:cropped.CGImage scale:1 orientation:cropped.imageOrientation];
         
         self.profilePhoto.image = small;
         [self uploadPhoto];

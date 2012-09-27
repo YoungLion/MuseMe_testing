@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Utility.h"
-
-@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate,FBLoginViewDelegate>
+#import "ConfigurationViewController.h"
+@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate,FBLoginViewDelegate, ConfigurationViewControllerDelegate>
 {
     BOOL pageControlUsed;
 }

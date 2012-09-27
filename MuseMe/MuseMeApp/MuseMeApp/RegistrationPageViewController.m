@@ -286,11 +286,13 @@ static NSUInteger kNumberOfPages = 6;
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
     // signup was successful
     if ([objectLoader wasSentToResourcePath:@"/signup"]){
-        [Utility showAlert:@"Congratulations!" message:@"Welcome to Muse Me!"];
-        NSLog(@"userID:%@, email:%@, password:%@", user.userID, user.email, user.password);
         [Utility setObject:user.singleAccessToken forKey:SINGLE_ACCESS_TOKEN_KEY];
         [Utility setObject:user.userID forKey:CURRENTUSERID];
-        [self performSegueWithIdentifier:@"show home" sender:self];
+        ConfigurationViewController* VC = [self.storyboard  instantiateViewControllerWithIdentifier:@"account setup VC"];
+        VC.delegate = self;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
+        [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentModalViewController:nav animated:YES];
         
     }else if ([objectLoader wasSentToResourcePath:@"/login"]){
         [Utility setObject:user.singleAccessToken forKey:SINGLE_ACCESS_TOKEN_KEY];
@@ -466,5 +468,12 @@ static NSUInteger kNumberOfPages = 6;
 	// Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
     pageControlUsed = YES;
 }*/
+
+-(void)configurationViewControllerDidSetup:(id)sender
+{
+    [self dismissModalViewControllerAnimated:NO];
+    NSLog(@"show home now");
+    [self performSegueWithIdentifier:@"show home" sender:self];
+}
 
 @end
