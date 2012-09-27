@@ -101,15 +101,19 @@
 
 #define MICRO_CORNER_RADIUS 1
 #define MICRO_BORDER_WIDTH 2
+#define MICRO_SHADOW_OFFSET 1
 
 #define SMALL_CORNER_RADIUS 2
 #define SMALL_BORDER_WIDTH 4
+#define SMALL_SHADOW_OFFSET 2
 
 #define MEDIUM_CORNER_RADIUS 3
 #define MEDIUM_BORDER_WIDTH 8
+#define MEDIUM_SHADOW_OFFSET 3
 
 #define LARGE_CORNER_RADIUS 4
 #define LARGE_BORDER_WIDTH 10
+#define LARGE_SHADOW_OFFSET 4
 typedef enum{
     SingleItemViewOptionNew,
     SingleItemViewOptionEdit,

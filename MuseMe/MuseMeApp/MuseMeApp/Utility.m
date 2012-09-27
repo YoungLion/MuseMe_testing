@@ -111,34 +111,34 @@ double secondsInAYear = 3600*24*365;
     
     if (years > 1)
     {
-        return [NSString stringWithFormat:@"%u yr ago", years];
+        return [NSString stringWithFormat:@"%uyr ago", years];
     }else if (years == 1){
-        return @"1 yr ago";
+        return @"1yr ago";
     }else if (months > 1)
     {
-        return [NSString stringWithFormat:@"%u mo ago", months];
+        return [NSString stringWithFormat:@"%umo ago", months];
     }else if (months == 1){
-        return @"1 mo ago";
+        return @"1mo ago";
     }else if (weeks > 1)
     {
-        return [NSString stringWithFormat:@"%u wk ago", weeks];
+        return [NSString stringWithFormat:@"%uwk ago", weeks];
     }else if (weeks == 1){
-        return @"1 wk ago";
+        return @"1wk ago";
     }else if (days > 1)
     {
-        return [NSString stringWithFormat:@"%u d ago", days];
+        return [NSString stringWithFormat:@"%ud ago", days];
     }else if (days == 1){
-        return @"1 d ago";
+        return @"1d ago";
     }else if (hours > 1)
     {
-        return [NSString stringWithFormat:@"%u hr ago", hours];
+        return [NSString stringWithFormat:@"%uhr ago", hours];
     }else if (hours == 1){
-        return @"1 hr ago";
+        return @"1hr ago";
     }else if (minutes > 1)
     {
-        return [NSString stringWithFormat:@"%u min ago", minutes];
+        return [NSString stringWithFormat:@"%umin ago", minutes];
     }else if (minutes == 1){
-        return @"1 min ago";
+        return @"1min ago";
     }else return @"just now";
 }
 
@@ -308,9 +308,10 @@ double secondsInAYear = 3600*24*365;
     return result;
 }
 
-+(void)renderView:(UIView*)view
++(void)renderView:(UIView *)view
  withCornerRadius:(CGFloat)r
    andBorderWidth:(CGFloat)w
+     shadowOffSet:(CGFloat)d
 {
     // border
     view.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -318,7 +319,12 @@ double secondsInAYear = 3600*24*365;
     
     // corner
     view.layer.cornerRadius = r;
-    view.layer.masksToBounds = YES;
+    //view.layer.masksToBounds = YES;
+    
+    view.layer.shadowOffset = CGSizeMake(d, d);
+    view.layer.shadowColor = [[UIColor blackColor] CGColor];
+    view.layer.shadowRadius = 3.0;
+    view.layer.shadowOpacity = 0.4;
 }
 
 +(void)renderCommentBox:(UIView*)view

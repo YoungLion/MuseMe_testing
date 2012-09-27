@@ -215,20 +215,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ShM-cu-idz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="-950"/>
+            <point key="canvasLocation" x="2478" y="-957"/>
         </scene>
         <!--Friends View Controller-->
         <scene sceneID="Zq8-oI-bcx">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="KCU-fx-knm" customClass="FBFriendsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ONH-3d-Zel">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Facebook" id="j3K-NW-kux">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.094117647058823528" green="0.41176470588235292" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             <connections>
                                 <outlet property="delegate" destination="KCU-fx-knm" id="mkd-Rl-U4V"/>
@@ -273,6 +273,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.094117647058823528" green="0.41176470588235292" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="followButton" destination="NFZ-Yo-13B" id="e5b-RE-lpj"/>
                                     <outlet property="userPhoto" destination="Knb-YF-V88" id="qrT-jg-guh"/>
@@ -283,10 +284,22 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="pX5-bP-VdO">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="A1y-b0-8cR">
-                            <connections>
-                                <action selector="back" destination="KCU-fx-knm" id="Irj-Zy-I05"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="nzk-D0-X4t">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gW5-9U-BYC">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back" destination="KCU-fx-knm" eventType="touchUpInside" id="sOj-4Y-eSu"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -303,7 +316,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="bVU-l4-A2K" customClass="FriendsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G3e-6f-XCI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="tvt-9f-871" customClass="UIControl">
@@ -313,7 +326,7 @@
                                 <searchBar contentMode="redraw" placeholder="Search Muse Me" id="Hba-dC-AeF">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="tintColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.094117647058823528" green="0.41176470588235292" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 </searchBar>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="facebookicon.png" id="JXZ-Gi-tAV">
@@ -321,9 +334,9 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Find friends on facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="bg6-15-0Na" customClass="NameLabel">
-                                    <rect key="frame" x="73" y="58" width="197" height="26"/>
+                                    <rect key="frame" x="73" y="58" width="234" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="18"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
@@ -386,10 +399,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ROj-Wn-QAr">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="C43-Qh-ZSq">
-                            <connections>
-                                <action selector="back" destination="bVU-l4-A2K" id="V4q-Rs-lyC"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="L3i-EG-GOT">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Aqm-Nn-yCS">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back" destination="bVU-l4-A2K" eventType="touchUpInside" id="nU7-1K-3d9"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -416,7 +441,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="profile page" id="6a9-bf-0wD" customClass="ProfileTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FFx-ZW-oVu">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xd9-V2-BBZ" userLabel="View - control panel">
@@ -706,7 +731,7 @@
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Votes.png" id="NA7-4E-b8A">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="check.png" id="NA7-4E-b8A">
                                             <rect key="frame" x="146" y="8" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -747,7 +772,7 @@
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Votes.png" id="ViD-pc-Lr2">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="check.png" id="ViD-pc-Lr2">
                                             <rect key="frame" x="146" y="8" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -803,7 +828,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="MIy-tL-0HM" customClass="ConnectedUserViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="O9w-7L-atH">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -860,10 +885,22 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aVo-Tf-Z8M">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="8dx-N9-2ea">
-                            <connections>
-                                <action selector="back" destination="MIy-tL-0HM" id="kZ4-s2-wg3"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="tbE-Ut-r7P">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ED-DD-kkR">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back" destination="MIy-tL-0HM" eventType="touchUpInside" id="54T-UB-GTc"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -967,7 +1004,7 @@
                                                     <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="check.png" id="ECw-Re-HvX">
-                                                    <rect key="frame" x="10" y="10" width="34" height="33"/>
+                                                    <rect key="frame" x="22" y="19" width="20" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="tSn-vx-iCm" userLabel="Label - Votes " customClass="AppFormattedLabel">
@@ -983,7 +1020,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="KNb-fV-as3" userLabel="category label" customClass="SmallFormattedLabel">
-                                            <rect key="frame" x="264" y="45" width="54" height="16"/>
+                                            <rect key="frame" x="264" y="43" width="54" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -1023,15 +1060,39 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="SY8-vZ-Qmd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="wsq-M7-Wr9">
-                            <connections>
-                                <action selector="refresh:" destination="8Sd-3s-bsT" id="NXR-Nw-qgP"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="SFQ-SN-FXp">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZdG-zK-HjZ">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="refresh_icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refresh:" destination="8Sd-3s-bsT" eventType="touchUpInside" id="lTV-mJ-u9j"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="New-poll-icon.png" id="IB0-pu-SJY">
-                            <connections>
-                                <action selector="newPollButtonPressed:" destination="8Sd-3s-bsT" id="pTr-R9-CcE"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="H3K-tl-XYS">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aK8-yp-qs5">
+                                <rect key="frame" x="273" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="New-poll-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newPollButtonPressed:" destination="8Sd-3s-bsT" eventType="touchUpInside" id="QUd-On-wxp"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1043,14 +1104,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evl-Jf-Mnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="-950"/>
+            <point key="canvasLocation" x="2826" y="-957"/>
         </scene>
         <!--Settings Table View Controller - Settings-->
         <scene sceneID="Bi7-qS-cAn">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="pIC-4E-dbg" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Lco-3I-wxV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="osL-28-MgQ" customClass="UIControl">
@@ -1199,10 +1260,22 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Settings" id="mIy-8J-tpQ">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="tuY-IA-BPy">
-                            <connections>
-                                <action selector="back" destination="pIC-4E-dbg" id="0bi-dR-5EQ"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="8Dz-Ou-Iac">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eVQ-af-bxT">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back" destination="pIC-4E-dbg" eventType="touchUpInside" id="gPt-79-a85"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1232,10 +1305,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="NHc-gf-OWO">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="vkb-GI-Vn1">
-                            <connections>
-                                <action selector="back:" destination="0kn-1C-tnp" id="fDQ-p0-Yfh"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="tmh-8P-7Wn">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c0g-34-ffQ">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="0kn-1C-tnp" eventType="touchUpInside" id="g69-Up-H0x"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1303,15 +1388,39 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New poll" id="XJx-2q-D6g">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="NRh-mW-pt6">
-                            <connections>
-                                <action selector="cancel" destination="tlb-aD-9aU" id="aRl-Am-d7y"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="wZb-ts-NE9">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="esY-rm-8ho">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel" destination="tlb-aD-9aU" eventType="touchUpInside" id="u9y-cv-E3W"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="OTD-fA-rlj">
-                            <connections>
-                                <action selector="newPoll" destination="tlb-aD-9aU" id="Dxa-Th-MCu"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="TAm-2D-I7J">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uwW-Zt-uHe">
+                                <rect key="frame" x="259" y="5" width="56" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="done_button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newPoll" destination="tlb-aD-9aU" eventType="touchUpInside" id="Bj6-V3-poF"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -1427,6 +1536,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="329"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fgp-0t-Zr4">
+                                            <rect key="frame" x="103" y="295" width="153" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="voteCountLabelPressed:" destination="AtD-j7-Qhz" eventType="touchUpInside" id="aA8-69-rcF"/>
+                                            </connections>
+                                        </button>
                                         <view contentMode="scaleToFill" id="Jge-oR-oUq" customClass="HJManagedImageV">
                                             <rect key="frame" x="18" y="10" width="282" height="282"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1466,11 +1590,11 @@
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="clock.png" id="JPw-5i-RXW">
-                                            <rect key="frame" x="18" y="295" width="23" height="21"/>
+                                            <rect key="frame" x="20" y="300" width="15" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="just now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3JL-io-LeL" userLabel="Label - timestamp" customClass="AppFormattedLabel">
-                                            <rect key="frame" x="43" y="298" width="67" height="19"/>
+                                            <rect key="frame" x="37" y="298" width="67" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1478,11 +1602,11 @@
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="check.png" id="fWJ-OV-NVO">
-                                            <rect key="frame" x="112" y="295" width="23" height="21"/>
+                                            <rect key="frame" x="126" y="300" width="15" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="PjT-bY-BNj" userLabel="Label - votes count" customClass="AppFormattedLabel">
-                                            <rect key="frame" x="138" y="298" width="48" height="19"/>
+                                            <rect key="frame" x="143" y="298" width="48" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1490,34 +1614,19 @@
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Comments.png" id="vfr-ao-htV">
-                                            <rect key="frame" x="188" y="295" width="23" height="21"/>
+                                            <rect key="frame" x="195" y="301" width="15" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="190" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="SwD-V9-e8M" userLabel="Label - comments count" customClass="AppFormattedLabel">
-                                            <rect key="frame" x="214" y="298" width="30" height="19"/>
+                                            <rect key="frame" x="213" y="298" width="30" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fgp-0t-Zr4">
-                                            <rect key="frame" x="103" y="295" width="153" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal">
-                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="voteCountLabelPressed:" destination="AtD-j7-Qhz" eventType="touchUpInside" id="aA8-69-rcF"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e6R-Kg-LOT" customClass="FollowStyleButton">
-                                            <rect key="frame" x="264" y="296" width="37" height="21"/>
+                                            <rect key="frame" x="264" y="301" width="37" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="...">
@@ -1532,7 +1641,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g16-RD-mB6" userLabel="deleteButton">
-                                            <rect key="frame" x="261" y="293" width="38" height="26"/>
+                                            <rect key="frame" x="268" y="299" width="29" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" image="Delete.png">
@@ -1578,15 +1687,39 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="zXe-q2-cfQ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="back-icon.png" style="plain" id="jX8-D9-sf9">
-                            <connections>
-                                <action selector="backButtonPressed:" destination="AtD-j7-Qhz" id="4co-Fn-MWi"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="YaN-Qj-5Ti">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dTd-Aq-TdZ">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="AtD-j7-Qhz" eventType="touchUpInside" id="Ptb-wI-RFw"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Action.png" id="j8Y-fq-6ya">
-                            <connections>
-                                <action selector="actionButtonPressed:" destination="AtD-j7-Qhz" id="UZw-dX-xqa"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="aTa-pL-KzO">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T2A-JI-CHh">
+                                <rect key="frame" x="273" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Action.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPressed:" destination="AtD-j7-Qhz" eventType="touchUpInside" id="Lc3-9Z-nX2"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1671,10 +1804,22 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Poll results" id="UWl-4Z-gyg">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="SNY-DV-nWZ">
-                            <connections>
-                                <action selector="backButtonPressed:" destination="PLI-kD-jhi" id="Wbv-nC-Dcg"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Xhs-MJ-X20">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mfL-2U-dZx">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="PLI-kD-jhi" eventType="touchUpInside" id="CKI-Sq-OPn"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1750,10 +1895,22 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add new item" id="8ar-cg-IP6">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Rvd-tr-KfK"/>
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="B9V-XY-bdZ">
-                            <connections>
-                                <action selector="cancelButton" destination="j5e-0n-Z7z" id="bwL-SJ-ZLB"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="yaX-Hn-fnk">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jSF-c3-gYA">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton" destination="j5e-0n-Z7z" eventType="touchUpInside" id="LGP-N6-BNu"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="next-icon.png" id="O62-cU-yFr">
                             <connections>
@@ -1804,15 +1961,39 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Choose a poll" id="LLR-Ic-2KQ">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="BFh-CB-ZDB">
-                            <connections>
-                                <action selector="back:" destination="oVB-cZ-hsy" id="dpM-gm-btl"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="g0J-95-1a1">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bb4-tV-HtL">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="oVB-cZ-hsy" eventType="touchUpInside" id="Vwr-Pj-NoN"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="MNP-Wn-GN6">
-                            <connections>
-                                <action selector="addToPoll" destination="oVB-cZ-hsy" id="TnS-mu-4fz"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="wHY-Ti-a4C">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wz7-jj-YJr">
+                                <rect key="frame" x="259" y="5" width="56" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="done_button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToPoll" destination="oVB-cZ-hsy" eventType="touchUpInside" id="GKE-Id-imq"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -1969,10 +2150,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hxG-7B-tOJ">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="8kQ-g8-2jT">
-                            <connections>
-                                <action selector="backButtonPressed:" destination="fUE-yM-VYj" id="C1Z-fa-lcy"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="8zA-rg-gaD">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s4u-8e-bKc">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="fUE-yM-VYj" eventType="touchUpInside" id="HXO-Et-bqu"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -2030,15 +2223,39 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Add new item" id="f51-EF-XSU">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="dbx-3p-gpI"/>
-                        <barButtonItem key="leftBarButtonItem" image="back-icon.png" id="ah6-Q0-hZq">
-                            <connections>
-                                <action selector="cancelButton" destination="ld5-tW-awy" id="Dqu-b5-2Y8"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Ayg-Hw-puo">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZEH-HV-rNH">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton" destination="ld5-tW-awy" eventType="touchUpInside" id="mrs-pc-2CX"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="Aj5-kp-gdd">
-                            <connections>
-                                <action selector="done" destination="ld5-tW-awy" id="czz-x2-1eN"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6yP-Y4-WrF">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BF0-r0-cw0">
+                                <rect key="frame" x="259" y="5" width="56" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="done_button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="done" destination="ld5-tW-awy" eventType="touchUpInside" id="z7R-G5-87u"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -2168,7 +2385,7 @@
                                                     <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="check.png" id="7dU-gF-pa8">
-                                                    <rect key="frame" x="10" y="10" width="34" height="33"/>
+                                                    <rect key="frame" x="22" y="19" width="20" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Eda-n4-Fx8" userLabel="Label - Votes " customClass="AppFormattedLabel">
@@ -2184,7 +2401,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pcZ-0T-9oi" userLabel="category label" customClass="SmallFormattedLabel">
-                                            <rect key="frame" x="264" y="45" width="54" height="16"/>
+                                            <rect key="frame" x="264" y="43" width="54" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2224,15 +2441,39 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="5iF-Nm-gCQ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="YoG-h3-gXg">
-                            <connections>
-                                <action selector="refresh:" destination="8mp-fe-vSf" id="V3i-Hs-70m"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="PKE-Mh-nNu">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VaH-ug-g55">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="refresh_icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newPollButtonPressed:" destination="8mp-fe-vSf" eventType="touchUpInside" id="8J5-C9-bXP"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="New-poll-icon.png" id="YaV-nl-6vt">
-                            <connections>
-                                <action selector="newPollButtonPressed:" destination="8mp-fe-vSf" id="gW3-8z-wO6"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="8r6-Ru-kjm">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bMA-Gb-7S1">
+                                <rect key="frame" x="273" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="New-poll-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newPollButtonPressed:" destination="8mp-fe-vSf" eventType="touchUpInside" id="gRk-id-yzc"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -2432,25 +2673,26 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Action.png" width="20" height="20"/>
+        <image name="Action.png" width="33" height="25"/>
         <image name="CheckBox.png" width="33" height="35"/>
         <image name="Comments.png" width="13" height="12"/>
-        <image name="Delete-hl.png" width="33" height="33"/>
+        <image name="Delete-hl.png" width="16" height="16"/>
         <image name="Delete.png" width="38" height="30"/>
         <image name="LandingPage.png" width="320" height="480"/>
         <image name="LogoInLandingPage.png" width="320" height="53"/>
         <image name="New-poll-icon.png" width="26" height="24"/>
         <image name="PictureContainer.png" width="320" height="318"/>
         <image name="PollTextInfo.png" width="320" height="63"/>
-        <image name="Votes.png" width="20" height="22"/>
-        <image name="back-icon.png" width="20" height="20"/>
+        <image name="back-icon.png" width="24" height="20"/>
         <image name="check.png" width="20" height="15"/>
         <image name="clock.png" width="15" height="15"/>
         <image name="cross-hl.png" width="33" height="33"/>
         <image name="cross.png" width="33" height="33"/>
+        <image name="done_button.png" width="56" height="26"/>
         <image name="facebookicon.png" width="40" height="40"/>
         <image name="feeds page.png" width="640" height="960"/>
         <image name="next-icon.png" width="20" height="20"/>
+        <image name="refresh_icon.png" width="22" height="24"/>
         <image name="tab-hl@2x.png" width="230" height="144"/>
         <image name="tab@2x.png" width="230" height="144"/>
         <image name="tap-to-add.png" width="285" height="85"/>
@@ -2509,11 +2751,6 @@
         </class>
         <class className="ExploreTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExploreTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="newPollButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="refresh:"/>
-                <relationship kind="action" name="showUserProfile:"/>
-            </relationships>
         </class>
         <class className="FBFriendsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FBFriendsViewController.h"/>
@@ -2714,8 +2951,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ptE-zf-Lfr"/>
-        <segue reference="iTj-d9-roG"/>
+        <segue reference="Zq5-jj-3sq"/>
         <segue reference="Tht-ec-FNc"/>
+        <segue reference="iTj-d9-roG"/>
     </inferredMetricsTieBreakers>
 </document>

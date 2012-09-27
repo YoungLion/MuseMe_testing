@@ -199,7 +199,7 @@
 {
     sender.enabled = NO;
     PollItemCell *cell = (PollItemCell*)[[sender superview] superview];
-    
+    [cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX] forState:UIControlStateNormal];
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{cell.votePercentageLabel.alpha = 1;} completion:nil];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Item *voted_item = [self.poll.items objectAtIndex:indexPath.row];
@@ -392,12 +392,12 @@
 
 -(void)followPoll
 {
-    Audience *currentAudience = [self.poll.audiences objectAtIndex:audienceIndex];
+    /*Audience *currentAudience = [self.poll.audiences objectAtIndex:audienceIndex];
     if ([currentAudience.isFollowing boolValue]) {
         return;
     }
     currentAudience.isFollowing = [NSNumber numberWithBool:YES];
-    [[RKObjectManager sharedManager] putObject:currentAudience delegate:self];
+    [[RKObjectManager sharedManager] putObject:currentAudience delegate:self];*/
     
     pollRecord = [PollRecord new];
     pollRecord.pollID = self.poll.pollID;
@@ -609,7 +609,7 @@
     }
 
     
-    [Utility renderView:cell.itemImage withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH];
+    [Utility renderView:cell.itemImage withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH shadowOffSet:LARGE_SHADOW_OFFSET];
     cell.itemImage.contentMode = UIViewContentModeScaleAspectFit;
     [cell.itemImage clear];
     [cell.itemImage showLoadingWheel];

@@ -46,7 +46,7 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
     self.userPhoto.backgroundColor =[UIColor colorWithWhite:1 alpha:0];
     self.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_LARGE];
-    [Utility renderView:self.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
+    [Utility renderView:self.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     self.followButton.hidden = YES;
     if (_user.userID == nil)
     {
@@ -55,7 +55,7 @@
         isOwnProfile = YES;
         
         //set UIBarButtonItem background image
-        UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+        /*UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
         UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:SETTINGS_BUTTON] style:UIBarButtonItemStyleBordered target:self action:@selector(showSettings)];
         
         [settingButton  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
@@ -63,7 +63,10 @@
        
         UIBarButtonItem *friendsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:FIND_FRIENDS_BUTTON] style:UIBarButtonItemStyleBordered target:self action:@selector(showFriendsSearch)];
         [friendsButton  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        self.navigationItem.leftBarButtonItem = friendsButton;
+        self.navigationItem.leftBarButtonItem = friendsButton;*/
+        
+        self.navigationItem.leftBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:REFRESH_BUTTON andHighlightedStateImage:nil target:self action:@selector(refresh:)];
+         self.navigationItem.rightBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:NEW_POLL_BUTTON andHighlightedStateImage:nil target:self action:@selector(newPollButtonPressed:)];
         
     }else{
         isOwnProfile = NO;
@@ -358,7 +361,7 @@
                 cell.pollDescriptionLabel.text = poll.title;
                 cell.votesCountLabel.text = [[NSString alloc] initWithFormat:@"%@", poll.totalVotes];
                 cell.username.text = poll.owner.username;
-                [Utility renderView:cell.userPhoto withCornerRadius:MICRO_CORNER_RADIUS andBorderWidth:MICRO_BORDER_WIDTH];
+                [Utility renderView:cell.userPhoto withCornerRadius:MICRO_CORNER_RADIUS andBorderWidth:MICRO_BORDER_WIDTH shadowOffSet:MICRO_SHADOW_OFFSET];
                 cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
                 cell.userPhoto.url = [NSURL URLWithString:poll.owner.profilePhotoURL];
                 [HJObjectManager manage:cell.userPhoto];

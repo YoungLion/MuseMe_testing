@@ -113,7 +113,7 @@
     }
     Item* item = [self.poll.items objectAtIndex:indexPath.row];
     // Configure the cell...
-    [Utility renderView:cell.itemImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
+    [Utility renderView:cell.itemImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     [cell.itemImage clear];
     [cell.itemImage showLoadingWheel];
     cell.itemImage.url= [NSURL URLWithString:item.photoURL];

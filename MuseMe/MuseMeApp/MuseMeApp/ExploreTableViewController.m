@@ -40,13 +40,11 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
 
     //set UIBarButtonItem background image
-    UIImage *navButtonBGImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    /*UIImage *navButtonBGImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
  
     [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];*/
     
-    /*self.navigationItem.leftBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:REFRESH_BUTTON andHighlightedStateImage:nil target:self action:@selector(refresh:)];
-    self.navigationItem.rightBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:NEW_POLL_BUTTON andHighlightedStateImage:nil target:self action:@selector(newPollButtonPressed:)];*/
     
     self.events = [NSMutableArray new];
     isLoading = NO;
@@ -162,7 +160,7 @@
     cell.thumbnail3.hidden = YES;
     cell.thumbnail4.hidden = YES;
     // Configure the cell...Add item event
-    [Utility renderView:cell.userImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH ];
+    [Utility renderView:cell.userImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     
     cell.userImage.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     if (event.user.profilePhotoURL){
@@ -322,7 +320,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath{
     imageView.bounds = CGRectMake(0,0, edge, edge);
     imageView.center = CGPointMake(x, y);
 
-    [Utility renderView:imageView withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH];
+    [Utility renderView:imageView withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH shadowOffSet:MEDIUM_SHADOW_OFFSET];
     [imageView clear];
     [imageView showLoadingWheel];
     imageView.url = url;

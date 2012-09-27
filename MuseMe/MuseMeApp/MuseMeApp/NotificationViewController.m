@@ -129,7 +129,7 @@
                 reuseIdentifier:CellIdentifier];
     }
     
-    [Utility renderView:cell.userImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH ];
+    [Utility renderView:cell.userImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     
     cell.userImage.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     
@@ -146,7 +146,8 @@
         label = [cell.messageLabel.labels objectAtIndex:1];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
-        //[[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
+        [label adjustHeight];
+
     }else if (notification.type.intValue == RECEIVED_VOTES_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:3];
         
@@ -160,12 +161,14 @@
         label = [cell.messageLabel.labels objectAtIndex:1];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
+        [label adjustHeight];
         
         [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"AmericanTypewriter" size:15.2] andColor:BLACK_TEXT_COLOR forLabel:2];
         [[cell.messageLabel.labels objectAtIndex:2] adjustHeight];
         label = [cell.messageLabel.labels objectAtIndex:2];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
+        [label adjustHeight];
         
     }else if (notification.type.intValue == RECEIVED_COMMENTS_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:3];
@@ -180,12 +183,14 @@
         label = [cell.messageLabel.labels objectAtIndex:1];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
+        [label adjustHeight];
         
         [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"AmericanTypewriter" size:15.2] andColor:BLACK_TEXT_COLOR forLabel:2];
         [[cell.messageLabel.labels objectAtIndex:2] adjustHeight];
         label = [cell.messageLabel.labels objectAtIndex:2];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
+        [label adjustHeight];
     }
     
     if (notification.user.profilePhotoURL){
@@ -205,7 +210,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Notification* notification = [self.notifications objectAtIndex:indexPath.row];
-    if (notification.type.intValue ==RECEIVED_VOTES_NOTIFICATION)
+    if (notification.type.intValue == RECEIVED_VOTES_NOTIFICATION)
     {
         [self performSegueWithIdentifier:@"show poll" sender:self];
     }

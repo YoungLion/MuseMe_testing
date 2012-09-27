@@ -39,8 +39,10 @@
 +(NSString*)formatURLFromDateString:(NSString*) string;
 +(void)renderView:(UIView*)view
  withCornerRadius:(CGFloat)r
-   andBorderWidth:(CGFloat)w;
+   andBorderWidth:(CGFloat)w
+     shadowOffSet:(CGFloat)d;
 +(void)renderCommentBox:(UIView*)view
        withCornerRadius:(CGFloat)r
          andBorderWidth:(CGFloat)w;
+
 @end

@@ -48,7 +48,7 @@
     
     self.tableView.tag = TableView;
     
-    [Utility renderView:self.itemImageView withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH];
+    [Utility renderView:self.itemImageView withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH shadowOffSet:LARGE_SHADOW_OFFSET];
     
     /* Create toolbar */
     self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-kDefaultToolbarHeight, self.view.frame.size.width, kDefaultToolbarHeight)];
@@ -182,7 +182,7 @@
                     reuseIdentifier:CellIdentifier];
         }
         User* voter = (User*)[self.item.voters objectAtIndex:indexPath.row];
-        [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
+        [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
         cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
         if (voter.profilePhotoURL){
             [cell.userPhoto clear];
@@ -214,7 +214,7 @@
                     reuseIdentifier:CellIdentifier];
         }
         Comment* comment = [self.item.comments objectAtIndex:indexPath.row];
-        [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH];
+        [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
         cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
         if (comment.commenter.profilePhotoURL){
             [cell.userPhoto clear];
