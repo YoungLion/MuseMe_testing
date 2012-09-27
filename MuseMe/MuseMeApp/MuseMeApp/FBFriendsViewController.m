@@ -241,7 +241,6 @@
     
     cell.usernameLabel.text = friend.username;
     [cell.usernameLabel adjustsFontSizeToFitWidth];
-    
     return cell;
 }
 

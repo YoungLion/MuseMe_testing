@@ -250,8 +250,13 @@
 //Set up cell height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat charCount = [((Event*)[self.events objectAtIndex:indexPath.row]).poll.title length];
-    CGFloat delta = floor(charCount/ 30) *20;
+    Event* event = [self.events objectAtIndex:indexPath.row];
+    
+    UILabel* tmpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 242, 10)];
+    tmpLabel.text = event.poll.title;
+    [tmpLabel adjustHeight];
+    
+    CGFloat delta = tmpLabel.frame.size.height - 20;
     return FEED_CELL_HEIGHT + delta;
 }
 

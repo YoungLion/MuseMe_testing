@@ -9,6 +9,8 @@
 #import "NotificationCell.h"
 
 @implementation NotificationCell
+@synthesize userImage, messageLabel, timeStampLabel, pollDescriptionLabel;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

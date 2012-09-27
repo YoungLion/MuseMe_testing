@@ -99,6 +99,7 @@
 		0D96665E15AB9DEB00753491 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D96665D15AB9DEA00753491 /* Comment.m */; };
 		0D975C80161374B300F6C03B /* done_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D975C7E161374B300F6C03B /* done_button.png */; };
 		0D975C81161374B300F6C03B /* done_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D975C7F161374B300F6C03B /* done_button@2x.png */; };
+		0D975C8C1613F7A300F6C03B /* AppFormattedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D975C8B1613F7A300F6C03B /* AppFormattedTextView.m */; };
 		0D98F3E215C0B2B20046423C /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3D715C0B2070046423C /* libRestKit.a */; };
 		0D98F3E415C0B2EE0046423C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3E315C0B2EE0046423C /* CFNetwork.framework */; };
 		0D98F3E615C0B2FA0046423C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3E515C0B2FA0046423C /* CoreData.framework */; };
@@ -445,6 +446,8 @@
 		0D96F11516000DDA006FF8CB /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0D975C7E161374B300F6C03B /* done_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done_button.png; sourceTree = "<group>"; };
 		0D975C7F161374B300F6C03B /* done_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done_button@2x.png"; sourceTree = "<group>"; };
+		0D975C8A1613F7A300F6C03B /* AppFormattedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFormattedTextView.h; sourceTree = "<group>"; };
+		0D975C8B1613F7A300F6C03B /* AppFormattedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFormattedTextView.m; sourceTree = "<group>"; };
 		0D98F3CB15C0B2060046423C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "RestKit-RestKit-6540552/RestKit.xcodeproj"; sourceTree = "<group>"; };
 		0D98F3E315C0B2EE0046423C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0D98F3E515C0B2FA0046423C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -802,6 +805,8 @@
 				4D558B0115E44BA300CDBD3D /* MultipartLabel.m */,
 				0D01DBC215F1B560003C26D7 /* UILabel+UILabel_Auto.h */,
 				0D01DBC315F1B560003C26D7 /* UILabel+UILabel_Auto.m */,
+				0D975C8A1613F7A300F6C03B /* AppFormattedTextView.h */,
+				0D975C8B1613F7A300F6C03B /* AppFormattedTextView.m */,
 			);
 			name = "Custom Label";
 			sourceTree = "<group>";
@@ -1641,6 +1646,7 @@
 				0D9CE298160FD7DA00BD024D /* FTCoreTextView.m in Sources */,
 				0D9CE29B160FD87E00BD024D /* AboutViewController.m in Sources */,
 				0DDFE9201610039B001A94FA /* FollowStyleButton.m in Sources */,
+				0D975C8C1613F7A300F6C03B /* AppFormattedTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

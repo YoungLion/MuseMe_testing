@@ -10,4 +10,5 @@
 
 @interface UILabel (UILabel_Auto)
 - (void)adjustHeight;
+- (void)adjustHeightWithMaxHeight:(CGFloat)maxHeight;
 @end

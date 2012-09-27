@@ -26,4 +26,21 @@
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, aSize.width, tmpSize.height);
 }
 
+- (void)adjustHeightWithMaxHeight:(CGFloat)maxHeight {
+    if (self.text == nil) {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.bounds.size.width, 0);
+        return;
+    }
+    
+    CGSize aSize = self.bounds.size;
+    CGSize tmpSize = CGRectInfinite.size;
+    tmpSize.width = aSize.width;
+    
+    tmpSize = [self.text sizeWithFont:self.font constrainedToSize:tmpSize];
+    if (tmpSize.height > maxHeight){
+        tmpSize = CGSizeMake(tmpSize.width, maxHeight);
+    }
+    
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, aSize.width, tmpSize.height);
+}
 @end

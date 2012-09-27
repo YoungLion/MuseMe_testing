@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Utility.h"
-#define NOTIFICATION_CELL_HEIGHT 57
+#define NOTIFICATION_CELL_HEIGHT 55
 
 @interface NotificationCell : UITableViewCell
 @property (nonatomic, weak) IBOutlet HJManagedImageV *userImage;
 @property (weak, nonatomic) IBOutlet MultipartLabel *messageLabel;
 @property (nonatomic, weak) IBOutlet SmallFormattedLabel *timeStampLabel;
-@property (weak, nonatomic) IBOutlet UIView *seperator;
+@property (weak, nonatomic) IBOutlet AppFormattedLabel *pollDescriptionLabel;
+
 @end

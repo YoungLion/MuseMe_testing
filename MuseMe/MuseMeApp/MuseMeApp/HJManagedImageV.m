@@ -151,7 +151,7 @@
 -(void) showLoadingWheel {
 	[loadingWheel removeFromSuperview];
 	self.loadingWheel = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
-    loadingWheel.color = [Utility colorFromKuler:KULER_WHITE alpha:1];
+    loadingWheel.color = [Utility colorFromKuler:KULER_CYAN alpha:1];
 	CGPoint point =  CGPointMake(self.bounds.origin.x + self.bounds.size.width/2, self.bounds.origin.y +self.bounds.size.height/2);
     loadingWheel.center = point;
 	loadingWheel.hidesWhenStopped=YES;

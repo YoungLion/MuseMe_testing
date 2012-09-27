@@ -65,8 +65,8 @@
         [friendsButton  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.leftBarButtonItem = friendsButton;*/
         
-        self.navigationItem.leftBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:REFRESH_BUTTON andHighlightedStateImage:nil target:self action:@selector(refresh:)];
-         self.navigationItem.rightBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:NEW_POLL_BUTTON andHighlightedStateImage:nil target:self action:@selector(newPollButtonPressed:)];
+        self.navigationItem.leftBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:FIND_FRIENDS_BUTTON andHighlightedStateImage:nil target:self action:@selector(showFriendsSearch)];
+        self.navigationItem.rightBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:SETTINGS_BUTTON andHighlightedStateImage:nil target:self action:@selector(showSettings)];
         
     }else{
         isOwnProfile = NO;
@@ -76,7 +76,7 @@
         }else{
             self.followButton.hidden = NO;
         }
-        //set UIBarButtonItem background image
+        /*//set UIBarButtonItem background image
         UIImage *backButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)]; 
         UIImage *backIconImage = [UIImage imageNamed:BACK_BUTTON];
         //UIImage *backButtonPressedImage = [UIImage imageNamed:NAV_BAR_BUTTON_BG_HL]; 
@@ -84,7 +84,8 @@
         
         [backButton  setBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         //[backButton  setBackgroundImage:backButtonPressedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-        self.navigationItem.leftBarButtonItem = backButton;
+        self.navigationItem.leftBarButtonItem = backButton;*/
+        self.navigationItem.leftBarButtonItem = [Utility createSquareBarButtonItemWithNormalStateImage:BACK_BUTTON andHighlightedStateImage:nil target:self action:@selector(back)];
         
     }
     _spinner = [MuseMeActivityIndicator new];

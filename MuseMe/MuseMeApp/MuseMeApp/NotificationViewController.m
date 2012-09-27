@@ -9,6 +9,7 @@
 #import "NotificationViewController.h"
 #import "NotificationCell.h"
 #import "ProfileTableViewController.h"
+#define MAX_POLL_TITLE_HEIGHT 30
 @interface NotificationViewController ()
 {
     BOOL isLoading;
@@ -146,10 +147,9 @@
         label = [cell.messageLabel.labels objectAtIndex:1];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
-        [label adjustHeight];
 
     }else if (notification.type.intValue == RECEIVED_VOTES_NOTIFICATION){
-        [cell.messageLabel updateNumberOfLabels:3];
+        [cell.messageLabel updateNumberOfLabels:2];
         
         [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:BLACK_TEXT_COLOR forLabel:0];
         label = [cell.messageLabel.labels objectAtIndex:0];
@@ -161,17 +161,12 @@
         label = [cell.messageLabel.labels objectAtIndex:1];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
-        [label adjustHeight];
         
-        [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"AmericanTypewriter" size:15.2] andColor:BLACK_TEXT_COLOR forLabel:2];
-        [[cell.messageLabel.labels objectAtIndex:2] adjustHeight];
-        label = [cell.messageLabel.labels objectAtIndex:2];
-        label.shadowColor = [UIColor whiteColor];
-        label.shadowOffset = CGSizeMake(1, 1);
-        [label adjustHeight];
+        cell.pollDescriptionLabel.text = notification.poll.title;
+        [cell.pollDescriptionLabel adjustHeightWithMaxHeight:MAX_POLL_TITLE_HEIGHT];
         
     }else if (notification.type.intValue == RECEIVED_COMMENTS_NOTIFICATION){
-        [cell.messageLabel updateNumberOfLabels:3];
+        [cell.messageLabel updateNumberOfLabels:2];
         
         [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:BLACK_TEXT_COLOR forLabel:0];
         label = [cell.messageLabel.labels objectAtIndex:0];
@@ -185,12 +180,8 @@
         label.shadowOffset = CGSizeMake(1, 1);
         [label adjustHeight];
         
-        [cell.messageLabel setText:notification.poll.title andFont:[UIFont fontWithName:@"AmericanTypewriter" size:15.2] andColor:BLACK_TEXT_COLOR forLabel:2];
-        [[cell.messageLabel.labels objectAtIndex:2] adjustHeight];
-        label = [cell.messageLabel.labels objectAtIndex:2];
-        label.shadowColor = [UIColor whiteColor];
-        label.shadowOffset = CGSizeMake(1, 1);
-        [label adjustHeight];
+        cell.pollDescriptionLabel.text = notification.poll.title;
+        [cell.pollDescriptionLabel adjustHeightWithMaxHeight:MAX_POLL_TITLE_HEIGHT];
     }
     
     if (notification.user.profilePhotoURL){
@@ -205,12 +196,27 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Notification* notification = [self.notifications objectAtIndex:indexPath.row];
+    if (notification.type.intValue != BEING_FOLLOWED_NOTIFICATION){
+        UILabel* tmpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 242, 10)];
+        tmpLabel.text = notification.poll.title;
+        [tmpLabel adjustHeightWithMaxHeight:MAX_POLL_TITLE_HEIGHT];
+        CGFloat height = 36 + tmpLabel.frame.size.height;
+        if (height > NOTIFICATION_CELL_HEIGHT){
+            return height + 5;
+        }
+    }
+    return NOTIFICATION_CELL_HEIGHT;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Notification* notification = [self.notifications objectAtIndex:indexPath.row];
-    if (notification.type.intValue == RECEIVED_VOTES_NOTIFICATION)
+    if (notification.type.intValue != BEING_FOLLOWED_NOTIFICATION)
     {
         [self performSegueWithIdentifier:@"show poll" sender:self];
     }

@@ -252,8 +252,13 @@
 //Set up cell height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat charCount = [((Event*)[self.events objectAtIndex:indexPath.row]).poll.title length];
-    CGFloat delta = floor(charCount/ 30) *20;
+    Event* event = [self.events objectAtIndex:indexPath.row];
+
+    UILabel* tmpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 242, 10)];
+    tmpLabel.text = event.poll.title;
+    [tmpLabel adjustHeight];
+    
+    CGFloat delta = tmpLabel.frame.size.height - 20;
     return FEED_CELL_HEIGHT + delta;
 }
 
@@ -319,8 +324,12 @@ forRowAtIndexPath: (NSIndexPath*)indexPath{
     imageView.transform = CGAffineTransformMakeRotation(degreesToRadians(angle));
     imageView.bounds = CGRectMake(0,0, edge, edge);
     imageView.center = CGPointMake(x, y);
-
-    [Utility renderView:imageView withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH shadowOffSet:MEDIUM_SHADOW_OFFSET];
+    
+    if (edge < 120){
+        [Utility renderView:imageView withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
+    }else{
+        [Utility renderView:imageView withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH shadowOffSet:MEDIUM_SHADOW_OFFSET];
+    }
     [imageView clear];
     [imageView showLoadingWheel];
     imageView.url = url;
