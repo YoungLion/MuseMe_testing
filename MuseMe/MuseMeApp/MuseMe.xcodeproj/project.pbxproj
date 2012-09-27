@@ -100,6 +100,8 @@
 		0D975C80161374B300F6C03B /* done_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D975C7E161374B300F6C03B /* done_button.png */; };
 		0D975C81161374B300F6C03B /* done_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D975C7F161374B300F6C03B /* done_button@2x.png */; };
 		0D975C8C1613F7A300F6C03B /* AppFormattedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D975C8B1613F7A300F6C03B /* AppFormattedTextView.m */; };
+		0D975C8F16141D4B00F6C03B /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D975C8E16141D4A00F6C03B /* ConfigurationViewController.m */; };
+		0D975C9116142B0A00F6C03B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D975C9016142B0A00F6C03B /* Default-568h@2x.png */; };
 		0D98F3E215C0B2B20046423C /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3D715C0B2070046423C /* libRestKit.a */; };
 		0D98F3E415C0B2EE0046423C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3E315C0B2EE0046423C /* CFNetwork.framework */; };
 		0D98F3E615C0B2FA0046423C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F3E515C0B2FA0046423C /* CoreData.framework */; };
@@ -240,10 +242,6 @@
 		4DFE618C15EB40B7009952EF /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE618A15EB40B6009952EF /* back-icon.png */; };
 		4DFE618D15EB40B7009952EF /* back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE618B15EB40B7009952EF /* back-icon@2x.png */; };
 		4DFE618F15EB480C009952EF /* Back-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE618E15EB480C009952EF /* Back-bg.png */; };
-		4DFE619A15EB5596009952EF /* Nav-btn-bg-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE619615EB5595009952EF /* Nav-btn-bg-hl.png */; };
-		4DFE619B15EB5596009952EF /* Nav-btn-bg-hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE619715EB5595009952EF /* Nav-btn-bg-hl@2x.png */; };
-		4DFE619C15EB5596009952EF /* Nav-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE619815EB5595009952EF /* Nav-btn-bg.png */; };
-		4DFE619D15EB5596009952EF /* Nav-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE619915EB5595009952EF /* Nav-btn-bg@2x.png */; };
 		4DFE61A015EB5742009952EF /* Action.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE619E15EB5741009952EF /* Action.png */; };
 		4DFE61A615EB686E009952EF /* New-poll-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE61A215EB686A009952EF /* New-poll-icon.png */; };
 		4DFE61A715EB686E009952EF /* New-poll-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE61A315EB686A009952EF /* New-poll-icon@2x.png */; };
@@ -448,6 +446,9 @@
 		0D975C7F161374B300F6C03B /* done_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done_button@2x.png"; sourceTree = "<group>"; };
 		0D975C8A1613F7A300F6C03B /* AppFormattedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFormattedTextView.h; sourceTree = "<group>"; };
 		0D975C8B1613F7A300F6C03B /* AppFormattedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFormattedTextView.m; sourceTree = "<group>"; };
+		0D975C8D16141D4900F6C03B /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationViewController.h; sourceTree = "<group>"; };
+		0D975C8E16141D4A00F6C03B /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationViewController.m; sourceTree = "<group>"; };
+		0D975C9016142B0A00F6C03B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0D98F3CB15C0B2060046423C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "RestKit-RestKit-6540552/RestKit.xcodeproj"; sourceTree = "<group>"; };
 		0D98F3E315C0B2EE0046423C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0D98F3E515C0B2FA0046423C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -636,10 +637,6 @@
 		4DFE618A15EB40B6009952EF /* back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon.png"; sourceTree = "<group>"; };
 		4DFE618B15EB40B7009952EF /* back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon@2x.png"; sourceTree = "<group>"; };
 		4DFE618E15EB480C009952EF /* Back-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back-bg.png"; sourceTree = "<group>"; };
-		4DFE619615EB5595009952EF /* Nav-btn-bg-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nav-btn-bg-hl.png"; sourceTree = "<group>"; };
-		4DFE619715EB5595009952EF /* Nav-btn-bg-hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nav-btn-bg-hl@2x.png"; sourceTree = "<group>"; };
-		4DFE619815EB5595009952EF /* Nav-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nav-btn-bg.png"; sourceTree = "<group>"; };
-		4DFE619915EB5595009952EF /* Nav-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nav-btn-bg@2x.png"; sourceTree = "<group>"; };
 		4DFE619E15EB5741009952EF /* Action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Action.png; sourceTree = "<group>"; };
 		4DFE61A215EB686A009952EF /* New-poll-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New-poll-icon.png"; sourceTree = "<group>"; };
 		4DFE61A315EB686A009952EF /* New-poll-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New-poll-icon@2x.png"; sourceTree = "<group>"; };
@@ -710,6 +707,7 @@
 				4DF64C9D15F190C000DA07B5 /* Icon@2x.png */,
 				0D6600AA15EDCF9800AF0687 /* Default.png */,
 				0D6600AB15EDCF9800AF0687 /* Default@2x.png */,
+				0D975C9016142B0A00F6C03B /* Default-568h@2x.png */,
 			);
 			name = "App Icon and Launch Image";
 			sourceTree = "<group>";
@@ -748,10 +746,6 @@
 			children = (
 				4DF64CA015F1910800DA07B5 /* header_with_logo.png */,
 				4DF64CA115F1910800DA07B5 /* header_with_logo@2x.png */,
-				4DFE619615EB5595009952EF /* Nav-btn-bg-hl.png */,
-				4DFE619715EB5595009952EF /* Nav-btn-bg-hl@2x.png */,
-				4DFE619815EB5595009952EF /* Nav-btn-bg.png */,
-				4DFE619915EB5595009952EF /* Nav-btn-bg@2x.png */,
 				4DFE619E15EB5741009952EF /* Action.png */,
 				4DC659EA15EC87C900728E30 /* Action@2x.png */,
 				4DFE61A215EB686A009952EF /* New-poll-icon.png */,
@@ -912,6 +906,8 @@
 			children = (
 				0D91EE5915AD4BD300D1015D /* RegistrationPageViewController.h */,
 				0D91EE5A15AD4BD300D1015D /* RegistrationPageViewController.m */,
+				0D975C8D16141D4900F6C03B /* ConfigurationViewController.h */,
+				0D975C8E16141D4A00F6C03B /* ConfigurationViewController.m */,
 				0D9CE282160FC0FD00BD024D /* Tab Controller, Camera Button */,
 				0D94F51C15A7FCEA00903F0B /* ExploreTableViewController.h */,
 				0D94F51D15A7FCEB00903F0B /* ExploreTableViewController.m */,
@@ -1447,10 +1443,6 @@
 				4DFE618C15EB40B7009952EF /* back-icon.png in Resources */,
 				4DFE618D15EB40B7009952EF /* back-icon@2x.png in Resources */,
 				4DFE618F15EB480C009952EF /* Back-bg.png in Resources */,
-				4DFE619A15EB5596009952EF /* Nav-btn-bg-hl.png in Resources */,
-				4DFE619B15EB5596009952EF /* Nav-btn-bg-hl@2x.png in Resources */,
-				4DFE619C15EB5596009952EF /* Nav-btn-bg.png in Resources */,
-				4DFE619D15EB5596009952EF /* Nav-btn-bg@2x.png in Resources */,
 				4DFE61A015EB5742009952EF /* Action.png in Resources */,
 				4DFE61A615EB686E009952EF /* New-poll-icon.png in Resources */,
 				4DFE61A715EB686E009952EF /* New-poll-icon@2x.png in Resources */,
@@ -1568,6 +1560,7 @@
 				0D396D6716127AE900AD224E /* cross@2x.png in Resources */,
 				0D975C80161374B300F6C03B /* done_button.png in Resources */,
 				0D975C81161374B300F6C03B /* done_button@2x.png in Resources */,
+				0D975C9116142B0A00F6C03B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1647,6 +1640,7 @@
 				0D9CE29B160FD87E00BD024D /* AboutViewController.m in Sources */,
 				0DDFE9201610039B001A94FA /* FollowStyleButton.m in Sources */,
 				0D975C8C1613F7A300F6C03B /* AppFormattedTextView.m in Sources */,
+				0D975C8F16141D4B00F6C03B /* ConfigurationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
