@@ -70,7 +70,6 @@
     NotificationCell *cell = (NotificationCell*)[[sender superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Notification* notification = [self.notifications objectAtIndex:indexPath.row];
-    [Utility setObject:notification.poll.pollID forKey:IDOfPollToBeShown];
     userToBePassed = notification.user;
     [self performSegueWithIdentifier:@"show profile" sender:self];
 }
@@ -147,6 +146,8 @@
         label = [cell.messageLabel.labels objectAtIndex:1];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
+        
+        cell.pollDescriptionLabel.text = @"";
 
     }else if (notification.type.intValue == RECEIVED_VOTES_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:2];
@@ -216,9 +217,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Notification* notification = [self.notifications objectAtIndex:indexPath.row];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/read_notification/%@", notification.notificationID] delegate:self];
     if (notification.type.intValue != BEING_FOLLOWED_NOTIFICATION)
     {
+        [Utility setObject:notification.poll.pollID forKey:IDOfPollToBeShown];
         [self performSegueWithIdentifier:@"show poll" sender:self];
+    }else{
+        [Utility setObject:notification.poll.pollID forKey:IDOfPollToBeShown];
+        userToBePassed = notification.user;
+        [self performSegueWithIdentifier:@"show profile" sender:self];
     }
 }
 

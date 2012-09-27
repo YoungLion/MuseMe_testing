@@ -256,7 +256,8 @@
         self.votedPollCountLabel.text = [NSString stringWithFormat:@"%d", votedPolls.count];
         [_spinner stopAnimating];
         [self.tableView reloadData];
-    }else{
+    }else if ([objectLoader.resourcePath hasPrefix:@"/users"])
+    {
         self.usernameLabel.text = _user.username;
         self.userPhoto.url = [NSURL URLWithString:_user.profilePhotoURL];
         [HJObjectManager manage:self.userPhoto];
@@ -266,6 +267,8 @@
         }
         self.numberOfFollowersLabel.text = [_user.numberOfFollowers stringValue];
         self.numberOfFollowingLabel.text = [_user.numberOfFollowing stringValue];
+    }else{
+        [[RKObjectManager sharedManager] getObject:_user delegate:self];
     }
 }
 
