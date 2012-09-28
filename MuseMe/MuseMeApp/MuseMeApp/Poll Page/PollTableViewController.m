@@ -742,8 +742,8 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker
-                                animated:YES];
+        [self presentViewController:imagePicker
+                                animated:YES completion:nil];
         newMedia = YES;
     }
 }

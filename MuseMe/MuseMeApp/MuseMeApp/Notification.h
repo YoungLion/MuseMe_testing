@@ -13,6 +13,7 @@
 #define BEING_FOLLOWED_NOTIFICATION 1001
 #define RECEIVED_VOTES_NOTIFICATION 1002
 #define RECEIVED_COMMENTS_NOTIFICATION 1003
+#define POLL_KILLED_NOTIFICATION 1004
 
 @interface Notification : NSObject
 @property (nonatomic, strong) NSNumber* notificationID;

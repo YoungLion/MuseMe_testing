@@ -34,25 +34,51 @@
     UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    _spinner = [MuseMeActivityIndicator new];
+    //_spinner = [MuseMeActivityIndicator new];
     
     self.searchBar.delegate = self;
     
     appDelegate = [[UIApplication sharedApplication] delegate];
     
+    [FBSettings setLoggingBehavior:[NSSet setWithObjects: FBLoggingBehaviorFBRequests, FBLoggingBehaviorFBURLConnections, FBLoggingBehaviorAccessTokens, FBLoggingBehaviorSessionStateTransitions, nil]];
+    
     FBConnection = [FBRequestConnection new];
     if (FBSession.activeSession.isOpen) {
         // login is integrated with the send button -- so if open, we send
         [self sendRequests];
+        NSLog(@"Active FB Session");
     } else {
-        [FBSession openActiveSessionWithPermissions:nil
+        [FBSession openActiveSessionWithReadPermissions:nil
+                                           allowLoginUI:YES
+                                      completionHandler:^(FBSession *session,
+                                                          FBSessionState state,
+                                                          NSError *error) {
+                                          [appDelegate sessionStateChanged:session state:state error:error];
+                                          if ((!error) && FB_ISSESSIONOPENWITHSTATE(state)) {
+                                              NSLog(@"Log in FB successfully!");
+                                              // send our requests if we successfully logged in
+                                              FBRequestHandler handler =
+                                              ^(FBRequestConnection *connection, id result, NSError *error) {
+                                                  User* user = [User new];
+                                                  user.userID = [Utility getObjectForKey:CURRENTUSERID];
+                                                  user.fbID = [(NSDictionary*)result objectForKey:@"id"];
+                                                  [[RKObjectManager sharedManager] putObject:user delegate:self];
+                                              };
+                                              [FBRequestConnection startForMeWithCompletionHandler:handler];
+                                              [self sendRequests];
+                                          }
+                                      }];
+        
+       /* [FBSession openActiveSessionWithReadPermissions:nil
                                        allowLoginUI:YES
                                   completionHandler:^(FBSession *session,
                                                       FBSessionState status,
                                                       NSError *error) {
                                       // if login fails for any reason, we alert
+                                      NSLog(@"Finished Fb authorization");
                                       [appDelegate sessionStateChanged:session state:status error:error];
                                       if ((!error) && FB_ISSESSIONOPENWITHSTATE(status)) {
+                                          NSLog(@"log in FB successfully");
                                           // send our requests if we successfully logged in
                                           FBRequestHandler handler =
                                           ^(FBRequestConnection *connection, id result, NSError *error) {
@@ -64,7 +90,7 @@
                                           [FBRequestConnection startForMeWithCompletionHandler:handler];
                                           [self sendRequests];
                                       }
-                                  }];
+                                  }];*/
     }
 }
 
@@ -275,7 +301,7 @@
 	/*
 	 Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
-    [_spinner startAnimatingWithMessage:@"Search..." inView:self.view];
+    //[_spinner startAnimatingWithMessage:@"Search..." inView:self.view];
     self.filteredListContent = [NSMutableArray new];
     for (User *friend in users.users)
 	{
@@ -285,7 +311,7 @@
             [self.filteredListContent addObject:friend];
         }
 	}
-    [_spinner stopAnimating];
+    //[_spinner stopAnimating];
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -304,5 +330,6 @@
 {
     NSLog(@"clicked");
     [theSearchBar resignFirstResponder];
+    [self.view becomeFirstResponder];
 }
 @end

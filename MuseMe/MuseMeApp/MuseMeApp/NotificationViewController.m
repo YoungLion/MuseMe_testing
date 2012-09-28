@@ -38,6 +38,7 @@
     self.tabBarController.tabBar.alpha = 1;
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_WITH_LOGO] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
+    
     /*self.navigationItem.titleView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:LOGO]];
      self.navigationItem.titleView.contentMode = UIViewContentModeScaleAspectFit;
      CGRect frame = self.navigationItem.titleView.frame;
@@ -114,6 +115,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:self.notifications.count];
+    ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%d", self.notifications.count];
     return self.notifications.count;
 }
 
@@ -167,6 +170,23 @@
         [cell.pollDescriptionLabel adjustHeightWithMaxHeight:MAX_POLL_TITLE_HEIGHT];
         
     }else if (notification.type.intValue == RECEIVED_COMMENTS_NOTIFICATION){
+        [cell.messageLabel updateNumberOfLabels:2];
+        
+        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:BLACK_TEXT_COLOR forLabel:0];
+        label = [cell.messageLabel.labels objectAtIndex:0];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
+        
+        [cell.messageLabel setText:@" commented in your poll:" andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:BLACK_TEXT_COLOR forLabel:1];
+        [[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
+        label = [cell.messageLabel.labels objectAtIndex:1];
+        label.shadowColor = [UIColor whiteColor];
+        label.shadowOffset = CGSizeMake(1, 1);
+        [label adjustHeight];
+        
+        cell.pollDescriptionLabel.text = notification.poll.title;
+        [cell.pollDescriptionLabel adjustHeightWithMaxHeight:MAX_POLL_TITLE_HEIGHT];
+    }else if (notification.type.intValue == POLL_KILLED_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:2];
         
         [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:BLACK_TEXT_COLOR forLabel:0];

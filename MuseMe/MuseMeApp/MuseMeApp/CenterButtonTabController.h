@@ -11,6 +11,6 @@
 #import "Utility.h"
 //#import "AddToPollController.h"
 
-@interface CenterButtonTabController : UITabBarController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@interface CenterButtonTabController : UITabBarController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, RKObjectLoaderDelegate>
 @property (nonatomic, weak) UIButton* cameraButton;
 @end

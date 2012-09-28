@@ -171,6 +171,23 @@ static NSUInteger kNumberOfPages = 6;
 
 #pragma User Actions
 
+- (IBAction)loginWithFacebook:(id)sender {
+
+    // The user has initiated a login, so call the openSession method
+    // and show the login UX if necessary.
+    MuseMeDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                              allowLoginUI:YES
+                                         completionHandler:^(FBSession *session,
+                                                             FBSessionState state,
+                                                             NSError *error) {
+                                             [appDelegate sessionStateChanged:session state:state error:error];
+                                             if ((!error) && FB_ISSESSIONOPENWITHSTATE(state)) {
+                                                 [self performSegueWithIdentifier:@"show home" sender:self];
+                                             }
+                                         }];
+}
+
 - (IBAction)loginButtonPressed {
     if (choiceMade){
         [self login];
@@ -292,7 +309,7 @@ static NSUInteger kNumberOfPages = 6;
         VC.delegate = self;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
         [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-        [self presentModalViewController:nav animated:YES];
+        [self presentViewController:nav animated:YES completion:nil];
         
     }else if ([objectLoader wasSentToResourcePath:@"/login"]){
         [Utility setObject:user.singleAccessToken forKey:SINGLE_ACCESS_TOKEN_KEY];

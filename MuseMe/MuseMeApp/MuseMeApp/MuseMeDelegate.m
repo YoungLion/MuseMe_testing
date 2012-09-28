@@ -8,16 +8,23 @@
 
 #import "MuseMeDelegate.h"
 
+NSString *const FBSessionStateChangedNotification =
+@"com.museme.MuseMeDev:FBSessionStateChangedNotification";
+
 @implementation MuseMeDelegate
 
 @synthesize window = _window;
 @synthesize facebook = _facebook;
 
+/*
+ * If we have a valid session at the time of openURL call, we handle
+ * Facebook transitions by passing the url argument to handleOpenURL
+ */
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
     return [FBSession.activeSession handleOpenURL:url];
 }
 
@@ -241,9 +248,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     // this means the user switched back to this app without completing
     // a login in Safari/Facebook App
-    if (FBSession.activeSession.state == FBSessionStateCreatedOpening) {
-        [FBSession.activeSession close]; // so we close our session and start over
-    }
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -283,6 +288,7 @@
                 // Store the Facebook session information
                 self.facebook.accessToken = FBSession.activeSession.accessToken;
                 self.facebook.expirationDate = FBSession.activeSession.expirationDate;
+                
             }
             break;
         case FBSessionStateClosed:
@@ -295,7 +301,12 @@
             break;
     }
     
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:FBSessionStateChangedNotification
+     object:session];
+    
     if (error) {
+        NSLog(@"Error: %@",error);
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Error"
                                   message:error.localizedDescription
@@ -305,4 +316,26 @@
         [alertView show];
     }
 }
+
+
+/*
+ * Opens a Facebook session and optionally shows the login UX.
+ */
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+    NSArray *permissions = nil;
+    /*[[NSArray alloc] initWithObjects:
+                            @"email",
+                            @"user_photos",
+                            nil];*/
+    return [FBSession openActiveSessionWithReadPermissions:permissions
+                                              allowLoginUI:allowLoginUI
+                                         completionHandler:^(FBSession *session,
+                                                             FBSessionState state,
+                                                             NSError *error) {
+                                             [self sessionStateChanged:session
+                                                                 state:state
+                                                                 error:error];
+                                         }];
+}
+
 @end

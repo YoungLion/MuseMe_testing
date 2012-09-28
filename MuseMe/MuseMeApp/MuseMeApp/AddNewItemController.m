@@ -123,7 +123,7 @@
     [UIView setAnimationDuration: 0.7];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
     [UIView commitAnimations];*/
-    [[self.navigationController presentingViewController] dismissModalViewControllerAnimated:YES];
+    [[self.navigationController presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*-(void)doneButton{

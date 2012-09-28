@@ -26,6 +26,7 @@
 #import "UILabel+UILabel_Auto.h"
 #import <Quartzcore/Quartzcore.h>
 #import "Facebook.h"
+//#import <FacebookSDK/FacebookSDK.h>
 #import "Comment.h"
 #import "MuseMeActivityIndicator.h"
 #import "UIInputToolbar/UIInputToolbar.h"
@@ -46,6 +47,7 @@
 #define IS_OLD_USER @"isOldUser"
 #define SINGLE_ACCESS_TOKEN_KEY @"singleAccessTokenKey"
 #define DEVICE_TOKEN_KEY @"DeviceToken"
+#define UNREAD_NOTIFICATION_COUNT_KEY @"unreadNotificationCount"
 
 #define BACKGROUND_COLOR @"BG.png"
 #define NAV_BAR_BACKGROUND_COLOR @"header_bg.png"
@@ -99,26 +101,29 @@
 #define MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION 33
 #define MAX_CHARACTER_NUMBER_FOR_POLL_DESCRIPTION 90
 
-#define MICRO_CORNER_RADIUS 1
+#define MICRO_CORNER_RADIUS 0
 #define MICRO_BORDER_WIDTH 2
-#define MICRO_SHADOW_OFFSET 1
+#define MICRO_SHADOW_OFFSET 0
 
-#define SMALL_CORNER_RADIUS 2
+#define SMALL_CORNER_RADIUS 1
 #define SMALL_BORDER_WIDTH 4
-#define SMALL_SHADOW_OFFSET 2
+#define SMALL_SHADOW_OFFSET 1
 
-#define MEDIUM_CORNER_RADIUS 3
+#define MEDIUM_CORNER_RADIUS 2
 #define MEDIUM_BORDER_WIDTH 8
-#define MEDIUM_SHADOW_OFFSET 3
+#define MEDIUM_SHADOW_OFFSET 2
 
-#define LARGE_CORNER_RADIUS 4
+#define LARGE_CORNER_RADIUS 3
 #define LARGE_BORDER_WIDTH 10
-#define LARGE_SHADOW_OFFSET 4
+#define LARGE_SHADOW_OFFSET 3
+
 typedef enum{
     SingleItemViewOptionNew,
     SingleItemViewOptionEdit,
     SingleItemViewOptionView
 }SingleItemViewOption;
+
+extern NSString *const FBSessionStateChangedNotification;
 
 HJObjManager *HJObjectManager;
 
@@ -126,7 +131,9 @@ HJObjManager *HJObjectManager;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) Facebook* facebook;
+
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
                       error:(NSError *)error;
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 @end

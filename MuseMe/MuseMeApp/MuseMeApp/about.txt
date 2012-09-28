@@ -4,6 +4,7 @@
 <subtitle>Terms of Use</subtitle>
 By using the <_link>http://musememobile.com|Muse Me</_link> website and Muse Me service you are agreeing to be bound by the following terms and conditions ("Terms of Use").  Muse Me is a social voting application that allows you to create polls, add photos to polls, vote on other user polls, and comment on other user polls on musememobile.com (the “Site”), on our application for mobile devices (the “Mobile Software”), and through third party applications. We call the services available on the Site, whether accessed directly, or through the Mobile Software or such third party applications, the “Service(s).”
 By accessing or using the Muse Me Service, you agree to be bound by these Terms and by our Privacy Policy, whether or not you are a registered user of our Service. These Terms apply to all visitors, registered users, and others who access the Service (“Users”).
+
 <bold>Basic Terms</bold>
 
 <_bullet>You must be 13 years or older to use this site.</_bullet>

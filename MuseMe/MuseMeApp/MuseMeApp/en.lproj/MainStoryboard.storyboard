@@ -115,6 +115,21 @@
                                 <rect key="frame" x="0.0" y="183" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PYx-rT-d42">
+                                <rect key="frame" x="71" y="250" width="178" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Log in with Facebook">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginWithFacebook:" destination="TEI-15-lt5" eventType="touchUpInside" id="pvy-3b-jrt"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="A19-eq-m9K">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -358,7 +373,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Facebook" id="j3K-NW-kux">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search on Facebook" id="j3K-NW-kux">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" red="0.094117647058823528" green="0.41176470588235292" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -456,7 +471,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" placeholder="Search Muse Me" id="Hba-dC-AeF">
+                                <searchBar contentMode="redraw" placeholder="Search on Muse Me" id="Hba-dC-AeF">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" red="0.094117647058823528" green="0.41176470588235292" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
@@ -2050,10 +2065,22 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="next-icon.png" id="O62-cU-yFr">
-                            <connections>
-                                <action selector="nextButtonPressed:" destination="j5e-0n-Z7z" id="QVQ-pX-wHf"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="g4A-wa-PqI">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xdR-2m-SwX">
+                                <rect key="frame" x="273" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="next-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="j5e-0n-Z7z" eventType="touchUpInside" id="HYZ-NM-ONg"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -2845,7 +2872,7 @@
         <image name="Delete.png" width="38" height="30"/>
         <image name="LandingPage.png" width="320" height="480"/>
         <image name="LogoInLandingPage.png" width="320" height="53"/>
-        <image name="New-poll-icon.png" width="26" height="24"/>
+        <image name="New-poll-icon.png" width="28" height="24"/>
         <image name="PictureContainer.png" width="320" height="318"/>
         <image name="PollTextInfo.png" width="320" height="63"/>
         <image name="back-icon.png" width="24" height="20"/>
@@ -2854,10 +2881,10 @@
         <image name="clock.png" width="15" height="15"/>
         <image name="cross-hl.png" width="33" height="33"/>
         <image name="cross.png" width="33" height="33"/>
-        <image name="done_button.png" width="56" height="26"/>
+        <image name="done_button.png" width="46" height="30"/>
         <image name="facebookicon.png" width="40" height="40"/>
         <image name="feeds page.png" width="640" height="960"/>
-        <image name="next-icon.png" width="20" height="20"/>
+        <image name="next-icon.png" width="24" height="20"/>
         <image name="refresh_icon.png" width="22" height="24"/>
         <image name="tab-hl@2x.png" width="230" height="144"/>
         <image name="tab@2x.png" width="230" height="144"/>
@@ -2910,9 +2937,6 @@
         <class className="ConfigurationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfigurationViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="action" name="showAbout:"/>
                 <relationship kind="outlet" name="profilePhoto" candidateClass="HJManagedImageV"/>
                 <relationship kind="outlet" name="usernameLabel" candidateClass="UITextField"/>
             </relationships>

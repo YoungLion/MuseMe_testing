@@ -45,7 +45,7 @@
     [self.categoryPickerView selectRow:0 inComponent:0 animated:NO];
     self.categoryPickerView.isOn = NO;
 
-    self.categoryButton.titleLabel.textAlignment =  UITextAlignmentCenter;
+    self.categoryButton.titleLabel.textAlignment =  NSTextAlignmentCenter;
     
     UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

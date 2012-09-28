@@ -28,8 +28,6 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleURLName</key>
-			<string>[com.facebook.test]</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb142566439218323</string>
@@ -59,6 +57,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>
@@ -68,11 +68,11 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.33725490196078434</real>
+				<real>0.3372549019607843</real>
 				<key>Green</key>
-				<real>0.33725490196078434</real>
+				<real>0.3372549019607843</real>
 				<key>Red</key>
-				<real>0.33725490196078434</real>
+				<real>0.3372549019607843</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>

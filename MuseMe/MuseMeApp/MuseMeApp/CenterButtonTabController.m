@@ -13,11 +13,13 @@
 {
     BOOL newMedia;
 }
+@property (nonatomic) NSUInteger notificationCount;
 @end
 
 @implementation CenterButtonTabController
 
 @synthesize cameraButton = _cameraButton;
+@synthesize notificationCount = _notificationCount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -230,4 +232,26 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }
 }
 
+-(void)updateNotificationCount
+{
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/notification_count" delegate:self];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_notificationCount];
+    ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%u", _notificationCount];
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:
+(RKResponse*)response {
+    if ([response isJSON]) {
+        NSLog(@"Got a JSON, %@", response.bodyAsString);
+    }
+}
+
+-(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
+{
+    
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
+}
 @end

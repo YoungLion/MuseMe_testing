@@ -28,13 +28,13 @@
     
 	FTCoreTextStyle *defaultStyle = [FTCoreTextStyle new];
 	defaultStyle.name = FTCoreTextTagDefault;	//thought the default name is already set to FTCoreTextTagDefault
-	defaultStyle.font = [UIFont fontWithName:@"TimesNewRomanPSMT" size:16.f];
+	defaultStyle.font = [UIFont fontWithName:@"AmericanTypewriter" size:16.f];
 	defaultStyle.textAlignment = FTCoreTextAlignementJustified;
 	[result addObject:defaultStyle];
 	
 	
 	FTCoreTextStyle *titleStyle = [FTCoreTextStyle styleWithName:@"title"]; // using fast method
-	titleStyle.font = [UIFont fontWithName:@"TimesNewRomanPSMT" size:40.f];
+	titleStyle.font = [UIFont fontWithName:@"AmericanTypewriter" size:40.f];
 	titleStyle.paragraphInset = UIEdgeInsetsMake(0, 0, 25, 0);
 	titleStyle.textAlignment = FTCoreTextAlignementCenter;
 	[result addObject:titleStyle];
@@ -47,7 +47,7 @@
 	
 	FTCoreTextStyle *firstLetterStyle = [FTCoreTextStyle new];
 	firstLetterStyle.name = @"firstLetter";
-	firstLetterStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-BoldMT" size:30.f];
+	firstLetterStyle.font = [UIFont fontWithName:@"AmericanTypewriter" size:30.f];
 	[result addObject:firstLetterStyle];
 	
 	FTCoreTextStyle *linkStyle = [defaultStyle copy];
@@ -56,14 +56,14 @@
 	[result addObject:linkStyle];
 	
 	FTCoreTextStyle *subtitleStyle = [FTCoreTextStyle styleWithName:@"subtitle"];
-	subtitleStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-BoldMT" size:25.f];
+	subtitleStyle.font = [UIFont fontWithName:@"AmericanTypewriter" size:25.f];
 	subtitleStyle.color = [UIColor brownColor];
 	subtitleStyle.paragraphInset = UIEdgeInsetsMake(10, 0, 10, 0);
 	[result addObject:subtitleStyle];
 	
 	FTCoreTextStyle *bulletStyle = [defaultStyle copy];
 	bulletStyle.name = FTCoreTextTagBullet;
-	bulletStyle.bulletFont = [UIFont fontWithName:@"TimesNewRomanPSMT" size:16.f];
+	bulletStyle.bulletFont = [UIFont fontWithName:@"AmericanTypewriter" size:16.f];
 	bulletStyle.bulletColor = [UIColor orangeColor];
 	bulletStyle.bulletCharacter = @"❧";
 	[result addObject:bulletStyle];
@@ -72,12 +72,12 @@
     FTCoreTextStyle *italicStyle = [defaultStyle copy];
 	italicStyle.name = @"italic";
 	italicStyle.underlined = YES;
-    italicStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-ItalicMT" size:16.f];
+    italicStyle.font = [UIFont fontWithName:@"Calibri-Italic" size:16.f];
 	[result addObject:italicStyle];
     
     FTCoreTextStyle *boldStyle = [defaultStyle copy];
 	boldStyle.name = @"bold";
-    boldStyle.font = [UIFont fontWithName:@"TimesNewRomanPS-BoldMT" size:16.f];
+    boldStyle.font = [UIFont fontWithName:@"Calibri-Bold" size:16.f];
 	[result addObject:boldStyle];
     
     FTCoreTextStyle *coloredStyle = [defaultStyle copy];
@@ -162,7 +162,7 @@
 }
 
 - (IBAction)back:(UIBarButtonItem *)sender {
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -38,7 +38,7 @@
         self.savedSearchTerm = nil;
     }
     
-    _spinner = [MuseMeActivityIndicator new];
+    //_spinner = [MuseMeActivityIndicator new];
     self.searchBar.delegate = self;
     
 }
@@ -127,7 +127,7 @@
 {
     if ([objectLoader.resourcePath hasPrefix:@"/user_search"]){
         self.filteredListContent = objects;
-        [_spinner stopAnimating];
+        //[_spinner stopAnimating];
     }
     [self.tableView reloadData];
 }
@@ -209,7 +209,7 @@
     if (searchText.length > 0)
     {
         [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_search/%@", searchText] delegate:self];
-        [_spinner startAnimatingWithMessage:@"Searching..." inView:self.view];
+        //[_spinner startAnimatingWithMessage:@"Searching..." inView:self.view];
     }else{
         self.filteredListContent = nil;
         [self.tableView reloadData];
@@ -220,5 +220,6 @@
 {
     NSLog(@"clicked");
     [theSearchBar resignFirstResponder];
+    [self.view becomeFirstResponder];
 }
 @end

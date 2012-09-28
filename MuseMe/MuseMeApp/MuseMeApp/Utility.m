@@ -91,7 +91,7 @@ double secondsInAYear = 3600*24*365;
     title.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:22];
     title.shadowColor = [UIColor blackColor];
     title.shadowOffset = CGSizeMake(0, -1);
-    title.textAlignment = UITextAlignmentCenter;
+    title.textAlignment = NSTextAlignmentCenter;
     title.textColor = [UIColor whiteColor]; 
     title.text = titleText;
     [title sizeToFit];

@@ -109,7 +109,7 @@
         loader.serializationMapping = [[RKObjectManager sharedManager].mappingProvider serializationMappingForClass:[User class]];
     }];
     [Utility setObject:nil forKey:CURRENTUSERID];
-    [[self.navigationController presentingViewController] dismissModalViewControllerAnimated:YES];
+    [[self.navigationController presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 
 }
 
@@ -217,8 +217,7 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker
-                                animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil];
         newMedia = YES;
     }
 }
@@ -237,7 +236,7 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil];
         newMedia = NO;
     } 
 }
@@ -248,7 +247,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *cropped = [info
                           objectForKey:UIImagePickerControllerEditedImage];
@@ -280,7 +279,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIActionSheetDelegate Methods
