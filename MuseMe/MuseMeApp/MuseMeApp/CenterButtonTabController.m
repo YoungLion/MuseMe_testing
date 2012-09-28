@@ -8,12 +8,13 @@
 
 #import "CenterButtonTabController.h"
 #import "AddNewItemController.h"
+#define UPDATE_BADGE_PERIOD 30
 
 @interface CenterButtonTabController ()
 {
     BOOL newMedia;
 }
-@property (nonatomic) NSUInteger notificationCount;
+@property (strong, nonatomic) SingleValue* notificationCount;
 @end
 
 @implementation CenterButtonTabController
@@ -73,6 +74,10 @@
     [item3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:unselectedImage3];
     [item4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:unselectedImage4];
 	// Do any additional setup after loading the view.
+    
+    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_BADGE_PERIOD target:self selector:@selector(updateNotificationCount) userInfo:nil repeats:YES];
+    [timer fire];
+    
 }
 
 - (void)viewDidUnload
@@ -234,21 +239,23 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 -(void)updateNotificationCount
 {
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/notification_count" delegate:self];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_notificationCount];
-    ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%u", _notificationCount];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/unread_notification_count" delegate:self];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:
 (RKResponse*)response {
-    if ([response isJSON]) {
+    /*if ([response isJSON]) {
         NSLog(@"Got a JSON, %@", response.bodyAsString);
-    }
+    }*/
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
-    
+    _notificationCount = (SingleValue*)object;
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_notificationCount.number.integerValue];
+    if (_notificationCount.number.integerValue >0 ) {
+        ((UITabBarItem*)[self.tabBar.items objectAtIndex:3]).badgeValue = [_notificationCount.number stringValue];
+    }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {

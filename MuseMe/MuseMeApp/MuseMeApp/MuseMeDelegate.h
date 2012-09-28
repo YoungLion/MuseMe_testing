@@ -33,6 +33,7 @@
 #import "UIGlossyButton.h"
 #import "UIView+LayerEffects.h"
 #import "Notification.h"
+#import "SingleValue.h"
 
 #define KULER_YELLOW 0
 #define KULER_BLACK 1

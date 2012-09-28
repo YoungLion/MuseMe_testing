@@ -36,6 +36,12 @@ NSString *const FBSessionStateChangedNotification =
      NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd 'at' HH:mm"];
     
+    // Class:SingleValue
+    RKObjectMapping* valueMapping = [RKObjectMapping mappingForClass:[SingleValue class]];
+    [valueMapping mapAttributes:@"string", @"number",nil];
+    
+    [[RKObjectManager sharedManager].mappingProvider registerMapping:valueMapping withRootKeyPath:@"single_value"];
+    
     // Class:User
     RKObjectMapping* userMapping = [RKObjectMapping mappingForClass:[User class]];
     [userMapping mapKeyPathsToAttributes:

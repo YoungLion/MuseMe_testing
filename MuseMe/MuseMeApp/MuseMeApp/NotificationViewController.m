@@ -116,7 +116,9 @@
 {
     // Return the number of rows in the section.
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:self.notifications.count];
-    ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%d", self.notifications.count];
+    if (self.notifications.count > 0){
+        ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%d", self.notifications.count];
+    }
     return self.notifications.count;
 }
 
