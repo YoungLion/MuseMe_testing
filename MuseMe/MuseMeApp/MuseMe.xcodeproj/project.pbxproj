@@ -174,6 +174,7 @@
 		0DAC87E51604562F00366A5F /* toolbarbg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC87DF1604562F00366A5F /* toolbarbg@2x~iphone.png */; };
 		0DAC87E61604562F00366A5F /* toolbarbg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC87E01604562F00366A5F /* toolbarbg~iphone.png */; };
 		0DAD99B6161666060047E166 /* SingleValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD99B5161666060047E166 /* SingleValue.m */; };
+		0DAD99B9161679240047E166 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD99B8161679240047E166 /* TutorialViewController.m */; };
 		0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */; };
 		0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */; };
 		0DAF02B515F5C70A00C82B13 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02B415F5C70900C82B13 /* FriendsViewController.m */; };
@@ -564,6 +565,8 @@
 		0DAC87E01604562F00366A5F /* toolbarbg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarbg~iphone.png"; sourceTree = "<group>"; };
 		0DAD99B4161666060047E166 /* SingleValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleValue.h; sourceTree = "<group>"; };
 		0DAD99B5161666060047E166 /* SingleValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleValue.m; sourceTree = "<group>"; };
+		0DAD99B7161679240047E166 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		0DAD99B8161679240047E166 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVotersViewController.h; sourceTree = "<group>"; };
 		0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVotersViewController.m; sourceTree = "<group>"; };
 		0DAF02AC15F5353900C82B13 /* ItemVoterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVoterCell.h; sourceTree = "<group>"; };
@@ -935,6 +938,8 @@
 				0D9CE280160FC07A00BD024D /* Poll Tabel */,
 				0D9CE299160FD87D00BD024D /* AboutViewController.h */,
 				0D9CE29A160FD87D00BD024D /* AboutViewController.m */,
+				0DAD99B7161679240047E166 /* TutorialViewController.h */,
+				0DAD99B8161679240047E166 /* TutorialViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1659,6 +1664,7 @@
 				0D975C8C1613F7A300F6C03B /* AppFormattedTextView.m in Sources */,
 				0D975C8F16141D4B00F6C03B /* ConfigurationViewController.m in Sources */,
 				0DAD99B6161666060047E166 /* SingleValue.m in Sources */,
+				0DAD99B9161679240047E166 /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

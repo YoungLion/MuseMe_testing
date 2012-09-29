@@ -13,6 +13,7 @@
 @interface CenterButtonTabController ()
 {
     BOOL newMedia;
+    NSTimer* getNotificationCountTimer;
 }
 @property (strong, nonatomic) SingleValue* notificationCount;
 @end
@@ -75,14 +76,15 @@
     [item4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:unselectedImage4];
 	// Do any additional setup after loading the view.
     
-    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_BADGE_PERIOD target:self selector:@selector(updateNotificationCount) userInfo:nil repeats:YES];
-    [timer fire];
+    getNotificationCountTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_BADGE_PERIOD target:self selector:@selector(updateNotificationCount) userInfo:nil repeats:YES];
+    [getNotificationCountTimer fire];
     
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    [getNotificationCountTimer invalidate];
     // Release any retained subviews of the main view.
 }
 
