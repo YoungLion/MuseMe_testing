@@ -186,12 +186,12 @@
     }else if (notification.type.intValue == POLL_KILLED_NOTIFICATION){
         [cell.messageLabel updateNumberOfLabels:2];
         
-        [cell.messageLabel setText:notification.user.username andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:BLACK_TEXT_COLOR forLabel:0];
+        [cell.messageLabel setText:@"Administrator" andFont:[UIFont fontWithName:@"Calibri-Bold" size:17.0] andColor:BLACK_TEXT_COLOR forLabel:0];
         label = [cell.messageLabel.labels objectAtIndex:0];
         label.shadowColor = [UIColor whiteColor];
         label.shadowOffset = CGSizeMake(1, 1);
         
-        [cell.messageLabel setText:@" commented in your poll:" andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:BLACK_TEXT_COLOR forLabel:1];
+        [cell.messageLabel setText:@" deleted your poll:" andFont:[UIFont fontWithName:@"AmericanTypewriter" size:14.0] andColor:BLACK_TEXT_COLOR forLabel:1];
         [[cell.messageLabel.labels objectAtIndex:1] adjustHeight];
         label = [cell.messageLabel.labels objectAtIndex:1];
         label.shadowColor = [UIColor whiteColor];
@@ -200,9 +200,11 @@
         
         cell.pollDescriptionLabel.text = notification.poll.title;
         [cell.pollDescriptionLabel adjustHeightWithMaxHeight:MAX_POLL_TITLE_HEIGHT];
+        
+        cell.userImage.image = [UIImage imageNamed:APP_ICON];
     }
     
-    if (notification.user.profilePhotoURL){
+    if ((notification.user.profilePhotoURL)&&(notification.type.intValue != POLL_KILLED_NOTIFICATION)){
         [cell.userImage clear];
         [cell.userImage showLoadingWheel];
         cell.userImage.url = [NSURL URLWithString:notification.user.profilePhotoURL];
@@ -235,14 +237,16 @@
 {
     Notification* notification = [self.notifications objectAtIndex:indexPath.row];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/read_notification/%@", notification.notificationID] delegate:self];
-    if (notification.type.intValue != BEING_FOLLOWED_NOTIFICATION)
+    if (notification.type.intValue == BEING_FOLLOWED_NOTIFICATION)
     {
-        [Utility setObject:notification.poll.pollID forKey:IDOfPollToBeShown];
-        [self performSegueWithIdentifier:@"show poll" sender:self];
-    }else{
         [Utility setObject:notification.poll.pollID forKey:IDOfPollToBeShown];
         userToBePassed = notification.user;
         [self performSegueWithIdentifier:@"show profile" sender:self];
+    }else if (notification.type.intValue == POLL_KILLED_NOTIFICATION){
+        [self performSegueWithIdentifier:@"show system info" sender:self];
+    }else{
+        [Utility setObject:notification.poll.pollID forKey:IDOfPollToBeShown];
+        [self performSegueWithIdentifier:@"show poll" sender:self];
     }
 }
 

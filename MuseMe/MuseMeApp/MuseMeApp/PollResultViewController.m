@@ -77,6 +77,19 @@
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
     [self.tableView reloadData];
+    for (NSUInteger i = 0; i < [self.tableView numberOfRowsInSection:0]; i++){
+        PollResultCell* cell = (PollResultCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        CGRect frame = cell.numberOfVotesIndicator.frame;
+        CGRect frame0 = frame;
+        frame0.size.width = 0;
+        cell.numberOfVotesIndicator.frame = frame0;
+        Item* item = [self.poll.items objectAtIndex:i];
+        frame.size.width = (item.numberOfVotes.floatValue/(self.poll.totalVotes.floatValue == 0? 1:self.poll.totalVotes.floatValue))*155;
+        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
+            //cell.numberOfVotesIndicator.progress = item.numberOfVotes.floatValue/(self.poll.totalVotes.floatValue == 0? 1:self.poll.totalVotes.floatValue);
+            cell.numberOfVotesIndicator.frame = frame;
+        } completion:nil];
+    }
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -121,7 +134,8 @@
     [cell.brandLabel adjustHeight];
         //cell.brandPreLabel.hidden = NO;
     //}
-    cell.numberOfVotesIndicator.progress = item.numberOfVotes.floatValue/(self.poll.totalVotes.floatValue == 0? 1:self.poll.totalVotes.floatValue);
+    cell.numberOfVotesIndicator.progress = 1;
+    /*cell.numberOfVotesIndicator.progress = item.numberOfVotes.floatValue/(self.poll.totalVotes.floatValue == 0? 1:self.poll.totalVotes.floatValue);*/
     cell.numberOfVotesLabel.text = [NSString stringWithFormat:@"%d%%",item.numberOfVotes.intValue*100/(self.poll.totalVotes.intValue == 0? 1:self.poll.totalVotes.intValue)];
 
     return cell;

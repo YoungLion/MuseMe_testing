@@ -175,6 +175,15 @@
 		0DAC87E61604562F00366A5F /* toolbarbg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAC87E01604562F00366A5F /* toolbarbg~iphone.png */; };
 		0DAD99B6161666060047E166 /* SingleValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD99B5161666060047E166 /* SingleValue.m */; };
 		0DAD99B9161679240047E166 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD99B8161679240047E166 /* TutorialViewController.m */; };
+		0DAD99BC1616D3600047E166 /* InfoDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD99BB1616D35E0047E166 /* InfoDisplayViewController.m */; };
+		0DAD99C71616E0FE0047E166 /* blueBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99BF1616E0FE0047E166 /* blueBG.png */; };
+		0DAD99C81616E0FE0047E166 /* blueBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99C01616E0FE0047E166 /* blueBG@2x.png */; };
+		0DAD99C91616E0FE0047E166 /* progressImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99C11616E0FE0047E166 /* progressImage.png */; };
+		0DAD99CA1616E0FE0047E166 /* progressImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99C21616E0FE0047E166 /* progressImage@2x.png */; };
+		0DAD99CB1616E0FE0047E166 /* trackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99C31616E0FE0047E166 /* trackBG.png */; };
+		0DAD99CC1616E0FE0047E166 /* trackBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99C41616E0FE0047E166 /* trackBG@2x.png */; };
+		0DAD99CD1616E0FE0047E166 /* trackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99C51616E0FE0047E166 /* trackImage.png */; };
+		0DAD99CE1616E0FE0047E166 /* trackImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAD99C61616E0FE0047E166 /* trackImage@2x.png */; };
 		0DAF02AB15F5344400C82B13 /* ItemVotersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */; };
 		0DAF02AE15F5353900C82B13 /* ItemVoterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02AD15F5353900C82B13 /* ItemVoterCell.m */; };
 		0DAF02B515F5C70A00C82B13 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF02B415F5C70900C82B13 /* FriendsViewController.m */; };
@@ -567,6 +576,16 @@
 		0DAD99B5161666060047E166 /* SingleValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleValue.m; sourceTree = "<group>"; };
 		0DAD99B7161679240047E166 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		0DAD99B8161679240047E166 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		0DAD99BA1616D35D0047E166 /* InfoDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDisplayViewController.h; sourceTree = "<group>"; };
+		0DAD99BB1616D35E0047E166 /* InfoDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDisplayViewController.m; sourceTree = "<group>"; };
+		0DAD99BF1616E0FE0047E166 /* blueBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueBG.png; sourceTree = "<group>"; };
+		0DAD99C01616E0FE0047E166 /* blueBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueBG@2x.png"; sourceTree = "<group>"; };
+		0DAD99C11616E0FE0047E166 /* progressImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progressImage.png; sourceTree = "<group>"; };
+		0DAD99C21616E0FE0047E166 /* progressImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progressImage@2x.png"; sourceTree = "<group>"; };
+		0DAD99C31616E0FE0047E166 /* trackBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackBG.png; sourceTree = "<group>"; };
+		0DAD99C41616E0FE0047E166 /* trackBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trackBG@2x.png"; sourceTree = "<group>"; };
+		0DAD99C51616E0FE0047E166 /* trackImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackImage.png; sourceTree = "<group>"; };
+		0DAD99C61616E0FE0047E166 /* trackImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trackImage@2x.png"; sourceTree = "<group>"; };
 		0DAF02A915F5344400C82B13 /* ItemVotersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVotersViewController.h; sourceTree = "<group>"; };
 		0DAF02AA15F5344400C82B13 /* ItemVotersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVotersViewController.m; sourceTree = "<group>"; };
 		0DAF02AC15F5353900C82B13 /* ItemVoterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVoterCell.h; sourceTree = "<group>"; };
@@ -940,6 +959,8 @@
 				0D9CE280160FC07A00BD024D /* Poll Tabel */,
 				0D9CE299160FD87D00BD024D /* AboutViewController.h */,
 				0D9CE29A160FD87D00BD024D /* AboutViewController.m */,
+				0DAD99BA1616D35D0047E166 /* InfoDisplayViewController.h */,
+				0DAD99BB1616D35E0047E166 /* InfoDisplayViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -998,7 +1019,7 @@
 				0D91EE5615AD0B7200D1015D /* View */,
 				0D91EE5815AD0BB900D1015D /* Controller */,
 				0D91EE5715AD0B8200D1015D /* Model */,
-				0D9BA1CB15C6048200599AA2 /* Other */,
+				0D9BA1CB15C6048200599AA2 /* Environment */,
 				0D9C0CAD15DECBE8005FA5C5 /* Resources */,
 				0D94F4EF15A7D09700903F0B /* Supporting Files */,
 			);
@@ -1070,18 +1091,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0D9BA1CB15C6048200599AA2 /* Other */ = {
+		0D9BA1CB15C6048200599AA2 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
 				0D9BA1C815C603EC00599AA2 /* Environment.h */,
 				0D9BA1C915C603EC00599AA2 /* Environment.m */,
 			);
-			name = Other;
+			name = Environment;
 			sourceTree = "<group>";
 		};
 		0D9C0CAD15DECBE8005FA5C5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0DAD99BE1616E0E70047E166 /* Poll Result */,
 				0DA4CB0116110D1600AE00B8 /* Custom Fonts */,
 				0D9CE29E160FDA4600BD024D /* about.txt */,
 				0DAC87DA1604561300366A5F /* CommentBar */,
@@ -1309,6 +1331,21 @@
 				0DAC87E01604562F00366A5F /* toolbarbg~iphone.png */,
 			);
 			name = CommentBar;
+			sourceTree = "<group>";
+		};
+		0DAD99BE1616E0E70047E166 /* Poll Result */ = {
+			isa = PBXGroup;
+			children = (
+				0DAD99BF1616E0FE0047E166 /* blueBG.png */,
+				0DAD99C01616E0FE0047E166 /* blueBG@2x.png */,
+				0DAD99C11616E0FE0047E166 /* progressImage.png */,
+				0DAD99C21616E0FE0047E166 /* progressImage@2x.png */,
+				0DAD99C31616E0FE0047E166 /* trackBG.png */,
+				0DAD99C41616E0FE0047E166 /* trackBG@2x.png */,
+				0DAD99C51616E0FE0047E166 /* trackImage.png */,
+				0DAD99C61616E0FE0047E166 /* trackImage@2x.png */,
+			);
+			name = "Poll Result";
 			sourceTree = "<group>";
 		};
 		0DF8B20F15EE18BC00230497 /* Tutorial Pages */ = {
@@ -1583,6 +1620,14 @@
 				0D975C9116142B0A00F6C03B /* Default-568h@2x.png in Resources */,
 				0D00D1CB16154A53009A5739 /* FacebookSDKResources.bundle in Resources */,
 				0D00D1CC16154A53009A5739 /* FBUserSettingsViewResources.bundle in Resources */,
+				0DAD99C71616E0FE0047E166 /* blueBG.png in Resources */,
+				0DAD99C81616E0FE0047E166 /* blueBG@2x.png in Resources */,
+				0DAD99C91616E0FE0047E166 /* progressImage.png in Resources */,
+				0DAD99CA1616E0FE0047E166 /* progressImage@2x.png in Resources */,
+				0DAD99CB1616E0FE0047E166 /* trackBG.png in Resources */,
+				0DAD99CC1616E0FE0047E166 /* trackBG@2x.png in Resources */,
+				0DAD99CD1616E0FE0047E166 /* trackImage.png in Resources */,
+				0DAD99CE1616E0FE0047E166 /* trackImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1665,6 +1710,7 @@
 				0D975C8F16141D4B00F6C03B /* ConfigurationViewController.m in Sources */,
 				0DAD99B6161666060047E166 /* SingleValue.m in Sources */,
 				0DAD99B9161679240047E166 /* TutorialViewController.m in Sources */,
+				0DAD99BC1616D3600047E166 /* InfoDisplayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

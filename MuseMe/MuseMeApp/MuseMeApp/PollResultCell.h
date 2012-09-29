@@ -15,6 +15,7 @@
 //@property (nonatomic, weak) IBOutlet UILabel *priceLabel;
 @property (nonatomic, weak) IBOutlet UIProgressView *numberOfVotesIndicator;
 @property (nonatomic, weak) IBOutlet UILabel *numberOfVotesLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *voteBar;
 @property (weak, nonatomic) IBOutlet UILabel *brandLabel;
 //@property (weak, nonatomic) IBOutlet AppFormattedLabel *brandPreLabel;
 @end

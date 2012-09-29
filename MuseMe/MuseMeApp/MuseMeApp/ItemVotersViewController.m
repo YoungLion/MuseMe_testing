@@ -14,6 +14,7 @@
 #define kKeyboardHeightPortrait 216
 #define kKeyboardHeightLandscape 140
 #define kDefaultTabbarHeight 49
+#define kDefaultNavigationbarHeight 44
 
 @interface ItemVotersViewController ()
 {
@@ -48,7 +49,7 @@
     [Utility renderView:self.itemImageView withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH shadowOffSet:LARGE_SHADOW_OFFSET];
     
     /* Create toolbar */
-    self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - kDefaultToolbarHeight - 44, self.view.frame.size.width, kDefaultToolbarHeight)];
+    self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - kDefaultToolbarHeight - kDefaultNavigationbarHeight, self.view.frame.size.width, kDefaultToolbarHeight)];
     self.commentBar.delegate = self;
     self.commentBar.textView.placeholder = @"Leave your comment here";
     self.commentBar.textView.font = [UIFont fontWithName:@"AmericanTypewriter" size:14];

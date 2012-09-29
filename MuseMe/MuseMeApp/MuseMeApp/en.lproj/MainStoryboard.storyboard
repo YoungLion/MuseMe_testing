@@ -423,7 +423,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="KCU-fx-knm" customClass="FBFriendsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ONH-3d-Zel">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search on Facebook" id="j3K-NW-kux">
@@ -517,7 +517,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="bVU-l4-A2K" customClass="FriendsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G3e-6f-XCI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="tvt-9f-871" customClass="UIControl">
@@ -642,7 +642,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="profile page" id="6a9-bf-0wD" customClass="ProfileTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FFx-ZW-oVu">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xd9-V2-BBZ" userLabel="View - control panel">
@@ -810,42 +810,42 @@
                                                 <action selector="switchContentType:" destination="6a9-bf-0wD" eventType="touchUpInside" id="Of9-zU-zsC"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Draft Polls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="iPk-H5-l8w" customClass="NameLabel">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Draft Polls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="iPk-H5-l8w" customClass="AppFormattedLabel">
                                             <rect key="frame" x="15" y="31" width="77" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Active Polls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="08x-ac-PWX" customClass="NameLabel">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Active Polls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="08x-ac-PWX" customClass="AppFormattedLabel">
                                             <rect key="frame" x="125" y="31" width="71" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Followed Polls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="biG-qM-Dtv" customClass="NameLabel">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Followed Polls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="biG-qM-Dtv" customClass="AppFormattedLabel">
                                             <rect key="frame" x="226" y="31" width="89" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="eaC-hh-f9s" userLabel="Label - # of draft polls" customClass="NameLabel">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="eaC-hh-f9s" userLabel="Label - # of draft polls" customClass="AppFormattedLabel">
                                             <rect key="frame" x="30" y="9" width="46" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="nT8-Y3-IQW" userLabel="Label - # of active polls" customClass="NameLabel">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="nT8-Y3-IQW" userLabel="Label - # of active polls" customClass="AppFormattedLabel">
                                             <rect key="frame" x="137" y="9" width="46" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="d8f-wQ-Ewc" userLabel="Label - # of followed polls" customClass="NameLabel">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="d8f-wQ-Ewc" userLabel="Label - # of followed polls" customClass="AppFormattedLabel">
                                             <rect key="frame" x="247" y="9" width="46" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
@@ -1034,7 +1034,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="MIy-tL-0HM" customClass="ConnectedUserViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="O9w-7L-atH">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1317,7 +1317,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="pIC-4E-dbg" customClass="SettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Lco-3I-wxV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="osL-28-MgQ" customClass="UIControl">
@@ -1541,7 +1541,7 @@
             </objects>
             <point key="canvasLocation" x="2639" y="2876"/>
         </scene>
-        <!--New Poll View Controller - New poll-->
+        <!--New Poll View Controller - Create New Poll-->
         <scene sceneID="0w5-Bv-NOb">
             <objects>
                 <viewController storyboardIdentifier="new poll VC" modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="tlb-aD-9aU" customClass="NewPollViewController" sceneMemberID="viewController">
@@ -1596,7 +1596,7 @@
                         </connections>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="New poll" id="XJx-2q-D6g">
+                    <navigationItem key="navigationItem" title="Create New Poll" id="XJx-2q-D6g">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="wZb-ts-NE9">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="esY-rm-8ho">
                                 <rect key="frame" x="5" y="5" width="42" height="33"/>
@@ -1952,7 +1952,7 @@
             </objects>
             <point key="canvasLocation" x="4142" y="480"/>
         </scene>
-        <!--Poll Result View Controller - Poll results-->
+        <!--Poll Result View Controller - Poll Results-->
         <scene sceneID="mxb-Ii-Hb2">
             <objects>
                 <tableViewController modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="PLI-kD-jhi" customClass="PollResultViewController" sceneMemberID="viewController">
@@ -1968,24 +1968,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="trackBG.png" id="L7g-Nr-MlD">
+                                            <rect key="frame" x="98" y="36" width="164" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <progressView opaque="NO" contentMode="scaleToFill" id="GJI-WS-8Za">
-                                            <rect key="frame" x="102" y="69" width="156" height="9"/>
+                                            <rect key="frame" x="103" y="42" width="155" height="9"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <color key="backgroundColor" red="0.85490196078431369" green="0.92941176470588238" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="progressTintColor" red="0.094117647060000004" green="0.41176470590000003" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </progressView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="izX-5r-snh" customClass="AppFormattedLabel">
-                                            <rect key="frame" x="266" y="63" width="45" height="22"/>
+                                            <rect key="frame" x="266" y="35" width="45" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="XFa-aQ-7Vo" customClass="AppFormattedLabel">
-                                            <rect key="frame" x="96" y="10" width="162" height="51"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -1999,7 +1996,6 @@
                                 </view>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
-                                    <outlet property="brandLabel" destination="XFa-aQ-7Vo" id="vjB-pj-hjl"/>
                                     <outlet property="itemImage" destination="aZJ-iP-eFQ" id="4V6-RH-ZfR"/>
                                     <outlet property="numberOfVotesIndicator" destination="GJI-WS-8Za" id="b3A-7K-a2n"/>
                                     <outlet property="numberOfVotesLabel" destination="izX-5r-snh" id="yOP-ch-gfB"/>
@@ -2012,7 +2008,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Poll results" id="UWl-4Z-gyg">
+                    <navigationItem key="navigationItem" title="Poll Results" id="UWl-4Z-gyg">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Xhs-MJ-X20">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mfL-2U-dZx">
                                 <rect key="frame" x="5" y="5" width="42" height="33"/>
@@ -2036,7 +2032,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXy-U7-CRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4816" y="-193"/>
+            <point key="canvasLocation" x="4722" y="-139"/>
         </scene>
         <!--Center Button Tab Controller-->
         <scene sceneID="Rja-Z1-Bnm">
@@ -2061,7 +2057,7 @@
             </objects>
             <point key="canvasLocation" x="1595" y="480"/>
         </scene>
-        <!--Add New Item Controller - Add new item-->
+        <!--Add New Item Controller - Add New Item-->
         <scene sceneID="NMo-cl-37H">
             <objects>
                 <viewController storyboardIdentifier="add new item VC" id="j5e-0n-Z7z" customClass="AddNewItemController" sceneMemberID="viewController">
@@ -2102,7 +2098,7 @@
                         </connections>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add new item" id="8ar-cg-IP6">
+                    <navigationItem key="navigationItem" title="Add New Item" id="8ar-cg-IP6">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Rvd-tr-KfK"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="yaX-Hn-fnk">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jSF-c3-gYA">
@@ -2151,7 +2147,7 @@
             </objects>
             <point key="canvasLocation" x="3156" y="480"/>
         </scene>
-        <!--Add To Poll Controller - Choose a poll-->
+        <!--Add To Poll Controller - Choose A Poll-->
         <scene sceneID="ldJ-9g-V8O">
             <objects>
                 <viewController id="oVB-cZ-hsy" customClass="AddToPollController" sceneMemberID="viewController">
@@ -2181,7 +2177,7 @@
                         </connections>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Choose a poll" id="LLR-Ic-2KQ">
+                    <navigationItem key="navigationItem" title="Choose A Poll" id="LLR-Ic-2KQ">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="g0J-95-1a1">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bb4-tV-HtL">
                                 <rect key="frame" x="5" y="5" width="42" height="33"/>
@@ -2283,7 +2279,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="q9e-uO-mqc" customClass="NameLabel">
-                                            <rect key="frame" x="57" y="11" width="164" height="22"/>
+                                            <rect key="frame" x="59" y="11" width="164" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2401,7 +2397,7 @@
             </objects>
             <point key="canvasLocation" x="4816" y="467"/>
         </scene>
-        <!--Single Item View Controller - Add new item-->
+        <!--Single Item View Controller - Add New Item-->
         <scene sceneID="HpC-Ot-YOP">
             <objects>
                 <viewController storyboardIdentifier="new item view controller" modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="ld5-tW-awy" customClass="SingleItemViewController" sceneMemberID="viewController">
@@ -2442,7 +2438,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="TXM-V0-uFZ"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="CnS-QF-i5h"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Add new item" id="f51-EF-XSU">
+                    <navigationItem key="navigationItem" title="Add New Item" id="f51-EF-XSU">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="dbx-3p-gpI"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Ayg-Hw-puo">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZEH-HV-rNH">
@@ -2489,7 +2485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2s-t9-Py2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5342" y="1136"/>
+            <point key="canvasLocation" x="4808" y="1057"/>
         </scene>
         <!--Navigation Controller - Featured-->
         <scene sceneID="xve-u6-DHd">
@@ -2738,7 +2734,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 minute ago" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="X4W-9e-54M" customClass="SmallFormattedLabel">
-                                            <rect key="frame" x="58" y="8" width="54" height="12"/>
+                                            <rect key="frame" x="58" y="6" width="54" height="12"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="9"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2798,11 +2794,96 @@
                     <connections>
                         <segue destination="6a9-bf-0wD" kind="push" identifier="show profile" id="Th9-k6-bma"/>
                         <segue destination="AtD-j7-Qhz" kind="push" identifier="show poll" id="Flo-iC-3J5"/>
+                        <segue destination="kEC-Ah-scj" kind="push" identifier="show system info" id="bRk-z5-MPx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATm-pl-gtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2620" y="2180"/>
+        </scene>
+        <!--Info Display View Controller - Warning-->
+        <scene sceneID="6NO-LH-7bJ">
+            <objects>
+                <viewController id="kEC-Ah-scj" customClass="InfoDisplayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="03k-Mt-hSA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wAv-CV-7H0" customClass="AppFormattedLabel">
+                                <rect key="frame" x="26" y="58" width="268" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">You poll is deleted by Muse Me administrator becasue it contains inappropriate content. Your account will be blocked if this happens again.</string>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="When you are using our Muse Me app, your behavior should follow all the agreements in our  " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C6n-Qp-6mP" customClass="AppFormattedLabel">
+                                <rect key="frame" x="26" y="172" width="268" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Terms of Use and Privacy Policy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ggH-9J-UqU" customClass="AppFormattedLabel">
+                                <rect key="frame" x="50" y="209" width="268" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
+                                <color key="textColor" red="0.094117647060000004" green="0.41176470590000003" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="zHA-cP-XZx">
+                                <rect key="frame" x="46" y="209" width="199" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gtL-nu-1qn" kind="modal" modalTransitionStyle="flipHorizontal" id="eVz-nb-cHq"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="y9W-Ou-Lxo">
+                                <rect key="frame" x="20" y="172" width="160" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Warning" id="Vbe-dI-oQN">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="COG-CS-4sV">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uMS-YC-zjt">
+                                <rect key="frame" x="5" y="5" width="42" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back" destination="kEC-Ah-scj" eventType="touchUpInside" id="cTZ-hF-6eR"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjF-ZE-aZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3168" y="2239"/>
         </scene>
         <!--Navigation Controller - Profile-->
         <scene sceneID="bkU-ih-LCq">
@@ -2947,6 +3028,7 @@
         <image name="tab@2x.png" width="230" height="144"/>
         <image name="tap-to-add.png" width="285" height="85"/>
         <image name="tap-to-publish-poll.png" width="320" height="72"/>
+        <image name="trackBG.png" width="155" height="20"/>
     </resources>
     <classes>
         <class className="AboutViewController" superclassName="UIViewController">
@@ -3053,11 +3135,12 @@
         <class className="HJManagedImageV" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HJManagedImageV.h"/>
         </class>
+        <class className="InfoDisplayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoDisplayViewController.h"/>
+        </class>
         <class className="ItemVotersViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemVotersViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backButtonPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="followButtonPressed:"/>
                 <relationship kind="outlet" name="itemDescription" candidateClass="AppFormattedLabel"/>
                 <relationship kind="outlet" name="itemImageView" candidateClass="HJManagedImageV"/>
                 <relationship kind="outlet" name="votesCount" candidateClass="AppFormattedLabel"/>
@@ -3122,10 +3205,14 @@
                 <relationship kind="outlet" name="itemImage" candidateClass="HJManagedImageV"/>
                 <relationship kind="outlet" name="numberOfVotesIndicator" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="numberOfVotesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="voteBar" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="PollResultViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PollResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="PollTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PollTableViewController.h"/>
@@ -3188,9 +3275,6 @@
         <class className="TutorialViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialViewController.h"/>
             <relationships>
-                <relationship kind="action" name="endTutorial:"/>
-                <relationship kind="action" name="nextPage:"/>
-                <relationship kind="action" name="previousPage:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="previousButton" candidateClass="UIButton"/>
@@ -3224,9 +3308,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zq5-jj-3sq"/>
-        <segue reference="E46-aS-6G1"/>
-        <segue reference="64J-VO-pTq"/>
+        <segue reference="Th9-k6-bma"/>
         <segue reference="Dfm-dZ-P9O"/>
+        <segue reference="eVz-nb-cHq"/>
+        <segue reference="E46-aS-6G1"/>
     </inferredMetricsTieBreakers>
 </document>

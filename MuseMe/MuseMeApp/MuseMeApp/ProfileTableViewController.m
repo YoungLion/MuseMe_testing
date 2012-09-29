@@ -399,6 +399,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (ContentType == ContentTypeEditingPoll && !isOwnProfile) return;
+    
     switch (ContentType) {
         case ContentTypeEditingPoll:{
             if (indexPath.row < self.editingPolls.count){
@@ -424,9 +426,7 @@
         default:
             break;
     }
-    if (!(ContentType == ContentTypeEditingPoll && !isOwnProfile)){
     [self performSegueWithIdentifier:@"show poll" sender:self];
-    }
 
 }
 
