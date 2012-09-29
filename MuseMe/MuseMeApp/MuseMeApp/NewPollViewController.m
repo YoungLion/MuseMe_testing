@@ -47,10 +47,6 @@
 
     self.categoryButton.titleLabel.textAlignment =  NSTextAlignmentCenter;
     
-    UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
     poll = [Poll new];
     //eventCreated = NO;
     //recordCreated = NO;

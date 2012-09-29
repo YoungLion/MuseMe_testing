@@ -35,10 +35,6 @@
     self.poll.pollID = [Utility getObjectForKey:IDOfPollToBeShown];
     [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
     self.navigationItem.titleView = [Utility formatTitleWithString:self.navigationItem.title];
-    
-    UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //[self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
 }
 

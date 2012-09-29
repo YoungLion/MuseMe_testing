@@ -81,10 +81,15 @@
     
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [getNotificationCountTimer invalidate];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [getNotificationCountTimer invalidate];
     // Release any retained subviews of the main view.
 }
 
@@ -241,7 +246,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 -(void)updateNotificationCount
 {
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/unread_notification_count" delegate:self];
+    NSLog(@"get notification count");
+    //[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/unread_notification_count" delegate:self];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:

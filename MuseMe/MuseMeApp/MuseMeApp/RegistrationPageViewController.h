@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Utility.h"
 #import "ConfigurationViewController.h"
-@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate,FBLoginViewDelegate, ConfigurationViewControllerDelegate>
+@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, UIGestureRecognizerDelegate, FBLoginViewDelegate, ConfigurationViewControllerDelegate>
 {
     BOOL pageControlUsed;
 }
@@ -21,9 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIControl *background;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-//@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-//- (IBAction)changePage:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 

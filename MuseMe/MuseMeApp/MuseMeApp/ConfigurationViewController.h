@@ -20,4 +20,5 @@
 @property (weak, nonatomic) IBOutlet HJManagedImageV *profilePhoto;
 @property (weak, nonatomic) IBOutlet UITextField *usernameLabel;
 @property (weak, nonatomic) id<ConfigurationViewControllerDelegate>delegate;
+- (void)startMuseMe;
 @end

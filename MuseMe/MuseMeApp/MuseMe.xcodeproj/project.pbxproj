@@ -925,6 +925,8 @@
 				0D91EE5A15AD4BD300D1015D /* RegistrationPageViewController.m */,
 				0D975C8D16141D4900F6C03B /* ConfigurationViewController.h */,
 				0D975C8E16141D4A00F6C03B /* ConfigurationViewController.m */,
+				0DAD99B7161679240047E166 /* TutorialViewController.h */,
+				0DAD99B8161679240047E166 /* TutorialViewController.m */,
 				0D9CE282160FC0FD00BD024D /* Tab Controller, Camera Button */,
 				0D94F51C15A7FCEA00903F0B /* ExploreTableViewController.h */,
 				0D94F51D15A7FCEB00903F0B /* ExploreTableViewController.m */,
@@ -938,8 +940,6 @@
 				0D9CE280160FC07A00BD024D /* Poll Tabel */,
 				0D9CE299160FD87D00BD024D /* AboutViewController.h */,
 				0D9CE29A160FD87D00BD024D /* AboutViewController.m */,
-				0DAD99B7161679240047E166 /* TutorialViewController.h */,
-				0DAD99B8161679240047E166 /* TutorialViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

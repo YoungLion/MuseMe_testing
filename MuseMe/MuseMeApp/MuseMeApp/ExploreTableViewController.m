@@ -38,13 +38,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
-
-    //set UIBarButtonItem background image
-    /*UIImage *navButtonBGImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
- 
-    [self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonBGImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];*/
-    
     
     self.events = [NSMutableArray new];
     isLoading = NO;

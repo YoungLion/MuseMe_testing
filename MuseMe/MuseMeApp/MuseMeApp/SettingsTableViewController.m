@@ -30,10 +30,6 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
     self.navigationItem.titleView = [Utility formatTitleWithString:self.navigationItem.title];
     
-    /*UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];*/
-    //[self.navigationItem.rightBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
     _username.delegate = self;
     _spinner = [MuseMeActivityIndicator new];
     
@@ -101,7 +97,6 @@
 
 - (void)Logout {
     User* user = [User new];
-    user.singleAccessToken = [Utility getObjectForKey:SINGLE_ACCESS_TOKEN_KEY];
     user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY];
     [[RKObjectManager sharedManager] postObject:user usingBlock:^(RKObjectLoader *loader) {
         loader.delegate = self;

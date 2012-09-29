@@ -13,7 +13,6 @@
 #define PasswordConfirmationField 2
 
 #define OpacityOfDimissButton 0.15
-static NSUInteger kNumberOfPages = 6;
 
 @interface RegistrationPageViewController (){
     User* user;
@@ -38,8 +37,6 @@ static NSUInteger kNumberOfPages = 6;
 @synthesize spinner = _spinner;
 @synthesize loginButton = _loginButton;
 @synthesize background = _background;
-@synthesize scrollView = _scrollView;
-//@synthesize pageControl = _pageControl;
 
 - (void)viewDidLoad
 {
@@ -75,7 +72,8 @@ static NSUInteger kNumberOfPages = 6;
     self.dismissButton.alpha = 0;
     self.spinner = [MuseMeActivityIndicator new];
     
-    _scrollView.pagingEnabled = YES;
+
+    /*_scrollView.pagingEnabled = YES;
     _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * kNumberOfPages, _scrollView.frame.size.height);
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
@@ -87,26 +85,17 @@ static NSUInteger kNumberOfPages = 6;
     currentPage = 0;
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
-    _scrollView.alpha = 0;
+    _scrollView.alpha = 0;*/
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //[Utility setObject:nil forKey:IS_OLD_USER];//For testing purpose
-    if (![Utility getObjectForKey:IS_OLD_USER]){
-        [self showTutorial];
-        [Utility setObject:[NSNumber numberWithBool:YES] forKey:IS_OLD_USER];
-    }else if ([Utility getObjectForKey:CURRENTUSERID]){
+    if ([Utility getObjectForKey:CURRENTUSERID]){
         [self performSegueWithIdentifier:@"show home" sender:self];
     }else{
         [self animateOpening];
     }
-    /*[UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.2];
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -216);
-    self.transform = transform;
-    [UIView commitAnimations];*/
 }
 
 -(void)animateOpening
@@ -136,6 +125,9 @@ static NSUInteger kNumberOfPages = 6;
         self.loginButton.alpha = 1;
         self.signupButton.alpha = 1;
     } completion:nil];
+    
+    [Utility setObject:[Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046" forKey:DEVICE_TOKEN_KEY];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -156,8 +148,6 @@ static NSUInteger kNumberOfPages = 6;
     [self setSpinner:nil];
     [self setLoginButton:nil];
     [self setBackground:nil];
-    [self setScrollView:nil];
-    //[self setPageControl:nil];
     [self setDismissButton:nil];
     [self setLogoImage:nil];
     [super viewDidUnload];
@@ -247,9 +237,6 @@ static NSUInteger kNumberOfPages = 6;
 }
 
 - (void)signup {
-    /*if ([_emailField.text rangeOfString:@"@"].location == NSNotFound){
-        [Utility showAlert:@"Invalid email address" message:@"Please double check your email address"];
-    }else */
     if (_passwordField.text.length < 6){
         [Utility showAlert:@"Password is too short!" message:@"Password should be longer than 6 characters"];
     }else if (![_passwordConfirmationField.text isEqualToString:_passwordField.text]){
@@ -265,7 +252,7 @@ static NSUInteger kNumberOfPages = 6;
         user.email = self.emailField.text;
         user.password = self.passwordField.text;
         user.passwordConfirmation = self.passwordConfirmationField.text;        
-        user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046";
+        user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY];
         [self.spinner startAnimatingWithMessage:@"Signing up..." inView:self.view];
         [[RKObjectManager sharedManager] postObject:user delegate:self];
     }
@@ -280,7 +267,7 @@ static NSUInteger kNumberOfPages = 6;
         user = [User new];
         user.email = self.emailField.text;
         user.password = self.passwordField.text;
-        user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046";
+        user.deviceToken = [Utility getObjectForKey:DEVICE_TOKEN_KEY];
         NSLog(@"device token sent:%@", user.deviceToken);
         [self.spinner startAnimatingWithMessage:@"Authenticating..." inView:self.view];
         [[RKObjectManager sharedManager] postObject:user usingBlock:^(RKObjectLoader* loader){
@@ -367,124 +354,6 @@ static NSUInteger kNumberOfPages = 6;
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-
--(void)showTutorial
-{
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
-        _scrollView.alpha = 1;
-    } completion:nil];
-    //[self performSegueWithIdentifier:@"show tutorial" sender:self];
-}
-
--(void)endTutorial
-{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.2];
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(-320, 0);
-    _scrollView.transform = transform;
-    [UIView commitAnimations];
-    NSLog(@"tutorial ended");
-    
-    [self animateOpening];
-}
-- (void)loadScrollViewWithPage:(int)page
-{
-
-    if (page < 0)
-        return;
-    if (page >= kNumberOfPages)
-        return;
-    tutorialPage = nil;
-    tutorialPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"instruction-page-%d", page]]];
-    CGRect frame = self.scrollView.frame;
-    frame.origin.x = frame.size.width * page;
-    frame.origin.y = 0;
-    tutorialPage.frame = frame;
-        
-    [self.scrollView addSubview:tutorialPage];
-    if (page == kNumberOfPages - 1){
-        UIButton* endTutorialButton= [UIButton buttonWithType:UIButtonTypeCustom];
-        endTutorialButton.frame = CGRectMake(frame.origin.x + 50, frame.origin.y + 106, 224, 61);
-        [endTutorialButton addTarget:self action:@selector(endTutorial) forControlEvents:UIControlEventTouchDown];
-        [self.scrollView addSubview:endTutorialButton];
-    }else{
-        UIButton* nextPageButton= [UIButton buttonWithType:UIButtonTypeCustom];
-        nextPageButton.frame = CGRectMake(frame.origin.x + 276, frame.origin.y + 226, 43, 37);
-        [nextPageButton addTarget:self action:@selector(nextPage) forControlEvents:UIControlEventTouchDown];
-        [self.scrollView addSubview:nextPageButton];
-    }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)sender
-{
-    // We don't want a "feedback loop" between the UIPageControl and the scroll delegate in
-    // which a scroll event generated from the user hitting the page control triggers updates from
-    // the delegate method. We use a boolean to disable the delegate logic when the page control is used.
-    if (pageControlUsed)
-    {
-        // do nothing - the scroll was initiated from the page control, not the user dragging
-        return;
-    }
-	
-    // Switch the indicator when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = _scrollView.frame.size.width;
-    int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-   // _pageControl.currentPage = page;
-    currentPage = page;
-    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
-    
-    // A possible optimization would be to unload the views+controllers which are no longer visible
-}
-
--(void)nextPage
-{
-	NSLog(@"go to the next page");
-    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self loadScrollViewWithPage:currentPage + 1];
-    [self loadScrollViewWithPage:currentPage + 2];
-    
-	// update the scroll view to the appropriate page
-    currentPage += 1;
-    CGRect frame = _scrollView.frame;
-    frame.origin.x = frame.size.width * currentPage;
-    frame.origin.y = 0;
-    [_scrollView scrollRectToVisible:frame animated:YES];
-    
-}
-// At the begin of scroll dragging, reset the boolean used when scrolls originate from the UIPageControl
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    pageControlUsed = NO;
-}
-
-// At the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    pageControlUsed = NO;
-}
-
-/*- (IBAction)changePage:(id)sender
-{
-    int page = _pageControl.currentPage;
-	
-    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
-    
-	// update the scroll view to the appropriate page
-    CGRect frame = _scrollView.frame;
-    frame.origin.x = frame.size.width * page;
-    frame.origin.y = 0;
-    [_scrollView scrollRectToVisible:frame animated:YES];
-    
-	// Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
-    pageControlUsed = YES;
-}*/
 
 -(void)configurationViewControllerDidSetup:(id)sender
 {

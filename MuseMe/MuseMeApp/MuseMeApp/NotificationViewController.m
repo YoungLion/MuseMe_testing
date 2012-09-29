@@ -52,7 +52,7 @@
     ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 1;
     _spinner = [MuseMeActivityIndicator new];
     [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/notifications/0" delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/notifications" delegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,15 +87,14 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
     if ([objectLoader.resourcePath hasPrefix:@"/notifications"]){
-        if ([objectLoader.resourcePath hasPrefix:@"/notifications/0"]){
-            self.notifications = [objects mutableCopy];
-        }else{
-            [self.notifications addObjectsFromArray:objects];
-        }
+        self.notifications = [objects mutableCopy];
         [_spinner stopAnimating];
         _spinner = nil;
-        
         [self.tableView reloadData];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:self.notifications.count];
+        if (self.notifications.count > 0){
+            ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%d", self.notifications.count];
+        }
         isLoading = NO;
     }
 }
@@ -115,10 +114,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:self.notifications.count];
-    if (self.notifications.count > 0){
-        ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%d", self.notifications.count];
-    }
     return self.notifications.count;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "ConfigurationViewController.h"
+#import "TutorialViewController.h"
 
 @interface ConfigurationViewController (){
     User* currentUser;
@@ -70,7 +71,7 @@
     [self performSegueWithIdentifier:@"show about" sender:self];
 }
 
-- (IBAction)done:(id)sender {
+- (void)startMuseMe {
     NSLog(@"Start Muse me clicked");
     [self.delegate configurationViewControllerDidSetup:self];
 }
@@ -232,4 +233,12 @@ finishedSavingWithError:(NSError *)error
     [actionSheet resignFirstResponder];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"show tutorial"])
+    {
+        TutorialViewController* VC = segue.destinationViewController;
+        VC.pageNumber = 0;
+    }
+}
 @end

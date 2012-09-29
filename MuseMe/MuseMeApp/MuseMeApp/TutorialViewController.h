@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TutorialViewController : UIViewController
-//@property ()
+@property (nonatomic) int pageNumber;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *previousButton;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 @end

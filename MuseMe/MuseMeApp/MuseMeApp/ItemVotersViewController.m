@@ -19,6 +19,7 @@
 {
     User* userToBePassed;
     BOOL keyboardIsVisible;
+    BOOL addNewComments;
 }
 @property (nonatomic, strong) UIInputToolbar* commentBar;
 @property (nonatomic, strong) MuseMeActivityIndicator* spinner;
@@ -38,10 +39,6 @@
     
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
     
-    //set UIBarButtonItem background image
-    UIImage *navButtonImage = [[UIImage imageNamed:NAV_BAR_BUTTON_BG] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    [self.navigationItem.leftBarButtonItem  setBackgroundImage:navButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
     _spinner = [MuseMeActivityIndicator new];
     
     keyboardIsVisible = NO;
@@ -51,10 +48,12 @@
     [Utility renderView:self.itemImageView withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH shadowOffSet:LARGE_SHADOW_OFFSET];
     
     /* Create toolbar */
-    self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-kDefaultToolbarHeight, self.view.frame.size.width, kDefaultToolbarHeight)];
+    self.commentBar = [[UIInputToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - kDefaultToolbarHeight - 44, self.view.frame.size.width, kDefaultToolbarHeight)];
     self.commentBar.delegate = self;
     self.commentBar.textView.placeholder = @"Leave your comment here";
+    self.commentBar.textView.font = [UIFont fontWithName:@"AmericanTypewriter" size:14];
     [self.view addSubview:self.commentBar];
+    addNewComments = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -143,10 +142,18 @@
         self.votesCount.text = [self.item.numberOfVotes stringValue];
         [HJObjectManager manage:self.itemImageView];
         [_spinner stopAnimating];
+        [self.tableView reloadData];
+        if (addNewComments)
+        {
+            CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height);
+            [self.tableView setContentOffset:offset animated:YES];
+            addNewComments = NO;
+        }
     }else{
         [[RKObjectManager sharedManager] getObject:self.item delegate:self];
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
+    
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -253,8 +260,7 @@
     }
     header.backgroundColor = [UIColor clearColor];
     [headerView addSubview:header];
-    headerView.backgroundColor = [Utility colorFromKuler:KULER_WHITE alpha:0.8];
-    
+    headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
     return headerView;
 }
 #pragma mark - Table view delegate
@@ -334,6 +340,7 @@
         comment.commenterID = [Utility getObjectForKey:CURRENTUSERID];
         comment.content = trimmedComment;
         [[RKObjectManager sharedManager] postObject:comment delegate:self];
+        addNewComments = YES;
     }
     [self.commentBar.textView resignFirstResponder];
 }
