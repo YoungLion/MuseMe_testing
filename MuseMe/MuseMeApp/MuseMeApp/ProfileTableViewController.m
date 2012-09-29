@@ -123,7 +123,7 @@
     //self.navigationItem.titleView = [Utility formatTitleWithString:self.navigationItem.title];
     UIImage *navigationBarBackground =[[UIImage imageNamed:NAV_BAR_BACKGROUND_WITH_LOGO] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.navigationController.navigationBar setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
-    
+    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 1 - self.hidesBottomBarWhenPushed;
     self.editingPolls = [NSMutableArray new];
     self.votedPolls = [NSMutableArray new];
     self.openedPolls = [NSMutableArray new];
@@ -132,8 +132,6 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    ((CenterButtonTabController*)self.tabBarController).cameraButton.alpha = 1 - self.hidesBottomBarWhenPushed;
-    NSLog(@"self.hidesBottomBarWhenPushed = %d", self.hidesBottomBarWhenPushed);
     [_spinner startAnimatingWithMessage:@"Loading..." inView:self.view];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/user_profile_poll_records/%@",_user.userID] delegate:self];
     [[RKObjectManager sharedManager] getObject:_user delegate:self];

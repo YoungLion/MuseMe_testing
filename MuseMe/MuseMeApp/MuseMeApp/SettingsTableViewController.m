@@ -104,6 +104,7 @@
         loader.serializationMapping = [[RKObjectManager sharedManager].mappingProvider serializationMappingForClass:[User class]];
     }];
     [Utility setObject:nil forKey:CURRENTUSERID];
+    [Utility setObject:nil forKey:UNREAD_NOTIFICATION_COUNT_KEY];
     [[self.navigationController presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 
 }

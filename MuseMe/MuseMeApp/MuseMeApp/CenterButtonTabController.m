@@ -8,6 +8,7 @@
 
 #import "CenterButtonTabController.h"
 #import "AddNewItemController.h"
+#import "NotificationViewController.h"
 #define UPDATE_BADGE_PERIOD 30
 
 @interface CenterButtonTabController ()
@@ -247,22 +248,29 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 -(void)updateNotificationCount
 {
     NSLog(@"get notification count");
-    //[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/unread_notification_count" delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/unread_notification_count" delegate:self];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:
 (RKResponse*)response {
-    /*if ([response isJSON]) {
+    if ([response isJSON]) {
         NSLog(@"Got a JSON, %@", response.bodyAsString);
-    }*/
+    }
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
     _notificationCount = (SingleValue*)object;
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_notificationCount.number.integerValue];
-    if (_notificationCount.number.integerValue >0 ) {
-        ((UITabBarItem*)[self.tabBar.items objectAtIndex:3]).badgeValue = [_notificationCount.number stringValue];
+    NSLog(@"new:%d",_notificationCount.number.intValue);
+    if (((NSNumber*)[Utility getObjectForKey:UNREAD_NOTIFICATION_COUNT_KEY]).intValue != _notificationCount.number.intValue){
+        [Utility setObject:_notificationCount.number forKey:UNREAD_NOTIFICATION_COUNT_KEY];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_notificationCount.number.integerValue];
+        if (_notificationCount.number.integerValue >0 ) {
+            ((UITabBarItem*)[self.tabBar.items objectAtIndex:3]).badgeValue = [_notificationCount.number stringValue];
+        }else{
+            ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = nil;
+        }
+        [(NotificationViewController*)[[((UINavigationController*)[self.viewControllers objectAtIndex:3]) viewControllers] objectAtIndex:0] refresh];
     }
 }
 

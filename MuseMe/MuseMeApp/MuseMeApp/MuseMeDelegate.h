@@ -46,6 +46,7 @@
 #define IDOfPollToBeShown @"IDOfPollToBeShown"
 #define CURRENTUSERID @"currentUserID"
 #define IS_OLD_USER @"isOldUser"
+#define UNREAD_NOTIFICATION_COUNT_KEY @"unreadNotificationCount"
 #define SINGLE_ACCESS_TOKEN_KEY @"singleAccessTokenKey"
 #define DEVICE_TOKEN_KEY @"DeviceToken"
 #define UNREAD_NOTIFICATION_COUNT_KEY @"unreadNotificationCount"

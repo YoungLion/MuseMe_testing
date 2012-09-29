@@ -948,7 +948,6 @@
 				0DAD99B8161679240047E166 /* TutorialViewController.m */,
 				0D9CE282160FC0FD00BD024D /* Tab Controller, Camera Button */,
 				0D94F51C15A7FCEA00903F0B /* ExploreTableViewController.h */,
-				0D94F51D15A7FCEB00903F0B /* ExploreTableViewController.m */,
 				0D94F51415A7D30700903F0B /* NewPollViewController.h */,
 				0D94F51515A7D30800903F0B /* NewPollViewController.m */,
 				0DA4C26D160E906B0077724A /* FeedTableViewController.h */,
@@ -1159,6 +1158,7 @@
 			children = (
 				0D9C0CA215DEC1A8005FA5C5 /* CenterButtonTabController.h */,
 				0D9C0CA315DEC1A8005FA5C5 /* CenterButtonTabController.m */,
+				0D94F51D15A7FCEB00903F0B /* ExploreTableViewController.m */,
 				0DF8D7AC15DE2D4A0010E475 /* AddNewItemController.h */,
 				0DF8D7AD15DE2D4A0010E475 /* AddNewItemController.m */,
 				0DA3998015EAFB49002A4D58 /* AddToPollController.h */,
@@ -1750,8 +1750,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yujun Wu (GJP74VVN36)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yujun Wu (GJP74VVN36)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1766,8 +1766,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1778,8 +1778,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yujun Wu (GJP74VVN36)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yujun Wu (GJP74VVN36)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1788,8 +1788,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1798,8 +1798,8 @@
 		0D94F50315A7D09700903F0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yujun Wu (GJP74VVN36)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yujun Wu (GJP74VVN36)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Developer/aws-ios-sdk-1.3.3\"",
@@ -1822,8 +1822,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "Muse Me";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
@@ -1833,8 +1833,8 @@
 		0D94F50415A7D09700903F0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yujun Wu (GJP74VVN36)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yujun Wu (GJP74VVN36)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Developer/aws-ios-sdk-1.3.3\"",
@@ -1857,8 +1857,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "Muse Me";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47E4E652-9DFE-4F07-8489-89E6FEB28195";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;

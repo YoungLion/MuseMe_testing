@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "Utility.h"
 @interface NotificationViewController : UITableViewController<RKObjectLoaderDelegate>
-
+-(void) refresh;
 @end

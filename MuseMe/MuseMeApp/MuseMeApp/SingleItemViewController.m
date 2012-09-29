@@ -175,7 +175,9 @@
                 
                 RKParams* params = [RKParams params];
                 [params setValue:_item.pollID forParam:@"item[poll_id]"];
+                [params setValue:_item.brand forParam:@"item[brand]"];
                 [params setData:_item.photo MIMEType:@"image/jpeg" forParam:@"item[photo]"];
+                
                 NSLog(@"post to %@",loader.resourcePath);
                 loader.params = params;
                 loader.delegate = self;
