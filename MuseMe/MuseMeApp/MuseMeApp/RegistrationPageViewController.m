@@ -115,7 +115,7 @@ static NSUInteger kNumberOfPages = 6;
     self.logoImage.frame = frame;
     self.logoImage.image = [UIImage imageNamed:LOGO_IN_LANDING_PAGE];
     frame.origin.y = 133;
-    CGFloat transitionDuration = 0.8;
+    CGFloat transitionDuration = 0.4;
     [UIView animateWithDuration:transitionDuration delay:0 options:UIViewAnimationCurveEaseIn animations:^{
         self.logoImage.frame = frame;
         self.logoImage.alpha = 0;
@@ -171,7 +171,7 @@ static NSUInteger kNumberOfPages = 6;
 
 #pragma User Actions
 
-- (IBAction)loginWithFacebook:(id)sender {
+/*- (IBAction)loginWithFacebook:(id)sender {
 
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.
@@ -186,7 +186,7 @@ static NSUInteger kNumberOfPages = 6;
                                                  [self performSegueWithIdentifier:@"show home" sender:self];
                                              }
                                          }];
-}
+}*/
 
 - (IBAction)loginButtonPressed {
     if (choiceMade){
