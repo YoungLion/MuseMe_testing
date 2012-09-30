@@ -124,7 +124,9 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    [Utility showAlert:@"Sorry!" message:error.localizedDescription];
+#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
+    [Utility showAlert:[error localizedDescription] message:nil];
+#endif
 }
 
 #pragma mark - Table view data source

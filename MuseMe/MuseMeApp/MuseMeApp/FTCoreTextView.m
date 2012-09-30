@@ -293,13 +293,13 @@ UITextAlignment UITextAlignmentFromCoreTextAlignment(FTCoreTextAlignement alignm
 {
 	switch (alignment) {
 		case FTCoreTextAlignementCenter:
-			return UITextAlignmentCenter;
+			return NSTextAlignmentCenter;
 			break;
 		case FTCoreTextAlignementRight:
-			return UITextAlignmentRight;
-			break;			
+			return NSTextAlignmentRight;
+			break;
 		default:
-			return UITextAlignmentLeft;
+			return NSTextAlignmentLeft;
 			break;
 	}
 }

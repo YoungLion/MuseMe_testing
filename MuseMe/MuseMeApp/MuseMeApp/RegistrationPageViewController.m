@@ -18,12 +18,9 @@
     User* user;
     BOOL choiceMade;
     BOOL loginMode;
-    UIImageView* tutorialPage;
     int currentPage;
 }
 @property (strong, nonatomic)  MuseMeActivityIndicator *spinner;
-- (void)loadScrollViewWithPage:(int)page;
-- (void)scrollViewDidScroll:(UIScrollView *)sender;
 @end
 
 @implementation RegistrationPageViewController
@@ -126,7 +123,7 @@
         self.signupButton.alpha = 1;
     } completion:nil];
     
-    [Utility setObject:[Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"011052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046" forKey:DEVICE_TOKEN_KEY];
+    [Utility setObject:[Utility getObjectForKey:DEVICE_TOKEN_KEY]?[Utility getObjectForKey:DEVICE_TOKEN_KEY]:@"111052f6a5afde35f4b6f4376f29d913c1211b117529593a3c97f6b539195046" forKey:DEVICE_TOKEN_KEY];
     
 }
 
@@ -292,6 +289,7 @@
     if ([objectLoader wasSentToResourcePath:@"/signup"]){
         [Utility setObject:user.singleAccessToken forKey:SINGLE_ACCESS_TOKEN_KEY];
         [Utility setObject:user.userID forKey:CURRENTUSERID];
+        [Utility setObject:[NSNumber numberWithInt:0] forKey:UNREAD_NOTIFICATION_COUNT_KEY];
         ConfigurationViewController* VC = [self.storyboard  instantiateViewControllerWithIdentifier:@"account setup VC"];
         VC.delegate = self;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
@@ -301,6 +299,7 @@
     }else if ([objectLoader wasSentToResourcePath:@"/login"]){
         [Utility setObject:user.singleAccessToken forKey:SINGLE_ACCESS_TOKEN_KEY];
         [Utility setObject:user.userID forKey:CURRENTUSERID];
+        [Utility setObject:[NSNumber numberWithInt:0] forKey:UNREAD_NOTIFICATION_COUNT_KEY];
         [self performSegueWithIdentifier:@"show home" sender:self];
     }
     [self.spinner stopAnimating];
@@ -357,9 +356,9 @@
 
 -(void)configurationViewControllerDidSetup:(id)sender
 {
-    [self dismissModalViewControllerAnimated:NO];
-    NSLog(@"show home now");
-    [self performSegueWithIdentifier:@"show home" sender:self];
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self performSegueWithIdentifier:@"show home" sender:self];
+    }];
 }
 
 @end

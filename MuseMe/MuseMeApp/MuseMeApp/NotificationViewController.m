@@ -97,21 +97,23 @@
         [_spinner stopAnimating];
         _spinner = nil;
         [self.tableView reloadData];
+        if (self.notifications.count > 0){
+            ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%d", self.notifications.count];
+        }else{
+            ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = nil;
+        }
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:self.notifications.count];
         if (((NSNumber*)[Utility getObjectForKey:UNREAD_NOTIFICATION_COUNT_KEY]).intValue != _notifications.count){
             [Utility setObject:[NSNumber numberWithInt:_notifications.count] forKey:UNREAD_NOTIFICATION_COUNT_KEY];
-            [[UIApplication sharedApplication] setApplicationIconBadgeNumber:self.notifications.count];
-            if (self.notifications.count > 0){
-                ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = [NSString stringWithFormat:@"%d", self.notifications.count];
-            }else{
-                ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = nil;
-            }
         }
         isLoading = NO;
     }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
+#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
+    [Utility showAlert:[error localizedDescription] message:nil];
+#endif
 }
 
 #pragma mark - Table view data source

@@ -156,7 +156,9 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
+#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
     [Utility showAlert:[error localizedDescription] message:nil];
+#endif
     self.navigationItem.rightBarButtonItem.enabled = YES;
     self.navigationItem.leftBarButtonItem.enabled = YES;
 }

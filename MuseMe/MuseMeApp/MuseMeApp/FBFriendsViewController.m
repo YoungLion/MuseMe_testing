@@ -207,8 +207,9 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    [Utility showAlert:@"Error!" message:[error localizedDescription]];
-    NSLog(@"Encountered an error: %@", error);
+#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
+    [Utility showAlert:[error localizedDescription] message:nil];
+#endif
 }
 
 #pragma mark - Table view data source

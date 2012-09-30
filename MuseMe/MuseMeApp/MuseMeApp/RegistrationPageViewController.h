@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Utility.h"
 #import "ConfigurationViewController.h"
-@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, UIGestureRecognizerDelegate, FBLoginViewDelegate, ConfigurationViewControllerDelegate>
-{
-    BOOL pageControlUsed;
-}
-
+@interface RegistrationPageViewController : UIViewController<UITextFieldDelegate,RKObjectLoaderDelegate, ConfigurationViewControllerDelegate> //FBLoginViewDelegate
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;

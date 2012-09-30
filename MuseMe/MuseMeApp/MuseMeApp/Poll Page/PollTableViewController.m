@@ -542,7 +542,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Item *item = [Item new];
+    Item *item;
     
     if (isOwnerView && self.poll.state.intValue == EDITING){
         if (indexPath.row == 0){
@@ -755,7 +755,7 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil];
         newMedia = NO;
     }
 }
@@ -766,7 +766,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
-    [self dismissModalViewControllerAnimated:NO];
+    [self dismissViewControllerAnimated:NO completion:nil];
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *image = [info
                           objectForKey:UIImagePickerControllerEditedImage];
@@ -797,7 +797,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

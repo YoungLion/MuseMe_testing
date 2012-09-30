@@ -108,7 +108,9 @@
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
+#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
+    [Utility showAlert:[error localizedDescription] message:nil];
+#endif
 }
 
 #pragma mark - UITextField delegate
@@ -151,8 +153,8 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker
-                                animated:YES];
+        [self presentViewController:imagePicker
+                                animated:YES completion:nil];
         newMedia = YES;
     }
 }
@@ -171,7 +173,7 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil];
         newMedia = NO;
     }
 }
@@ -182,7 +184,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *cropped = [info
                             objectForKey:UIImagePickerControllerEditedImage];
@@ -214,7 +216,7 @@ finishedSavingWithError:(NSError *)error
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIActionSheetDelegate Methods

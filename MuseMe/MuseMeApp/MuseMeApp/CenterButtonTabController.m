@@ -148,8 +148,7 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker
-                                animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil]; 
         newMedia = YES;
     }
 }
@@ -168,7 +167,7 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagePicker.allowsEditing = YES;
-        [self presentModalViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil];
         newMedia = NO;
     }
 }
@@ -179,7 +178,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
-    [self dismissModalViewControllerAnimated:NO];
+    [self dismissViewControllerAnimated:NO completion:nil];
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *itemImage = [info
                           objectForKey:UIImagePickerControllerEditedImage];
@@ -209,7 +208,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)addNewItemViewWithPhoto:(UIImage*)image
@@ -218,7 +217,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     addNewItemController.capturedItemImage = image;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addNewItemController];
     [nav setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    [self presentModalViewController:nav animated:YES];
+    [self presentViewController:nav animated:YES completion:nil];
     
 }
 
@@ -248,7 +247,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 -(void)updateNotificationCount
 {
     NSLog(@"get notification count");
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/unread_notification_count" delegate:self];
+    if (![Utility getObjectForKey:UNREAD_NOTIFICATION_COUNT_KEY]){
+        [getNotificationCountTimer invalidate];
+    }else{
+        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/unread_notification_count" delegate:self];
+    }
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:
@@ -266,7 +269,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if (((NSNumber*)[Utility getObjectForKey:UNREAD_NOTIFICATION_COUNT_KEY]).intValue != _notificationCount.number.intValue){
         [Utility setObject:_notificationCount.number forKey:UNREAD_NOTIFICATION_COUNT_KEY];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_notificationCount.number.integerValue];
-        if (_notificationCount.number.integerValue >0 ) {
+        if (_notificationCount.number.integerValue > 0 ) {
             ((UITabBarItem*)[self.tabBar.items objectAtIndex:3]).badgeValue = [_notificationCount.number stringValue];
         }else{
             ((UITabBarItem*)[self.tabBarController.tabBar.items objectAtIndex:3]).badgeValue = nil;
@@ -276,6 +279,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    [Utility showAlert:@"Sorry!" message:[error localizedDescription]];
+#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
+    [Utility showAlert:[error localizedDescription] message:nil];
+#endif
 }
 @end

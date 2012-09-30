@@ -163,7 +163,7 @@
     [Utility setObject:self.item.pollID forKey:IDOfPollToBeShown];
     id VC = ((UINavigationController*)((CenterButtonTabController*)[self.navigationController presentingViewController]).selectedViewController).topViewController;
     [VC performSegueWithIdentifier:@"show poll" sender:VC];
-    [[self.navigationController presentingViewController] dismissModalViewControllerAnimated:YES];
+    [[self.navigationController presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma RKObjectLoaderDelegate Methods
@@ -201,7 +201,9 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    [Utility showAlert:@"Sorry!" message:error.localizedDescription];
+#if ENVIRONMENT == ENVIRONMENT_DEVELOPMENT
+    [Utility showAlert:[error localizedDescription] message:nil];
+#endif
     self.navigationItem.leftBarButtonItem.enabled = YES;
     self.navigationItem.rightBarButtonItem.enabled = YES;
 }
