@@ -209,6 +209,7 @@ NSString *const FBSessionStateChangedNotification =
     // Create the object manager
   
     HJObjectManager = [[HJObjManager alloc] initWithLoadingBufferSize:6 memCacheSize:1];
+    HJObjectManager.policy = [HJMOPolicy smallImgFastScrollLRUCachePolicy];
 	
 	//if you are using for full screen images, you'll need a smaller memory cache than the defaults,
 	//otherwise the cached images will get you out of memory quickly

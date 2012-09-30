@@ -268,6 +268,9 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    if (newLength > MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION) {
+        [Utility showAlert:@"Item description should not be that long." message:nil];
+    }
     return (newLength > MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION) ? NO : YES;
 }
 

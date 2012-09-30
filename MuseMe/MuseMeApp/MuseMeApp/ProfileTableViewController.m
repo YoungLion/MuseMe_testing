@@ -326,7 +326,7 @@
                 cell.pollDescriptionLabel.text = poll.title;
                 cell.itemCountLabel.text = [[NSString alloc] initWithFormat:@"%@", poll.itemsCount];
                 cell.startTimeLabel.text = [Utility formatTimeWithDate:poll.startTime];
-                [cell.pollDescriptionLabel adjustHeight];
+                //[cell.pollDescriptionLabel adjustHeight];
                 [cell.startTimeLabel setNeedsLayout];
             }
             if (isOwnProfile) {
@@ -347,7 +347,7 @@
                 cell.pollDescriptionLabel.text = poll.title;
                 cell.votesCountLabel.text = [[NSString alloc] initWithFormat:@"%@", poll.totalVotes];
                 cell.openTimeLabel.text = [Utility formatTimeWithDate:poll.openTime];
-                [cell.pollDescriptionLabel adjustHeight];
+                //[cell.pollDescriptionLabel adjustHeight];
                 [cell.openTimeLabel setNeedsLayout];
             }
             return cell;
@@ -367,7 +367,7 @@
                 cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
                 cell.userPhoto.url = [NSURL URLWithString:poll.owner.profilePhotoURL];
                 [HJObjectManager manage:cell.userPhoto];
-                [cell.pollDescriptionLabel adjustHeight];
+                //[cell.pollDescriptionLabel adjustHeight];
             }
             return cell;
         }

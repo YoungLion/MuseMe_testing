@@ -948,6 +948,7 @@
 				0DAD99B8161679240047E166 /* TutorialViewController.m */,
 				0D9CE282160FC0FD00BD024D /* Tab Controller, Camera Button */,
 				0D94F51C15A7FCEA00903F0B /* ExploreTableViewController.h */,
+				0D94F51D15A7FCEB00903F0B /* ExploreTableViewController.m */,
 				0D94F51415A7D30700903F0B /* NewPollViewController.h */,
 				0D94F51515A7D30800903F0B /* NewPollViewController.m */,
 				0DA4C26D160E906B0077724A /* FeedTableViewController.h */,
@@ -1158,7 +1159,6 @@
 			children = (
 				0D9C0CA215DEC1A8005FA5C5 /* CenterButtonTabController.h */,
 				0D9C0CA315DEC1A8005FA5C5 /* CenterButtonTabController.m */,
-				0D94F51D15A7FCEB00903F0B /* ExploreTableViewController.m */,
 				0DF8D7AC15DE2D4A0010E475 /* AddNewItemController.h */,
 				0DF8D7AD15DE2D4A0010E475 /* AddNewItemController.m */,
 				0DA3998015EAFB49002A4D58 /* AddToPollController.h */,

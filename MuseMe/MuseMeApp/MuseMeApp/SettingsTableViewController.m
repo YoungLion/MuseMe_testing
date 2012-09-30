@@ -105,6 +105,7 @@
     }];
     [Utility setObject:nil forKey:CURRENTUSERID];
     [Utility setObject:nil forKey:UNREAD_NOTIFICATION_COUNT_KEY];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     [[self.navigationController presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 
 }

@@ -9,7 +9,7 @@
 #import "CenterButtonTabController.h"
 #import "AddNewItemController.h"
 #import "NotificationViewController.h"
-#define UPDATE_BADGE_PERIOD 30
+#define UPDATE_BADGE_PERIOD 10
 
 @interface CenterButtonTabController ()
 {
@@ -85,7 +85,7 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [getNotificationCountTimer invalidate];
+    //[getNotificationCountTimer invalidate];
 }
 
 - (void)viewDidUnload
@@ -261,7 +261,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
     _notificationCount = (SingleValue*)object;
-    NSLog(@"new:%d",_notificationCount.number.intValue);
+    NSLog(@"new:%@",_notificationCount.number);
+    NSLog(@"old:%@",[Utility getObjectForKey:UNREAD_NOTIFICATION_COUNT_KEY]);
     if (((NSNumber*)[Utility getObjectForKey:UNREAD_NOTIFICATION_COUNT_KEY]).intValue != _notificationCount.number.intValue){
         [Utility setObject:_notificationCount.number forKey:UNREAD_NOTIFICATION_COUNT_KEY];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_notificationCount.number.integerValue];

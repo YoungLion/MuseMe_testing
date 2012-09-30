@@ -239,7 +239,19 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return USER_CELL_HEIGHT;
+    if (indexPath.section == 0){
+        return USER_CELL_HEIGHT; 
+    }
+    
+    Comment* comment = [self.item.comments objectAtIndex:indexPath.row];
+    
+    UILabel* tmpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 240, 21)];
+    tmpLabel.text = comment.content;
+    [tmpLabel adjustHeight];
+    
+    CGFloat delta = tmpLabel.frame.size.height - 21;
+    return USER_CELL_HEIGHT + delta;
+
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

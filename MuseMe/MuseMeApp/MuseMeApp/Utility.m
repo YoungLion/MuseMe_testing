@@ -279,9 +279,9 @@ double secondsInAYear = 3600*24*365;
 {
     UIToolbar *keyboardAccessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     keyboardAccessoryView.barStyle = UIBarStyleBlackTranslucent;
-    keyboardAccessoryView.tintColor = [UIColor darkGrayColor];
+    keyboardAccessoryView.tintColor = [Utility colorFromKuler:KULER_CYAN alpha:0.7];
     UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:t action:a];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:DONE_BUTTON] style:UIBarButtonItemStyleBordered target:t action:a];
     doneButton.title = title;
     [keyboardAccessoryView setItems:[NSArray arrayWithObjects: flexSpace, doneButton, nil] animated:NO];
     return keyboardAccessoryView;
