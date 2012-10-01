@@ -161,7 +161,7 @@
 
     User* user = (User*)[self.filteredListContent objectAtIndex:indexPath.row];
     
-    [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
+    [Utility renderView:cell.userPhoto withBackground:cell.userPhotoBackground withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     if (user.profilePhotoURL){
         [cell.userPhoto clear];

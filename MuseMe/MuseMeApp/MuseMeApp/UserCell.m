@@ -12,6 +12,7 @@
 @synthesize userPhoto;
 @synthesize usernameLabel;
 @synthesize followButton;
+@synthesize userPhotoBackground;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

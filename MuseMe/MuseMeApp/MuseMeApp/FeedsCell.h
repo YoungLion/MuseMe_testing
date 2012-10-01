@@ -31,6 +31,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *picContainerImageView;
 @property (weak, nonatomic) IBOutlet UIView *picContainer;
+@property (weak, nonatomic) IBOutlet UIView *background0;
+@property (weak, nonatomic) IBOutlet UIView *background1;
+@property (weak, nonatomic) IBOutlet UIView *background2;
+@property (weak, nonatomic) IBOutlet UIView *background3;
+@property (weak, nonatomic) IBOutlet UIView *userPhotoBackground;
 
 //@property (weak, nonatomic) IBOutlet UIImageView *picFrameImageView;
 @end

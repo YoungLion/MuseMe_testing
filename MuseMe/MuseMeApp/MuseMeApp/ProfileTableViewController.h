@@ -29,4 +29,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfFollowingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfFollowersLabel;
+@property (weak, nonatomic) IBOutlet UIView *userPhotoBackground;
 @end

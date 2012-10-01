@@ -122,7 +122,7 @@
     }
     Item* item = [self.poll.items objectAtIndex:indexPath.row];
     // Configure the cell...
-    [Utility renderView:cell.itemImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
+    [Utility renderView:cell.itemImage withBackground:cell.background withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     [cell.itemImage clear];
     [cell.itemImage showLoadingWheel];
     cell.itemImage.url= [NSURL URLWithString:item.photoURL];
@@ -130,8 +130,8 @@
     //cell.priceLabel.text = (item.price.intValue == 0 )?@"":[Utility formatCurrencyWithNumber:item.price];
     //cell.brandPreLabel.hidden = YES;
     /*if (item.brand.length > 0) {*/
-    cell.brandLabel.text = item.brand;
-    [cell.brandLabel adjustHeight];
+    /*cell.brandLabel.text = item.brand;
+    [cell.brandLabel adjustHeight];*/
         //cell.brandPreLabel.hidden = NO;
     //}
     cell.numberOfVotesIndicator.progress = 1;

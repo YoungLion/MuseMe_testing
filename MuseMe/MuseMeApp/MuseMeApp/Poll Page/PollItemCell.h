@@ -27,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIGlossyButton *addNewItemButton;
 @property (weak, nonatomic) IBOutlet UIImageView *voteCountIconView;
 @property (weak, nonatomic) IBOutlet UIImageView *commentCountIconView;
+@property (weak, nonatomic) IBOutlet UIView *background;
 
 @end

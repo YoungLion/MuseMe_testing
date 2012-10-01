@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet HJManagedImageV *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+@property (weak, nonatomic) IBOutlet UIView *userPhotoBackground;
 @property (weak, nonatomic) IBOutlet SmallFormattedLabel *timeStampLabel;
 @end

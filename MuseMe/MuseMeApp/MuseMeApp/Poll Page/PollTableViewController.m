@@ -602,7 +602,7 @@
     }
 
     
-    [Utility renderView:cell.itemImage withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH shadowOffSet:LARGE_SHADOW_OFFSET];
+    [Utility renderView:cell.itemImage withBackground:cell.background withCornerRadius:LARGE_CORNER_RADIUS andBorderWidth:LARGE_BORDER_WIDTH shadowOffSet:LARGE_SHADOW_OFFSET];
     cell.itemImage.contentMode = UIViewContentModeScaleAspectFit;
     [cell.itemImage clear];
     [cell.itemImage showLoadingWheel];

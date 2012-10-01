@@ -309,6 +309,7 @@ double secondsInAYear = 3600*24*365;
 }
 
 +(void)renderView:(UIView *)view
+   withBackground:(UIView *)background
  withCornerRadius:(CGFloat)r
    andBorderWidth:(CGFloat)w
      shadowOffSet:(CGFloat)d
@@ -319,12 +320,23 @@ double secondsInAYear = 3600*24*365;
     
     // corner
     view.layer.cornerRadius = r;
-    //view.layer.masksToBounds = YES;
     
-    view.layer.shadowOffset = CGSizeMake(d, d);
-    view.layer.shadowColor = [[UIColor blackColor] CGColor];
-    view.layer.shadowRadius = 3.0;
-    view.layer.shadowOpacity = 0.4;
+    background.frame = view.frame;
+    background.transform = view.transform;
+    background.bounds = view.bounds;
+    background.center = view.center;
+    
+    background.layer.shadowOffset = CGSizeMake(d, d);
+    background.layer.shadowColor = [[UIColor blackColor] CGColor];
+    background.layer.shadowRadius = 3.0;
+    background.layer.shadowOpacity = 0.4;
+    background.layer.shouldRasterize = YES;
+    // border
+    background.layer.borderColor = [[UIColor whiteColor] CGColor];
+    background.layer.borderWidth = w;
+    
+    // corner
+    background.layer.cornerRadius = r;
 }
 
 +(void)renderCommentBox:(UIView*)view

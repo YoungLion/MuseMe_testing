@@ -17,6 +17,7 @@
 @end
 
 @interface ConfigurationViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIView *background;
 @property (weak, nonatomic) IBOutlet HJManagedImageV *profilePhoto;
 @property (weak, nonatomic) IBOutlet UITextField *usernameLabel;
 @property (weak, nonatomic) id<ConfigurationViewControllerDelegate>delegate;

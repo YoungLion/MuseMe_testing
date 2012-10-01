@@ -246,7 +246,7 @@
                 reuseIdentifier:CellIdentifier];
     }
     
-    [Utility renderView:cell.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
+    [Utility renderView:cell.userPhoto withBackground:cell.userPhotoBackground withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     [cell.userPhoto clear];
     if (!friend.profilePhotoURL) {friend.profilePhotoURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", friend.fbID];}

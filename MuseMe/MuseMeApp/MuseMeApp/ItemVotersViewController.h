@@ -15,5 +15,6 @@
 @property (nonatomic, strong) Item* item;
 @property (weak, nonatomic) IBOutlet HJManagedImageV *itemImageView;
 @property (weak, nonatomic) IBOutlet AppFormattedLabel *itemDescription;
+@property (weak, nonatomic) IBOutlet UIView *background;
 @property (weak, nonatomic) IBOutlet AppFormattedLabel *votesCount;
 @end

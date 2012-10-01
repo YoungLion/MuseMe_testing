@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet MultipartLabel *messageLabel;
 @property (nonatomic, weak) IBOutlet SmallFormattedLabel *timeStampLabel;
 @property (weak, nonatomic) IBOutlet AppFormattedLabel *pollDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIView *userPhotoBackground;
 
 @end

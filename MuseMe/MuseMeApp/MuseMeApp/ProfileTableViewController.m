@@ -39,6 +39,7 @@
 @synthesize numberOfFollowersLabel;
 @synthesize spinner = _spinner;
 @synthesize editingPolls, openedPolls, votedPolls;
+@synthesize userPhotoBackground;
 
 - (void)viewDidLoad
 {
@@ -46,7 +47,7 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:BACKGROUND_COLOR]];
     self.userPhoto.backgroundColor =[UIColor colorWithWhite:1 alpha:0];
     self.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_LARGE];
-    [Utility renderView:self.userPhoto withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
+    [Utility renderView:self.userPhoto withBackground:self.userPhotoBackground withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     self.followButton.hidden = YES;
     if (_user.userID == nil)
     {
@@ -364,7 +365,7 @@
                 cell.pollDescriptionLabel.text = poll.title;
                 cell.votesCountLabel.text = [[NSString alloc] initWithFormat:@"%@", poll.totalVotes];
                 cell.username.text = poll.owner.username;
-                [Utility renderView:cell.userPhoto withCornerRadius:MICRO_CORNER_RADIUS andBorderWidth:MICRO_BORDER_WIDTH shadowOffSet:MICRO_SHADOW_OFFSET];
+                [Utility renderView:cell.userPhoto withBackground:cell.userPhotoBackground withCornerRadius:MICRO_CORNER_RADIUS andBorderWidth:MICRO_BORDER_WIDTH shadowOffSet:MICRO_SHADOW_OFFSET];
                 cell.userPhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
                 cell.userPhoto.url = [NSURL URLWithString:poll.owner.profilePhotoURL];
                 [HJObjectManager manage:cell.userPhoto];

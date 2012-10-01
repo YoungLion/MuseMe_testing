@@ -18,6 +18,8 @@
 @synthesize totalVotes;
 @synthesize picContainerImageView;
 @synthesize picContainer;
+@synthesize background0,background1,background2,background3;
+@synthesize userPhotoBackground;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

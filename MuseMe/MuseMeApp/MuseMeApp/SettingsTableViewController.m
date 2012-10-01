@@ -22,7 +22,7 @@
 @synthesize username=_username;
 @synthesize profilePhoto=_profilePhoto;
 @synthesize spinner = _spinner;
-
+@synthesize photoBackground;
 
 - (void)viewDidLoad
 {
@@ -33,7 +33,7 @@
     _username.delegate = self;
     _spinner = [MuseMeActivityIndicator new];
     
-    [Utility renderView:self.profilePhoto withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH shadowOffSet:MEDIUM_SHADOW_OFFSET];
+    [Utility renderView:self.profilePhoto withBackground:self.photoBackground withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH shadowOffSet:MEDIUM_SHADOW_OFFSET];
     self.profilePhoto.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_LARGE];
     
     currentUser = [User new];

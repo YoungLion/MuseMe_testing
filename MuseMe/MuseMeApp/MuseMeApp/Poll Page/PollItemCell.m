@@ -18,6 +18,7 @@
 
 @synthesize itemImage=_itemImage;
 @synthesize timeStampLabel = _timeStampLabel;
+@synthesize background;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

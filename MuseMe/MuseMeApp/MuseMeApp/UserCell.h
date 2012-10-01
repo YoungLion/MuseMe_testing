@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet HJManagedImageV *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (weak, nonatomic) IBOutlet UIView *userPhotoBackground;
 
 @end

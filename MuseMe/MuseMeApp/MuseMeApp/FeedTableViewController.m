@@ -151,11 +151,16 @@
                 reuseIdentifier:CellIdentifier];
     }
     
+    cell.thumbnail0.hidden = YES;
+    cell.thumbnail1.hidden = YES;
     cell.thumbnail2.hidden = YES;
     cell.thumbnail3.hidden = YES;
-    cell.thumbnail4.hidden = YES;
+    cell.background0.hidden = YES;
+    cell.background1.hidden = YES;
+    cell.background2.hidden = YES;
+    cell.background3.hidden = YES;
     // Configure the cell...Add item event
-    [Utility renderView:cell.userImage withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
+    [Utility renderView:cell.userImage withBackground:cell.userPhotoBackground withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
     
     cell.userImage.image = [UIImage imageNamed:DEFAULT_USER_PROFILE_PHOTO_SMALL];
     if (event.user.profilePhotoURL){
@@ -167,34 +172,41 @@
     
     
     if (event.items.count == 2) {
-        //cell.picContainerImageView.image = [UIImage imageNamed:PIC_CONTAINER_BG];
-        //cell.picFrameImageView.image = [UIImage imageNamed:PIC_COLLAGE_FRAME_FOR_2];
-        [self setPicture:cell.thumbnail0 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:0]).photoURL] atCenterX:213.6 Y:210.9 angleInDegree:17 edge:150];
+        [self setPicture:cell.thumbnail0  withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:0]).photoURL] atCenterX:213.6 Y:210.9 angleInDegree:17 edge:150 withBackground:cell.background0];
         
-        [self setPicture:cell.thumbnail1 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:1]).photoURL] atCenterX:105.5 Y:104.94 angleInDegree:75.53 - 90 edge:149];
-        /*[cell.thumbnail1 clear];
-         [cell.thumbnail1 showLoadingWheel];
-         cell.thumbnail1.url = [NSURL URLWithString:((Item*)[event.items objectAtIndex:1]).photoURL];*/
+        [self setPicture:cell.thumbnail1 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:1]).photoURL] atCenterX:105.5 Y:104.94 angleInDegree:75.53 - 90 edge:149 withBackground:cell.background1];
+        cell.thumbnail0.hidden = NO;
+        cell.thumbnail1.hidden = NO;
+        cell.background0.hidden = NO;
+        cell.background1.hidden = NO;
     }else
         if (event.items.count == 3) {
             cell.picContainerImageView.image = [UIImage imageNamed:PIC_CONTAINER_BG];
-            //cell.picFrameImageView.image = [UIImage imageNamed:PIC_COLLAGE_FRAME_FOR_3];
-            [self setPicture:cell.thumbnail0 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:0]).photoURL] atCenterX:247.31 Y:246.44 angleInDegree:11.26 edge:97];
-            [self setPicture:cell.thumbnail2 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:2]).photoURL] atCenterX:150.43 Y:161.68 angleInDegree:66.5 - 90 edge:194];
-            [self setPicture:cell.thumbnail1 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:1]).photoURL] atCenterX:247.5 Y:77.42 angleInDegree:19.30 edge:88];
-            
+            [self setPicture:cell.thumbnail0 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:0]).photoURL] atCenterX:247.31 Y:246.44 angleInDegree:11.26 edge:97 withBackground:cell.background0];
+            [self setPicture:cell.thumbnail1 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:1]).photoURL] atCenterX:247.5 Y:77.42 angleInDegree:19.30 edge:88 withBackground:cell.background1];
+            [self setPicture:cell.thumbnail2 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:2]).photoURL] atCenterX:150.43 Y:161.68 angleInDegree:66.5 - 90 edge:194 withBackground:cell.background2];
+            cell.thumbnail0.hidden = NO;
+            cell.thumbnail1.hidden = NO;
+            cell.background0.hidden = NO;
+            cell.background1.hidden = NO;
             cell.thumbnail2.hidden = NO;
+            cell.background2.hidden = NO;
         }else
             if (event.items.count >= 4) {
                 cell.picContainerImageView.image = [UIImage imageNamed:PIC_CONTAINER_BG];
-                //cell.picFrameImageView.image = [UIImage imageNamed:PIC_COLLAGE_FRAME_FOR_4];
                 CGFloat edge = 131;
-                [self setPicture:cell.thumbnail0 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:0]).photoURL] atCenterX:224.89 Y:224.44 angleInDegree:20.91 edge:edge];
-                [self setPicture:cell.thumbnail1 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:1]).photoURL] atCenterX:224.66 Y:95.53 angleInDegree:18.5 edge:edge];
-                [self setPicture:cell.thumbnail2 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:2]).photoURL] atCenterX:90.83 Y:227.21 angleInDegree:79.21-90 edge:edge];
-                [self setPicture:cell.thumbnail3 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:3]).photoURL] atCenterX:99.95 Y:98.53 angleInDegree:66.5-90 edge:edge];
+                [self setPicture:cell.thumbnail0 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:0]).photoURL] atCenterX:224.89 Y:224.44 angleInDegree:20.91 edge:edge withBackground:cell.background0];
+                [self setPicture:cell.thumbnail1 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:1]).photoURL] atCenterX:224.66 Y:95.53 angleInDegree:18.5 edge:edge withBackground:cell.background1];
+                [self setPicture:cell.thumbnail2 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:2]).photoURL] atCenterX:90.83 Y:227.21 angleInDegree:79.21-90 edge:edge withBackground:cell.background2];
+                [self setPicture:cell.thumbnail3 withURL:[NSURL URLWithString:((Item*)[event.items objectAtIndex:3]).photoURL] atCenterX:99.95 Y:98.53 angleInDegree:66.5-90 edge:edge withBackground:cell.background3];
+                cell.thumbnail0.hidden = NO;
+                cell.thumbnail1.hidden = NO;
+                cell.background0.hidden = NO;
+                cell.background1.hidden = NO;
                 cell.thumbnail2.hidden = NO;
                 cell.thumbnail3.hidden = NO;
+                cell.background2.hidden = NO;
+                cell.background3.hidden = NO;
             }
     
     
@@ -313,13 +325,18 @@ forRowAtIndexPath: (NSIndexPath*)indexPath{
                 Y:(CGFloat)y
     angleInDegree:(CGFloat)angle
              edge:(CGFloat)edge
+   withBackground:(UIView*)background
 {
     imageView.transform = CGAffineTransformIdentity;
     imageView.transform = CGAffineTransformMakeRotation(degreesToRadians(angle));
     imageView.bounds = CGRectMake(0,0, edge, edge);
     imageView.center = CGPointMake(x, y);
     
-    [Utility renderView:imageView withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH shadowOffSet:MEDIUM_SHADOW_OFFSET];
+    if (edge < 120){
+        [Utility renderView:imageView withBackground:background withCornerRadius:SMALL_CORNER_RADIUS andBorderWidth:SMALL_BORDER_WIDTH shadowOffSet:SMALL_SHADOW_OFFSET];
+    }else{
+        [Utility renderView:imageView withBackground:background withCornerRadius:MEDIUM_CORNER_RADIUS andBorderWidth:MEDIUM_BORDER_WIDTH shadowOffSet:MEDIUM_SHADOW_OFFSET];
+    }
     [imageView clear];
     [imageView showLoadingWheel];
     imageView.url = url;

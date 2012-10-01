@@ -13,6 +13,7 @@
 @synthesize votesCountLabel;
 @synthesize username;
 @synthesize userPhoto;
+@synthesize userPhotoBackground;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

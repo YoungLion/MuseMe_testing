@@ -10,7 +10,7 @@
 
 @implementation NotificationCell
 @synthesize userImage, messageLabel, timeStampLabel, pollDescriptionLabel;
-
+@synthesize userPhotoBackground;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
