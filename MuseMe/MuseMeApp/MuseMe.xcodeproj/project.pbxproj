@@ -69,12 +69,8 @@
 		0D91EE5B15AD4BD300D1015D /* RegistrationPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D91EE5A15AD4BD300D1015D /* RegistrationPageViewController.m */; };
 		0D92826B15EEE795004AF806 /* CheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA3999F15EB4178002A4D58 /* CheckBox.png */; };
 		0D92826C15EEE795004AF806 /* CheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA399A015EB4178002A4D58 /* CheckBox@2x.png */; };
-		0D92826D15EEE795004AF806 /* CheckBox-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA399A315EB41C1002A4D58 /* CheckBox-hl.png */; };
-		0D92826E15EEE795004AF806 /* CheckBox-hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA399A415EB41C1002A4D58 /* CheckBox-hl@2x.png */; };
 		0D92826F15EEE795004AF806 /* CheckInBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA399A715EB41F5002A4D58 /* CheckInBox.png */; };
 		0D92827015EEE795004AF806 /* CheckInBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA399A815EB41F5002A4D58 /* CheckInBox@2x.png */; };
-		0D92827115EEE795004AF806 /* CheckInBox-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA399AB15EB420F002A4D58 /* CheckInBox-hl.png */; };
-		0D92827215EEE795004AF806 /* CheckInBox-hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA399AC15EB420F002A4D58 /* CheckInBox-hl@2x.png */; };
 		0D92827715EF6271004AF806 /* tap-for-more-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D92827315EF6271004AF806 /* tap-for-more-info.png */; };
 		0D92827815EF6271004AF806 /* tap-for-more-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D92827415EF6271004AF806 /* tap-for-more-info@2x.png */; };
 		0D92827915EF6271004AF806 /* tap-to-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D92827515EF6271004AF806 /* tap-to-add.png */; };
@@ -503,12 +499,8 @@
 		0DA3998115EAFB49002A4D58 /* AddToPollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToPollController.m; sourceTree = "<group>"; };
 		0DA3999F15EB4178002A4D58 /* CheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckBox.png; sourceTree = "<group>"; };
 		0DA399A015EB4178002A4D58 /* CheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBox@2x.png"; sourceTree = "<group>"; };
-		0DA399A315EB41C1002A4D58 /* CheckBox-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBox-hl.png"; sourceTree = "<group>"; };
-		0DA399A415EB41C1002A4D58 /* CheckBox-hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBox-hl@2x.png"; sourceTree = "<group>"; };
 		0DA399A715EB41F5002A4D58 /* CheckInBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckInBox.png; sourceTree = "<group>"; };
 		0DA399A815EB41F5002A4D58 /* CheckInBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckInBox@2x.png"; sourceTree = "<group>"; };
-		0DA399AB15EB420F002A4D58 /* CheckInBox-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckInBox-hl.png"; sourceTree = "<group>"; };
-		0DA399AC15EB420F002A4D58 /* CheckInBox-hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckInBox-hl@2x.png"; sourceTree = "<group>"; };
 		0DA3EA8215DC1D8A00546961 /* SmallFormattedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallFormattedLabel.h; sourceTree = "<group>"; };
 		0DA3EA8315DC1D8A00546961 /* SmallFormattedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallFormattedLabel.m; sourceTree = "<group>"; };
 		0DA4104F15CA43C000859E59 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -1209,12 +1201,8 @@
 				0DA3996715EAE413002A4D58 /* clock@2x.png */,
 				0DA3999F15EB4178002A4D58 /* CheckBox.png */,
 				0DA399A015EB4178002A4D58 /* CheckBox@2x.png */,
-				0DA399A315EB41C1002A4D58 /* CheckBox-hl.png */,
-				0DA399A415EB41C1002A4D58 /* CheckBox-hl@2x.png */,
 				0DA399A715EB41F5002A4D58 /* CheckInBox.png */,
 				0DA399A815EB41F5002A4D58 /* CheckInBox@2x.png */,
-				0DA399AB15EB420F002A4D58 /* CheckInBox-hl.png */,
-				0DA399AC15EB420F002A4D58 /* CheckInBox-hl@2x.png */,
 			);
 			name = "Poll Table";
 			sourceTree = "<group>";
@@ -1477,12 +1465,8 @@
 				0D9B7DAD15EEB92F006D7B7A /* Delete@2x.png in Resources */,
 				0D92826B15EEE795004AF806 /* CheckBox.png in Resources */,
 				0D92826C15EEE795004AF806 /* CheckBox@2x.png in Resources */,
-				0D92826D15EEE795004AF806 /* CheckBox-hl.png in Resources */,
-				0D92826E15EEE795004AF806 /* CheckBox-hl@2x.png in Resources */,
 				0D92826F15EEE795004AF806 /* CheckInBox.png in Resources */,
 				0D92827015EEE795004AF806 /* CheckInBox@2x.png in Resources */,
-				0D92827115EEE795004AF806 /* CheckInBox-hl.png in Resources */,
-				0D92827215EEE795004AF806 /* CheckInBox-hl@2x.png in Resources */,
 				0D92827715EF6271004AF806 /* tap-for-more-info.png in Resources */,
 				0D92827815EF6271004AF806 /* tap-for-more-info@2x.png in Resources */,
 				0D92827915EF6271004AF806 /* tap-to-add.png in Resources */,

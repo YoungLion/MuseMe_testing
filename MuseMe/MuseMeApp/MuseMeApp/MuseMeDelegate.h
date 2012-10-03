@@ -104,6 +104,7 @@
 #define PROGRESS_BAR @"progressImage"
 #define PROGRESS_TRACK @"trackImage"
 #define PROGRESS_TRACK_BG @"trackBG"
+#define VOTE_ACTION_HINT @"tap-to-publish-poll"
 
 #define MAX_CHARACTER_NUMBER_FOR_ITEM_DESCRIPTION 33
 #define MAX_CHARACTER_NUMBER_FOR_POLL_DESCRIPTION 90

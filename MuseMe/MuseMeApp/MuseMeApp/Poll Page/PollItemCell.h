@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Item.h"
 #import "Utility.h"
+#import "FollowStyleButton.h"
 
 @interface PollItemCell : UITableViewCell
 
@@ -17,7 +18,7 @@
 //@property (nonatomic, weak) IBOutlet AppFormattedLabel *priceLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *votePercentageLabel;
-@property (weak, nonatomic) IBOutlet UIButton *voteButton;
+@property (weak, nonatomic) IBOutlet FollowStyleButton *voteButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UILabel *voteCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
@@ -28,5 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *voteCountIconView;
 @property (weak, nonatomic) IBOutlet UIImageView *commentCountIconView;
 @property (weak, nonatomic) IBOutlet UIView *background;
+@property (weak, nonatomic) IBOutlet UIImageView *votedMark;
+@property (weak, nonatomic) IBOutlet FollowStyleButton *cancelButton;
+
 
 @end

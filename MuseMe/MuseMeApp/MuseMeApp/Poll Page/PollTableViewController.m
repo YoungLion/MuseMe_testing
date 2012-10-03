@@ -34,7 +34,7 @@
 
 @interface PollTableViewController (){
     NSUInteger audienceIndex;
-    BOOL isOwnerView, needsBack, openPollHintHasShown, newMedia, needsBackToFeeds, votingState;
+    BOOL isOwnerView, needsBack, openPollHintHasShown, newMedia, needsBackToFeeds, votingState, canVote;
     PollRecord *pollRecord;
     SingleItemViewOption singleItemViewOption;
     Item *itemToBeShown;
@@ -42,6 +42,7 @@
     UIImageView *emptyPollHint;//, *emptyPollHintInAudienceView;// *addItemHint;
     UIActionSheet *popupQuery, *newItemOptions, *confirmation;
     id senderButton;
+    UIImageView* voteHintView;
 }
 @property (nonatomic,strong) MuseMeActivityIndicator* spinner;
 @end
@@ -81,6 +82,13 @@
     self.openPollHint.alpha = 0;
     
     _spinner = [MuseMeActivityIndicator new];
+    
+    UIImage* voteHint = [UIImage imageNamed:VOTE_ACTION_HINT];
+    voteHintView = [[UIImageView alloc] initWithImage:voteHint];
+    voteHintView.frame = CGRectMake(0, 0, voteHint.size.width, voteHint.size.height);
+    [self.view addSubview:voteHintView];
+    voteHintView.alpha = 0;
+    voteHint = nil;
 }
 
 - (void)viewDidUnload
@@ -102,7 +110,7 @@
     capturedImage = nil;
     senderButton = nil;
     _spinner = nil;
-    //addItemHint = nil;
+    voteHintView = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -187,9 +195,27 @@
     confirmation.tag = DeleteItemConfirmation;
     confirmation = nil;
 }
+- (IBAction)pictureTapped:(UIButton *)sender {
+    if (canVote){
+        PollItemCell* cell = (PollItemCell*)[[sender superview] superview];
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            cell.voteButton.alpha = 1 - cell.voteButton.alpha;
+            cell.cancelButton.alpha = 1 - cell.cancelButton.alpha;
+        } completion:nil];
+    }
+}
+
+- (IBAction)dismissVoteButton:(id)sender {
+    PollItemCell* cell = (PollItemCell*)[[sender superview] superview];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        cell.voteButton.alpha = 0;
+        cell.cancelButton.alpha = 0;
+    } completion:nil];
+}
 
 - (IBAction)vote:(UIButton *)sender
 {
+    [self dismissVoteButton:sender];
     sender.enabled = NO;
     PollItemCell *cell = (PollItemCell*)[[sender superview] superview];
     [cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX] forState:UIControlStateNormal];
@@ -197,34 +223,20 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Item *voted_item = [self.poll.items objectAtIndex:indexPath.row];
     Audience *audience = [self.poll.audiences objectAtIndex:audienceIndex];
-    /*if ([[[self.poll.audiences objectAtIndex:audienceIndex] hasVoted] boolValue]){
-        // if the current user has voted for an item in this poll, then undo the voting
-        audience.hasVoted= [NSNumber numberWithInt:0];
-        [[RKObjectManager sharedManager] putObject:audience delegate:self];
-        
-        self.poll.totalVotes = [NSNumber numberWithInt:[self.poll.totalVotes intValue] - 1];
-        [[RKObjectManager sharedManager] putObject:self.poll delegate:self];
-        
-        item.numberOfVotes = [NSNumber numberWithInt:[item.numberOfVotes intValue] - 1];
-        [[RKObjectManager sharedManager] putObject:item delegate:self];
-        
-       
-        
-    }else {*/
-        //if the current user has not voted for an item in this poll, then vote for this item
-        audience.hasVoted=voted_item.itemID;
-        [[RKObjectManager sharedManager] putObject:audience delegate:self];
     
-        Item* item = [Item new];
-        item.itemID = voted_item.itemID;
-        item.numberOfVotes = [NSNumber numberWithInt:[voted_item.numberOfVotes intValue]+ 1];
-        [[RKObjectManager sharedManager] putObject:item delegate:self];
+    audience.hasVoted=voted_item.itemID;
+    [[RKObjectManager sharedManager] putObject:audience delegate:self];
     
-        self.poll.totalVotes = [NSNumber numberWithInt:[self.poll.totalVotes intValue]+ 1];
-        [[RKObjectManager sharedManager] putObject:self.poll delegate:self];
-        
-        [self followPoll];
-        [Utility showAlert:@"Voted!" message:@"We appreciate your vote."];
+    Item* item = [Item new];
+    item.itemID = voted_item.itemID;
+    item.numberOfVotes = [NSNumber numberWithInt:[voted_item.numberOfVotes intValue]+ 1];
+    [[RKObjectManager sharedManager] putObject:item delegate:self];
+    
+    self.poll.totalVotes = [NSNumber numberWithInt:[self.poll.totalVotes intValue]+ 1];
+    [[RKObjectManager sharedManager] putObject:self.poll delegate:self];
+    
+    [self followPoll];
+    [Utility showAlert:@"Voted!" message:@"We appreciate your vote."];
 }
 
 - (IBAction)voteCountLabelPressed:(UIButton *)sender {
@@ -258,11 +270,7 @@
             }else{
                 [self confirmToOpenPoll];
             }
-        }/*else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:FOLLOW_POLL_BUTTON_TITLE]){
-            [self followPoll];
-        }else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:UNFOLLOW_POLL_BUTTON_TITLE]){
-          [self unfollowPoll];
-          }*/else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:SHOW_POLL_RESULT_BUTTON_TITLE]){
+        }else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:SHOW_POLL_RESULT_BUTTON_TITLE]){
               [self performSegueWithIdentifier:@"show poll result" sender:self];
           }else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:DELETE_POLL_BUTTON_TITLE]){
               [self confirmToDeletePoll];
@@ -315,7 +323,7 @@
 -(void)reportInappropriateContent:(Item*)item
 {
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:[NSString stringWithFormat:@"/flag/%@/%@", item.itemID, [Utility getObjectForKey:CURRENTUSERID]] delegate:self];
-    [Utility showAlert:@"We will review this flagged item in 24 hours! Thank you for your contributions." message:@""];
+    [Utility showAlert:@"We will review this flagged item within 24 hours! Thank you for your contributions." message:@""];
 }
 
 -(void)saveToPhotoLibrary:(UIImage*)image
@@ -385,32 +393,12 @@
 
 -(void)followPoll
 {
-    /*Audience *currentAudience = [self.poll.audiences objectAtIndex:audienceIndex];
-    if ([currentAudience.isFollowing boolValue]) {
-        return;
-    }
-    currentAudience.isFollowing = [NSNumber numberWithBool:YES];
-    [[RKObjectManager sharedManager] putObject:currentAudience delegate:self];*/
-    
     pollRecord = [PollRecord new];
     pollRecord.pollID = self.poll.pollID;
     pollRecord.pollRecordType = [NSNumber numberWithInt:VOTED_POLL];
     [[RKObjectManager sharedManager] postObject:pollRecord delegate:self];
     pollRecord = nil;
 }
-
-/*-(void)unfollowPoll
-{    
-    Audience *currentAudience = [self.poll.audiences objectAtIndex:audienceIndex];
-    currentAudience.isFollowing = [NSNumber numberWithBool:NO];
-    [[RKObjectManager sharedManager] putObject:currentAudience delegate:self];
-    currentAudience = nil;
-    
-    pollRecord = [PollRecord new];
-    pollRecord.pollID = self.poll.pollID;
-    [[RKObjectManager sharedManager] deleteObject:pollRecord delegate:self];
-    pollRecord = nil;
-}*/
 
 #pragma mark - RKObjectLoaderDelegate Methods
 
@@ -491,7 +479,7 @@
                                  return YES;
                              }else return NO;
                          }];
-        NSLog(@"audience index  = %u", audienceIndex);
+        
         if ((!isOwnerView) && (audienceIndex == NSNotFound))
         {
             Audience *newAudience = [Audience new];
@@ -499,6 +487,10 @@
             newAudience.isFollowing = [NSNumber numberWithBool:NO];
             [[RKObjectManager sharedManager] postObject:newAudience delegate:self];
         }
+        
+        Audience *currentUser = (audienceIndex == NSNotFound? nil:[self.poll.audiences objectAtIndex:audienceIndex]);        
+        canVote = ((self.poll.state.intValue == VOTING) && !currentUser.hasVoted.boolValue);
+        
     }else if (objectLoader.method == RKRequestMethodPUT){
         NSLog(@"Updating of this poll has been done");
         [[RKObjectManager sharedManager] getObject:self.poll delegate:self];
@@ -570,24 +562,14 @@
                 reuseIdentifier:CellIdentifier];
     }
     Audience *currentUser = (audienceIndex == NSNotFound? nil:[self.poll.audiences objectAtIndex:audienceIndex]);
-
+    cell.voteButton.alpha = 0;
+    cell.cancelButton.alpha = 0;
     // Configure the cell...
-    cell.voteButton.hidden = YES;
-    cell.voteButton.adjustsImageWhenDisabled = NO;
+    cell.votedMark.hidden = YES;
     // if the current user has voted for the item
     if ([currentUser.hasVoted isEqualToNumber:item.itemID]){
-        cell.voteButton.hidden = NO;
-        cell.voteButton.enabled = NO;
-        [cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX] forState:UIControlStateNormal];
-        //[cell.voteButton setImage:[UIImage imageNamed:CHECKINBOX_HL] forState:UIControlStateHighlighted];
+        cell.votedMark.hidden = NO;
     }
-    if ((!isOwnerView) && ([self.poll.state intValue] == VOTING) && ([currentUser.hasVoted intValue] == 0)){
-        cell.voteButton.hidden = NO;
-        [cell.voteButton setImage:[UIImage imageNamed:CHECKBOX] forState:UIControlStateNormal];
-        //[cell.voteButton setImage:[UIImage imageNamed:CHECKBOX_HL] forState:UIControlStateHighlighted];
-    }
-    [cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON] forState:UIControlStateNormal];
-    //[cell.deleteButton setImage:[UIImage imageNamed:DELETE_ITEM_BUTTON_HL] forState:UIControlStateHighlighted];
     cell.deleteButton.hidden = !(isOwnerView && [self.poll.state intValue] == EDITING);
     if (self.poll.state.intValue == EDITING){
         cell.votePercentageLabel.hidden = YES;
@@ -627,14 +609,6 @@
     [cell.voteCountLabel adjustHeight];
     return cell;
 }
-
-
-/*- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}*/
-
 
 #pragma mark - Table view delegate
 
@@ -787,12 +761,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 -(void)image:(UIImage *)image
- finishedSavingWithError:(NSError *)error
+finishedSavingWithError:(NSError *)error
  contextInfo:(void *)contextInfo
- {
- if (error) {
- [Utility showAlert:@"Save failed" message:@"Failed to save image"];
- }
+{
+    if (error) {
+        [Utility showAlert:@"Save failed" message:@"Failed to save image"];
+    }
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -800,5 +774,30 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (canVote){
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            voteHintView.alpha = 1;
+        } completion:nil];
+    }
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (canVote){
+        [UIView animateWithDuration:0.3 delay:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            voteHintView.alpha = 0;
+        } completion:nil];
+    }
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (canVote){
+        CGRect frame = voteHintView.frame;
+        voteHintView.frame = CGRectMake(0, self.tableView.contentOffset.y, frame.size.width, frame.size.height);
+    }
+}
 
 @end

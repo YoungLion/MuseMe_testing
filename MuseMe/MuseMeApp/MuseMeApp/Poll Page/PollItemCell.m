@@ -19,6 +19,8 @@
 @synthesize itemImage=_itemImage;
 @synthesize timeStampLabel = _timeStampLabel;
 @synthesize background;
+@synthesize votedMark;
+@synthesize cancelButton;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
