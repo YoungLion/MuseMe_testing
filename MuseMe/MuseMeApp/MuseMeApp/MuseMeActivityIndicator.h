@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <QuartzCore/QuartzCore.h>
 @interface MuseMeActivityIndicator : UIView
 
 -(void)startAnimatingWithMessage:(NSString*)message

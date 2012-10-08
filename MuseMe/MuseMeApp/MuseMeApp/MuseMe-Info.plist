@@ -16,7 +16,7 @@
 		<string>Icon@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.musemeproduction1.1.MuseMe</string>
+	<string>com.museme.animation</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
